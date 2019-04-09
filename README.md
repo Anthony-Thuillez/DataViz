@@ -1,2 +1,0 @@
-# DataViz
-Web school project
