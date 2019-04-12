@@ -11,25 +11,25 @@ const roleFilter = () => {
              case "mage":
                  for (let index = 0; index < 1; index++) {
                      let mage = e[1];
-                     console.log(mage, ":mage");
+                    //  console.log(mage, ":mage");
                  }
                  break;
              case "combattant":
                  for (let index = 0; index < 1; index++) {
                      let combattant = e[1];
-                     console.log(combattant, ":combattant");
+                    //  console.log(combattant, ":combattant");
                  }
                  break;
              case "tank":
                  for (let index = 0; index < 1; index++) {
                      let tank = e[1];
-                     console.log(tank, ":tank");
+                    //  console.log(tank, ":tank");
                  }
                  break;
              case "assassin":
                  for (let index = 0; index < 1; index++) {
                      let assassin = e[1];
-                     console.log(assassin, ":assassin");
+                    //  console.log(assassin, ":assassin");
                  }
                  break;
 

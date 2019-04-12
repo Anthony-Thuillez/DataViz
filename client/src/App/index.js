@@ -1,96 +1,104 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
-import Filter from './postChamp/postChamp'
+
+import Filter from './postChamp/postChamp';
+import Graph from '../Components/Graph/Graph';
 
 import './reset.scss';
 import './style.scss';
 
+import logo from './img/Logo.png';
+import soundActive from './img/Activated.svg';
+
+
 class Integration extends Component {
-    constructor(props) {
-        super(props);
+    state = {
+        ranks: [
+            { name: "S", isActive: true },
+            { name: "A" },
+            { name: "B" },
+            { name: "C" },
+            { name: "D" }
+        ]
+    };
 
-        this.toggleActiveClass = this.toggleActiveClass.bind(this);
-        this.state = {
-            isActive: false
-        }
-    }
-
-    toggleActiveClass() {
-        const currentState = this.state.isActive;
-        this.setState({ isActive: !currentState });
-    }
-
+    handleIsActive = id => {
+        this.setState(prev => {
+            const { ranks } = prev;
+            const nextRank = ranks.map(rank => {
+                if (rank.name !== id) return { ...rank, isActive: false };
+                return {
+                    ...rank,
+                    isActive: !rank.isActive
+                };
+            });
+            return { ...prev, ranks: nextRank };
+        });
+    };
     render() {
+        const { ranks } = this.state;
         return (
             <Fragment>
-                <h1>Liste des composants :</h1>
+                <div className="wrapper">
+                    <h1>Liste des composants :</h1>
 
-                <h2 className="title">Couleurs :</h2>
-                <div className="container">
-                    <div className="block blue-primery"></div>
-                    <div className="block blue-secondary"></div>
-                    <div className="block gold"></div>
-                </div>
+                    <nav className="navigation">
+                        <div className="logo">
+                            <img src={logo} alt="Logo" />
+                        </div>
+                        <div className="rank-filter">
+                            {
+                                ranks.map((rank, index) => {
+                                    return (
+                                        <div 
+                                            key={index}
+                                            className={`btnRank ${rank.isActive ? 'active' : ''}`}
+                                            onClick={() => this.handleIsActive(rank.name)}
+                                        >
+                                            <span>{rank.name}</span>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className="soundbox">
+                            <img src={soundActive} alt="soundbox" />
+                        </div>
+                    </nav>
 
-                <h2 className="title">Bulles champions :</h2>
-                <div className="container">
-                    <div className="thumb-champ"></div>
-                    <div className="thumb-champ"></div>
-                    <div className="thumb-champ"></div>
-                    <div className="thumb-champ"></div>
-                    <div className="thumb-champ"></div>
-                </div>
+                    <h2 className="title">Couleurs :</h2>
+                    <div className="container">
+                        <div className="block blue-primery"></div>
+                        <div className="block blue-secondary"></div>
+                        <div className="block gold"></div>
+                    </div>
 
-                <h2 className="title">Bulles des postes :</h2>
-                <div className="container">
-                    <div className="thumb-post">
-                        <p>Top</p>
+                    <h2 className="title">Bulles champions :</h2>
+                    <div className="container">
+                        <div className="thumb-champ"></div>
+                        <div className="thumb-champ"></div>
+                        <div className="thumb-champ"></div>
+                        <div className="thumb-champ"></div>
+                        <div className="thumb-champ"></div>
                     </div>
-                    <div className="thumb-post">
-                        <p>Jungle</p>
-                    </div>
-                    <div className="thumb-post">
-                        <p>Mid</p>
-                    </div>
-                    <div className="thumb-post">
-                        <p>Bot</p>
-                    </div>
-                    <div className="thumb-post">
-                        <p>Support</p>
-                    </div>
-                </div>
 
-                <h2 className="title">Bouttons Ranking :</h2>
-                <div className="container space-around">
-                    <div 
-                        className={this.state.isActive ? 'btn-rank active' : 'btn-rank'}
-                        onClick={this.toggleActiveClass}
-                    >
-                        <span>S</span>
-                    </div>
-                    <div
-                        className={this.state.isActive ? 'btn-rank active' : 'btn-rank'}
-                        onClick={this.toggleActiveClass}
-                    >
-                        <span>A</span>
-                    </div>
-                    <div
-                        className={this.state.isActive ? 'btn-rank active' : 'btn-rank'}
-                        onClick={this.toggleActiveClass}
-                    >
-                        <span>B</span>
-                    </div>
-                    <div
-                        className={this.state.isActive ? 'btn-rank active' : 'btn-rank'}
-                        onClick={this.toggleActiveClass}
-                    >
-                        <span>C</span>
-                    </div>
-                    <div
-                        className={this.state.isActive ? 'btn-rank active' : 'btn-rank'}
-                        onClick={this.toggleActiveClass}
-                    >
-                        <span>D</span>
+                    <h2 className="title">Bulles des postes :</h2>
+                    <div className="container">
+                        <div className="thumb-post">
+                            <p>Top</p>
+                        </div>
+                        <div className="thumb-post">
+                            <p>Jungle</p>
+                        </div>
+                        <div className="thumb-post">
+                            <p>Mid</p>
+                        </div>
+                        <div className="thumb-post">
+                            <p>Bot</p>
+                        </div>
+                        <div className="thumb-post">
+                            <p>Support</p>
+                        </div>
                     </div>
                 </div>
             </Fragment>
@@ -105,6 +113,7 @@ class App extends Component {
                 <Fragment>
                     <Route exact path="/" component={Integration}/> {/* root page */}
                     <Route path="/Filter" component={Filter}/> {/* root page */}
+                    <Route path="/graph" component={Graph} />
                 </Fragment>
             </Router>
         )

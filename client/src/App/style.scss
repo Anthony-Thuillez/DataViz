@@ -1,12 +1,11 @@
 $blue-primery: #160B31;
 $blue-secondary: #00CBE0;
-$background : #002B54;
+$background : radial-gradient(rgba(0, 43, 84, 0.9) 0.97%,rgba(12, 12, 36, 0.9) 56.75%,rgba(15, 15, 46, 0.9) 100%);
 $gold: #C79A3C;
 $white: #ffffff;
 
 $font: 'Lato';
 $font-bold: 'Lato-bold';
-
 
 @font-face {
     font-family: 'fontello';
@@ -40,12 +39,15 @@ $font-bold: 'Lato-bold';
     src: url(./fonts/Lato-Bold.ttf);
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
     background: $background;
     font-family: $font;
     font-size: 14px;
     color: $white;
-    padding: 20px;
 }
 
 h1 {
@@ -55,6 +57,11 @@ h1 {
 .title {
     font-family: $font-bold;
     font-size: 24px;
+}
+
+.wrapper {
+    max-width: 1040px;
+    margin: 0 auto;
 }
 
 .container {
@@ -109,6 +116,7 @@ h1 {
     width: 120px;
     height: 120px;
     border-radius: 50%;
+    user-select: none;
     &:before {
         position: absolute;
         top: 30px;
@@ -140,56 +148,82 @@ h1 {
     }
 }
 
-.space-around {
-    justify-content: space-around;
-}
-
-.btn-rank {
-    cursor: pointer;
-    position: relative;
+.navigation {
+    z-index: 10;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 64px;
+    background: $blue-primery;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    width: 40px; 
-    height: 23.09px;
-    margin: 11.55px 0;
-    &:hover {
-        span {
-            transition: ease-in-out 0.4s;
-            color: $gold;
+    padding: 48px 0;
+    .logo {
+        width: 32px;
+        user-select: none;
+        img {
+            width: 100%;
         }
     }
-    &.active {
-        border-left: solid 3px $gold;
-        border-right: solid 3px $gold;
-        &:before,
-        &:after {
-            content: "";
-            position: absolute;
-            z-index: 1;
-            width: 28.28px;
-            height: 28.28px;
-            transform: scaleY(0.5774) rotate(-45deg);
-            background-color: inherit;
-            left: 2.8579px;
+    .btnRank {
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 23.09px;
+        user-select: none;
+        &:not(:last-child) {
+            margin-bottom: 32px;
         }
-        &:before {
-            top: -14.1421px;
-            border-top: solid 4.2426px $gold;
-            border-right: solid 4.2426px $gold;
+        &:hover {
+            span {
+                transition: ease-in-out 0.3s;
+                color: $gold;
+            }
         }
-        &:after {
-            bottom: -14.1421px;
-            border-bottom: solid 4.2426px $gold;
-            border-left: solid 4.2426px $gold;
+        &.active {
+            border-left: solid 3px $gold;
+            border-right: solid 3px $gold;
+            &:before,
+            &:after {
+                content: "";
+                position: absolute;
+                z-index: 1;
+                width: 28.28px;
+                height: 28.28px;
+                transform: scaleY(0.5774) rotate(-45deg);
+                background-color: inherit;
+                left: 2.8579px;
+            }
+            &:before {
+                top: -14.1421px;
+                border-top: solid 4.2426px $gold;
+                border-right: solid 4.2426px $gold;
+            }
+            &:after {
+                bottom: -14.1421px;
+                border-bottom: solid 4.2426px $gold;
+                border-left: solid 4.2426px $gold;
+            }
+            span {
+                color: $gold;
+            }
         }
         span {
-            color: $gold;
+            z-index: 2;
+            font-family: $font-bold;
+            font-size: 20px;
         }
     }
-    span {
-        z-index: 2;
-        font-family: $font-bold;
-        font-size: 20px;
+    .soundbox {
+        user-select: none;
+        img {
+            cursor: pointer;
+        }
     }
 }
