@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
+import Filter from './postChamp/postChamp'
 
 import './reset.scss';
 import './style.scss';
@@ -103,6 +104,7 @@ class App extends Component {
             <Router>
                 <Fragment>
                     <Route exact path="/" component={Integration}/> {/* root page */}
+                    <Route path="/Filter" component={Filter}/> {/* root page */}
                 </Fragment>
             </Router>
         )
