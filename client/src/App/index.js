@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
-import Graph from '../Components/Graph/Graph'
+
+import Filter from './postChamp/postChamp';
+import Graph from '../Components/Graph/Graph';
+
 import './reset.scss';
 import './style.scss';
 
@@ -109,6 +112,7 @@ class App extends Component {
             <Router>
                 <Fragment>
                     <Route exact path="/" component={Integration}/> {/* root page */}
+                    <Route path="/Filter" component={Filter}/> {/* root page */}
                     <Route path="/graph" component={Graph} />
                 </Fragment>
             </Router>

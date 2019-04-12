@@ -11,8 +11,11 @@
         "difficulty": "60",
         "img": "img",
         "icon": "icon",
-        "poste": ["mid", "support"],
-        "role": "mage"        
+        "poste": {
+            "mid": 38,
+            "top": 23
+        },
+        "role": "mage"
     },
     {
         "id": "1",
@@ -26,7 +29,10 @@
         "difficulty": "56",
         "img": "",
         "icon": "",
-        "poste": ["mid", "top"],
+        "poste": {
+            "mid": 28,
+            "jungle": 53
+        },
         "role": "combattant"
     },
     {
@@ -41,7 +47,9 @@
         "difficulty": "22",
         "img": "img",
         "icon": "icon",
-        "poste": "top",
+        "poste": {
+            "bottom": 78
+        },
         "role": "tank"
     },
     {
@@ -56,7 +64,9 @@
         "difficulty": "17",
         "img": "",
         "icon": "",
-        "poste": "mid",
+        "poste": {
+            "top": 44
+        },
         "role": "assassin"
     },
     {
@@ -71,7 +81,10 @@
         "difficulty": "60",
         "img": "img",
         "icon": "icon",
-        "poste": "mid",
+        "poste": {
+            "jungle": 23,
+            "top": 33
+        },
         "role": "mage"
     },
     {
@@ -86,7 +99,11 @@
         "difficulty": "25",
         "img": "pouet",
         "icon": "pouettepouette",
-        "poste": "jungle",
+        "poste": {
+            "jungle": 12,
+            "mid": 42,
+            "top": 23
+        },
         "role": "tank"
     },
     {
@@ -101,7 +118,10 @@
         "difficulty": "75",
         "img": "img",
         "icon": "icon",
-        "poste": "jungle",
+        "poste": {
+            "bottom": 55,
+            "top": 45
+        },
         "role": "mage"
     },
     {
@@ -116,7 +136,10 @@
         "difficulty": "25",
         "img": "pouet",
         "icon": "pouettepouette",
-        "poste": "bottom",
+        "poste": {
+            "top": 21,
+            "jungle": 24
+        },
         "role": "mage"
     },
     {
@@ -131,7 +154,9 @@
         "difficulty": "53",
         "img": "pouet",
         "icon": "pouettepouette",
-        "poste": "mid",
+        "poste": {
+            "mid": 68
+        },
         "role": "assassin"
     },
     {
@@ -146,7 +171,9 @@
         "difficulty": "25",
         "img": "pouet",
         "icon": "pouettepouette",
-        "poste": "support",
+        "poste": {
+            "top": 76
+        },
         "role": "mage"
     },
     {
@@ -161,7 +188,9 @@
         "difficulty": "25",
         "img": "pouet",
         "icon": "pouettepouette",
-        "poste": "mid",
+        "poste": {
+            "top": 90
+        },
         "role": "mage"
     }
 ]
