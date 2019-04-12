@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Json from '../../data.json'
 import Filter from './Filter'
 
