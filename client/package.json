@@ -26,12 +26,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-<<<<<<< HEAD
-  ]
-=======
   ],
   "devDependencies": {
     "jest": "^23.6.0"
   }
->>>>>>> additional funcs + comments + unit test
 }
