@@ -1,8 +1,14 @@
-$blue-primery: #160B31;
-$blue-secondary: #00CBE0;
 $background : radial-gradient(rgba(0, 43, 84, 0.9) 0.97%,rgba(12, 12, 36, 0.9) 56.75%,rgba(15, 15, 46, 0.9) 100%);
+$darkblue: #160B31;
+$blue: #00CBE0;
+$blue-gradient: linear-gradient(180deg, #00CBE0 0%, rgba(0, 203, 224, 0.2) 98.08%);
 $gold: #C79A3C;
+$gold-gradient: linear-gradient(180deg, #C79A3C 0%, #A6843C 39.06%, #614B1D 100%);
+$red-gradient: linear-gradient(180deg, #FC0044 0%, rgba(252, 0, 68, 0.2) 98.08%);
 $white: #ffffff;
+$black: #000000;
+
+$box-shadow: 0px 0px 30px rgba(0, 203, 224, 0.15);
 
 $font: 'Lato';
 $font-bold: 'Lato-bold';
@@ -76,14 +82,24 @@ h1 {
     height: 100px;
     border-radius: 8px;
     margin-right: 20px;
-    &.blue-primery {
-        background: $blue-primery;
+    
+    &.darkblue {
+        background: $darkblue;
     }
-    &.blue-secondary {
-        background: $blue-secondary
+    &.blue {
+        background: $blue;
     }
     &.gold {
         background: $gold;
+    }
+    &.blue-gradient {
+        background: $blue-gradient;
+    }
+    &.gold-gradient {
+        background: $gold-gradient;
+    }
+    &.red-gradient {
+        background: $red-gradient;
     }
 }
 
@@ -91,8 +107,11 @@ h1 {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-image: url(./img/Gnar.png);
+    box-shadow: $box-shadow;
     background-size: cover;
+    &:nth-child(1) {
+    background-image: url(./img/Gnar.png);
+    }
     &:nth-child(2) {
         background-image: url(./img/Nidalee.png);
     }
@@ -112,37 +131,18 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-color: $blue-primery;
+    background-color: $darkblue;
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    user-select: none;
-    &:before {
-        position: absolute;
+    box-shadow: $box-shadow;
+    &.icon:before {
         top: 30px;
-        font-family: 'fontello';
-        color: $blue-secondary;
-        font-size: 32px;
-    }
-    &:nth-child(1):before {
-        content: '\E801';
-    }
-    &:nth-child(2):before {
-        content: '\E800';
-    }
-    &:nth-child(3):before {
-        content: '\E803';
-    }
-    &:nth-child(4):before {
-        content: '\E804';
-    }
-    &:nth-child(5):before {
-        content: '\E802';
     }
     p {
         font-family: $font-bold;
         text-transform: uppercase;
-        color: $blue-secondary;
+        color: $blue;
         font-size: 18px;
         margin-bottom: 30px;
     }
@@ -155,7 +155,7 @@ h1 {
     left: 0;
     bottom: 0;
     width: 64px;
-    background: $blue-primery;
+    background: $darkblue;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -225,5 +225,66 @@ h1 {
         img {
             cursor: pointer;
         }
+    }
+}
+
+.group-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 104px;
+    height: 32px;
+    color: $blue;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    &:not(.active) {
+        border: solid 2px;
+        border-image: linear-gradient(#C79A3C, #A6843C, #614B1D) 2;
+    }
+    &.active {
+        background: $gold-gradient;
+        color: $white;
+    }
+}
+
+.icons .icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    position: relative;
+
+    &:before {
+        position: absolute;
+        font-family: 'fontello';
+        color: $blue;
+        font-size: 32px;
+        user-select: none;
+    }
+    &-top:before {
+        content: '\E801';
+    }
+    &-jgl:before {
+        content: '\E800';
+    }
+    &-mid:before {
+        content: '\E803';
+    }
+    &-bot:before {
+        content: '\E804';
+    }
+    &-supp:before {
+        content: '\E802';
     }
 }

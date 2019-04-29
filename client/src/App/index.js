@@ -19,6 +19,11 @@ class Integration extends Component {
             { name: "B" },
             { name: "C" },
             { name: "D" }
+        ],
+        rates: [
+            { name: "Win rate", isActive: true },
+            { name: "Pick rate" },
+            { name: "Ban rate" },
         ]
     };
 
@@ -35,8 +40,22 @@ class Integration extends Component {
             return { ...prev, ranks: nextRank };
         });
     };
+    handleIsActive2 = id => {
+        this.setState(prev => {
+            const { rates } = prev;
+            const nextRate = rates.map(rate => {
+                if (rate.name !== id) return { ...rate, isActive: false };
+                return {
+                    ...rate,
+                    isActive: !rate.isActive
+                };
+            });
+            return { ...prev, rates: nextRate };
+        });
+    };
     render() {
         const { ranks } = this.state;
+        const { rates } = this.state;
         return (
             <Fragment>
                 <div className="wrapper">
@@ -68,9 +87,40 @@ class Integration extends Component {
 
                     <h2 className="title">Couleurs :</h2>
                     <div className="container">
-                        <div className="block blue-primery"></div>
-                        <div className="block blue-secondary"></div>
+                        <div className="block darkblue"></div>
+                        <div className="block blue"></div>
                         <div className="block gold"></div>
+                        <div className="block blue-gradient"></div>
+                        <div className="block gold-gradient"></div>
+                        <div className="block red-gradient"></div>
+                    </div>
+
+                    <h2 className="title">Icons :</h2>
+                    <div className="container icons">
+                        <div className="icon icon-top"></div>
+                        <div className="icon icon-jgl"></div>
+                        <div className="icon icon-mid"></div>
+                        <div className="icon icon-bot"></div>
+                        <div className="icon icon-supp"></div>                          
+                    </div>
+
+                    <h2 className="title">Buttons :</h2>
+                    <div className="container">
+                            <div className="group-btn">
+                                {
+                                    rates.map((rate, index) => {
+                                        return (
+                                            <div
+                                                key={index}
+                                                className={`btn ${rate.isActive ? 'active' : ''}`}
+                                                onClick={() => this.handleIsActive2(rate.name)}
+                                            >
+                                                {rate.name}
+                                            </div>
+                                        )
+                                    })
+                                }
+                            </div>
                     </div>
 
                     <h2 className="title">Bulles champions :</h2>
@@ -84,19 +134,19 @@ class Integration extends Component {
 
                     <h2 className="title">Bulles des postes :</h2>
                     <div className="container">
-                        <div className="thumb-post">
+                        <div className="thumb-post icon icon-top">
                             <p>Top</p>
                         </div>
-                        <div className="thumb-post">
+                        <div className="thumb-post icon icon-jgl">
                             <p>Jungle</p>
                         </div>
-                        <div className="thumb-post">
+                        <div className="thumb-post icon icon-mid">
                             <p>Mid</p>
                         </div>
-                        <div className="thumb-post">
+                        <div className="thumb-post icon icon-bot">
                             <p>Bot</p>
                         </div>
-                        <div className="thumb-post">
+                        <div className="thumb-post icon icon-supp">
                             <p>Support</p>
                         </div>
                     </div>
