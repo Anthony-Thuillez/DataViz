@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Filter from './postChamp/postChamp';
-import Graph from '../Components/Graph/Graph';
+// import Graph from '../Components/Graph/Graph';
+import Median from '../Components/Median/Median'
 
 import './reset.scss';
 import './style.scss';
@@ -113,7 +114,7 @@ class App extends Component {
                 <Fragment>
                     <Route exact path="/" component={Integration}/> {/* root page */}
                     <Route path="/Filter" component={Filter}/> {/* root page */}
-                    <Route path="/graph" component={Graph} />
+                    <Route path="/Median" component={Median} />
                 </Fragment>
             </Router>
         )

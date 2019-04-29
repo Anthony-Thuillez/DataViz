@@ -1,7 +1,7 @@
 const getAllChampions = (data) => {
     return data.length
 }
-
+        /** GLOBAL */
 /**
  * Functions purpose : Sort By Pick Rate
  * @param data come from data.json
@@ -52,6 +52,7 @@ const medianPickRate = (data) => {
 
     return (array[half - 1] + array[half]) / 2.0;
 }
+
 
 /**
  * Functions purpose : Sort By Win Rate
@@ -154,6 +155,50 @@ const medianBanRate = (data) => {
 
      return (array[half - 1] + array[half]) / 2.0;
 }
+
+        /** END GLOBAL */
+
+const findNbChampByPost = (data, post) => {
+    let propertyCounter = 0
+    for (let i = 0; i < data.length; i++) {
+        console.log(data[i].poste);
+        let propertyExist = data[i].poste.hasOwnProperty(post)
+        if (propertyExist === true) {
+            propertyCounter++    
+        }
+    }
+    return propertyCounter
+}
+
+const getChampByPost = (data, post) => {
+    let champArr = []
+    for (let i = 0; i < data.length; i++) {
+        let propertyExist = data[i].poste.hasOwnProperty(post)
+        if (propertyExist === true) {
+             champArr.push(data[i])
+        }
+    }
+    return champArr
+}
+
+const getSelectedRate = (data, rate) => {
+    let rateArr = []
+    let champions = getChampByPost(data, "mid")
+    console.log(champions);
+    
+    for (let i = 0; i < champions.length; i++) {
+        let propertyExist = champions[i].hasOwnProperty(rate)
+        
+        if (propertyExist === true) {
+            rateArr.push(champions[i][rate])
+        } else {
+            // Drop the champion from the list if no rate selected
+        }
+    }
+    
+    return rateArr
+}
+
 module.exports = {
     getAllChampions,
     getPickRateAllChampions,
@@ -166,5 +211,11 @@ module.exports = {
 
     getBanRateAllChampions,
     orderByBanRate,
-    medianBanRate
+    medianBanRate,
+
+
+
+    findNbChampByPost,
+    getChampByPost,
+    getSelectedRate
 }

@@ -3,11 +3,19 @@ const SBR = require('./SortByRate')
 describe("Sort By Pick Rate", function() {
     let data_mooc = [{
             "name": "Vel'koz",
-            "pick": "50"
+            "pick": "50",
+            "poste": {
+                "mid": 38,
+                "top": 23
+            }
         },
         {
             "name": "Yasuo",
-            "pick": "80"
+            "pick": "80",
+            "poste": {
+                "mid": 28,
+                "jungle": 53
+            }
         }
     ]
     it("1/ Get every champions", function () {
@@ -21,7 +29,7 @@ describe("Sort By Pick Rate", function() {
             expect.arrayContaining(expected),
         )
     })
-    
+
     it("3/ Order champions by pick rate", function() {
         let expected = [80, 50]
         expect(SBR.orderByPickRate(data_mooc)).toEqual(
@@ -32,6 +40,39 @@ describe("Sort By Pick Rate", function() {
     it("4/ Calculate the median of the pick rates", function() {
         let expected = 65
         expect(SBR.medianPickRate(data_mooc)).toEqual(expected)
+    })
+
+    it("X/ Find the number of champions by post (mid)", function () {
+        let expected = 2
+        expect(SBR.findNbChampByPost(data_mooc, "mid")).toEqual(expected)
+    })
+
+    it("Y/ Get all champions on post (mid)", function () {
+        let expected = [{
+            "name": "Vel'koz",
+            "pick": "50",
+            "poste": {
+                "mid": 38,
+                "top": 23
+            }
+        }, {
+            "name": "Yasuo",
+            "pick": "80",
+            "poste": {
+                "mid": 28,
+                "jungle": 53
+            }
+        }]
+        expect(SBR.getChampByPost(data_mooc, "mid")).toEqual(
+            expect.arrayContaining(expected),
+        )
+    })
+
+    it("Z/ Get selected rate for all champions on post (mid)", function () {
+        let expected = [50, 80]
+        expect(SBR.getSelectedRate(data_mooc, "pick")).toEqual(
+            expect.arrayContaining(expected),
+        )
     })
 })
 
