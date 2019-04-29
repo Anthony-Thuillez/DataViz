@@ -1,221 +1,109 @@
-const getAllChampions = (data) => {
-    return data.length
-}
-        /** GLOBAL */
-/**
- * Functions purpose : Sort By Pick Rate
- * @param data come from data.json
- * @param new_array @return an array of ordered pick rate
- * @param medianPickRate() @return the median of @param new_array
- */
-
-const getPickRateAllChampions = (data) => {
-    let pickArr = []
-    let pickRate = data.map(e => ({
-        pick: e.pick
-    }))
-    
-    pickRate.forEach(function (element) {
-        let pickVal = Object.values(element).pop()
-        pickArr.push(pickVal)
-    });
-    return pickArr
-}
-
-const orderByPickRate = (data) => {
-    let new_array = getPickRateAllChampions(data)
-    new_array = new_array.map(Number)
-    for (let i = 0; i < new_array.length; i++) {
-        // check if array value is false or NaN
-        if (new_array[i] === false || Number.isNaN(new_array[i])) {
-             new_array.splice(i, 1)
-        }
-    }
-    new_array.sort(function orderRates(a, b) {
-        return b - a;
-    })
-    return new_array
-}
-
-const medianPickRate = (data) => {
-    let array = orderByPickRate(data)
-    if (array.length === 0) return 0;
-
-    array.sort(function (a, b) {
-        return a - b;
-    });
-
-    var half = Math.floor(array.length / 2);
-
-    if (array.length % 2)
-        return array[half];
-
-    return (array[half - 1] + array[half]) / 2.0;
-}
-
-
-/**
- * Functions purpose : Sort By Win Rate
- * @param data come from data.json
- * @param new_array @return an array of ordered Win rate
- * @param medianWinRate() @return the median of @param new_array
- */
-
-const getWinRateAllChampions = (data) => {
-    let winArr = []
-    let winRate = data.map(e => ({
-        pick: e.win
-    }))
-
-    winRate.forEach(function (element) {
-        let winVal = Object.values(element).pop()
-        winArr.push(winVal)
-    });
-    return winArr
-}
-
-const orderByWinRate = (data) => {
-    let new_array = getWinRateAllChampions(data)
-    new_array = new_array.map(Number)
-    for (let i = 0; i < new_array.length; i++) {
-        // check if array value is false or NaN
-        if (new_array[i] === false || Number.isNaN(new_array[i])) {
-            new_array.splice(i, 1)
-        }
-    }
-    new_array.sort(function orderRates(a, b) {
-        return b - a;
-    })
-    return new_array
-}
-
-const medianWinRate = (data) => {
-    let array = orderByWinRate(data)
-    if (array.length === 0) return 0;
-
-    array.sort(function (a, b) {
-        return a - b;
-    });
-
-    var half = Math.floor(array.length / 2);
-
-    if (array.length % 2)
-        return array[half];
-
-    return (array[half - 1] + array[half]) / 2.0;
-}
-
-/**
- * Functions purpose : Sort By Ban Rate
- * @param data come from data.json
- * @param new_array @return an array of ordered Ban rate
- * @param medianBanRate() @return the median of @param new_array
- */
-
-const getBanRateAllChampions = (data) => {
-     let banArr = []
-     let banRate = data.map(e => ({
-         pick: e.ban
-     }))
-
-     banRate.forEach(function (element) {
-         let banVal = Object.values(element).pop()
-         banArr.push(banVal)
-     });
-     return banArr
-}
-
-const orderByBanRate = (data) => {
-     let new_array = getBanRateAllChampions(data)
-     new_array = new_array.map(Number)
-     for (let i = 0; i < new_array.length; i++) {
-         // check if array value is false or NaN
-         if (new_array[i] === false || Number.isNaN(new_array[i])) {
-             new_array.splice(i, 1)
-         }
-     }
-     new_array.sort(function orderRates(a, b) {
-         return b - a;
-     })
-     return new_array
-}
-
-const medianBanRate = (data) => {
-     let array = orderByBanRate(data)
-     if (array.length === 0) return 0;
-
-     array.sort(function (a, b) {
-         return a - b;
-     });
-
-     var half = Math.floor(array.length / 2);
-
-     if (array.length % 2)
-         return array[half];
-
-     return (array[half - 1] + array[half]) / 2.0;
-}
-
-        /** END GLOBAL */
+/** TESTED ✅
+ * Functions purpose: Count the number of champion for a selected post
+ * @param data(data.json) & @param post(props)
+ * @return @type @Number
+*/
 
 const findNbChampByPost = (data, post) => {
     let propertyCounter = 0
     for (let i = 0; i < data.length; i++) {
-        console.log(data[i].poste);
         let propertyExist = data[i].poste.hasOwnProperty(post)
         if (propertyExist === true) {
-            propertyCounter++    
+            propertyCounter++
         }
     }
+
     return propertyCounter
 }
+
+/** TESTED ✅
+ * Functions purpose : Get all champions for a specific post
+ * @param data(data.json) & @param post(props)
+ * @var champArr @return an array @type @Object of champions corresponding to the @param post
+ */
 
 const getChampByPost = (data, post) => {
     let champArr = []
     for (let i = 0; i < data.length; i++) {
         let propertyExist = data[i].poste.hasOwnProperty(post)
         if (propertyExist === true) {
-             champArr.push(data[i])
+            champArr.push(data[i])
         }
     }
+    
     return champArr
 }
+
+/** TESTED ✅
+ * Functions purpose : Get the selected rate for all champions for a specific post
+ * @param data(data.json) & @param post(props)
+ * @return @var rateArr  Array of @type @String selected rate 
+ */
 
 const getSelectedRate = (data, rate) => {
     let rateArr = []
     let champions = getChampByPost(data, "mid")
-    console.log(champions);
-    
+
     for (let i = 0; i < champions.length; i++) {
         let propertyExist = champions[i].hasOwnProperty(rate)
-        
+
         if (propertyExist === true) {
             rateArr.push(champions[i][rate])
-        } else {
-            // Drop the champion from the list if no rate selected
         }
     }
-    
+
     return rateArr
 }
 
+/** TESTED ✅
+ * Functions purpose: Order previous @rateArr by rate & unstringify values
+ * @param data(data.json) & @param post(props)
+ * @return @var listOfRates Array of @type @Number ordered selected rate
+ */
+
+const orderByRate = (data, rate) => {
+    let listOfRates = getSelectedRate(data, rate)
+    listOfRates = listOfRates.map(Number)
+    for (let i = 0; i < listOfRates.length; i++) {
+        // check if array values are false or NaN
+        if (listOfRates[i] === false || Number.isNaN(listOfRates[i])) {
+            listOfRates.splice(i, 1)
+        }
+    }
+    listOfRates.sort(function orderRates(a, b) {
+        return b - a;
+    })
+    
+    return listOfRates
+}
+
+/** TESTED ✅
+ * Functions purpose: Calculate the median for a specific rate & post
+ * @param data(data.json) & @param post(props)
+ * @return the result of median calculation for a selected rate
+ */
+
+const medianRate = (data, rate) => {
+    let array = orderByRate(data, rate)
+    if (array.length === 0) return 0;
+
+    array.sort(function (a, b) {
+        return a - b;
+    });
+
+    var half = Math.floor(array.length / 2);
+
+    if (array.length % 2)
+        return array[half];
+    console.log((array[half - 1] + array[half]) / 2.0);
+    
+    return (array[half - 1] + array[half]) / 2.0;
+}
+
 module.exports = {
-    getAllChampions,
-    getPickRateAllChampions,
-    orderByPickRate,
-    medianPickRate,
-
-    getWinRateAllChampions,
-    orderByWinRate,
-    medianWinRate,
-
-    getBanRateAllChampions,
-    orderByBanRate,
-    medianBanRate,
-
-
-
     findNbChampByPost,
     getChampByPost,
-    getSelectedRate
+    getSelectedRate,
+    orderByRate,
+    medianRate
 }
