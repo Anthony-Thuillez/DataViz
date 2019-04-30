@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Chart from '../barChart/Chart'
-
 import Integration from './views/integration'
 import Median from './Median'
+import Chart from './views/graph/Chart'
 
 import './styles/main.scss';
 

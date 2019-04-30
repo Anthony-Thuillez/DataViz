@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
 
-import './style.css'
-
 class BarChart extends Component {
     componentDidMount() {
         this.drawChart();
@@ -11,7 +9,7 @@ class BarChart extends Component {
     drawChart() {
         const data = this.props.data;
         var margin = { top: 40, right: 40, bottom: 40, left: 60 },
-            width = 700 - margin.left - margin.right,
+            // width = 700 - margin.left - margin.right,
             height = 400 - margin.top - margin.bottom;
 
         var x = d3.scaleBand()
