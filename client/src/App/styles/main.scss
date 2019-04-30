@@ -1,0 +1,9 @@
+@import './_reset.scss';
+@import './_variables.scss';
+@import './_global.scss';
+
+// Import components
+
+@import '../components/button/button.scss';
+@import '../components/champbubble/champbubble.scss';
+@import '../components/postbubble/postbubble.scss';
