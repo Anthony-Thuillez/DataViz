@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import SortByRate from '../Graph/SortByRate'
-import data from '../../data.json'
+import SortByRate from './scripts/SortByRate'
+import data from '../data.json'
 
 class Median extends Component {
 
