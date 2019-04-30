@@ -1,0 +1,21 @@
+.thumb-post {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: $darkblue;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: $box-shadow;
+    &.icon:before {
+        top: 30px;
+    }
+    p {
+        font-family: $font-bold;
+        text-transform: uppercase;
+        color: $blue;
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+}
