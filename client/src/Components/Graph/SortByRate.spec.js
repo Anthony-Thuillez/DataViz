@@ -47,20 +47,20 @@ describe("Sort By Rate", function() {
 
     it("3/ Get selected rate for all champions on post (mid)", function () {
         let expected = ["50", "80"]
-        expect(SBR.getSelectedRate(data_mooc, "pick")).toEqual(
+        expect(SBR.getSelectedRate(data_mooc, "pick", "mid")).toEqual(
             expect.arrayContaining(expected),
         )
     })
 
     it("4/ Order champions by rate", function() {
         let expected = [80, 50]
-        expect(SBR.orderByRate(data_mooc, "pick")).toEqual(
+        expect(SBR.orderByRate(data_mooc, "pick", "mid")).toEqual(
             expect.arrayContaining(expected),
         )
     })
 
     it("5/ Calculate the median of the selected rates", function () {
         let expected = 65
-        expect(SBR.medianRate(data_mooc, "pick")).toEqual(expected)
+        expect(SBR.medianRate(data_mooc, "pick", "mid")).toEqual(expected)
     })
 })

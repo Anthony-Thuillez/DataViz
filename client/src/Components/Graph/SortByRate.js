@@ -30,6 +30,7 @@ const getChampByPost = (data, post) => {
             champArr.push(data[i])
         }
     }
+    console.log("Champion : ",champArr);
     
     return champArr
 }
@@ -40,9 +41,9 @@ const getChampByPost = (data, post) => {
  * @return @var rateArr  Array of @type @String selected rate 
  */
 
-const getSelectedRate = (data, rate) => {
+const getSelectedRate = (data, rate, post) => {
     let rateArr = []
-    let champions = getChampByPost(data, "mid")
+    let champions = getChampByPost(data, post)
 
     for (let i = 0; i < champions.length; i++) {
         let propertyExist = champions[i].hasOwnProperty(rate)
@@ -51,7 +52,8 @@ const getSelectedRate = (data, rate) => {
             rateArr.push(champions[i][rate])
         }
     }
-
+    console.log("Rates : ", rateArr);
+    
     return rateArr
 }
 
@@ -61,8 +63,8 @@ const getSelectedRate = (data, rate) => {
  * @return @var listOfRates Array of @type @Number ordered selected rate
  */
 
-const orderByRate = (data, rate) => {
-    let listOfRates = getSelectedRate(data, rate)
+const orderByRate = (data, rate, post) => {
+    let listOfRates = getSelectedRate(data, rate, post)
     listOfRates = listOfRates.map(Number)
     for (let i = 0; i < listOfRates.length; i++) {
         // check if array values are false or NaN
@@ -73,7 +75,7 @@ const orderByRate = (data, rate) => {
     listOfRates.sort(function orderRates(a, b) {
         return b - a;
     })
-    
+    console.log("Ordered rates : ", listOfRates);
     return listOfRates
 }
 
@@ -83,8 +85,8 @@ const orderByRate = (data, rate) => {
  * @return the result of median calculation for a selected rate
  */
 
-const medianRate = (data, rate) => {
-    let array = orderByRate(data, rate)
+const medianRate = (data, rate, post) => {
+    let array = orderByRate(data, rate, post)
     if (array.length === 0) return 0;
 
     array.sort(function (a, b) {
@@ -95,7 +97,7 @@ const medianRate = (data, rate) => {
 
     if (array.length % 2)
         return array[half];
-    console.log((array[half - 1] + array[half]) / 2.0);
+    console.log("Mediane", (array[half - 1] + array[half]) / 2.0);
     
     return (array[half - 1] + array[half]) / 2.0;
 }
