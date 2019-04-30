@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 
+import Chart from '../barChart/Chart'
+
 import Integration from './views/integration'
 import Median from './Median'
 
@@ -14,6 +16,7 @@ class App extends Component {
                     <Route exact path="/" /> {/* root page */}
                     <Route path="/Integration" component={Integration} />
                     <Route path="/Median" component={Median} />
+                    <Route path="/Chart" component={Chart} />
                 </>
             </Router>
         )
