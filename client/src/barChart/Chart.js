@@ -5,15 +5,15 @@ class Chart extends Component {
   
     state = {
       data: [12, 5, 6, 6, 9, 10],
-      width: 700,
-      height: 500,
+      width: 100,
+      height: 752,
       id: ""
     }
   
     render() {
       return (
-        <div className="App">
-          <BarChart data={this.state.data} width={this.state.width} height={this.state.height} />
+        <div>
+          <BarChart data={this.state.data} />
         </div>
       );
     }
