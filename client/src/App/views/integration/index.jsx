@@ -28,6 +28,12 @@ class Integration extends Component {
                         <div className="icon icon-mid"></div>
                         <div className="icon icon-bot"></div>
                         <div className="icon icon-supp"></div>
+                        <div className="icon icon-map"></div>
+                        <div className="icon icon-stats"></div>
+                        <div className="icon icon-cross"></div>
+                        <div className="icon icon-barrow"></div>
+                        <div className="icon icon-search"></div>
+
                     </div>
 
                     <h2 className="title">Buttons :</h2>

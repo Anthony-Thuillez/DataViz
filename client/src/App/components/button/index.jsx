@@ -2,40 +2,43 @@ import React, { Component } from 'react';
 
 export default class Button extends Component {
     state = {
-        rates: [
-            { name: "Win rate", isActive: true },
-            { name: "Pick rate" },
-            { name: "Ban rate" },
+        posts: [
+            { name: "All", isActive: true },
+            { name: "Top" },
+            { name: "Jungle" },
+            { name: "Mid" },
+            { name: "Bot" },
+            { name: "Support" }
         ]
     };
 
     handleIsActive = id => {
         this.setState(prev => {
-            const { rates } = prev;
-            const nextRate = rates.map(rate => {
-                if (rate.name !== id) return { ...rate, isActive: false };
+            const { posts } = prev;
+            const nextPost = posts.map(post => {
+                if (post.name !== id) return { ...post, isActive: false };
                 return {
-                    ...rate,
-                    isActive: !rate.isActive
+                    ...post,
+                    isActive: !post.isActive
                 };
             });
-            return { ...prev, rates: nextRate };
+            return { ...prev, posts: nextPost };
         });
     };
     render() {
-        const { rates } = this.state;
+        const { posts } = this.state;
         
         return (
             <div className="group-btn">
                 {
-                    rates.map((rate, index) => {
+                    posts.map((post, index) => {
                         return (
                             <div
                                 key={index}
-                                className={`btn ${rate.isActive ? 'active' : ''}`}
-                                onClick={() => this.handleIsActive(rate.name)}
+                                className={`btn ${post.isActive ? 'active' : ''}`}
+                                onClick={() => this.handleIsActive(post.name)}
                             >
-                                {rate.name}
+                                <span>{post.name}</span>
                             </div>
                         )
                     })
