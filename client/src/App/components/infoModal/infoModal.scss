@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+
+.btn-info {
+    position: fixed;
+    bottom: 24px; right: 64px;
+    width: 24px;
+    height: 24px;
+    background: $blue;
+    border-radius: 50%;
+    cursor: pointer;
+    &:before {
+        content: '?';
+        color: $darkblue;
+        font-family: $font;
+        font-size: 16px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.modal-info {
+    display: none;
+    z-index: 100;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background: $darkblue;
+
+    .icon-cross {
+        position: absolute;
+        top: 12px; right: 64px;
+    }
+    
+    &.active {
+        display: block;
+    }
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 540px;
+    text-align: center;
+    .title {
+        margin: 0 112px;
+        padding-bottom: 9px;
+        font-family: $font-bold;
+        font-size: 24px;
+        line-height: 36px;
+        background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-bottom: solid 1px $gold;
+    }
+    .img-graph {
+        margin: 40px 0;
+    }
+    .img-rank {
+        width: 274px;
+    }
+    .block {
+        display: flex;
+        align-items: center;
+        p {
+            font-size: 14px;
+            line-height: 26px;
+            text-align: left;
+            margin-right: 40px;
+        }
+    }
+    .btn-close {
+        margin-top: 44px;
+        display: inline-block;
+        padding: 16px;
+        text-align: center;
+        background: $blue;
+        color: $darkblue;
+        font-size: 24px;
+        text-decoration: none;
+        box-shadow: $box-shadow;
+        transition: all 0.3s ease;  
+        &:hover {
+            background: $gold-gradient;
+        }
+    }
+}
