@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-export default class Button extends Component {
+import './filter.scss';
+
+export default class Filter extends Component {
     state = {
         posts: [
             { name: "All", isActive: true },

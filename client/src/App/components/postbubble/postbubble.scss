@@ -1,21 +1,30 @@
-.thumb-post {
-    position: relative;
+@import '../../styles/variables';
+
+.btn-post.icon {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    background-color: $darkblue;
-    width: 120px;
-    height: 120px;
+    background: $blue;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     box-shadow: $box-shadow;
+    transition: all 0.3s ease;
+    cursor: pointer;
     &.icon:before {
-        top: 30px;
+        top: 34%;
+        width: 32px;
+        height: 32px;
     }
     p {
         font-family: $font-bold;
-        text-transform: uppercase;
-        color: $blue;
-        font-size: 18px;
-        margin-bottom: 30px;
+        color: $darkblue;
+        font-size: 14px;
+        margin-bottom: 16px;
+        user-select: none;
+    }
+    &:hover,
+    &:active {
+        background: $gold-gradient;
     }
 }
