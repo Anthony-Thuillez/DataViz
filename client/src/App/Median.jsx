@@ -1,57 +1,74 @@
 import React, { Component, Fragment } from 'react'
 import SortByRate from './scripts/SortByRate'
 import data from '../data.json'
+import Chart from 'chart.js';
 
 class Median extends Component {
-
-    findFirstValOfArray = () => {
-        let arr = SortByRate.orderByRate(data, "ban", "top")
-        for (let i = 0; i < arr.length; i++) {
-            let firstEl = arr[0]
-            return firstEl
+    /**
+     * @param name witch is the champion name
+     * @return an @Object of stats
+     */
+    getAllStats(name) {
+        let champions = SortByRate.getChampByPost(data, "top")
+        let championStats = champions.map(function (champ) {
+            return {
+                name: champ.name,
+                damage: champ.damage,
+                tankiness: champ.tankiness,
+                control: champ.control,
+                mobility: champ.mobility,
+                utility: champ.utility
+            }
+        });
+        console.log(championStats, "championStats");
+        for (let i = 0; i < championStats.length; i++) {
+            if (championStats[i].name === name) {
+                let stats = {
+                    damage: championStats[i].damage,
+                    tankiness: championStats[i].tankiness,
+                    control: championStats[i].control,
+                    mobility: championStats[i].mobility,
+                    utility: championStats[i].utility
+                }    
+                return Object.values(stats)
+            }
         }
     }
+    componentDidMount() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            Chart.defaults.global.legend.display = false;
+            Chart.platform.disableCSSInjection = true;
+            new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'radar',
 
-    findLastValOfArray = () => {
-        let arr = SortByRate.orderByRate(data, "ban", "top")
-        for (let i = 0; i < arr.length; i++) {
-            const lastEl = arr[arr.length - 1]
-            return lastEl
-        }
+                // The data for our dataset
+                data: {
+                    labels: ['damage', "tankiness", 'control', "mobility", 'utility'],
+                    datasets: [{
+                            label: 'My First dataset',
+                            backgroundColor: 'rgb(255, 99, 132, 0.4)',
+                            data: this.getAllStats("Akalie"),
+                        }
+
+                    ]
+                },
+
+                // Configuration options go here
+                options: {
+                    scale: {
+                        display: false,
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            })
     }
-    render() { 
-        let median = SortByRate.medianRate(data, "ban", "top")
-        let champion = SortByRate.getChampByPost(data, "top")
-               
+    render() {
         return(
             <Fragment>
-            <div className="graph-container" style={{ width: '92%', height: '752px', margin: 'auto'}}>
-            <div className="graph-content" style={{ width: '100%', height: '678px', borderLeft: '3px solid #C79A3C', borderBottom: '3px solid #C79A3C'}}>
-                <div className="graph-max-rate" style={{marginBottom: '50px', height: '3px', width: '100%', background: '#C79A3C'}}>
-                    <span className="graph-max-rate-value">{this.findFirstValOfArray()}</span>
-                </div>
-
-                <div className="graph-median-rate" style={{marginBottom: '50px', height: '3px', width: '100%', background: '#C79A3C'}}>
-                    <span className="graph-median-rate-value">{median}</span>
-                </div>
-
-                <div className="graph-lower-rate" style={{marginBottom: '50px', height: '3px', width: '100%', background: '#C79A3C'}}>
-                    <span className="graph-lower-rate-value">{this.findLastValOfArray()}</span>
-                </div>
-            </div>
-            <div className="champList" style={{display: 'flex', justifyContent: 'space-around'}}>
-                {
-                    champion.map((champ) => {
-                        return(
-                            <div className="champion" style={{margin: '5px'}}>{champ.name}</div>
-                        )
-                    })
-                }
-            </div>
-            </div>
-            {/* <div>PickRate median : {SortByRate.medianRate(data, "pick", "mid")}%</div>
-            <div>WinRate median : {SortByRate.medianRate(data, "win", "mid")}%</div>
-            <div>BanRate median : {SortByRate.medianRate(data, "ban", "mid")}%</div> */}
+                <canvas id="myChart"></canvas>
             </Fragment>
         )
     }
