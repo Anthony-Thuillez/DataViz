@@ -1,8 +1,37 @@
-.thumb-champ {
-    width: 80px;
-    height: 80px;
+@import '../../styles/variables';
+
+.btn-champ {
+    border: solid 1px $blue;
     border-radius: 50%;
     box-shadow: $box-shadow;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.3s ease;
+
+    &:active,
+    &:hover {
+        border-color: $gold;
+    }
+
+    &:nth-child(1) {
+        width: 56px;
+        height: 56px;
+    }
+    &:nth-child(2) {
+        width: 48px;
+        height: 48px;
+    }
+    &:nth-child(3) {
+        width: 40px;
+        height: 40px;
+    }
+    &:nth-child(4) {
+        width: 32px;
+        height: 32px;
+    }
+    &:nth-child(5) {
+        width: 24px;
+        height: 24px;
+    }
 }
