@@ -46,9 +46,9 @@ class Median extends Component {
                 data: {
                     labels: ['damage', "tankiness", 'control', "mobility", 'utility'],
                     datasets: [{
-                            label: 'My First dataset',
-                            backgroundColor: 'rgb(255, 99, 132, 0.4)',
+                            backgroundColor: 'rgba(0, 203, 224, 0.455)',
                             data: this.getAllStats("Akalie"),
+                            radius: 0,
                         }
 
                     ]
