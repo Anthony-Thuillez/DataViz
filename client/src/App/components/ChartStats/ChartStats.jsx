@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
-import SortByRate from './scripts/SortByRate'
-import data from '../data.json'
+import SortByRate from '../../scripts/SortByRate'
+import data from '../../../data.json'
 import Chart from 'chart.js';
 
-class Median extends Component {
+class ChartStats extends Component {
     /**
      * @param name witch is the champion name
      * @return an @Object of stats
@@ -74,4 +74,4 @@ class Median extends Component {
     }
 }
 
-export default Median
+export default ChartStats
