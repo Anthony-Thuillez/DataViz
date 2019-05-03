@@ -37,6 +37,8 @@ class ChartStats extends Component {
             var ctx = document.getElementById('myChart').getContext('2d');
             Chart.defaults.global.legend.display = false;
             Chart.platform.disableCSSInjection = true;
+            ctx.canvas.parentNode.style.height = '157px';
+            ctx.canvas.parentNode.style.width = '157px';
             new Chart(ctx, {
                 // The type of chart we want to create
                 type: 'radar',
@@ -55,6 +57,7 @@ class ChartStats extends Component {
 
                 // Configuration options go here
                 options: {
+                    maintainAspectRatio: false,
                     scale: {
                         display: false,
                         ticks: {
@@ -67,7 +70,7 @@ class ChartStats extends Component {
     render() {
         return(
             <Fragment>
-                <canvas id="myChart"></canvas>
+                <canvas id="myChart" style={{background: "red"}}></canvas>
             </Fragment>
         )
     }
