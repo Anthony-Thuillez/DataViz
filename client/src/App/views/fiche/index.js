@@ -6,8 +6,8 @@ import Chart from 'chart.js';
 
 class Fiche extends Component {
     /**
-    * @param name witch is the champion name
-    * @return an @Object of stats
+     * @param {String} name(props) [Champion name]
+     * @return {String[]} the statistics of a champion
     */
     getAllStats(name) {
         let champions = SortByRate.getChampByPost(data, "top")
@@ -39,6 +39,8 @@ class Fiche extends Component {
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
         Chart.platform.disableCSSInjection = true;
+        ctx.canvas.parentNode.style.height = '157px';
+        ctx.canvas.parentNode.style.width = '157px';
         new Chart(ctx, {
             // The type of chart we want to create
             type: 'radar',
@@ -48,7 +50,7 @@ class Fiche extends Component {
                 labels: ['damage', "tankiness", 'control', "mobility", 'utility'],
                 datasets: [{
                     backgroundColor: 'rgba(0, 203, 224, 0.455)',
-                    data: this.getAllStats("Akalie"),
+                    data: this.getAllStats("Akali"),
                     radius: 0,
                 }
 
@@ -57,6 +59,7 @@ class Fiche extends Component {
 
             // Configuration options go here
             options: {
+                maintainAspectRatio: false,
                 scale: {
                     display: false,
                     ticks: {
