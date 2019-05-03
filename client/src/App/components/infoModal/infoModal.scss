@@ -27,9 +27,12 @@
     height: 100vh;
     width: 100vw;
     background: $darkblue;
+    animation-name: animationGo;
+    animation-duration: 0.3s;  
 
     .icon-cross {
         position: absolute;
+        cursor: pointer;  
         top: 12px; right: 64px;
     }
     
@@ -81,9 +84,14 @@
         font-size: 24px;
         text-decoration: none;
         box-shadow: $box-shadow;
-        transition: all 0.3s ease;  
+        transition: all 0.3s ease;
         &:hover {
             background: $gold-gradient;
         }
     }
+}
+
+@keyframes animationGo {
+    from { opacity: 0; transform: scale(0.7); }
+    to { opacity: 1; transform: scale(1); }
 }
