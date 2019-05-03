@@ -31,7 +31,7 @@ class Intro extends Component {
                         <img src={Logo} alt="Logo" />
                     </div>
                     <p>With ... you can discover data on all league of legend champions.</p>
-                    <Link to='/Landing'>Launch the visualization</Link>
+                    <Link to='/'>Launch the visualization</Link>
                 </div>
                 <div className="img-right">
                     <img src={ImgRight} alt="Riven" />
