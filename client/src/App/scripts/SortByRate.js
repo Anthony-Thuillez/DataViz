@@ -1,14 +1,13 @@
 /** TESTED ✅
  * Functions purpose: Count the number of champion for a selected post
- * @param data(data.json) & @param post(props)
- * @return @type @Number
+ * @param {Object[]} data(json) @param {String} post(props)
+ * @return {Number} the total of champions found
 */
-
 const findNbChampByPost = (data, post) => {
     let propertyCounter = 0
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0, l = data.length; i <l ; i++) {
         let propertyExist = data[i].poste.hasOwnProperty(post)
-        if (propertyExist === true) {
+        if (propertyExist) {
             propertyCounter++
         }
     }
@@ -18,76 +17,70 @@ const findNbChampByPost = (data, post) => {
 
 /** TESTED ✅
  * Functions purpose : Get all champions for a specific post
- * @param data(data.json) & @param post(props)
- * @var champArr @return an array @type @Object of champions corresponding to the @param post
+ * @param {Object[]} data(json) @param {String} post(props)
+ * @return {Object[]} champions found on [post] define
  */
-
 const getChampByPost = (data, post) => {
     let champArr = []
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0, l = data.length; i <l ; i++) {
         let propertyExist = data[i].poste.hasOwnProperty(post)
-        if (propertyExist === true) {
+        if (propertyExist) {
             champArr.push(data[i])
         }
     }
-    console.log("Champion : ",champArr);
     
     return champArr
 }
 
 /** TESTED ✅
  * Functions purpose : Get the selected rate for all champions for a specific post
- * @param data(data.json) & @param post(props)
- * @return @var rateArr  Array of @type @String selected rate 
+ * @param {Object[]} data(json) @param {String} rate(props) @param {String} post(props)
+ * @return {String[]} all [rate] for a specific [post]
  */
-
 const getSelectedRate = (data, rate, post) => {
     let rateArr = []
     let champions = getChampByPost(data, post)
 
-    for (let i = 0; i < champions.length; i++) {
+    for (let i = 0, l = champions.length; i < l; i++) {
         let propertyExist = champions[i].hasOwnProperty(rate)
 
-        if (propertyExist === true) {
+        if (propertyExist) {
             rateArr.push(champions[i][rate])
         }
     }
-    console.log("Rates : ", rateArr);
     
     return rateArr
 }
 
 /** TESTED ✅
- * Functions purpose: Order previous @rateArr by rate & unstringify values
- * @param data(data.json) & @param post(props)
- * @return @var listOfRates Array of @type @Number ordered selected rate
+ * Functions purpose: Order previous [rateArr] by rate & unstringify values
+ * @param {Object[]} data(json) @param {String} rate(props) @param {String} post(props)
+ * @return {Number[]} all [rate] for a specific [post] ordered
  */
-
 const orderByRate = (data, rate, post) => {
     let listOfRates = getSelectedRate(data, rate, post)
     listOfRates = listOfRates.map(Number)
-    for (let i = 0; i < listOfRates.length; i++) {
+    for (let i = 0, l = listOfRates.length; i < l; i++) {
         // check if array values are false or NaN
-        if (listOfRates[i] === false || Number.isNaN(listOfRates[i])) {
+        if (! listOfRates[i] || Number.isNaN(listOfRates[i])) {
             listOfRates.splice(i, 1)
         }
     }
     listOfRates.sort(function orderRates(a, b) {
         return b - a;
     })
-    console.log("Ordered rates : ", listOfRates);
+
     return listOfRates
 }
 
 /** TESTED ✅
  * Functions purpose: Calculate the median for a specific rate & post
- * @param data(data.json) & @param post(props)
- * @return the result of median calculation for a selected rate
+ * @param {Object[]} data(json) @param {String} rate(props) @param {String} post(props)
+ * @return {Number} the median for a specific [rate] & a specific [post]
  */
-
 const medianRate = (data, rate, post) => {
     let array = orderByRate(data, rate, post)
-    if (array.length === 0) return 0;
+    if (! array.length) return 0;
 
     array.sort(function (a, b) {
         return a - b;
@@ -97,7 +90,6 @@ const medianRate = (data, rate, post) => {
 
     if (array.length % 2)
         return array[half];
-    console.log("Mediane", (array[half - 1] + array[half]) / 2.0);
     
     return (array[half - 1] + array[half]) / 2.0;
 }

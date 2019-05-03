@@ -5,8 +5,8 @@ import Chart from 'chart.js';
 
 class ChartStats extends Component {
     /**
-     * @param name witch is the champion name
-     * @return an @Object of stats
+     * @param {String} name(props) [Champion name]
+     * @return {String[]} the statistics of a champion
      */
     getAllStats(name) {
         let champions = SortByRate.getChampByPost(data, "top")
@@ -20,8 +20,7 @@ class ChartStats extends Component {
                 utility: champ.utility
             }
         });
-        console.log(championStats, "championStats");
-        for (let i = 0; i < championStats.length; i++) {
+        for (let i = 0, l= championStats.length; i <l; i++) {
             if (championStats[i].name === name) {
                 let stats = {
                     damage: championStats[i].damage,
