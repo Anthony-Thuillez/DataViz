@@ -60,7 +60,7 @@
     },
     {
         "id": "3",
-        "name": "Akalie",
+        "name": "Akali",
         "rank": "B",
         "pick": "50",
         "ban": "20",
@@ -160,7 +160,7 @@
     },
     {
         "id": "8",
-        "name": "Zd",
+        "name": "Zed",
         "rank": "A",
         "pick": "80",
         "ban": "90",
@@ -214,5 +214,204 @@
             "top": 90
         },
         "role": "mage"
+    },
+    {
+        "id": "11",
+        "name": "Olaf",
+        "rank": "A",
+        "pick": "40",
+        "ban": "10",
+        "win": "44",
+        "damage": "60",
+        "tankiness": "60",
+        "control": "10",
+        "mobility": "40",
+        "utility": "0",
+        "img": "img",
+        "icon": "icon",
+        "poste": {
+            "jgl": 38,
+            "top": 62
+        },
+        "role": "tank"
+    },
+    {
+        "id": "12",
+        "name": "Vladimir",
+        "rank": "B",
+        "pick": "10",
+        "ban": "10",
+        "win": "50",
+        "damage": "70",
+        "tankiness": "30",
+        "control": "10",
+        "mobility": "10",
+        "utility": "10",
+        "img": "",
+        "icon": "",
+        "poste": {
+            "mid": 48,
+            "top": 52
+        },
+        "role": "mage"
+    },
+    {
+        "id": "13",
+        "name": "Nautilus",
+        "rank": "A",
+        "pick": "14",
+        "ban": "8",
+        "win": "53",
+        "damage": "40",
+        "tankiness": "80",
+        "control": "60",
+        "mobility": "50",
+        "utility": "0",
+        "img": "img",
+        "icon": "icon",
+        "poste": {
+            "support": 80,
+            "mid": 20
+        },
+        "role": "tank"
+    },
+    {
+        "id": "14",
+        "name": "Nocturne",
+        "rank": "C",
+        "pick": "13",
+        "ban": "3",
+        "win": "56",
+        "damage": "100",
+        "tankiness": "40",
+        "control": "40",
+        "mobility": "70",
+        "utility": "0",
+        "img": "",
+        "icon": "",
+        "poste": {
+            "top": 44,
+            "jgl": 54
+        },
+        "role": "assassin"
+    },
+    {
+        "id": "15",
+        "name": "Jax",
+        "rank": "A",
+        "pick": "30",
+        "ban": "40",
+        "win": "58",
+        "damage": "70",
+        "tankiness": "70",
+        "control": "40",
+        "mobility": "40",
+        "utility": "0",
+        "img": "img",
+        "icon": "icon",
+        "poste": {
+            "jungle": 30,
+            "top": 70
+        },
+        "role": "combattant"
+    },
+    {
+        "id": "16",
+        "name": "Ekko",
+        "rank": "C",
+        "pick": "12",
+        "ban": "0.8",
+        "win": "47",
+        "damage": "80",
+        "tankiness": "20",
+        "control": "50",
+        "mobility": "80",
+        "utility": "0",
+        "img": "pouet",
+        "icon": "pouettepouette",
+        "poste": {
+            "jungle": 20,
+            "mid": 70
+        },
+        "role": "assassin"
+    },
+    {
+        "id": "17",
+        "name": "Vayne",
+        "rank": "S",
+        "pick": "26",
+        "ban": "16",
+        "win": "62",
+        "damage": "100",
+        "tankiness": "20",
+        "control": "40",
+        "mobility": "60",
+        "utility": "0",
+        "img": "img",
+        "icon": "icon",
+        "poste": {
+            "bottom": 70,
+            "top": 30
+        },
+        "role": "tireur"
+    },
+    {
+        "id": "18",
+        "name": "Miss Fortune",
+        "rank": "A",
+        "pick": "11",
+        "ban": "0.4",
+        "win": "54",
+        "damage": "100",
+        "tankiness": "0",
+        "control": "30",
+        "mobility": "80",
+        "utility": "0",
+        "img": "pouet",
+        "icon": "pouettepouette",
+        "poste": {
+            "bottom": 90
+        },
+        "role": "tireur"
+    },
+    {
+        "id": "19",
+        "name": "Varus",
+        "rank": "D",
+        "pick": "0.2",
+        "ban": "0.1",
+        "win": "52",
+        "damage": "100",
+        "tankiness": "0",
+        "control": "60",
+        "mobility": "20",
+        "utility": "0",
+        "img": "pouet",
+        "icon": "pouettepouette",
+        "poste": {
+            "bottom": 70,
+            "mid": 30
+        },
+        "role": "tireur"
+    },
+    {
+        "id": "20",
+        "name": "Lulu",
+        "rank": "A",
+        "pick": "10",
+        "ban": "12",
+        "win": "56",
+        "damage": "50",
+        "tankiness": "20",
+        "control": "80",
+        "mobility": "50",
+        "utility": "100",
+        "img": "pouet",
+        "icon": "pouettepouette",
+        "poste": {
+            "supp": 90,
+            "mid": 10
+        },
+        "role": "support"
     }
 ]
