@@ -41,37 +41,48 @@ class BarChart extends Component {
 
     drawChart() {
         const data = this.displayChamp();
+        console.log(data)
 
-        var rate = data.map((x) => {
-            return x.win
-        })
-
+        /* Dimentions du graph */
         var margin = { top: 40, right: 40, bottom: 40, left: 60 },
             width = 1000 - margin.left - margin.right,
             height = 900 - margin.top - margin.bottom;
 
-        /* Propriétés du Graph */
-        const svg = d3.select("body").append("svg")
-            .style("background-color", "darkcyan")
+        /* Propriété du graph */
+        var x = d3.scaleBand()
+            .range([0, width])
+            .padding(0.3);
+
+        var y = d3.scaleLinear()
+            .range([height, 0]);
+
+        var svg = d3.select("body").append("svg")
             .attr("width", "100%")
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        /* Taille + data de x */
-        var x = d3.scaleBand()
-            .domain(data.map(function (d) { return d.name; }))
-            .range([0, width]);
+        x.domain(data.map((d) => d.name));
+        y.domain([this.findLastValOfArray(), this.findFirstValOfArray()]);
+        
+        svg.selectAll(".text")
+            .data(data.map((d) => d.win))
+            .enter()
+            .append("text")
+            .text((d) => d)
+            .attr('x', (d, i) => x(i) + x.bandwidth() /2)
+            .attr('y', (d, i) => height - y(d) + 14)
+            .style('fill', 'white')
+            .attr("text-anchor", "middle");
+
+        /* Axes */
         svg.append("g")
+            .attr("class", "axis axis--x")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x));
 
-        /* Taille + data de y */
-        var y = d3.scaleLinear()
-            .domain([0, d3.max(data, function (d) { return d.win; })])
-            // .domain([this.findLastValOfArray(), this.findFirstValOfArray()])
-            .range([height, 0]);
         svg.append("g")
+            .attr("class", "axis axis--y")
             .call(d3.axisLeft(y));
 
         /* 180deg du gradient */
@@ -95,15 +106,15 @@ class BarChart extends Component {
             .attr("stop-color", "rgba(0, 203, 224, 0.2)");
 
         /* Propriété fill du graph */
-        svg.selectAll("rect")
-            .classed('filled', true)
-            .data(rate)
+        svg.selectAll(".bar")
+            .data(data)
             .enter()
             .append("rect")
-            .attr("x", (d, i) => i * 90)
-            .attr("y", (d, i) => height - 10 * d)
-            .attr("width", 50)
-            .attr("height", (d, i) => d * 10)
+            .attr("class", "bar")
+            .attr("x", (d) => x(d.name))
+            .attr("width", x.bandwidth())
+            .attr("y", (d) => y(d.win))
+            .attr("height", (d) => height - y(d.win))
             .style("fill", "url(#linear-gradient)");
     }
 

@@ -192,5 +192,22 @@
             "top": 90
         },
         "role": "mage"
+    },
+    {
+        "id": "11",
+        "name": "Partipan",
+        "rank": "D",
+        "pick": "80",
+        "ban": "49",
+        "win": "40",
+        "damage": "38",
+        "tankiness": "65",
+        "difficulty": "25",
+        "img": "pouet",
+        "icon": "pouettepouette",
+        "poste": {
+            "top": 20
+        },
+        "role": "mage"
     }
 ]
