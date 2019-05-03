@@ -7,6 +7,11 @@ class SearchBar extends Component {
         list: this.getChampname(data),
         display: this.getChampname(data)
     }
+    /** TESTED 🚫
+     * Functions purpose: Get the champion name of each champions
+     * @param {Object[]} data(json)
+     * @return {Object[]} the name of all champions
+    */
     getChampname(data) {
         let champions = data.map((champ) => {
             return {
@@ -15,6 +20,12 @@ class SearchBar extends Component {
         });
         return champions  
     }
+
+    /** TESTED 🚫
+     * Functions purpose: Get the champion name of each champions
+     * @param {String} q(query from input) @param {Object[]} list(the name of all champions)
+     * @return {Boolean}
+     */
     filterList(q, list) {
         function escapeRegExp(s) {
             return s.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&");
