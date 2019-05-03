@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import SortByRate from './SortByRate'
+import SortByRate from './SortByRate';
 
-import data from '../../data.json'
+import data from '../../data.json';
 
 const linearGradient = (svg, id, color1, color2) => {
     /* 180deg du gradient */
@@ -179,7 +179,7 @@ class BarChart extends Component {
             .data(data)
             .enter()
             .append("text")
-            .text((d) => console.log(d.win == this.state.median) || d.win == this.state.median ? "=" : d.win)
+            .text((d) => d.win === this.state.median ? "=" : d.win)
             .attr("x", (d) => x(d.name) + x.bandwidth() / 2)
             .attr("y", (d) => (y(d.win) + height) / 2)
             .style('fill', 'white')

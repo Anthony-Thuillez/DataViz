@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import BarChart from '../../scripts/BarChart'
-import SortByRate from '../../scripts/SortByRate'
-
-import data from '../../../data.json'
+import BarChart from '../../scripts/BarChart';
 
 class Chart extends Component {
 
