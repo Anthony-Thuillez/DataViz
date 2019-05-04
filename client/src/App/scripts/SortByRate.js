@@ -94,10 +94,30 @@ const medianRate = (data, rate, post) => {
     return (array[half - 1] + array[half]) / 2.0;
 }
 
+/** TESTED ✅
+ * Functions purpose : Get all champions for a specific role
+ * @param {Object[]} data(json) @param {String} role(props)
+ * @return {Object[]} champions found on [role] define
+ */
+const getChampByRole = (data, role) => {
+    let champArr = []
+    for (let i = 0, l = data.length; i < l; i++) {
+        let propertyExist = data[i].hasOwnProperty("role")        
+        if (propertyExist) {
+            if (data[i].role === role) {
+                champArr.push(data[i])
+            }
+        }
+    }    
+    console.log(champArr);
+    
+    return champArr
+}
 module.exports = {
     findNbChampByPost,
     getChampByPost,
+    getChampByRole,
     getSelectedRate,
     orderByRate,
-    medianRate
+    medianRate,
 }

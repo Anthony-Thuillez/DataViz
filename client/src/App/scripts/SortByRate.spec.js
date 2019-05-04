@@ -7,7 +7,8 @@ describe("Sort By Rate", function() {
             "poste": {
                 "mid": 38,
                 "top": 23
-            }
+            },
+            "role": "mage"
         },
         {
             "name": "Yasuo",
@@ -15,7 +16,8 @@ describe("Sort By Rate", function() {
             "poste": {
                 "mid": 28,
                 "jungle": 53
-            }
+            },
+            "role": "combattant"
         }
     ]
 
@@ -31,14 +33,16 @@ describe("Sort By Rate", function() {
             "poste": {
                 "mid": 38,
                 "top": 23
-            }
+            },
+            "role": "mage"
         }, {
             "name": "Yasuo",
             "pick": "80",
             "poste": {
                 "mid": 28,
                 "jungle": 53
-            }
+            },
+            "role": "combattant"
         }]
         expect(SBR.getChampByPost(data_mooc, "mid")).toEqual(
             expect.arrayContaining(expected),
@@ -62,5 +66,20 @@ describe("Sort By Rate", function() {
     it("5/ Calculate the median of the selected rates", function () {
         let expected = 65
         expect(SBR.medianRate(data_mooc, "pick", "mid")).toEqual(expected)
+    })
+
+    it("6/ Get all champions on specific role (mage)", function() {
+        let expected =  [{
+            "name": "Vel'koz",
+            "pick": "50",
+            "poste": {
+                "mid": 38,
+                "top": 23
+            },
+            "role": "mage"
+        }]
+        expect(SBR.getChampByRole(data_mooc, "mage")).toEqual(
+            expect.arrayContaining(expected),
+        )
     })
 })
