@@ -173,8 +173,8 @@ class BarChart extends Component {
             .attr("width", x.bandwidth())
             .attr("y", (d) => y(d.win))
             .attr("height", (d) => height - y(d.win))
-            .style("fill", d => d.win > this.state.median ? "url(#blue-gradient)" : "url(#red-gradient)");
-
+            // eslint-disable-next-line
+            .style("fill", d => d.win > this.state.median || (d.win == this.state.median) ? "url(#blue-gradient)" : "url(#red-gradient)");
         svg.selectAll(".text")
             .data(data)
             .enter()
