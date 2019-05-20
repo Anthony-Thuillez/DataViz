@@ -76,7 +76,7 @@ foreach ($urls as $url => $selector) {
         });
 }
 
-var_dump("Top ", $tierTop);
+// var_dump("Top ", $tierTop);
 // var_dump("Jungle ", $tierJungle);
 // var_dump("Mid ", $tierMid);
 // var_dump("Bot ", $tierBot);
@@ -113,18 +113,27 @@ foreach ($win as $winKey => $winValue) {
 
 $finalTier = [];
 foreach ($tierTop as $topChampion) {
-    foreach ($tierSupport as $supportChampion) {
-        if ($topChampion['name'] == $supportChampion['name']) {
-            if ($topChampion['tier'] > $supportChampion['tier']) {
-                array_push($finalTier, $topChampion);
-            } else {
-                array_push($finalTier, $supportChampion);
-            }
+    $key = array_search($topChampion['name'], array_column($tierSupport, 'name'));
+    if ($key) {
+        if ($topChampion['tier'] < $tierSupport[$key]['tier']) {
+            array_push($finalTier, $topChampion);
+        } else {
+            array_push($finalTier, $tierSupport[$key]);
         }
+    } else {
+        array_push($finalTier, $topChampion);
+    }
+}
+
+foreach ($tierSupport as $supportChampion) {
+    $key = array_search($supportChampion['name'], array_column($tierTop, 'name'));
+    if (!$key) {
+        array_push($finalTier, $supportChampion);
     }
 }
 
 var_dump($finalTier);
+
 
 //$championNames = [];
 
