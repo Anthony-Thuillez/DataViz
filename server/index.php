@@ -110,7 +110,7 @@ foreach ($win as $winKey => $winValue) {
 }
 
 //var_dump($win);
-
+// compare tier top and tier support to put it in finalTier
 $finalTier = [];
 foreach ($tierTop as $topChampion) {
     $key = array_search($topChampion['name'], array_column($tierSupport, 'name'));
@@ -132,13 +132,86 @@ foreach ($tierSupport as $supportChampion) {
     }
 }
 
-var_dump($finalTier);
+// compare final tier and bottom tier to put it in other tier
+$otherTier = [];
+foreach ($tierBot as $bottomChampion) {
+    $key = array_search($bottomChampion['name'], array_column($finalTier, 'name'));
+    if ($key) {
+        if ($bottomChampion['tier'] < $finalTier[$key]['tier']) {
+            array_push($otherTier, $bottomChampion);
+        } else {
+            array_push($otherTier, $finalTier[$key]);
+        }
+    } else {
+        array_push($otherTier, $bottomChampion);
+    }
+}
 
+foreach ($finalTier as $finalChampion) {
+    $key = array_search($finalChampion['name'], array_column($otherTier, 'name'));
+    if (!$key) {
+        array_push($otherTier, $finalChampion);
+    }
+}
 
-//$championNames = [];
+//var_dump($otherTier);
 
-// var_dump($win);
+$newTier = [];
+foreach ($tierJungle as $jungleChampion) {
+    $key = array_search($jungleChampion['name'], array_column($otherTier, 'name'));
+    if ($key) {
+        if ($jungleChampion['tier'] < $otherTier[$key]['tier']) {
+            array_push($newTier, $jungleChampion);
+        } else {
+            array_push($newTier, $otherTier[$key]);
+        }
+    } else {
+        array_push($newTier, $jungleChampion);
+    }
+}
 
+foreach ($otherTier as $otherChampion) {
+    $key = array_search($otherChampion['name'], array_column($newTier, 'name'));
+    if (!$key) {
+        array_push($newTier, $otherChampion);
+    }
+}
+
+//var_dump($newTier);
+
+$encoreTier = [];
+foreach ($tierMid as $midChampion) {
+    $key = array_search($midChampion['name'], array_column($newTier, 'name'));
+    if ($key) {
+        if ($midChampion['tier'] < $newTier[$key]['tier']) {
+            array_push($newTier, $midChampion);
+        } else {
+            array_push($encoreTier, $newTier[$key]);
+        }
+    } else {
+        array_push($encoreTier, $midChampion);
+    }
+}
+
+foreach ($newTier as $newChampion) {
+    $key = array_search($newChampion['name'], array_column($encoreTier, 'name'));
+    if (!$key) {
+        array_push($encoreTier, $newChampion);
+    }
+}
+
+var_dump("tier", $encoreTier);
+
+var_dump("win", $win);
+
+// PDO 
+try {
+    $conn = new PDO('mysql:dbname=dataviz;host=localhost', 'root', 'root');
+} catch (PDOException $exception) {
+    die($exception->getMessage());
+}
+
+// $championNames = [];
 // foreach ($win as $value) {
 //     $championName = strtolower($value['name']);
 //     $championName = str_replace(array(" ", "'", "."), "", $championName);
@@ -175,14 +248,14 @@ var_dump($finalTier);
 //             array_push($occupationByChampion, $placeArray);
 //         });
 // }
-// var_dump($occupationByChampion);
+// var_dump("occupation", $occupationByChampion);
 
-// // PDO 
-// try {
-//     $conn = new PDO('mysql:dbname=dataviz;host=localhost', 'root', 'root');
-// } catch (PDOException $exception) {
-//     die($exception->getMessage());
-// }
+// FAIRE UN TABLEAU AVEC TOUTES INFOS CHAMPIONS
+
+// FAIRE UN TABLEAU DES POSTES
+
+
+
 
 // $poste = new PosteModel();
 // $poste->add($posteArray);
