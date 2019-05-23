@@ -20,7 +20,7 @@ class App extends Component {
                     <Route exact path="/" component={Landing} />
                     <Route path="/Fiche" component={Fiche} />
                     <Route path="/Chart" component={Chart} />
-                    <Route path="/SearchBar" component={SearchBar} />
+                    {/* <Route path="/SearchBar" component={SearchBar} /> */}
                     <Route path="/Integration" component={Integration} />
                     <Route path="/Compare" component={Compare} />
 
