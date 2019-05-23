@@ -12,23 +12,27 @@
     padding: 0 64px;
     .left {
         display: flex;
+        justify-content: center;
         align-items: center
     }
     .logo {
         width: 40px;
+        height: 40px;
     }
     .breadcrumb {
-        display: flex;
-        align-items: center;
         margin-left: 72px;
-        a {
-            font-family: $font-bold;
-            font-size: 12px;
-            color: $blue;
-            text-decoration: none;
-            &:not(:last-child) {
-                margin-right: 10px;
-            }
+    }
+    .navigation {
+
+    }
+    .right {
+        & > .icon-search {
+            cursor: pointer;
+        }
+        .modal-content {
+            width: 416px;
+            height: 254px;
+            overflow: hidden;
         }
     }
 }

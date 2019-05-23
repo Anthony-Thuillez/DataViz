@@ -5,9 +5,9 @@ import Intro from './views/intro';
 import Landing from './views/landing';
 import Fiche from './views/fiche';
 import Chart from './views/graph';
-import SearchBar from './views/SearchBar';
 import Integration from './views/integration';
 import Compare from './views/compare'
+import LiquidChart from './views/liquidChart';
 
 import './styles/main.scss';
 
@@ -20,10 +20,9 @@ class App extends Component {
                     <Route exact path="/" component={Landing} />
                     <Route path="/Fiche" component={Fiche} />
                     <Route path="/Chart" component={Chart} />
-                    <Route path="/SearchBar" component={SearchBar} />
+                    <Route path="/LiquidChart" component={LiquidChart} />
                     <Route path="/Integration" component={Integration} />
                     <Route path="/Compare" component={Compare} />
-
                 </>
             </Router>
         )
