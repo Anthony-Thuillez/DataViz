@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
 
-class LiquidGauge extends React.Component {
+class LiquidGauge extends Component {
 
     state = {
         minValue: 0,
@@ -44,7 +44,7 @@ class LiquidGauge extends React.Component {
     }
 
     renderDisplay = () => {
-        if (!config) var config = this.state;
+        var config = this.state;
 
         var waveHeightScale;
         var gauge = d3.select("#fillgauge");
@@ -87,12 +87,12 @@ class LiquidGauge extends React.Component {
         var textRounder = function (value) {
             return Math.round(value);
         };
-        if (parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))) {
+        if (parseFloat(textFinalValue) !== parseFloat(textRounder(textFinalValue))) {
             textRounder = function (value) {
                 return parseFloat(value).toFixed(1);
             };
         }
-        if (parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))) {
+        if (parseFloat(textFinalValue) !== parseFloat(textRounder(textFinalValue))) {
             textRounder = function (value) {
                 return parseFloat(value).toFixed(2);
             };
