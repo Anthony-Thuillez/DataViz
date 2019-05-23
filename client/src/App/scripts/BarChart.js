@@ -210,9 +210,9 @@ class BarChart extends Component {
                 var Rate = selectedRate
 
                 if (Rate && Rate !== "ban") {
-                    if (d.rate > _median || (d.rate == _median)) { return "url(#blue-gradient)" }
+                    if (d.rate > _median || (d.rate === _median)) { return "url(#blue-gradient)" }
                     else { return "url(#red-gradient)" }
-                } else if (Rate && Rate == "ban") {
+                } else if (Rate && Rate === "ban") {
                     if (d.rate > _median ) { return "url(#red-gradient)" }
                     else { return "url(#blue-gradient)" }
                 }

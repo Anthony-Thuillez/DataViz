@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Filter from '../../components/filter';
 import Champbubble from '../../components/champbubble';
 import Postbubble from '../../components/postbubble';
 
