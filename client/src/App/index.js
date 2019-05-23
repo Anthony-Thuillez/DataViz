@@ -5,7 +5,7 @@ import Intro from './views/intro';
 import Landing from './views/landing';
 import Fiche from './views/fiche';
 import Chart from './views/graph';
-import SearchBar from './views/SearchBar';
+// import SearchBar from './views/SearchBar';
 import Integration from './views/integration';
 import Compare from './views/compare'
 

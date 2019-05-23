@@ -35,6 +35,7 @@ class Fiche extends Component {
             }
         }
     }
+
     componentDidMount() {
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
@@ -63,12 +64,14 @@ class Fiche extends Component {
                 scale: {
                     display: false,
                     ticks: {
-                        beginAtZero: true
+                        beginAtZero: true,
+                        max: 3 
                     }
                 }
             }
         })
     }
+
     render() {
         return (
             <>
