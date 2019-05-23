@@ -1,12 +1,10 @@
 @import '../../styles/variables';
 
-body:not(.integration) .group-btn {
+.group-btn {
     position: fixed;
+    left: 0;
     bottom: 24px;
     width: 100%;
-}
-
-.group-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,8 +19,7 @@ body:not(.integration) .group-btn {
         font-family: $font-bold;
         font-size: 16px;
         cursor: pointer;
-        user-select: none;
-        transition: all 0.3s ease;    
+        user-select: none;   
         &:not(:last-child) {
             margin-right: 16px;
         }

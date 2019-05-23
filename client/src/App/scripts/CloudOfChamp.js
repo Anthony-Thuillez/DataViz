@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-// import * as d3 from "d3";
+import * as d3 from "d3";
+import SortByRate from './SortByRate';
 
-class CloudChart extends Component {
+import data from '../../data.json';
+
+class BubbleChart extends Component {
 
     render() {
         return (
@@ -12,4 +15,4 @@ class CloudChart extends Component {
     }
 }
 
-export default CloudChart;
+export default BubbleChart;
