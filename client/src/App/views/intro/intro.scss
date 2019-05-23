@@ -5,7 +5,7 @@
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 416px;
+    max-width: 362px;
     text-align: center;
     .logo {
         max-width: 192px;
@@ -16,7 +16,7 @@
         line-height: 22px;
         &:last-of-type {
             font-family: $font-bold;
-            font-size: 24px;
+            font-size: 22px;
             line-height: 36px;
         }
     }
@@ -26,10 +26,9 @@
         padding: 16px;
         background: $blue;
         color: $darkblue;
-        font-size: 24px;
+        font-size: 18px;
         text-decoration: none;
         box-shadow: $box-shadow;
-        transition: background 0.3s ease;  
         &:hover {
             background: $gold-gradient;
         }
