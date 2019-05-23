@@ -8,7 +8,6 @@ import ImgRank from '../../assets/img/Hiw-rank.png';
 class Modal extends Component {
     state = {
         active: false,
-
     }
 
     isActive = () => {
@@ -24,7 +23,7 @@ class Modal extends Component {
         return (
             <>
                 <div onClick={this.isActive} className="btn-info"></div>
-                <div className={this.state.active ? 'modal-info active' : 'modal-info'}>
+                <div className={this.state.active ? 'modal active' : 'modal'}>
                     <div onClick={this.isNotActive} className="icon icon-cross"></div>
                     <div className="modal-content">
                         <h2 className="title">How it works ?</h2>

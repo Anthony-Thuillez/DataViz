@@ -89,14 +89,15 @@ class BarChart extends Component {
         return _median
     }
 
-
-
     drawChart(func_firstEl, func_lastEl, func_champ, func_median) {
         let data = func_champ
         let _median = func_median
         let firstEl = func_firstEl
         let lastEl = func_lastEl
-                
+        let { selectedRate } = this.props
+
+        console.log(this.props.selectedRate)
+
         /* Dimentions du graph */
         var margin = { top: 40, right: 40, bottom: 40, left: 60 },
             width = 1000 - margin.left - margin.right,
@@ -194,8 +195,9 @@ class BarChart extends Component {
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
+
         /* Propriété fill du graph */
-        svg.selectAll(".bar")
+        svg.selectAll(".bar", selectedRate)
             .data(data)
             .enter()
             .append("rect")
@@ -204,7 +206,17 @@ class BarChart extends Component {
             .attr("y", (d) => y(d.rate))
             .attr("height", (d) => height - y(d.rate))
             // eslint-disable-next-line
-            .style("fill", d => d.rate > _median || (d.rate == _median) ? "url(#blue-gradient)" : "url(#red-gradient)");
+            .style("fill", function (d) {
+                var Rate = selectedRate
+
+                if (Rate && Rate !== "ban") {
+                    if (d.rate > _median || (d.rate === _median)) { return "url(#blue-gradient)" }
+                    else { return "url(#red-gradient)" }
+                } else if (Rate && Rate === "ban") {
+                    if (d.rate > _median ) { return "url(#red-gradient)" }
+                    else { return "url(#blue-gradient)" }
+                }
+            })
 
         svg.selectAll(".text")
             .data(data)
