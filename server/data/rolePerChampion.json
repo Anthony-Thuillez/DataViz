@@ -1,0 +1,433 @@
+[{
+    "name": "Aatrox",
+    "role": "Fighter"
+}, {
+    "name": "Ahri",
+    "role": "Mage"
+}, {
+    "name": "Akali",
+    "role": "Slayer"
+}, {
+    "name": "Alistar",
+    "role": "Tank"
+}, {
+    "name": "Amumu",
+    "role": "Tank"
+}, {
+    "name": "Anivia",
+    "role": "Mage"
+}, {
+    "name": "Annie",
+    "role": "Mage"
+}, {
+    "name": "Ashe",
+    "role": "Marksman"
+}, {
+    "name": "Aurelion Sol",
+    "role": "Mage"
+}, {
+    "name": "Azir",
+    "role": "Specialist"
+}, {
+    "name": "Bard",
+    "role": "Controller"
+}, {
+    "name": "Blitzcrank",
+    "role": "Controller"
+}, {
+    "name": "Brand",
+    "role": "Mage"
+}, {
+    "name": "Braum",
+    "role": "Tank"
+}, {
+    "name": "Caitlyn",
+    "role": "Marksman"
+}, {
+    "name": "Camille",
+    "role": "Fighter"
+}, {
+    "name": "Cassiopeia",
+    "role": "Mage"
+}, {
+    "name": "Cho'Gath",
+    "role": "Specialist"
+}, {
+    "name": "Corki",
+    "role": "Marksman"
+}, {
+    "name": "Darius",
+    "role": "Fighter"
+}, {
+    "name": "Diana",
+    "role": "Fighter"
+}, {
+    "name": "Dr. Mundo",
+    "role": "Fighter"
+}, {
+    "name": "Draven",
+    "role": "Marksman"
+}, {
+    "name": "Ekko",
+    "role": "Slayer"
+}, {
+    "name": "Elise",
+    "role": "Fighter"
+}, {
+    "name": "Evelynn",
+    "role": "Slayer"
+}, {
+    "name": "Ezreal",
+    "role": "Marksman"
+}, {
+    "name": "Fiddlesticks",
+    "role": "Specialist"
+}, {
+    "name": "Fiora",
+    "role": "Slayer"
+}, {
+    "name": "Fizz",
+    "role": "Slayer"
+}, {
+    "name": "Galio",
+    "role": "Tank"
+}, {
+    "name": "Gangplank",
+    "role": "Specialist"
+}, {
+    "name": "Garen",
+    "role": "Fighter"
+}, {
+    "name": "Gnar",
+    "role": "Specialist"
+}, {
+    "name": "Gragas",
+    "role": "Tank"
+}, {
+    "name": "Graves",
+    "role": "Specialist"
+}, {
+    "name": "Hecarim",
+    "role": "Fighter"
+}, {
+    "name": "Heimerdinger",
+    "role": "Specialist"
+}, {
+    "name": "Illaoi",
+    "role": "Fighter"
+}, {
+    "name": "Irelia",
+    "role": "Fighter"
+}, {
+    "name": "Ivern",
+    "role": "Controller"
+}, {
+    "name": "Janna",
+    "role": "Controller"
+}, {
+    "name": "Jarvan IV",
+    "role": "Fighter"
+}, {
+    "name": "Jax",
+    "role": "Slayer"
+}, {
+    "name": "Jayce",
+    "role": "Mage"
+}, {
+    "name": "Jhin",
+    "role": "Marksman"
+}, {
+    "name": "Jinx",
+    "role": "Marksman"
+}, {
+    "name": "Kai'Sa",
+    "role": "Marksman"
+}, {
+    "name": "Kalista",
+    "role": "Marksman"
+}, {
+    "name": "Karma",
+    "role": "Mage"
+}, {
+    "name": "Karthus",
+    "role": "Mage"
+}, {
+    "name": "Kassadin",
+    "role": "Slayer"
+}, {
+    "name": "Katarina",
+    "role": "Slayer"
+}, {
+    "name": "Kayle",
+    "role": "Specialist"
+}, {
+    "name": "Kayn",
+    "role": "Slayer"
+}, {
+    "name": "Kennen",
+    "role": "Specialist"
+}, {
+    "name": "Kha'Zix",
+    "role": "Slayer"
+}, {
+    "name": "Kindred",
+    "role": "Marksman"
+}, {
+    "name": "Kled",
+    "role": "Fighter"
+}, {
+    "name": "Kog'Maw",
+    "role": "Marksman"
+}, {
+    "name": "LeBlanc",
+    "role": "Mage"
+}, {
+    "name": "Lee Sin",
+    "role": "Fighter"
+}, {
+    "name": "Leona",
+    "role": "Tank"
+}, {
+    "name": "Lissandra",
+    "role": "Mage"
+}, {
+    "name": "Lucian",
+    "role": "Marksman"
+}, {
+    "name": "Lulu",
+    "role": "Controller"
+}, {
+    "name": "Lux",
+    "role": "Mage"
+}, {
+    "name": "Malphite",
+    "role": "Tank"
+}, {
+    "name": "Malzahar",
+    "role": "Mage"
+}, {
+    "name": "Maokai",
+    "role": "Tank"
+}, {
+    "name": "Master Yi",
+    "role": "Slayer"
+}, {
+    "name": "Miss Fortune",
+    "role": "Marksman"
+}, {
+    "name": "Mordekaiser",
+    "role": "Fighter"
+}, {
+    "name": "Morgana",
+    "role": "Controller"
+}, {
+    "name": "Nami",
+    "role": "Controller"
+}, {
+    "name": "Nasus",
+    "role": "Fighter"
+}, {
+    "name": "Nautilus",
+    "role": "Tank"
+}, {
+    "name": "Neeko",
+    "role": "Mage"
+}, {
+    "name": "Nidalee",
+    "role": "Specialist"
+}, {
+    "name": "Nocturne",
+    "role": "Slayer"
+}, {
+    "name": "Nunu",
+    "role": "Tank"
+}, {
+    "name": "Olaf",
+    "role": "Fighter"
+}, {
+    "name": "Orianna",
+    "role": "Mage"
+}, {
+    "name": "Ornn",
+    "role": "Tank"
+}, {
+    "name": "Pantheon",
+    "role": "Fighter"
+}, {
+    "name": "Poppy",
+    "role": "Tank"
+}, {
+    "name": "Pyke",
+    "role": "Slayer"
+}, {
+    "name": "Quinn",
+    "role": "Specialist"
+}, {
+    "name": "Rakan",
+    "role": "Controller"
+}, {
+    "name": "Rammus",
+    "role": "Tank"
+}, {
+    "name": "Rek'Sai",
+    "role": "Fighter"
+}, {
+    "name": "Renekton",
+    "role": "Fighter"
+}, {
+    "name": "Rengar",
+    "role": "Fighter"
+}, {
+    "name": "Riven",
+    "role": "Slayer"
+}, {
+    "name": "Rumble",
+    "role": "Mage"
+}, {
+    "name": "Ryze",
+    "role": "Mage"
+}, {
+    "name": "Sejuani",
+    "role": "Tank"
+}, {
+    "name": "Shaco",
+    "role": "Slayer"
+}, {
+    "name": "Shen",
+    "role": "Tank"
+}, {
+    "name": "Shyvana",
+    "role": "Fighter"
+}, {
+    "name": "Singed",
+    "role": "Specialist"
+}, {
+    "name": "Sion",
+    "role": "Tank"
+}, {
+    "name": "Sivir",
+    "role": "Marksman"
+}, {
+    "name": "Skarner",
+    "role": "Fighter"
+}, {
+    "name": "Sona",
+    "role": "Controller"
+}, {
+    "name": "Soraka",
+    "role": "Controller"
+}, {
+    "name": "Swain",
+    "role": "Mage"
+}, {
+    "name": "Sylas",
+    "role": "Mage"
+}, {
+    "name": "Syndra",
+    "role": "Mage"
+}, {
+    "name": "Tahm Kench",
+    "role": "Tank"
+}, {
+    "name": "Taliyah",
+    "role": "Mage"
+}, {
+    "name": "Talon",
+    "role": "Slayer"
+}, {
+    "name": "Taric",
+    "role": "Controller"
+}, {
+    "name": "Teemo",
+    "role": "Specialist"
+}, {
+    "name": "Thresh",
+    "role": "Controller"
+}, {
+    "name": "Tristana",
+    "role": "Marksman"
+}, {
+    "name": "Trundle",
+    "role": "Fighter"
+}, {
+    "name": "Tryndamere",
+    "role": "Slayer"
+}, {
+    "name": "Twisted Fate",
+    "role": "Mage"
+}, {
+    "name": "Twitch",
+    "role": "Marksman"
+}, {
+    "name": "Udyr",
+    "role": "Fighter"
+}, {
+    "name": "Urgot",
+    "role": "Fighter"
+}, {
+    "name": "Varus",
+    "role": "Marksman"
+}, {
+    "name": "Vayne",
+    "role": "Marksman"
+}, {
+    "name": "Veigar",
+    "role": "Mage"
+}, {
+    "name": "Vel'Koz",
+    "role": "Mage"
+}, {
+    "name": "Vi",
+    "role": "Fighter"
+}, {
+    "name": "Viktor",
+    "role": "Mage"
+}, {
+    "name": "Vladimir",
+    "role": "Mage"
+}, {
+    "name": "Volibear",
+    "role": "Fighter"
+}, {
+    "name": "Warwick",
+    "role": "Fighter"
+}, {
+    "name": "Wukong",
+    "role": "Fighter"
+}, {
+    "name": "Xayah",
+    "role": "Marksman"
+}, {
+    "name": "Xerath",
+    "role": "Mage"
+}, {
+    "name": "Xin Zhao",
+    "role": "Fighter"
+}, {
+    "name": "Yasuo",
+    "role": "Slayer"
+}, {
+    "name": "Yorick",
+    "role": "Fighter"
+}, {
+    "name": "Yuumi",
+    "role": "Controller"
+}, {
+    "name": "Zac",
+    "role": "Tank"
+}, {
+    "name": "Zed",
+    "role": "Slayer"
+}, {
+    "name": "Ziggs",
+    "role": "Mage"
+}, {
+    "name": "Zilean",
+    "role": "Specialist"
+}, {
+    "name": "Zoe",
+    "role": "Mage"
+}, {
+    "name": "Zyra",
+    "role": "Controller"
+}]

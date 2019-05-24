@@ -1,0 +1,1585 @@
+[{
+        "name": "Zilean",
+        "title": "the Chronokeeper",
+        "skills": {
+            "damage": 2,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Draven",
+        "title": "the Glorious Executioner",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Sona",
+        "title": "Maven of the Strings",
+        "skills": {
+            "damage": 2,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Bard",
+        "title": "the Wandering Caretaker",
+        "skills": {
+            "damage": 1,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 2,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Taliyah",
+        "title": "the Stoneweaver",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 1,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Jinx",
+        "title": "the Loose Cannon",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Nautilus",
+        "title": "the Titan of the Depths",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Aurelion Sol",
+        "title": "the Star Forger",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Sivir",
+        "title": "the Battle Mistress",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 0,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Vi",
+        "title": "the Piltover Enforcer",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 3,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Ahri",
+        "title": "the Nine-Tailed Fox",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Talon",
+        "title": "the Blade's Shadow",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 1,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Yorick",
+        "title": "Shepherd of Souls",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Rammus",
+        "title": "the Armordillo",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Kled",
+        "title": "the Cantankerous Cavalier",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 3,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Malzahar",
+        "title": "the Prophet of the Void",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Rumble",
+        "title": "the Mechanized Menace",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Lux",
+        "title": "the Lady of Luminosity",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Volibear",
+        "title": "the Thunder's Roar",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Taric",
+        "title": "the Shield of Valoran",
+        "skills": {
+            "damage": 1,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 0,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Shaco",
+        "title": "the Demon Jester",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Janna",
+        "title": "the Storm's Fury",
+        "skills": {
+            "damage": 1,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Sejuani",
+        "title": "Fury of the North",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 3,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Illaoi",
+        "title": "the Kraken Priestess",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 0,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Karthus",
+        "title": "the Deathsinger",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Maokai",
+        "title": "the Twisted Treant",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Elise",
+        "title": "the Spider Queen",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Gangplank",
+        "title": "the Saltwater Scourge",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 1,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Ashe",
+        "title": "the Frost Archer",
+        "skills": {
+            "damage": 2,
+            "toughness": 0,
+            "control": 3,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Xin Zhao",
+        "title": "the Seneschal of Demacia",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Leona",
+        "title": "the Radiant Dawn",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Rengar",
+        "title": "the Pridestalker",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Fizz",
+        "title": "the Tidal Trickster",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Fiddlesticks",
+        "title": "the Harbinger of Doom",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Aatrox",
+        "title": "the Darkin Blade",
+        "skills": {
+            "damage": 3,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Vel'Koz",
+        "title": "the Eye of the Void",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 0,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Cassiopeia",
+        "title": "the Serpent's Embrace",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Ivern",
+        "title": "the Green Father",
+        "skills": {
+            "damage": 1,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 2,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Rakan",
+        "title": "the Charmer",
+        "skills": {
+            "damage": 1,
+            "toughness": 2,
+            "control": 3,
+            "mobility": 3,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Thresh",
+        "title": "the Chain Warden",
+        "skills": {
+            "damage": 1,
+            "toughness": 2,
+            "control": 3,
+            "mobility": 1,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Olaf",
+        "title": "the Berserker",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Ekko",
+        "title": "the Boy Who Shattered Time",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Twitch",
+        "title": "the Plague Rat",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Zed",
+        "title": "the Master of Shadows",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Pantheon",
+        "title": "the Artisan of War",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Xayah",
+        "title": "the Rebel",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Nami",
+        "title": "the Tidecaller",
+        "skills": {
+            "damage": 1,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Evelynn",
+        "title": "Agony's Embrace",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Pyke",
+        "title": "the Bloodharbor Ripper",
+        "skills": {
+            "damage": 2,
+            "toughness": 0,
+            "control": 3,
+            "mobility": 3,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Nunu & Willump",
+        "title": "the Boy and his Yeti",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Anivia",
+        "title": "the Cryophoenix",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Quinn",
+        "title": "Demacia's Wings",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 3,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Kassadin",
+        "title": "the Void Walker",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Zyra",
+        "title": "Rise of the Thorns",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 3,
+            "mobility": 0,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Wukong",
+        "title": "the Monkey King",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Mordekaiser",
+        "title": "the Iron Revenant",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 0,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Miss Fortune",
+        "title": "the Bounty Hunter",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Soraka",
+        "title": "the Starchild",
+        "skills": {
+            "damage": 1,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 1,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Darius",
+        "title": "the Hand of Noxus",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 0,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Garen",
+        "title": "the Might of Demacia",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 1,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Swain",
+        "title": "the Noxian Grand General",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 0,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Blitzcrank",
+        "title": "the Great Steam Golem",
+        "skills": {
+            "damage": 1,
+            "toughness": 2,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Kennen",
+        "title": "the Heart of the Tempest",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Poppy",
+        "title": "Keeper of the Hammer",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Nidalee",
+        "title": "the Bestial Huntress",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 0,
+            "mobility": 3,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Katarina",
+        "title": "the Sinister Blade",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 0,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Riven",
+        "title": "the Exile",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Rek'Sai",
+        "title": "the Void Burrower",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Xerath",
+        "title": "the Magus Ascendant",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 0,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Kayle",
+        "title": "the Righteous",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 1,
+            "mobility": 1,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Renekton",
+        "title": "the Butcher of the Sands",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Lulu",
+        "title": "the Fae Sorceress",
+        "skills": {
+            "damage": 2,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 1,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Twisted Fate",
+        "title": "the Card Master",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Corki",
+        "title": "the Daring Bombardier",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Sion",
+        "title": "the Undead Juggernaut",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Warwick",
+        "title": "the Uncaged Wrath of Zaun",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Tryndamere",
+        "title": "the Barbarian King",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Amumu",
+        "title": "the Sad Mummy",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Kayn",
+        "title": "the Shadow Reaper",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 1,
+            "mobility": 3,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Neeko",
+        "title": "the Curious Chameleon",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Cho'Gath",
+        "title": "the Terror of the Void",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 0,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Jax",
+        "title": "Grandmaster at Arms",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Tahm Kench",
+        "title": "the River King",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 1,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Hecarim",
+        "title": "the Shadow of War",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Camille",
+        "title": "the Steel Shadow",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Jayce",
+        "title": "the Defender of Tomorrow",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Zoe",
+        "title": "the Aspect of Twilight",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Ziggs",
+        "title": "the Hexplosives Expert",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Kai'Sa",
+        "title": "Daughter of the Void",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 0,
+            "mobility": 3,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Shen",
+        "title": "the Eye of Twilight",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 2,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Morgana",
+        "title": "the Fallen",
+        "skills": {
+            "damage": 2,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Heimerdinger",
+        "title": "the Revered Inventor",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Vladimir",
+        "title": "the Crimson Reaper",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Kindred",
+        "title": "the Eternal Hunters",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 3,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Veigar",
+        "title": "the Tiny Master of Evil",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Teemo",
+        "title": "the Swift Scout",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Annie",
+        "title": "the Dark Child",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 0,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Kog'Maw",
+        "title": "the Mouth of the Abyss",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 0,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Tristana",
+        "title": "the Yordle Gunner",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Brand",
+        "title": "the Burning Vengeance",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 0,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Shyvana",
+        "title": "the Half-Dragon",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 0,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Karma",
+        "title": "the Enlightened One",
+        "skills": {
+            "damage": 2,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Gnar",
+        "title": "the Missing Link",
+        "skills": {
+            "damage": 2,
+            "toughness": 1,
+            "control": 1,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Skarner",
+        "title": "the Crystal Vanguard",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Udyr",
+        "title": "the Spirit Walker",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Vayne",
+        "title": "the Night Hunter",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Ezreal",
+        "title": "the Prodigal Explorer",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 0,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Ornn",
+        "title": "the Fire Below The Mountain",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Orianna",
+        "title": "the Lady of Clockwork",
+        "skills": {
+            "damage": 2,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Zac",
+        "title": "the Secret Weapon",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Sylas",
+        "title": "the Unshackled",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 3,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Urgot",
+        "title": "the Dreadnought",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Kha'Zix",
+        "title": "the Voidreaver",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 1,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Alistar",
+        "title": "the Minotaur",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Graves",
+        "title": "the Outlaw",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 1,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Lee Sin",
+        "title": "the Blind Monk",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 3,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Fiora",
+        "title": "the Grand Duelist",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Caitlyn",
+        "title": "the Sheriff of Piltover",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Jarvan IV",
+        "title": "the Exemplar of Demacia",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Jhin",
+        "title": "the Virtuoso",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Azir",
+        "title": "the Emperor of the Sands",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Dr. Mundo",
+        "title": "the Madman of Zaun",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 1,
+            "mobility": 0,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Lucian",
+        "title": "the Purifier",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 0,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Master Yi",
+        "title": "the Wuju Bladesman",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 0,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Lissandra",
+        "title": "the Ice Witch",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 3,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Irelia",
+        "title": "the Blade Dancer",
+        "skills": {
+            "damage": 2,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 3,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Malphite",
+        "title": "Shard of the Monolith",
+        "skills": {
+            "damage": 1,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 1,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Varus",
+        "title": "the Arrow of Retribution",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 0,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Viktor",
+        "title": "the Machine Herald",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 1,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Braum",
+        "title": "the Heart of the Freljord",
+        "skills": {
+            "damage": 1,
+            "toughness": 2,
+            "control": 3,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Gragas",
+        "title": "the Rabble Rouser",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Singed",
+        "title": "the Mad Chemist",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Nasus",
+        "title": "the Curator of the Sands",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 2,
+            "mobility": 0,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Trundle",
+        "title": "the Troll King",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 1,
+            "mobility": 1,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Kalista",
+        "title": "the Spear of Vengeance",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 1,
+            "mobility": 3,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Yasuo",
+        "title": "the Unforgiven",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 3,
+            "utility": 2
+        }
+    },
+    {
+        "name": "LeBlanc",
+        "title": "the Deceiver",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 3,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Nocturne",
+        "title": "the Eternal Nightmare",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Diana",
+        "title": "Scorn of the Moon",
+        "skills": {
+            "damage": 3,
+            "toughness": 2,
+            "control": 2,
+            "mobility": 2,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Galio",
+        "title": "the Colossus",
+        "skills": {
+            "damage": 2,
+            "toughness": 3,
+            "control": 3,
+            "mobility": 2,
+            "utility": 1
+        }
+    },
+    {
+        "name": "Ryze",
+        "title": "the Rune Mage",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 2
+        }
+    },
+    {
+        "name": "Yuumi",
+        "title": "the Magical Cat",
+        "skills": {
+            "damage": 1,
+            "toughness": 1,
+            "control": 2,
+            "mobility": 2,
+            "utility": 3
+        }
+    },
+    {
+        "name": "Syndra",
+        "title": "the Dark Sovereign",
+        "skills": {
+            "damage": 3,
+            "toughness": 0,
+            "control": 2,
+            "mobility": 0,
+            "utility": 0
+        }
+    },
+    {
+        "name": "Akali",
+        "title": "the Rogue Assassin",
+        "skills": {
+            "damage": 3,
+            "toughness": 1,
+            "control": 1,
+            "mobility": 3,
+            "utility": 1
+        }
+    }
+]

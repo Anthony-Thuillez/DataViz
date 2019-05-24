@@ -1,5 +1,4 @@
-[
-    {
+[{
         "id": "0",
         "name": "Vel'koz",
         "rank": "S",
@@ -11,7 +10,7 @@
         "control": "60",
         "mobility": "20",
         "utility": "10",
-        "img": "img",
+        "img": "https://cdn.pandascore.co/images/lol/champion/image/d5eb5c576e413c134674965c42f192d7.png",
         "icon": "icon",
         "poste": {
             "mid": 38,
