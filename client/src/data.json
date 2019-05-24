@@ -31,7 +31,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "",
         "poste": {
             "mid": 28,
@@ -51,7 +51,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "img",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "icon",
         "poste": {
             "bottom": 78
@@ -70,7 +70,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "",
         "poste": {
             "top": 44
@@ -89,7 +89,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "img",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "icon",
         "poste": {
             "jungle": 23,
@@ -109,7 +109,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "jungle": 12,
@@ -130,7 +130,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "img",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "icon",
         "poste": {
             "bottom": 55,
@@ -150,7 +150,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "top": 21,
@@ -170,7 +170,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "mid": 68
@@ -189,7 +189,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "top": 76
@@ -208,7 +208,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "top": 90
@@ -227,7 +227,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "img",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "icon",
         "poste": {
             "jgl": 38,
@@ -247,7 +247,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "1",
-        "img": "",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "",
         "poste": {
             "mid": 48,
@@ -267,7 +267,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "img",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "icon",
         "poste": {
             "support": 80,
@@ -287,7 +287,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "",
         "poste": {
             "top": 44,
@@ -307,7 +307,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "img",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "icon",
         "poste": {
             "jungle": 30,
@@ -327,7 +327,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "jungle": 20,
@@ -347,7 +347,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "img",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "icon",
         "poste": {
             "bottom": 70,
@@ -367,7 +367,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "bottom": 90
@@ -386,7 +386,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "bottom": 70,
@@ -406,7 +406,7 @@
         "control": "1",
         "mobility": "2",
         "utility": "10",
-        "img": "pouet",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
         "icon": "pouettepouette",
         "poste": {
             "supp": 90,
