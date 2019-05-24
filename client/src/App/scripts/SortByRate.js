@@ -108,8 +108,7 @@ const getChampByRole = (data, role) => {
                 champArr.push(data[i])
             }
         }
-    }    
-    console.log(champArr);
+    }
     
     return champArr
 }
