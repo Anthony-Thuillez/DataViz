@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import Breadcrumbs from '../breadcrumb';
 import SearchBar from '../searchBar';
@@ -18,7 +19,8 @@ class Header extends Component {
                     <Breadcrumbs />
                 </div>
                 <div className="navigation">
-
+                    <Link to="/" className="navigation-link active"><span>Home</span></Link>
+                    <Link to="./compare" className="navigation-link"><span>Compare</span></Link>
                 </div>
                 <div className="right">
                     <SearchBar /> 

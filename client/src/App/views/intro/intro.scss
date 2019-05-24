@@ -1,5 +1,11 @@
 @import '../../styles/variables';
 
+body.intro {
+    .header {
+        display: none;
+    }
+}
+
 .box-intro {
     z-index: 2;
     position: absolute;
