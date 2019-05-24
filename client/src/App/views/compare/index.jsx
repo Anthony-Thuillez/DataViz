@@ -44,6 +44,9 @@ class Compare extends Component {
                 slot_left_name: '',
                 slot_left_img: ''
             })
+            left_win_rate.innerHTML = ''
+            left_ban_rate.innerHTML = ''
+            left_pick_rate.innerHTML = ''
         }
         if (this.state.slot_right_name === champCaracteristics.name) {
             name_slotRight.innerHTML = 'Select a champion'
@@ -51,6 +54,9 @@ class Compare extends Component {
                 slot_right_name: '',
                 slot_right_img: ''
             })
+            right_win_rate.innerHTML = ''
+            right_ban_rate.innerHTML = ''
+            right_pick_rate.innerHTML = ''
         }
         
         if (this.state.slot_left_name === '' && this.state.slot_right_name !== champCaracteristics.name) {
