@@ -9,7 +9,7 @@ class Liquid extends React.Component {
     render() {
         return (
             <div>
-                <LiquidChart value="50" />
+                <LiquidChart value={this.state.value} />
             </div>
         );
     }
