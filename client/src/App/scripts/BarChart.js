@@ -34,6 +34,12 @@ class BarChart extends Component {
         chart.remove();
     }
 
+    componentWillUnmount() {
+        let chart = document.querySelector('svg');
+        chart.remove();
+
+    }
+
     componentWillMount() {
         this.drawChart(
             this.findFirstValOfArray(),
