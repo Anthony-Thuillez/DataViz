@@ -4,6 +4,9 @@ describe("Sort By Rate", function() {
     let data_mooc = [{
             "name": "Vel'koz",
             "pick": "50",
+            "ban": "20",
+            "win": "60",
+            "img": "img",
             "poste": {
                 "mid": 38,
                 "top": 23
@@ -13,6 +16,9 @@ describe("Sort By Rate", function() {
         {
             "name": "Yasuo",
             "pick": "80",
+            "ban": "80",
+            "win": "30",
+            "img": "",
             "poste": {
                 "mid": 28,
                 "jungle": 53
@@ -80,6 +86,19 @@ describe("Sort By Rate", function() {
         }]
         expect(SBR.getChampByRole(data_mooc, "mage")).toEqual(
             expect.arrayContaining(expected),
+        )
+    })
+
+    it("7/ Get a champion on a specific name", function () {
+        let expected = {
+            "name": "Vel'koz",
+            "img": "img",
+            "pick": "50",
+            "ban": "20",
+            "win": "60"
+        }
+        expect(SBR.getChampByName(data_mooc, "Vel'koz")).toEqual(
+            expect.objectContaining(expected),
         )
     })
 })

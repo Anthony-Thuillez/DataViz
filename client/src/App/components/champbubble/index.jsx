@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import './champbubble.scss';
 
@@ -12,11 +13,11 @@ export default class Champbubble extends Component {
     render() {
         return (
             <>
-                <div className="btn-champ" style={{ backgroundImage: `url(${champImg1})` }}></div>
-                <div className="btn-champ" style={{ backgroundImage: `url(${champImg2})` }}></div>
-                <div className="btn-champ" style={{ backgroundImage: `url(${champImg3})` }}></div>
-                <div className="btn-champ" style={{ backgroundImage: `url(${champImg4})` }}></div>
-                <div className="btn-champ" style={{ backgroundImage: `url(${champImg5})` }}></div>
+                <Link to="./fiche" className="btn-champ" style={{ backgroundImage: `url(${champImg1})` }} />
+                <Link to="./fiche" className="btn-champ" style={{ backgroundImage: `url(${champImg2})` }} />
+                <Link to="./fiche" className="btn-champ" style={{ backgroundImage: `url(${champImg3})` }} />
+                <Link to="./fiche" className="btn-champ" style={{ backgroundImage: `url(${champImg4})` }} />
+                <Link to="./fiche" className="btn-champ" style={{ backgroundImage: `url(${champImg5})` }} />
             </>
         )
     }
