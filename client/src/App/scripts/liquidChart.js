@@ -8,7 +8,6 @@ class LiquidGauge extends React.Component {
         maxValue: 100,
         circleThickness: 0.05,
         circleFillGap: 0,
-        circleColor: "#007DBC",
         waveHeight: 0.05,
         waveCount: 1,
         waveRiseTime: 1000,
@@ -16,7 +15,6 @@ class LiquidGauge extends React.Component {
         waveRise: true,
         waveHeightScaling: true,
         waveAnimate: true,
-        waveColor: "#00CBE0",
         waveOffset: 0,
         textVertPosition: 0.5,
         textSize: 0.8,
@@ -73,7 +71,7 @@ class LiquidGauge extends React.Component {
             x2: points[(i + 1) % numPoints].x,
             y2: points[(i + 1) % numPoints].y
         }));
-        
+
         var fillPercent =
             Math.max(config.minValue, Math.min(config.maxValue, this.props.value)) /
             config.maxValue;
@@ -158,6 +156,30 @@ class LiquidGauge extends React.Component {
                 ")"
             );
 
+
+        /* 180deg du gradient */
+        var defs = gaugeGroup.append("defs");
+
+        var linearGradient = defs.append("linearGradient")
+            .attr("id", "gradientColor")
+            .attr("x1", "0%")
+            .attr("y1", "0%")
+            .attr("x2", "0%")
+            .attr("y2", "100%");
+
+        /* Haut du gradient */
+        linearGradient.append("stop")
+            .attr("offset", "0%")
+            // .attr("stop-color", "#FC0044");
+            .attr("stop-color", "#00CBE0");
+            // "#00CBE0", "rgba(0, 203, 224, 0.2)"
+
+        /* Bas du gradient */
+        linearGradient.append("stop")
+            .attr("offset", "98.8%")
+            // .attr("stop-color", "rgba(252, 0, 68, 0.2)");
+            .attr("stop-color", "rgba(0, 203, 224, 0.2)");
+
         var clipArea = d3.area()
             .x(function (d) {
                 return waveScaleX(d.x);
@@ -190,7 +212,7 @@ class LiquidGauge extends React.Component {
                 ${wheelLines.map(({ x2, y2 }) =>
                 'L ' + (x2 - 75) + " " + y2
             )}`)
-            .style("fill", config.waveColor);
+            .style("fill", "url(#gradientColor)");
         gauge.selectAll('line').data(wheelLines)
             .enter().append('line')
             .attr('x1', d => d.x1)

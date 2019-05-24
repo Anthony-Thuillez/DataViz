@@ -3,7 +3,6 @@ import * as d3 from "d3";
 import SortByRate from './SortByRate';
 import { connect } from 'react-redux';
 
-
 import data from '../../data.json';
 
 const linearGradient = (svg, id, color1, color2) => {
@@ -95,8 +94,6 @@ class BarChart extends Component {
         let firstEl = func_firstEl
         let lastEl = func_lastEl
         let { selectedRate } = this.props
-
-        console.log(this.props.selectedRate)
 
         /* Dimentions du graph */
         var margin = { top: 40, right: 40, bottom: 40, left: 60 },
