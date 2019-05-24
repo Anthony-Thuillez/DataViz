@@ -12,22 +12,32 @@
 
 @font-face {
     font-family: "lato";
-    src: url(../assets/fonts/Lato-Regular.ttf);
+    src: url(../assets/fonts/lato/Lato-Regular.ttf);
 }
 
 @font-face {
     font-family: "lato-hairline";
-    src: url(../assets/fonts/Lato-Hairline.ttf);
+    src: url(../assets/fonts/lato/Lato-Hairline.ttf);
 }
 
 @font-face {
     font-family: "lato-light";
-    src: url(../assets/fonts/Lato-Light.ttf);
+    src: url(../assets/fonts/lato/Lato-Light.ttf);
 }
 
 @font-face {
     font-family: "lato-bold";
-    src: url(../assets/fonts/Lato-Bold.ttf);
+    src: url(../assets/fonts/lato/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: "martel";
+    src: url(../assets/fonts/martel/Martel-Regular.ttf);
+}
+
+@font-face {
+    font-family: "martel-bold";
+    src: url(../assets/fonts/martel/Martel-Bold.ttf);
 }
 
 html, body {
@@ -46,10 +56,6 @@ body {
     }
 }
 
-h1 {
-    margin-bottom: 20px;
-}
-
 img {
     max-width: 100%;
 }
@@ -57,21 +63,6 @@ img {
 .title {
     font-family: $font-bold;
     font-size: 24px;
-}
-
-.wrapper {
-    max-width: 1440px;
-    margin: 0 auto;
-    &.main {
-        padding-top: 56px;
-    }
-}
-
-.container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin: 20px 0;
 }
 
 .icon {

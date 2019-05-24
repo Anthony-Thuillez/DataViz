@@ -1,6 +1,13 @@
 @import '../../styles/variables';
 
-body.integration .block {
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.color {
     width: 100px;
     height: 100px;
     border-radius: 8px;
