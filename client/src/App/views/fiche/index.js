@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import SortByRate from '../../scripts/SortByRate'
-import data from '../../../data.json'
+import { connect } from 'react-redux';
+
+// import data from '../../../data.json'
 import Chart from 'chart.js';
 
 
@@ -10,45 +12,43 @@ class Fiche extends Component {
      * @return {String[]} the statistics of a champion
     */
     getAllStats(name) {
-        let champions = SortByRate.getChampByPost(data, "top")
+        let champions = SortByRate.getChampByPost(this.props.data, "top")        
         let championStats = champions.map(function (champ) {
             return {
                 name: champ.name,
                 damage: champ.damage,
-                tankiness: champ.tankiness,
+                toughness: champ.toughness,
                 control: champ.control,
-                mobility: champ.mobility,
+                speed: champ.speed,
                 utility: champ.utility
             }
         });
-        console.log(championStats, "championStats");
         for (let i = 0; i < championStats.length; i++) {
             if (championStats[i].name === name) {
                 let stats = {
                     damage: championStats[i].damage,
-                    tankiness: championStats[i].tankiness,
+                    toughness: championStats[i].toughness,
                     control: championStats[i].control,
-                    mobility: championStats[i].mobility,
+                    speed: championStats[i].speed,
                     utility: championStats[i].utility
                 }
                 return Object.values(stats)
             }
         }
     }
-
     componentDidMount() {
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
         Chart.platform.disableCSSInjection = true;
-        ctx.canvas.parentNode.style.height = '157px';
-        ctx.canvas.parentNode.style.width = '157px';
+        ctx.canvas.parentNode.style.height = '357px';
+        ctx.canvas.parentNode.style.width = '357px';
         new Chart(ctx, {
             // The type of chart we want to create
             type: 'radar',
 
             // The data for our dataset
             data: {
-                labels: ['damage', "tankiness", 'control', "mobility", 'utility'],
+                labels: ['damage', "toughness", 'control', "speed", 'utility'],
                 datasets: [{
                     backgroundColor: 'rgba(0, 203, 224, 0.455)',
                     data: this.getAllStats("Akali"),
@@ -62,7 +62,7 @@ class Fiche extends Component {
             options: {
                 maintainAspectRatio: false,
                 scale: {
-                    display: false,
+                    display: true,
                     ticks: {
                         beginAtZero: true,
                         max: 3 
@@ -72,7 +72,7 @@ class Fiche extends Component {
         })
     }
 
-    render() {
+    render() {        
         return (
             <>
                 <canvas id="myChart"></canvas>
@@ -80,5 +80,9 @@ class Fiche extends Component {
         )
     }
 }
-
-export default Fiche
+const mapStateToProps = (state) => {
+    return {
+        data: state.data
+    }
+}
+export default connect(mapStateToProps, null)(Fiche);

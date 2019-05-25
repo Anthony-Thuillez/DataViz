@@ -102,10 +102,15 @@ const medianRate = (data, rate, post) => {
 const getChampByRole = (data, role) => {
     let champArr = []
     for (let i = 0, l = data.length; i < l; i++) {
-        let propertyExist = data[i].hasOwnProperty("role")        
+        let propertyExist = data[i].hasOwnProperty("role")
         if (propertyExist) {
             if (data[i].role === role) {
                 champArr.push(data[i])
+            } else {
+                console.log("something happend");
+                console.log("role", role);
+                console.log("data[i].role", data[i].role);
+                
             }
         }
     }
@@ -127,7 +132,8 @@ const getChampByName = (data, name) => {
             if (data[i].name === name) {
                 champObj = {
                     name: data[i].name,
-                    img: data[i].img,
+                    img: data[i].image,
+                    icon: data[i].icon,
                     pick: data[i].pick,
                     ban: data[i].ban,
                     win: data[i].win

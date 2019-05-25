@@ -1,9 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import SortByRate from '../../scripts/SortByRate'
-import data from '../../../data.json'
-
-/* Used for testing */
-import '../../components/champbubble/champbubble.scss';
+import { connect } from 'react-redux';
 
 class Compare extends Component {
     state =  {
@@ -11,12 +8,14 @@ class Compare extends Component {
         slot_left_name: '',
         slot_right_name: '',
 
-        slot_left_img: '',
-        slot_right_img: ''
+        slot_left_icon: '',
+        slot_right_icon: ''
     }
     getDataRole = (event) => {
-        let role = event.target.getAttribute('datarole')
-        let champions = SortByRate.getChampByRole(data, role)
+        let role = event.target.getAttribute('datarole')        
+        let champions = SortByRate.getChampByRole(this.props.data, role)
+        console.log("func", SortByRate.getChampByRole(this.props.data, role));
+        
         this.setState({
             champions: champions
         })        
@@ -24,7 +23,7 @@ class Compare extends Component {
     
     retrieveChampCaracteristics(e) {
         let championName = e.target.getAttribute('id')
-        let champCaracteristics = SortByRate.getChampByName(data, championName)
+        let champCaracteristics = SortByRate.getChampByName(this.props.data, championName)
 
         let name_slotLeft = document.querySelector('.champion-slot-left-name')
         let name_slotRight = document.querySelector('.champion-slot-right-name')
@@ -42,7 +41,7 @@ class Compare extends Component {
             name_slotLeft.innerHTML = 'Select a champion'
             this.setState({
                 slot_left_name: '',
-                slot_left_img: ''
+                slot_left_icon: ''
             })
             left_win_rate.innerHTML = ''
             left_ban_rate.innerHTML = ''
@@ -52,7 +51,7 @@ class Compare extends Component {
             name_slotRight.innerHTML = 'Select a champion'
             this.setState({
                 slot_right_name: '',
-                slot_right_img: ''
+                slot_right_icon: ''
             })
             right_win_rate.innerHTML = ''
             right_ban_rate.innerHTML = ''
@@ -62,7 +61,7 @@ class Compare extends Component {
         if (this.state.slot_left_name === '' && this.state.slot_right_name !== champCaracteristics.name) {
             this.setState({
                 slot_left_name: champCaracteristics.name,
-                slot_left_img: champCaracteristics.img
+                slot_left_icon: champCaracteristics.icon
             })
             name_slotLeft.innerHTML = champCaracteristics.name
             left_win_rate.innerHTML = `${champCaracteristics.win}%`
@@ -73,7 +72,7 @@ class Compare extends Component {
             if (this.state.slot_left_name !== '' || this.state.slot_right_name !== '') {
                 this.setState({
                     slot_right_name: champCaracteristics.name,
-                    slot_right_img: champCaracteristics.img
+                    slot_right_icon: champCaracteristics.icon
                 })
                 name_slotRight.innerHTML = champCaracteristics.name
                 right_win_rate.innerHTML = `${champCaracteristics.win}%`
@@ -105,24 +104,18 @@ class Compare extends Component {
         }
     }
 
-    //DONE => Au click, récupérer les infos d'un champion en fonction de son nom (name, img, win, pick, ban) 
-    //DONE => Au click, positionner le (nom, img) du champion cliqué dans champion-slot-right si champion-slot-right [is empty]
-    //DONE => Au click sur un deuxème element, si champion-slot-right [is not empty] ajouter le deuxième élément cliqué dans champion-slot-left
-    //SETP 4 => Si les 2 champion-slot [is not empty], grisé toutes les autres champions
-
-    render() {  
-          
+    render() {
         return(
             <Fragment>
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <div className="champion-slot-left" style={{background: 'indianred', display: 'flex'}}>
                         <span className="champion-slot-left-name" style={{margin: 'auto 10px'}}>Select a champion</span>
-                        <div className="btn-champ champion-slot-left-pic" style={{ backgroundImage: `url(${this.state.slot_left_img})` }}></div>
+                        <div className="btn-champ champion-slot-left-pic" style={{ backgroundImage: `url(${this.state.slot_left_icon})` }}></div>
                     </div>
                     
                     <div className="champion-slot-right" style={{background: 'indianred', display: 'flex', flexDirection: 'row-reverse'}}>
                         <span className="champion-slot-right-name" style={{margin: 'auto 10px'}}>Select a champion</span>
-                        <div className="btn-champ champion-slot-right-pic" style={{ backgroundImage: `url(${this.state.slot_right_img})` }}></div>
+                        <div className="btn-champ champion-slot-right-pic" style={{ backgroundImage: `url(${this.state.slot_right_icon})` }}></div>
 
                     </div>
                 </div>
@@ -145,20 +138,19 @@ class Compare extends Component {
                 </div>
 
                 <div className="role-selection" style={{display: 'flex', justifyContent: 'center'}}>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="combattant" type="button">combattant</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="mage" type="button">mage</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="assassin" type="button">assassin</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="tank" type="button">tank</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="tireur" type="button">tireur</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="support" type="button">support</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Fighter" type="button">combattant</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Mage" type="button">mage</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Slayer" type="button">assassin</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Tank" type="button">tank</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Marksman" type="button">tireur</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Controller" type="button">support</button>
                 </div>
                 <div className="champList-container" style={{display: 'flex', justifyContent: 'center'}}>
                     {
                         this.state.champions.map((champ, index) => {
                             return (
                                 <div key={index}>
-                                    <img onClick={(e)=>this.retrieveChampCaracteristics(e)} style={{cursor: 'pointer'}} className="btn-champ btn-champ-list" id={champ.name} alt="champ" src={champ.img}></img>
-                                {champ.name}
+                                    <img onClick={(e)=>this.retrieveChampCaracteristics(e)} style={{cursor: 'pointer'}} className="btn-champ btn-champ-list" id={champ.name} alt="champ" src={champ.icon}></img>
                                 </div>
                                 
                             )
@@ -169,5 +161,10 @@ class Compare extends Component {
         )
     }
 }
-
-export default Compare
+const mapStateToProps = (state) => {
+    return {
+        data: state.data,
+        selectedRate: state.selectedRate
+    }
+}
+export default connect(mapStateToProps, null)(Compare);

@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import SortByRate from './SortByRate';
 import { connect } from 'react-redux';
-
 import data from '../../data.json';
-
 const linearGradient = (svg, id, color1, color2) => {
     /* 180deg du gradient */
     var defs = svg.append("defs");
@@ -40,6 +38,7 @@ class BarChart extends Component {
     }
 
     componentWillMount() {
+
         this.drawChart(
             this.findFirstValOfArray(),
             this.findLastValOfArray(),
@@ -62,8 +61,8 @@ class BarChart extends Component {
         }
     }
 
-    findFirstValOfArray = () => {
-        let arr = SortByRate.orderByRate(data, this.props.selectedRate, "top")
+    findFirstValOfArray = () => { 
+        let arr = SortByRate.orderByRate(data, this.props.selectedRate, "top")        
         for (let i = 0; i < arr.length; i++) {
             let firstEl = arr[0]
             return firstEl
@@ -238,13 +237,14 @@ class BarChart extends Component {
         }
     }
 
-    render() {
+    render() {  
         return <div id={"#" + this.props.id}></div>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
+        data: state.data,
         selectedRate: state.selectedRate
     }
 }

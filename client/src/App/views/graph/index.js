@@ -40,7 +40,6 @@ class Chart extends Component {
   
   render() {
     const { rates } = this.state;
-
     return (
       <>
         <div className="group-btn">
