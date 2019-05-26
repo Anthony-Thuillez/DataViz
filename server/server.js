@@ -8,7 +8,7 @@ const port = 9000
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'lorgone1995',
+  password: 'rootroot',
   database: 'dataviz'
 })
 

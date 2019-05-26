@@ -14,7 +14,7 @@ class Chart extends Component {
     rates: [
       { name: "win", text:"Win Rate", isActive: true },
       { name: "pick", text: "Pick Rate" },
-      { name: "ban", text: "Win Rate" }
+      { name: "ban", text: "Ban Rate" }
     ]
   };
 

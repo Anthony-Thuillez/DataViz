@@ -2,102 +2,192 @@ const SBR = require('./SortByRate')
 
 describe("Sort By Rate", function() {
     let data_mooc = [{
-            "name": "Vel'koz",
-            "pick": "50",
-            "ban": "20",
-            "win": "60",
-            "img": "img",
-            "poste": {
-                "mid": 38,
-                "top": 23
-            },
-            "role": "mage"
+        "id": 34,
+        "name": "Vel'Koz",
+        "quotation": "the Eye of the Void",
+        "rank": 4,
+        "win": 51,
+        "pick": 5,
+        "ban": 0,
+        "damage": 3,
+        "toughness": 0,
+        "utility": 1,
+        "speed": 0,
+        "control": 2,
+        "image": "https://cdn.pandascore.co/images/lol/champion/big_image/b1cfe05c3e95673ea40adaa3736739d1.jpg",
+        "icon": "https://cdn.pandascore.co/images/lol/champion/image/86b6884755f54a85e6cad66494841e1f.png",
+        "id_role": 3,
+        "role": "Mage",
+        "poste": [
+        {
+            "name": "Support",
+            "value": 69.6
         },
         {
-            "name": "Yasuo",
-            "pick": "80",
-            "ban": "80",
-            "win": "30",
-            "img": "",
-            "poste": {
-                "mid": 28,
-                "jungle": 53
-            },
-            "role": "combattant"
+            "name": "Middle",
+            "value": 30.4
         }
+        ]
+    }, {
+        "id": 132,
+        "name": "Yasuo",
+        "quotation": "the Unforgiven",
+        "rank": 3,
+        "win": 48,
+        "pick": 15,
+        "ban": 56,
+        "damage": 3,
+        "toughness": 1,
+        "utility": 2,
+        "speed": 3,
+        "control": 2,
+        "image": "https://cdn.pandascore.co/images/lol/champion/big_image/6bc1f04019b3dd5206823beafd4d9829.jpg",
+        "icon": "https://cdn.pandascore.co/images/lol/champion/image/8c420ee28e07c4324e4ca4ad09927021.png",
+        "id_role": 2,
+        "role": "Slayer",
+        "poste": [{
+                "name": "Middle",
+                "value": 67.8
+            },
+            {
+                "name": "Top",
+                "value": 28.18
+            }
+        ]
+    },
     ]
 
-    it("1/ Find the number of champions by post (mid)", function () {
-        let expected = 2
-        expect(SBR.findNbChampByPost(data_mooc, "mid")).toEqual(expected)
-    })
-
-    it("2/ Get all champions on post (mid)", function () {
+    it("1/ Get all champions on post (Middle)", function () {
         let expected = [{
-            "name": "Vel'koz",
-            "pick": "50",
-            "poste": {
-                "mid": 38,
-                "top": 23
-            },
-            "role": "mage"
+            "id": 34,
+            "name": "Vel'Koz",
+            "quotation": "the Eye of the Void",
+            "rank": 4,
+            "win": 51,
+            "pick": 5,
+            "ban": 0,
+            "damage": 3,
+            "toughness": 0,
+            "utility": 1,
+            "speed": 0,
+            "control": 2,
+            "image": "https://cdn.pandascore.co/images/lol/champion/big_image/b1cfe05c3e95673ea40adaa3736739d1.jpg",
+            "icon": "https://cdn.pandascore.co/images/lol/champion/image/86b6884755f54a85e6cad66494841e1f.png",
+            "id_role": 3,
+            "role": "Mage",
+            "poste": [{
+                    "name": "Support",
+                    "value": 69.6
+                },
+                {
+                    "name": "Middle",
+                    "value": 30.4
+                }
+            ]
         }, {
+            "id": 132,
             "name": "Yasuo",
-            "pick": "80",
-            "poste": {
-                "mid": 28,
-                "jungle": 53
-            },
-            "role": "combattant"
+            "quotation": "the Unforgiven",
+            "rank": 3,
+            "win": 48,
+            "pick": 15,
+            "ban": 56,
+            "damage": 3,
+            "toughness": 1,
+            "utility": 2,
+            "speed": 3,
+            "control": 2,
+            "image": "https://cdn.pandascore.co/images/lol/champion/big_image/6bc1f04019b3dd5206823beafd4d9829.jpg",
+            "icon": "https://cdn.pandascore.co/images/lol/champion/image/8c420ee28e07c4324e4ca4ad09927021.png",
+            "id_role": 2,
+            "role": "Slayer",
+            "poste": [{
+                    "name": "Middle",
+                    "value": 67.8
+                },
+                {
+                    "name": "Top",
+                    "value": 28.18
+                }
+            ]
         }]
-        expect(SBR.getChampByPost(data_mooc, "mid")).toEqual(
+        expect(SBR.getChampByPost(data_mooc, "Middle")).toEqual(
             expect.arrayContaining(expected),
         )
     })
 
-    it("3/ Get selected rate for all champions on post (mid)", function () {
-        let expected = ["50", "80"]
-        expect(SBR.getSelectedRate(data_mooc, "pick", "mid")).toEqual(
+    it("2/ Get selected rate for all champions on post (Middle)", function () {
+        let expected = [5, 15]
+        expect(SBR.getSelectedRate(data_mooc, "pick", "Middle")).toEqual(
             expect.arrayContaining(expected),
         )
     })
 
-    it("4/ Order champions by rate", function() {
-        let expected = [80, 50]
-        expect(SBR.orderByRate(data_mooc, "pick", "mid")).toEqual(
+    it("3/ Order champions by rate", function() {
+        let expected = [15, 5]
+        expect(SBR.orderByRate(data_mooc, "pick", "Middle")).toEqual(
             expect.arrayContaining(expected),
         )
     })
 
-    it("5/ Calculate the median of the selected rates", function () {
-        let expected = 65
-        expect(SBR.medianRate(data_mooc, "pick", "mid")).toEqual(expected)
+    it("4/ Calculate the median of the selected rates", function () {
+        let expected = 10
+        expect(SBR.medianRate(data_mooc, "pick", "Middle")).toEqual(expected)
     })
 
-    it("6/ Get all champions on specific role (mage)", function() {
-        let expected =  [{
-            "name": "Vel'koz",
-            "pick": "50",
-            "poste": {
-                "mid": 38,
-                "top": 23
-            },
-            "role": "mage"
+    it("5/ Get all champions on specific role (mage)", function() {
+        let expected = [{
+            "id": 34,
+            "name": "Vel'Koz",
+            "quotation": "the Eye of the Void",
+            "rank": 4,
+            "win": 51,
+            "pick": 5,
+            "ban": 0,
+            "damage": 3,
+            "toughness": 0,
+            "utility": 1,
+            "speed": 0,
+            "control": 2,
+            "image": "https://cdn.pandascore.co/images/lol/champion/big_image/b1cfe05c3e95673ea40adaa3736739d1.jpg",
+            "icon": "https://cdn.pandascore.co/images/lol/champion/image/86b6884755f54a85e6cad66494841e1f.png",
+            "id_role": 3,
+            "role": "Mage",
+            "poste": [{
+                    "name": "Support",
+                    "value": 69.6
+                },
+                {
+                    "name": "Middle",
+                    "value": 30.4
+                }
+            ]
         }]
-        expect(SBR.getChampByRole(data_mooc, "mage")).toEqual(
+        expect(SBR.getChampByRole(data_mooc, "Mage")).toEqual(
             expect.arrayContaining(expected),
         )
     })
 
-    it("7/ Get a champion on a specific name", function () {
+    it("6/ Get a champion on a specific name", function () {
         let expected = {
-            "name": "Vel'koz",
-            "img": "img",
-            "pick": "50",
-            "ban": "20",
-            "win": "60"
+            "id": 34,
+            "name": "Vel'Koz",
+            "quotation": "the Eye of the Void",
+            "rank": 4,
+            "win": 51,
+            "pick": 5,
+            "ban": 0,
+            "damage": 3,
+            "toughness": 0,
+            "utility": 1,
+            "speed": 0,
+            "control": 2,
+            "image": "https://cdn.pandascore.co/images/lol/champion/big_image/b1cfe05c3e95673ea40adaa3736739d1.jpg",
+            "icon": "https://cdn.pandascore.co/images/lol/champion/image/86b6884755f54a85e6cad66494841e1f.png",
+            "id_role": 3,
+            "role": "Mage"
         }
-        expect(SBR.getChampByName(data_mooc, "Vel'koz")).toEqual(
+        expect(SBR.getChampByName(data_mooc, "Vel'Koz")).toEqual(
             expect.objectContaining(expected),
         )
     })

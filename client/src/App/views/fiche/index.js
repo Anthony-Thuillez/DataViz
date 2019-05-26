@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import SortByRate from '../../scripts/SortByRate'
 import { connect } from 'react-redux';
-
-// import data from '../../../data.json'
 import Chart from 'chart.js';
 
 
@@ -11,30 +9,15 @@ class Fiche extends Component {
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
     */
-    getAllStats(name) {
-        let champions = SortByRate.getChampByPost(this.props.data, "top")        
-        let championStats = champions.map(function (champ) {
-            return {
-                name: champ.name,
-                damage: champ.damage,
-                toughness: champ.toughness,
-                control: champ.control,
-                speed: champ.speed,
-                utility: champ.utility
-            }
-        });
-        for (let i = 0; i < championStats.length; i++) {
-            if (championStats[i].name === name) {
-                let stats = {
-                    damage: championStats[i].damage,
-                    toughness: championStats[i].toughness,
-                    control: championStats[i].control,
-                    speed: championStats[i].speed,
-                    utility: championStats[i].utility
-                }
-                return Object.values(stats)
-            }
-        }
+    champStats() {
+        let champion = SortByRate.getChampByName(this.props.data, this.props.selectedChamp)
+        return [
+            champion.damage,
+            champion.toughness,
+            champion.control,
+            champion.speed,
+            champion.utility
+        ]
     }
     componentDidMount() {
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -51,7 +34,7 @@ class Fiche extends Component {
                 labels: ['damage', "toughness", 'control', "speed", 'utility'],
                 datasets: [{
                     backgroundColor: 'rgba(0, 203, 224, 0.455)',
-                    data: this.getAllStats("Akali"),
+                    data: this.champStats(),
                     radius: 0,
                 }
 
@@ -82,7 +65,8 @@ class Fiche extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        data: state.data
+        data: state.data,
+        selectedChamp: state.selectedChamp
     }
 }
 export default connect(mapStateToProps, null)(Fiche);

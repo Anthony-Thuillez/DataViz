@@ -1,34 +1,19 @@
 /** TESTED ✅
- * Functions purpose: Count the number of champion for a selected post
- * @param {Object[]} data(json) @param {String} post(props)
- * @return {Number} the total of champions found
-*/
-const findNbChampByPost = (data, post) => {
-    let propertyCounter = 0
-    for (let i = 0, l = data.length; i <l ; i++) {
-        let propertyExist = data[i].poste.hasOwnProperty(post)
-        if (propertyExist) {
-            propertyCounter++
-        }
-    }
-
-    return propertyCounter
-}
-
-/** TEST FAILED 🚫
  * Functions purpose : Get all champions for a specific post
  * @param {Object[]} data(json) @param {String} post(props)
  * @return {Object[]} champions found on [post] define
  */
+
 const getChampByPost = (data, post) => {
     let champArr = []
-    for (let i = 0, l = data.length; i <l ; i++) {
-        let propertyExist = data[i].poste.hasOwnProperty(post)
-        if (propertyExist) {
-            champArr.push(data[i])
+    for (let i = 0, l = data.length; i < l; i++) {
+        for (let y = 0, l = data[i].poste.length; y < l; y++) {
+            if (Object.values(data[i].poste[y]).includes(post)) {
+                champArr.push(data[i])
+            }
         }
     }
-    
+
     return champArr
 }
 
@@ -94,7 +79,7 @@ const medianRate = (data, rate, post) => {
     return (array[half - 1] + array[half]) / 2.0;
 }
 
-/** TEST FAILED 🚫
+/** TESTED ✅
  * Functions purpose : Get all champions for a specific role
  * @param {Object[]} data(json) @param {String} role(props)
  * @return {Object[]} champions found on [role] define
@@ -131,12 +116,22 @@ const getChampByName = (data, name) => {
         if (propertyExist) {
             if (data[i].name === name) {
                 champObj = {
+                    id: data[i].id,
                     name: data[i].name,
-                    img: data[i].image,
-                    icon: data[i].icon,
+                    quotation: data[i].quotation,
+                    rank: data[i].rank,
+                    win: data[i].win,
                     pick: data[i].pick,
                     ban: data[i].ban,
-                    win: data[i].win
+                    damage: data[i].damage,
+                    toughness: data[i].toughness,
+                    utility: data[i].utility,
+                    speed: data[i].speed,
+                    control: data[i].control,
+                    image: data[i].image,
+                    icon: data[i].icon,
+                    id_role: data[i].id_role,
+                    role: data[i].role
                 }
                 
                 return champObj
@@ -146,7 +141,6 @@ const getChampByName = (data, name) => {
 }
 
 module.exports = {
-    findNbChampByPost,
     getChampByPost,
     getChampByRole,
     getSelectedRate,
