@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import data from '../../../data.json'
+// import data from '../../../data.json'
+import { connect } from 'react-redux';
 
 import './searchBar.scss';
 
@@ -7,12 +8,17 @@ class SearchBar extends Component {
     state = {
         active: false,
         q: "",
-        list: this.getChampname(data),
-        display: this.getChampname(data)
+        list: [],
+        display: []
     }
 
     isActive = () => {
         this.setState({ active: true });
+        let champ = this.getChampData(this.props.data)
+        this.setState({
+            list: champ
+        })
+        
     }
 
     isNotActive = () => {
@@ -24,15 +30,16 @@ class SearchBar extends Component {
      * @param {Object[]} data(json)
      * @return {Object[]} the name of all champions
     */
-    getChampname(data) {
+    getChampData(data) {
         let champions = data.map((champ) => {
             return {
-                name: champ.name
+                name: champ.name,
+                icon: champ.icon
             }
-        });
-        return champions  
+        });      
+        return champions
     }
-
+    
     /** TESTED 🚫
      * Functions purpose: Get the champion name of each champions
      * @param {String} q(query from input) @param {Object[]} list(the name of all champions)
@@ -95,7 +102,7 @@ class SearchBar extends Component {
                                     return (
                                         <li key={champ.name}>
                                             <a href={`./${champ.name}`}> {/* Changer le path */}
-                                                <div className="btn-champ" style={{ backgroundImage: `url(${data[0].img})` }}></div>
+                                                <div className="btn-champ" style={{ backgroundImage: `url(${champ.icon})` }}></div>
                                                 {champ.name}
                                             </a>
                                         </li>
@@ -125,5 +132,9 @@ class SearchBar extends Component {
         )
     }
 }
-
-export default SearchBar
+const mapStateToProps = (state) => {
+    return {
+        data: state.data
+    }
+}
+export default connect(mapStateToProps, null)(SearchBar);
