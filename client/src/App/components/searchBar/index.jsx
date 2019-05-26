@@ -101,12 +101,12 @@ class SearchBar extends Component {
                                 {
                                     this.state.display.map(champ => {
                                         return (
-                                                <li key={champ.name}>
-                                                    <a href={`./${champ.name}`}> {/* Changer le path */}
-                                                        <div className="btn-champ" style={{ backgroundImage: `url(${data[0].img})` }}></div>
-                                                        {champ.name}
-                                                    </a>
-                                                </li>
+                                            <li key={champ.name}>
+                                                <a href={`./${champ.name}`}> {/* Changer le path */}
+                                                    <div className="btn-champ" style={{ backgroundImage: `url(${champ.icon})` }}></div>
+                                                    {champ.name}
+                                                </a>
+                                            </li>
                                         );
                                     })
                                 }
