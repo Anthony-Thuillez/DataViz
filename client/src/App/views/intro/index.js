@@ -7,16 +7,16 @@ import Logo from '../../assets/LogoXL.png';
 import ImgLeft from '../../assets/img/HP-left.png';
 import ImgRight from '../../assets/img/HP-right.png';
 
-const body_intro_class = "intro";
+const body_class = "intro";
 
 class Intro extends Component {
 
     componentDidMount() {
-        document.body.classList.add(body_intro_class);
+        document.body.classList.add(body_class);
     }
 
     componentWillUnmount() {
-        document.body.classList.remove(body_intro_class);
+        document.body.classList.remove(body_class);
     }
 
     render() {

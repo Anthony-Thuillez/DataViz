@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.btn-back {
+    padding: 24px 0;
+    a {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        text-decoration: none;
+        &:before {
+            content: '\E805';
+            font-family: 'fontello';
+            font-size: 20px;
+            color: $blue;
+            margin-right: 8px;
+        }
+    }
+    span {
+        font-family: $font-bold;
+        font-size: 18px;
+        color: $blue;
+        &:hover,
+        &:active {
+            text-decoration: underline;
+        }
+    }
+}

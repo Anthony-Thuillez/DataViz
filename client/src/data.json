@@ -1,4 +1,5 @@
-[{
+[
+    {
         "id": "0",
         "name": "Vel'koz",
         "rank": "S",
@@ -410,6 +411,101 @@
         "poste": {
             "supp": 90,
             "mid": 10
+        },
+        "role": "support"
+    },
+    {
+        "id": "21",
+        "name": "Test",
+        "rank": "A",
+        "pick": "10",
+        "ban": "12",
+        "win": "56",
+        "damage": "3",
+        "tankiness": "2",
+        "control": "1",
+        "mobility": "2",
+        "utility": "10",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
+        "icon": "pouettepouette",
+        "poste": {
+            "top": 90
+        },
+        "role": "support"
+    },
+    {
+        "id": "22",
+        "name": "Test1",
+        "rank": "A",
+        "pick": "10",
+        "ban": "12",
+        "win": "56",
+        "damage": "3",
+        "tankiness": "2",
+        "control": "1",
+        "mobility": "2",
+        "utility": "10",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
+        "icon": "pouettepouette",
+        "poste": {
+            "top": 90
+        },
+        "role": "support"
+    },
+    {
+        "id": "23",
+        "name": "Test2",
+        "rank": "A",
+        "pick": "10",
+        "ban": "12",
+        "win": "56",
+        "damage": "3",
+        "tankiness": "2",
+        "control": "1",
+        "mobility": "2",
+        "utility": "10",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
+        "icon": "pouettepouette",
+        "poste": {
+            "top": 90
+        },
+        "role": "support"
+    },
+    {
+        "id": "24",
+        "name": "Test3",
+        "rank": "A",
+        "pick": "10",
+        "ban": "12",
+        "win": "56",
+        "damage": "3",
+        "tankiness": "2",
+        "control": "1",
+        "mobility": "2",
+        "utility": "10",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
+        "icon": "pouettepouette",
+        "poste": {
+            "top": 90
+        },
+        "role": "support"
+    },
+    {
+        "id": "25",
+        "name": "Test4",
+        "rank": "A",
+        "pick": "10",
+        "ban": "12",
+        "win": "56",
+        "damage": "3",
+        "tankiness": "2",
+        "control": "1",
+        "mobility": "2",
+        "utility": "10",
+        "img": "http://elohell.net/public/champions/avatar/VelKozSquare1.png",
+        "icon": "pouettepouette",
+        "poste": {
+            "top": 90
         },
         "role": "support"
     }

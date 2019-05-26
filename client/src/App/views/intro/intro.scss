@@ -1,7 +1,8 @@
 @import '../../styles/variables';
 
 body.intro {
-    .header {
+    .header,
+    .btn-info {
         display: none;
     }
 }
@@ -16,6 +17,7 @@ body.intro {
     .logo {
         max-width: 192px;
         margin: 24px auto;
+        user-select: none;
     }
     p {
         font-size: 18px;
@@ -43,10 +45,11 @@ body.intro {
 
 .img-left,
 .img-right {
-    position: absolute;
+    position: fixed;
     height: 662px;
     top: 50%;
     transform: translateY(-50%);
+    user-select: none;
     img {
         height: 100%;
     }

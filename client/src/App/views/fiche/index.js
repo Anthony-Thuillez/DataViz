@@ -3,8 +3,12 @@ import SortByRate from '../../scripts/SortByRate'
 import { connect } from 'react-redux';
 import Chart from 'chart.js';
 
+import BackBtn from '../../components/returnBtn';
+
+const body_class = "fiche";
 
 class Fiche extends Component {
+
     /**
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
@@ -19,7 +23,14 @@ class Fiche extends Component {
             champion.utility
         ]
     }
+  
+    componentWillUnmount() {
+        document.body.classList.remove(body_class);
+    }
+
     componentDidMount() {
+        document.body.classList.add(body_class);
+
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
         Chart.platform.disableCSSInjection = true;
@@ -58,7 +69,10 @@ class Fiche extends Component {
     render() {        
         return (
             <>
-                <canvas id="myChart"></canvas>
+                <BackBtn />
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
             </>
         )
     }

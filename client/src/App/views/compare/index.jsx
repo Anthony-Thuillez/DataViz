@@ -2,7 +2,18 @@ import React, {Component, Fragment} from 'react'
 import SortByRate from '../../scripts/SortByRate'
 import { connect } from 'react-redux';
 
+const body_class = "compare";
+
+
 class Compare extends Component {
+    componentDidMount() {
+        document.body.classList.add(body_class);
+    }
+    
+    componentWillUnmount() {
+        document.body.classList.remove(body_class);
+    }
+
     state =  {
         champions: [],
         slot_left_name: '',

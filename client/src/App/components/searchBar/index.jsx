@@ -95,21 +95,24 @@ class SearchBar extends Component {
                             }}
                             />
                         </span>
-                        <ul>
                         {
                             this.state.q ? (
-                                this.state.display.map(champ => {
-                                    return (
-                                        <li key={champ.name}>
-                                            <a href={`./${champ.name}`}> {/* Changer le path */}
-                                                <div className="btn-champ" style={{ backgroundImage: `url(${champ.icon})` }}></div>
-                                                {champ.name}
-                                            </a>
-                                        </li>
-                                    );
-                                })
+                                <ul className="list-champ">
+                                {
+                                    this.state.display.map(champ => {
+                                        return (
+                                                <li key={champ.name}>
+                                                    <a href={`./${champ.name}`}> {/* Changer le path */}
+                                                        <div className="btn-champ" style={{ backgroundImage: `url(${data[0].img})` }}></div>
+                                                        {champ.name}
+                                                    </a>
+                                                </li>
+                                        );
+                                    })
+                                }
+                                </ul>
                             ) : (
-                                <>
+                                <ul>
                                     <li className="input-empty">
                                         <div className="imgChamp"></div>
                                         <div className="nameChamp"></div>
@@ -122,10 +125,9 @@ class SearchBar extends Component {
                                         <div className="imgChamp"></div>
                                         <div className="nameChamp"></div>
                                     </li>
-                                </>
+                                </ul>
                             )
                         }
-                        </ul>
                     </div>
                 </div>
             </>

@@ -34,7 +34,11 @@
     }
     ~ ul {
         margin: 18px auto 0;
-        width: 236px;
+        padding: 0 60px;
+        height: 82%;
+        &.list-champ {
+            overflow-y: auto;
+        }
         li {
             animation: appear 0.3s ease-in;
             &:hover {

@@ -2,9 +2,20 @@ import React, { Component } from 'react';
 import BarChart from '../../scripts/BarChart';
 import { connect } from 'react-redux';
 
+import BackBtn from '../../components/returnBtn';
+
 import './graph.scss';
 
+const body_class = "graph";
+
 class Chart extends Component {
+  componentDidMount() {
+    document.body.classList.add(body_class);
+  }
+  
+  componentWillUnmount() {
+    document.body.classList.remove(body_class);
+  }
 
   state = {
     imgDisplay: "",
@@ -42,6 +53,10 @@ class Chart extends Component {
     const { rates } = this.state;
     return (
       <>
+        <BackBtn />
+        <div id="barChart">
+          <BarChart />
+        </div>
         <div className="group-btn">
           {
             rates.map((rate, index) => {
@@ -58,7 +73,6 @@ class Chart extends Component {
             })
           }
         </div>
-        <BarChart/>
       </>
     );
   }
