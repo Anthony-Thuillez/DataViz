@@ -60,6 +60,14 @@ img {
     max-width: 100%;
 }
 
+.wrapper {
+    position: relative;
+    max-width: 1440px;
+    padding: 0 64px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
 .title {
     font-family: $font-bold;
     font-size: 24px;
@@ -129,4 +137,21 @@ img {
     &-utility:before {
         content: '\E804';
     }
+}
+
+/* scrollbar css */
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2b2147; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gold-gradient; 
 }

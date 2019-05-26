@@ -6,6 +6,7 @@ import ImgGraph from '../../assets/img/Hiw.png';
 import ImgRank from '../../assets/img/Hiw-rank.png';
 
 class Modal extends Component {
+
     state = {
         active: false,
     }
@@ -18,9 +19,17 @@ class Modal extends Component {
         this.setState({ active: false });
     }
 
+    componentDidUpdate() {
+        console.log('test');
+    }
+
     render() {
 
         return (
+            
+
+
+
             <>
                 <div onClick={this.isActive} className="btn-info"></div>
                 <div className={this.state.active ? 'modal active' : 'modal'}>
@@ -38,6 +47,9 @@ class Modal extends Component {
                     </div>
                 </div>
             </>
+
+
+
         )
     }
 }

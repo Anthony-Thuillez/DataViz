@@ -39,7 +39,7 @@ class BarChart extends Component {
 
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.drawChart(
             this.findFirstValOfArray(),
             this.findLastValOfArray(),
@@ -102,9 +102,9 @@ class BarChart extends Component {
         let { selectedRate } = this.props
 
         /* Dimentions du graph */
-        var margin = { top: 40, right: 40, bottom: 40, left: 60 },
+        var margin = { top: -2, right: 0, bottom: 80, left: 45 },
             width = 1000 - margin.left - margin.right,
-            height = 800 - margin.top - margin.bottom;
+            height = 550 - margin.top - margin.bottom;
 
         /* Propriété du graph */
         var x = d3.scaleBand()
@@ -114,14 +114,14 @@ class BarChart extends Component {
         var y = d3.scaleLinear()
             .range([height, 0]);
 
-        var svg = d3.select("body").append("svg")
+        var svg = d3.select("#barChart").append("svg")
             .attr("width", "100%")
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         var minimum = lastEl - 5
-        var maximum = firstEl + 5
+        var maximum = firstEl + 8
 
         x.domain(data.map((d) => d.name));
         y.domain([minimum, maximum]);

@@ -5,7 +5,18 @@ import data from '../../../data.json'
 /* Used for testing */
 import '../../components/champbubble/champbubble.scss';
 
+const body_class = "compare";
+
+
 class Compare extends Component {
+    componentDidMount() {
+        document.body.classList.add(body_class);
+    }
+    
+    componentWillUnmount() {
+        document.body.classList.remove(body_class);
+    }
+
     state =  {
         champions: [],
         slot_left_name: '',
