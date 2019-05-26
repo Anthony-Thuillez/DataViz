@@ -103,7 +103,7 @@ class BarChart extends Component {
 
         /* Dimentions du graph */
         var margin = { top: -2, right: 0, bottom: 80, left: 45 },
-            width = 1000 - margin.left - margin.right,
+            width = 1300 - margin.left - margin.right,
             height = 550 - margin.top - margin.bottom;
 
         /* Propriété du graph */

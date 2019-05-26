@@ -89,6 +89,7 @@
         text-decoration: none;
         box-shadow: $box-shadow;
         user-select: none;
+        cursor: pointer;
         &:hover {
             background: $gold-gradient;
         }
