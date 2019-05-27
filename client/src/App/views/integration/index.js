@@ -50,6 +50,11 @@ class Integration extends Component {
                 <div className="container">
                     <Postbubble />
                 </div>
+
+                <h2 className="title">Button :</h2>
+                <div className="container">
+                    <div className="btn">Button</div>
+                </div>
             </>
         )
     }

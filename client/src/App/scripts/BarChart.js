@@ -121,7 +121,7 @@ class BarChart extends Component {
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
         var minimum = lastEl - 5
-        var maximum = firstEl + 8
+        var maximum = firstEl + 5
 
         x.domain(data.map((d) => d.icon));
         y.domain([minimum, maximum]);

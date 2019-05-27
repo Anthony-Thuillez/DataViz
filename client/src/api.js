@@ -16,8 +16,8 @@ class Api extends React.Component{
         this.props.fetchingDATA(data)
     }
     render() {
-        return(
-            <div></div>
+        return (
+            null
         )
     }
 }
