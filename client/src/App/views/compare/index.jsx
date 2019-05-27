@@ -31,7 +31,38 @@ class Compare extends Component {
             champions: champions
         })        
     }
-    
+    removeEl = (sideClicked) => {
+        let name_slotLeft = document.querySelector('.champion-slot-left-name')
+        let name_slotRight = document.querySelector('.champion-slot-right-name')
+        
+        let left_win_rate = document.querySelector('.stats-winrate-left')
+        let right_win_rate = document.querySelector('.stats-winrate-right')
+
+        let left_ban_rate = document.querySelector('.stats-banrate-left')
+        let right_ban_rate = document.querySelector('.stats-banrate-right')
+
+        let left_pick_rate = document.querySelector('.stats-pickrate-left')
+        let right_pick_rate = document.querySelector('.stats-pickrate-right')
+        if (sideClicked === "left") {
+            name_slotLeft.innerHTML = 'Select a champion'
+            this.setState({
+                slot_left_name: '',
+                slot_left_icon: ''
+            })
+            left_win_rate.innerHTML = ''
+            left_ban_rate.innerHTML = ''
+            left_pick_rate.innerHTML = ''
+        } else if (sideClicked === "right") {
+            name_slotRight.innerHTML = 'Select a champion'
+            this.setState({
+                slot_right_name: '',
+                slot_right_icon: ''
+            })
+            right_win_rate.innerHTML = ''
+            right_ban_rate.innerHTML = ''
+            right_pick_rate.innerHTML = ''
+        } 
+    }
     retrieveChampCaracteristics(e) {
         let championName = e.target.getAttribute('id')
         let champCaracteristics = SortByRate.getChampByName(this.props.data, championName)
@@ -91,7 +122,6 @@ class Compare extends Component {
                 right_pick_rate.innerHTML = `${champCaracteristics.pick}%`
             }
         }
-
     }
     componentDidUpdate() {
         let btnChampList = document.querySelectorAll('.btn-champ-list')
@@ -122,12 +152,13 @@ class Compare extends Component {
                     <div className="champion-slot-left" style={{background: 'indianred', display: 'flex'}}>
                         <span className="champion-slot-left-name" style={{margin: 'auto 10px'}}>Select a champion</span>
                         <div className="btn-champ champion-slot-left-pic" style={{ backgroundImage: `url(${this.state.slot_left_icon})` }}></div>
+                        <button style={{cursor: 'pointer'}} onClick={()=>this.removeEl("left")}>x</button>
                     </div>
                     
                     <div className="champion-slot-right" style={{background: 'indianred', display: 'flex', flexDirection: 'row-reverse'}}>
                         <span className="champion-slot-right-name" style={{margin: 'auto 10px'}}>Select a champion</span>
                         <div className="btn-champ champion-slot-right-pic" style={{ backgroundImage: `url(${this.state.slot_right_icon})` }}></div>
-
+                        <button style={{cursor: 'pointer'}} onClick={()=>this.removeEl("right")}>x</button>
                     </div>
                 </div>
                 <div className="rate-container">
