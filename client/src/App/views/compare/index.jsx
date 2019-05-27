@@ -2,17 +2,7 @@ import React, {Component, Fragment} from 'react'
 import SortByRate from '../../scripts/SortByRate'
 import { connect } from 'react-redux';
 
-const body_class = "compare";
-
-
 class Compare extends Component {
-    componentDidMount() {
-        document.body.classList.add(body_class);
-    }
-    
-    componentWillUnmount() {
-        document.body.classList.remove(body_class);
-    }
 
     state =  {
         champions: [],
@@ -22,6 +12,7 @@ class Compare extends Component {
         slot_left_icon: '',
         slot_right_icon: ''
     }
+    
     getDataRole = (event) => {
         let role = event.target.getAttribute('datarole')        
         let champions = SortByRate.getChampByRole(this.props.data, role)
@@ -180,12 +171,12 @@ class Compare extends Component {
                 </div>
 
                 <div className="role-selection" style={{display: 'flex', justifyContent: 'center'}}>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Fighter" type="button">combattant</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Mage" type="button">mage</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Slayer" type="button">assassin</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Tank" type="button">tank</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Marksman" type="button">tireur</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn" datarole="Controller" type="button">support</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Fighter" type="button">combattant</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Mage" type="button">mage</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Slayer" type="button">assassin</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Tank" type="button">tank</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Marksman" type="button">tireur</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Controller" type="button">support</button>
                 </div>
                 <div className="champList-container" style={{display: 'flex', justifyContent: 'center'}}>
                     {

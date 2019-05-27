@@ -2,20 +2,11 @@ import React, { Component } from 'react';
 import BarChart from '../../scripts/BarChart';
 import { connect } from 'react-redux';
 
-import BackBtn from '../../components/returnBtn';
+import BackBtn from '../../components/backBtn';
 
 import './graph.scss';
 
-const body_class = "graph";
-
 class Chart extends Component {
-  componentDidMount() {
-    document.body.classList.add(body_class);
-  }
-  
-  componentWillUnmount() {
-    document.body.classList.remove(body_class);
-  }
 
   state = {
     imgDisplay: "",
@@ -57,13 +48,13 @@ class Chart extends Component {
         <div id="barChart">
           <BarChart />
         </div>
-        <div className="group-btn">
+        <div className="filter">
           {
             rates.map((rate, index) => {
               return (
                 <div
                   key={index}
-                  className={`btn ${rate.isActive ? 'active' : ''}`}
+                  className={`btn-filter ${rate.isActive ? 'active' : ''}`}
                   onClick={this.onClick(rate)}
                   rate={rate.name}
                 >

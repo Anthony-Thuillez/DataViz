@@ -5,17 +5,8 @@ import Champbubble from '../../components/champbubble';
 import Postbubble from '../../components/postbubble';
 import Filter from '../../components/filter';
 
-const body_class = "landing";
-
 class Landing extends Component {
-    componentDidMount() {
-        document.body.classList.add(body_class);
-    }
     
-    componentWillUnmount() {
-        document.body.classList.remove(body_class);
-    }
-
     render() {
 
         return (

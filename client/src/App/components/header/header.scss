@@ -25,7 +25,7 @@
         width: calc(100% / 3);
         &-link {
             font-family: $font;
-            font-size: 18px;
+            font-size: $text-big;
             color: $blue;
             text-decoration: none;
             &:hover,

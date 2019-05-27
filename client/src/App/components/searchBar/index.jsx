@@ -13,16 +13,12 @@ class SearchBar extends Component {
     }
 
     isActive = () => {
-        this.setState({ active: true });
+        this.setState({ active: !this.state.active });
         let champ = this.getChampData(this.props.data)
         this.setState({
             list: champ
         })
         
-    }
-
-    isNotActive = () => {
-        this.setState({ active: false });
     }
 
     /** TESTED 🚫
@@ -75,7 +71,7 @@ class SearchBar extends Component {
             <>
                 <div onClick={this.isActive} className="icon icon-search"></div>
                 <div className={this.state.active ? 'modal active' : 'modal'}>
-                    <div onClick={this.isNotActive} className="icon icon-cross"></div>
+                    <div onClick={this.isActive} className="icon icon-cross"></div>
                     <div className="modal-content">
                         <span className="searchbar">
                             <input

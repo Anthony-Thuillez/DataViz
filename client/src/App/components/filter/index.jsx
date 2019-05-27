@@ -31,13 +31,13 @@ export default class Filter extends Component {
         const { posts } = this.state;
         
         return (
-            <div className="group-btn">
+            <div className="filter">
                 {
                     posts.map((post, index) => {
                         return (
                             <div
                                 key={index}
-                                className={`btn ${post.isActive ? 'active' : ''}`}
+                                className={`btn-filter ${post.isActive ? 'active' : ''}`}
                                 onClick={() => this.handleIsActive(post.name)}
                             >
                                 <span>{post.name}</span>
