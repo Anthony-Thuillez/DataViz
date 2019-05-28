@@ -3,22 +3,28 @@
 .btn-back {
     padding: 24px 0;
     a {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+        position: relative;
         text-decoration: none;
         &:before {
+            position: absolute;
             content: '\E805';
             font-family: 'fontello';
             font-size: 20px;
             color: $blue;
-            margin-right: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+        &:hover,
+        &:active {
+            &:before {
+                transform: translateX(-8px);
+            }
         }
     }
     span {
         font-family: $font;
         font-size: $text-big;
         color: $blue;
+        padding-left: 28px;
         &:hover,
         &:active {
             text-decoration: underline;

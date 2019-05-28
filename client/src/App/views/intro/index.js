@@ -14,7 +14,6 @@ class Intro extends Component {
     componentDidMount() {
         document.body.classList.add(body_class);
     }
-
     componentWillUnmount() {
         document.body.classList.remove(body_class);
     }
@@ -22,10 +21,10 @@ class Intro extends Component {
     render() {
         return (
             <>
-                <div className="img-left">
+                <div className="img-intro-left">
                     <img src={ImgLeft} alt="Shaco" />
                 </div>
-                <div className="box-intro">
+                <div className="block-intro">
                     <p>The Hetic students are happy to introduce you</p>
                     <div className="logo">
                         <img src={Logo} alt="Logo" />
@@ -33,7 +32,7 @@ class Intro extends Component {
                     <p>With... you can discover data on all League of Legend champions.</p>
                     <Link className="btn" to='/'>Launch the visualization</Link>
                 </div>
-                <div className="img-right">
+                <div className="img-intro-right">
                     <img src={ImgRight} alt="Riven" />
                 </div>
             </>
