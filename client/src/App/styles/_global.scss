@@ -51,7 +51,8 @@ body {
     font-family: $font;
     font-size: $text-medium;
     color: $white;
-    &.intro {
+    &.intro,
+    &.page404 {
         background: $darkblue;
     }
 }

@@ -1,30 +1,6 @@
 @import '../../styles/variables';
 
-body.intro {
-    .header,
-    .btn-info {
-        display: none;
-    }
-    .img-left,
-    .img-right {
-        position: fixed;
-        height: 662px;
-        top: 50%;
-        transform: translateY(-50%);
-        user-select: none;
-        img {
-            height: 100%;
-        }
-    }
-    .img-left {
-        left: 0;
-    }
-    .img-right {
-        right: 0;
-    }
-}
-
-.box-intro {
+.block-intro {
     z-index: 2;
     position: absolute;
     top: 50%; left: 50%;
@@ -43,4 +19,22 @@ body.intro {
     .btn {
         margin-top: 24px;
     }
+}
+
+.img-intro-left,
+.img-intro-right {
+    position: fixed;
+    height: 662px;
+    top: 50%;
+    transform: translateY(-50%);
+    user-select: none;
+    img {
+        height: 100%;
+    }
+}
+.img-intro-left {
+    left: 0;
+}
+.img-intro-right {
+    right: 0;
 }
