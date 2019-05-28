@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .btn-info {
-    position: fixed;
+    position: absolute;
     bottom: 24px; right: 64px;
     width: 24px;
     height: 24px;
@@ -26,20 +26,15 @@
     position: fixed;
     height: 100vh;
     width: 100vw;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: $darkblue;
     animation-name: animationGo;
     animation-duration: 0.3s;  
-
     .icon-cross {
         position: absolute;
         cursor: pointer;  
         top: 12px; right: 64px;
     }
-    
     &.active {
         display: block;
     }
@@ -49,49 +44,71 @@
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 540px;
+    width: 640px;
     text-align: center;
     .title {
         margin: 0 100px;
         padding-bottom: 9px;
         font-family: $title;
-        font-size: 28px;
-        line-height: 38px;
+        font-size: $text-title;
+        line-height: 46px;
         background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         border-bottom: solid 1px $gold;
     }
-    .img-graph {
-        margin: 30px 0;
-    }
-    .img-rank {
-        width: 274px;
-    }
+
     .block {
         display: flex;
+        justify-content: space-between;
         align-items: center;
+        margin-top: 30px;
         p {
-            font-size: 14px;
-            line-height: 26px;
+            font-size: $text-medium;
+            line-height: 24px;
             text-align: left;
-            margin-right: 40px;
+            span {
+                color: $gold;
+            }
         }
     }
-    .btn-close {
-        margin-top: 30px;
-        display: inline-block;
-        padding: 16px;
-        text-align: center;
-        background: $blue;
-        color: $darkblue;
-        font-size: 18px;
-        text-decoration: none;
-        box-shadow: $box-shadow;
-        user-select: none;
-        &:hover {
-            background: $gold-gradient;
+
+    .img-champ {
+        width: 100%;
+    }
+    .img-rank {
+        min-width: 274px;
+        margin-left: 32px;
+    }
+    .img-graph {
+        min-width: 304px;
+        margin-left: 32px;
+    }
+    .img-filter {
+        display: flex;
+        min-width: 304px;
+        height: 104px;
+        background: $background;
+        margin-right: 32px;
+        img {
+            margin: auto;
         }
+    }
+    .img-liquid {
+        min-width: 180px;
+        margin-left: 32px;
+    }
+    .img-stat {
+        min-width: 180px;
+        margin-right: 32px;
+    }
+    .img-map {
+        min-width: 250px;
+        margin-left: 32px;
+    }
+
+    .btn {
+        margin-top: 30px;
     }
 }
 

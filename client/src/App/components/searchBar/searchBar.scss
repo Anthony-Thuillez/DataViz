@@ -18,14 +18,14 @@
         border-bottom: solid 1px $gold;
         padding-bottom: 5px;
         font-family: $font;
-        font-size: 16px;
+        font-size: $text-medium;
         color: $white;
         outline: none;
         background: none;
         text-transform: capitalize;
         &::placeholder {
             font-family: $font;
-            font-size: 16px;
+            font-size: $text-medium;
             color: $blue;
         }
     }
@@ -34,7 +34,11 @@
     }
     ~ ul {
         margin: 18px auto 0;
-        width: 236px;
+        padding: 0 60px;
+        height: 83%;
+        &.list-champ {
+            overflow-y: auto;
+        }
         li {
             animation: appear 0.3s ease-in;
             &:hover {
@@ -58,7 +62,7 @@
                 justify-content: flex-start;
                 align-items: center;
                 font-family: $font;
-                font-size: 24px;
+                font-size: $text-big;
                 color: $blue;
                 text-decoration: none;
             }

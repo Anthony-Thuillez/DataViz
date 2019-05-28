@@ -1,0 +1,1012 @@
+[{
+    "name": "Aurelion Sol",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Sona",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Taliyah",
+    "occupation": [{
+        "name": "Middle",
+        "value": "50.44%"
+    }, {
+        "name": "Jungle",
+        "value": "49.56%"
+    }]
+}, {
+    "name": "Zilean",
+    "occupation": [{
+        "name": "Support",
+        "value": "82.66%"
+    }, {
+        "name": "Middle",
+        "value": "17.34%"
+    }]
+}, {
+    "name": "Bard",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Sivir",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Jinx",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Vi",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Rammus",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Talon",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Rumble",
+    "occupation": [{
+        "name": "Top",
+        "value": "54.6%"
+    }, {
+        "name": "Middle",
+        "value": "45.4%"
+    }]
+}, {
+    "name": "Nautilus",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Draven",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Ahri",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Yorick",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Janna",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Sejuani",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Volibear",
+    "occupation": [{
+        "name": "Top",
+        "value": "68.46%"
+    }, {
+        "name": "Jungle",
+        "value": "31.54%"
+    }]
+}, {
+    "name": "Kled",
+    "occupation": [{
+        "name": "Top",
+        "value": "77.34%"
+    }, {
+        "name": "Middle",
+        "value": "22.66%"
+    }]
+}, {
+    "name": "Malzahar",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Lux",
+    "occupation": [{
+        "name": "Support",
+        "value": "76.3%"
+    }, {
+        "name": "Middle",
+        "value": "23.7%"
+    }]
+}, {
+    "name": "Karthus",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "88.17%"
+    }, {
+        "name": "Middle",
+        "value": "11.83%"
+    }]
+}, {
+    "name": "Taric",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Maokai",
+    "occupation": [{
+        "name": "Top",
+        "value": "64.64%"
+    }, {
+        "name": "Support",
+        "value": "35.36%"
+    }]
+}, {
+    "name": "Elise",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Illaoi",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Shaco",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "71.27%"
+    }, {
+        "name": "Support",
+        "value": "28.73%"
+    }]
+}, {
+    "name": "Xin Zhao",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Fiddlesticks",
+    "occupation": [{
+        "name": "Support",
+        "value": "81.93%"
+    }, {
+        "name": "Jungle",
+        "value": "18.07%"
+    }]
+}, {
+    "name": "Ashe",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Gangplank",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Leona",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Vel'Koz",
+    "occupation": [{
+        "name": "Support",
+        "value": "69.6%"
+    }, {
+        "name": "Middle",
+        "value": "30.4%"
+    }]
+}, {
+    "name": "Rengar",
+    "occupation": [{
+        "name": "Top",
+        "value": "63.71%"
+    }, {
+        "name": "Jungle",
+        "value": "36.29%"
+    }]
+}, {
+    "name": "Aatrox",
+    "occupation": [{
+        "name": "Top",
+        "value": "64.17%"
+    }, {
+        "name": "Jungle",
+        "value": "19.7%"
+    }, {
+        "name": "Middle",
+        "value": "16.13%"
+    }]
+}, {
+    "name": "Fizz",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Twitch",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "81.2%"
+    }, {
+        "name": "Jungle",
+        "value": "18.8%"
+    }]
+}, {
+    "name": "Ivern",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Cassiopeia",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Thresh",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Zyra",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Rakan",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Pantheon",
+    "occupation": [{
+        "name": "Top",
+        "value": "51.86%"
+    }, {
+        "name": "Jungle",
+        "value": "33.72%"
+    }, {
+        "name": "Middle",
+        "value": "14.42%"
+    }]
+}, {
+    "name": "Olaf",
+    "occupation": [{
+        "name": "Top",
+        "value": "73.09%"
+    }, {
+        "name": "Jungle",
+        "value": "26.91%"
+    }]
+}, {
+    "name": "Zed",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Nami",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Ekko",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Evelynn",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Kassadin",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Anivia",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Xayah",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Nunu & Willump",
+    "occupation": []
+}, {
+    "name": "Quinn",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Pyke",
+    "occupation": [{
+        "name": "Support",
+        "value": "85.79%"
+    }, {
+        "name": "Middle",
+        "value": "7.15%"
+    }, {
+        "name": "Top",
+        "value": "7.06%"
+    }]
+}, {
+    "name": "Darius",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Soraka",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Garen",
+    "occupation": [{
+        "name": "Top",
+        "value": "82.79%"
+    }, {
+        "name": "Middle",
+        "value": "17.21%"
+    }]
+}, {
+    "name": "Blitzcrank",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Wukong",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "51.83%"
+    }, {
+        "name": "Top",
+        "value": "48.17%"
+    }]
+}, {
+    "name": "Swain",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Miss Fortune",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Kennen",
+    "occupation": [{
+        "name": "Top",
+        "value": "88.86%"
+    }, {
+        "name": "Middle",
+        "value": "11.14%"
+    }]
+}, {
+    "name": "Mordekaiser",
+    "occupation": []
+}, {
+    "name": "Rek'Sai",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Riven",
+    "occupation": [{
+        "name": "Top",
+        "value": "90.01%"
+    }, {
+        "name": "Middle",
+        "value": "9.99%"
+    }]
+}, {
+    "name": "Nidalee",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Lulu",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Poppy",
+    "occupation": [{
+        "name": "Top",
+        "value": "73.01%"
+    }, {
+        "name": "Jungle",
+        "value": "15%"
+    }, {
+        "name": "Support",
+        "value": "11.99%"
+    }]
+}, {
+    "name": "Kayle",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Katarina",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Renekton",
+    "occupation": [{
+        "name": "Top",
+        "value": "92.43%"
+    }, {
+        "name": "Middle",
+        "value": "7.57%"
+    }]
+}, {
+    "name": "Kayn",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Warwick",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Tryndamere",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Xerath",
+    "occupation": [{
+        "name": "Support",
+        "value": "51.75%"
+    }, {
+        "name": "Middle",
+        "value": "48.25%"
+    }]
+}, {
+    "name": "Twisted Fate",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Amumu",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Sion",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Neeko",
+    "occupation": [{
+        "name": "Middle",
+        "value": "38.85%"
+    }, {
+        "name": "Top",
+        "value": "28.3%"
+    }, {
+        "name": "Support",
+        "value": "26.54%"
+    }]
+}, {
+    "name": "Corki",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Zoe",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Hecarim",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "73.14%"
+    }, {
+        "name": "Top",
+        "value": "26.86%"
+    }]
+}, {
+    "name": "Tahm Kench",
+    "occupation": [{
+        "name": "Top",
+        "value": "77.49%"
+    }, {
+        "name": "Support",
+        "value": "22.51%"
+    }]
+}, {
+    "name": "Shen",
+    "occupation": [{
+        "name": "Top",
+        "value": "69.01%"
+    }, {
+        "name": "Support",
+        "value": "30.99%"
+    }]
+}, {
+    "name": "Cho'Gath",
+    "occupation": [{
+        "name": "Top",
+        "value": "60.73%"
+    }, {
+        "name": "Middle",
+        "value": "39.27%"
+    }]
+}, {
+    "name": "Jax",
+    "occupation": [{
+        "name": "Top",
+        "value": "76.11%"
+    }, {
+        "name": "Jungle",
+        "value": "23.89%"
+    }]
+}, {
+    "name": "Morgana",
+    "occupation": [{
+        "name": "Support",
+        "value": "88.68%"
+    }, {
+        "name": "Middle",
+        "value": "11.32%"
+    }]
+}, {
+    "name": "Camille",
+    "occupation": [{
+        "name": "Top",
+        "value": "54.98%"
+    }, {
+        "name": "Jungle",
+        "value": "45.02%"
+    }]
+}, {
+    "name": "Jayce",
+    "occupation": [{
+        "name": "Top",
+        "value": "67.81%"
+    }, {
+        "name": "Middle",
+        "value": "32.19%"
+    }]
+}, {
+    "name": "Heimerdinger",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Vladimir",
+    "occupation": [{
+        "name": "Top",
+        "value": "60.43%"
+    }, {
+        "name": "Middle",
+        "value": "39.57%"
+    }]
+}, {
+    "name": "Brand",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Ziggs",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Kai'Sa",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Teemo",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Skarner",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Shyvana",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Annie",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Kindred",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Karma",
+    "occupation": [{
+        "name": "Support",
+        "value": "83.19%"
+    }, {
+        "name": "Top",
+        "value": "9.72%"
+    }, {
+        "name": "Middle",
+        "value": "7.09%"
+    }]
+}, {
+    "name": "Kog'Maw",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Gnar",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Veigar",
+    "occupation": [{
+        "name": "Middle",
+        "value": "72.04%"
+    }, {
+        "name": "Support",
+        "value": "27.96%"
+    }]
+}, {
+    "name": "Kha'Zix",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Zac",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Alistar",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Udyr",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Sylas",
+    "occupation": [{
+        "name": "Middle",
+        "value": "50.5%"
+    }, {
+        "name": "Top",
+        "value": "46.52%"
+    }]
+}, {
+    "name": "Graves",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Orianna",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Tristana",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Urgot",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Ornn",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Fiora",
+    "occupation": [{
+        "name": "Top",
+        "value": "91.45%"
+    }, {
+        "name": "Middle",
+        "value": "8.55%"
+    }]
+}, {
+    "name": "Jarvan IV",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Ezreal",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "98.95%"
+    }]
+}, {
+    "name": "Vayne",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "86.35%"
+    }, {
+        "name": "Top",
+        "value": "13.65%"
+    }]
+}, {
+    "name": "Jhin",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Caitlyn",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Azir",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Dr. Mundo",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Lissandra",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Viktor",
+    "occupation": [{
+        "name": "Middle",
+        "value": "68.94%"
+    }, {
+        "name": "Top",
+        "value": "31.06%"
+    }]
+}, {
+    "name": "Master Yi",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Irelia",
+    "occupation": [{
+        "name": "Top",
+        "value": "65.1%"
+    }, {
+        "name": "Middle",
+        "value": "34.9%"
+    }]
+}, {
+    "name": "Lucian",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "97.18%"
+    }]
+}, {
+    "name": "Varus",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Gragas",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Galio",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Malphite",
+    "occupation": [{
+        "name": "Top",
+        "value": "78.03%"
+    }, {
+        "name": "Middle",
+        "value": "21.97%"
+    }]
+}, {
+    "name": "Lee Sin",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Nocturne",
+    "occupation": [{
+        "name": "Jungle",
+        "value": "72.57%"
+    }, {
+        "name": "Middle",
+        "value": "27.43%"
+    }]
+}, {
+    "name": "Yasuo",
+    "occupation": [{
+        "name": "Middle",
+        "value": "67.8%"
+    }, {
+        "name": "Top",
+        "value": "28.18%"
+    }]
+}, {
+    "name": "Syndra",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Nasus",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Braum",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "LeBlanc",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}, {
+    "name": "Singed",
+    "occupation": [{
+        "name": "Top",
+        "value": "100%"
+    }]
+}, {
+    "name": "Trundle",
+    "occupation": []
+}, {
+    "name": "Akali",
+    "occupation": [{
+        "name": "Top",
+        "value": "53.71%"
+    }, {
+        "name": "Middle",
+        "value": "46.29%"
+    }]
+}, {
+    "name": "Ryze",
+    "occupation": [{
+        "name": "Top",
+        "value": "50.37%"
+    }, {
+        "name": "Middle",
+        "value": "49.63%"
+    }]
+}, {
+    "name": "Yuumi",
+    "occupation": [{
+        "name": "Support",
+        "value": "100%"
+    }]
+}, {
+    "name": "Kalista",
+    "occupation": [{
+        "name": "Bottom",
+        "value": "100%"
+    }]
+}, {
+    "name": "Diana",
+    "occupation": [{
+        "name": "Middle",
+        "value": "100%"
+    }]
+}]

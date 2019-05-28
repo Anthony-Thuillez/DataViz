@@ -2,29 +2,69 @@ import React, { Component } from 'react';
 import BarChart from '../../scripts/BarChart';
 import { connect } from 'react-redux';
 
+import BackBtn from '../../components/backBtn';
+
+import './graph.scss';
+
 class Chart extends Component {
 
   state = {
     imgDisplay: "",
     width: 100,
     height: 'auto',
-    id: ""
-  }
-  getBtnsValue = (event) => {
-    let selectedRate = event.target.getAttribute('rate')
-    this.props.set_rate(selectedRate)
+    id: "",
+    rates: [
+      { name: "win", text:"Win Rate", isActive: true },
+      { name: "pick", text: "Pick Rate" },
+      { name: "ban", text: "Ban Rate" }
+    ]
+  };
+
+  handleIsActive = id => {
+    this.setState(prev => {
+      const { rates } = prev;
+      const nextRate = rates.map(rate => {
+        if (rate.name !== id) return { ...rate, isActive: false };
+        return {
+          ...rate,
+          isActive: !rate.isActive
+        };
+      });
+      return { ...prev, rates: nextRate };
+    });
+  };
+
+  onClick = (rate) => (event) => {
+    let selectedRate = rate.name;
+    this.props.set_rate(selectedRate);
+    this.handleIsActive(rate.name);
   }
   
   render() {
+    const { rates } = this.state;
     return (
-      <div>
-        <div className="rate-selection">
-          <button onClick={(event)=>this.getBtnsValue(event)} rate="win" type="button">Win rate</button>
-          <button onClick={(event)=>this.getBtnsValue(event)} rate="pick" type="button">Pick rate</button>
-          <button onClick={(event)=>this.getBtnsValue(event)} rate="ban" type="button">Ban rate</button>
+      <>
+        <BackBtn />
+        <div id="barChart">
+          <BarChart />
         </div>
-        <BarChart/>
-      </div>
+        <div className="filter">
+          {
+            rates.map((rate, index) => {
+              return (
+                <div
+                  key={index}
+                  className={`btn-filter ${rate.isActive ? 'active' : ''}`}
+                  onClick={this.onClick(rate)}
+                  rate={rate.name}
+                >
+                  <span>{rate.text}</span>
+                </div>
+              )
+            })
+          }
+        </div>
+      </>
     );
   }
 }

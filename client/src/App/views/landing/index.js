@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import BubbleChart from '../../scripts/CloudOfChamp';
 
-import Header from '../../components/header';
+import Champbubble from '../../components/champbubble';
+import Postbubble from '../../components/postbubble';
 import Filter from '../../components/filter';
-import Modal from '../../components/infoModal';
 
 class Landing extends Component {
-
+    
     render() {
 
         return (
             <>
-                <Header />
                 <BubbleChart />
+                {/* en attendant l'inté */}
+                <div style={{ "position":"absolute", "top":"50%", "left":"50%", "transform":"translate(-50%, -50%)", "display":"flex", "alignItems":"center" }} >
+                    <Champbubble />
+                    <Postbubble />
+                </div>
                 <Filter />
-                <Modal />
             </>
         )
     }

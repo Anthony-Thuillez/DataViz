@@ -1,14 +1,14 @@
 @import '../../styles/variables';
 
-.group-btn {
-    position: fixed;
+.filter {
+    position: absolute;
     left: 0;
     bottom: 24px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    .btn {
+    .btn-filter {
         position: relative;
         display: flex;
         align-items: center;
@@ -16,8 +16,8 @@
         width: 72px;
         height: 30px;
         color: $blue;
-        font-family: $font-bold;
-        font-size: 16px;
+        font-family: $font;
+        font-size: $text-medium;
         cursor: pointer;
         user-select: none;   
         &:not(:last-child) {

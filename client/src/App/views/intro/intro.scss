@@ -1,6 +1,6 @@
 @import '../../styles/variables';
 
-.box-intro {
+.block-intro {
     z-index: 2;
     position: absolute;
     top: 50%; left: 50%;
@@ -10,46 +10,31 @@
     .logo {
         max-width: 192px;
         margin: 24px auto;
+        user-select: none;
     }
     p {
-        font-size: 18px;
-        line-height: 22px;
-        &:last-of-type {
-            font-family: $font-bold;
-            font-size: 22px;
-            line-height: 36px;
-        }
+        font-size: $text-big;
+        line-height: 30px;
     }
-    a {
-        display: block;
-        margin: 24px 63px 0;
-        padding: 16px;
-        background: $blue;
-        color: $darkblue;
-        font-size: 18px;
-        text-decoration: none;
-        box-shadow: $box-shadow;
-        &:hover {
-            background: $gold-gradient;
-        }
+    .btn {
+        margin-top: 24px;
     }
 }
 
-.img-left,
-.img-right {
-    position: absolute;
+.img-intro-left,
+.img-intro-right {
+    position: fixed;
     height: 662px;
     top: 50%;
     transform: translateY(-50%);
+    user-select: none;
     img {
         height: 100%;
     }
 }
-
-.img-left {
+.img-intro-left {
     left: 0;
 }
-
-.img-right {
+.img-intro-right {
     right: 0;
 }

@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+
+.btn-back {
+    padding: 24px 0;
+    a {
+        position: relative;
+        text-decoration: none;
+        &:before {
+            position: absolute;
+            content: '\E805';
+            font-family: 'fontello';
+            font-size: 20px;
+            color: $blue;
+            transition: transform 0.3s ease-in-out;
+        }
+        &:hover,
+        &:active {
+            &:before {
+                transform: translateX(-8px);
+            }
+        }
+    }
+    span {
+        font-family: $font;
+        font-size: $text-big;
+        color: $blue;
+        padding-left: 28px;
+        &:hover,
+        &:active {
+            text-decoration: underline;
+        }
+    }
+}

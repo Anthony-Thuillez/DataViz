@@ -9,16 +9,17 @@
     height: 80px;
     border-radius: 50%;
     box-shadow: $box-shadow;
+    text-decoration: none;
     cursor: pointer;
     &.icon:before {
-        top: 34%;
+        top: 38%;
         width: 32px;
         height: 32px;
     }
     p {
-        font-family: $font-bold;
+        font-family: $font;
         color: $darkblue;
-        font-size: 14px;
+        font-size: $text-small;
         margin-bottom: 16px;
         user-select: none;
     }

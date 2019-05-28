@@ -1,34 +1,19 @@
 /** TESTED ✅
- * Functions purpose: Count the number of champion for a selected post
- * @param {Object[]} data(json) @param {String} post(props)
- * @return {Number} the total of champions found
-*/
-const findNbChampByPost = (data, post) => {
-    let propertyCounter = 0
-    for (let i = 0, l = data.length; i <l ; i++) {
-        let propertyExist = data[i].poste.hasOwnProperty(post)
-        if (propertyExist) {
-            propertyCounter++
-        }
-    }
-
-    return propertyCounter
-}
-
-/** TESTED ✅
  * Functions purpose : Get all champions for a specific post
  * @param {Object[]} data(json) @param {String} post(props)
  * @return {Object[]} champions found on [post] define
  */
+
 const getChampByPost = (data, post) => {
     let champArr = []
-    for (let i = 0, l = data.length; i <l ; i++) {
-        let propertyExist = data[i].poste.hasOwnProperty(post)
-        if (propertyExist) {
-            champArr.push(data[i])
+    for (let i = 0, l = data.length; i < l; i++) {
+        for (let y = 0, l = data[i].poste.length; y < l; y++) {
+            if (Object.values(data[i].poste[y]).includes(post)) {
+                champArr.push(data[i])
+            }
         }
     }
-    
+
     return champArr
 }
 
@@ -102,22 +87,64 @@ const medianRate = (data, rate, post) => {
 const getChampByRole = (data, role) => {
     let champArr = []
     for (let i = 0, l = data.length; i < l; i++) {
-        let propertyExist = data[i].hasOwnProperty("role")        
+        let propertyExist = data[i].hasOwnProperty("role")
         if (propertyExist) {
             if (data[i].role === role) {
                 champArr.push(data[i])
+            } else {
+                console.log("something happend");
+                console.log("role", role);
+                console.log("data[i].role", data[i].role);
+                
             }
         }
-    }    
-    console.log(champArr);
+    }
     
     return champArr
 }
+
+/** TESTED ✅
+ * Functions purpose : Get champion data for a specific name
+ * @param {Object[]} data(json) @param {String} name(state)
+ * @return {Object[]} champion data found on [name] define
+ */
+
+const getChampByName = (data, name) => {
+    let champObj
+    for (let i = 0; i < data.length; i++) {
+        let propertyExist = data[i].hasOwnProperty("name")        
+        if (propertyExist) {
+            if (data[i].name === name) {
+                champObj = {
+                    id: data[i].id,
+                    name: data[i].name,
+                    quotation: data[i].quotation,
+                    rank: data[i].rank,
+                    win: data[i].win,
+                    pick: data[i].pick,
+                    ban: data[i].ban,
+                    damage: data[i].damage,
+                    toughness: data[i].toughness,
+                    utility: data[i].utility,
+                    speed: data[i].speed,
+                    control: data[i].control,
+                    image: data[i].image,
+                    icon: data[i].icon,
+                    id_role: data[i].id_role,
+                    role: data[i].role
+                }
+                
+                return champObj
+            }
+        }
+    }
+}
+
 module.exports = {
-    findNbChampByPost,
     getChampByPost,
     getChampByRole,
     getSelectedRate,
+    getChampByName,
     orderByRate,
     medianRate,
 }

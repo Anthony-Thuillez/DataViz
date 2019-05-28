@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import SortByRate from './SortByRate';
 import { connect } from 'react-redux';
-
-
-import data from '../../data.json';
-
+// import data from '../../data.json';
 const linearGradient = (svg, id, color1, color2) => {
     /* 180deg du gradient */
     var defs = svg.append("defs");
@@ -34,7 +31,13 @@ class BarChart extends Component {
         chart.remove();
     }
 
-    componentWillMount() {
+    componentWillUnmount() {
+        let chart = document.querySelector('svg');
+        chart.remove();
+
+    }
+
+    componentDidMount() {
         this.drawChart(
             this.findFirstValOfArray(),
             this.findLastValOfArray(),
@@ -57,8 +60,10 @@ class BarChart extends Component {
         }
     }
 
-    findFirstValOfArray = () => {
-        let arr = SortByRate.orderByRate(data, this.props.selectedRate, "top")
+    findFirstValOfArray = () => { 
+        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        console.log("arr : ", arr);
+                
         for (let i = 0; i < arr.length; i++) {
             let firstEl = arr[0]
             return firstEl
@@ -66,7 +71,7 @@ class BarChart extends Component {
     }
 
     findLastValOfArray = () => {
-        let arr = SortByRate.orderByRate(data, this.props.selectedRate, "top")
+        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         for (let i = 0; i < arr.length; i++) {
             const lastEl = arr[arr.length - 1]
             return lastEl
@@ -74,10 +79,10 @@ class BarChart extends Component {
     }
 
     displayChamp(rate) {
-        let champion = SortByRate.getChampByPost(data, "top")
+        let champion = SortByRate.getChampByPost(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
-                name: champ.name,
+                icon: champ.icon,
                 rate: champ[rate]
             }
         })
@@ -85,7 +90,7 @@ class BarChart extends Component {
     }
 
     median() {
-        let _median = SortByRate.medianRate(data, this.props.selectedRate, "top")
+        let _median = SortByRate.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         return _median
     }
 
@@ -96,12 +101,10 @@ class BarChart extends Component {
         let lastEl = func_lastEl
         let { selectedRate } = this.props
 
-        console.log(this.props.selectedRate)
-
         /* Dimentions du graph */
-        var margin = { top: 40, right: 40, bottom: 40, left: 60 },
-            width = 1000 - margin.left - margin.right,
-            height = 800 - margin.top - margin.bottom;
+        var margin = { top: -2, right: 0, bottom: 80, left: 45 },
+            width = 1300 - margin.left - margin.right,
+            height = 550 - margin.top - margin.bottom;
 
         /* Propriété du graph */
         var x = d3.scaleBand()
@@ -111,7 +114,7 @@ class BarChart extends Component {
         var y = d3.scaleLinear()
             .range([height, 0]);
 
-        var svg = d3.select("body").append("svg")
+        var svg = d3.select("#barChart").append("svg")
             .attr("width", "100%")
             .attr("height", height + margin.top + margin.bottom)
             .append("g")
@@ -120,7 +123,7 @@ class BarChart extends Component {
         var minimum = lastEl - 5
         var maximum = firstEl + 5
 
-        x.domain(data.map((d) => d.name));
+        x.domain(data.map((d) => d.icon));
         y.domain([minimum, maximum]);
 
         /* Axes */
@@ -201,7 +204,7 @@ class BarChart extends Component {
             .data(data)
             .enter()
             .append("rect")
-            .attr("x", (d) => x(d.name))
+            .attr("x", (d) => x(d.icon))
             .attr("width", x.bandwidth())
             .attr("y", (d) => y(d.rate))
             .attr("height", (d) => height - y(d.rate))
@@ -223,7 +226,7 @@ class BarChart extends Component {
             .enter()
             .append("text")
             .text((d) => d.rate === _median ? "=" : d.rate)
-            .attr("x", (d) => x(d.name) + x.bandwidth() / 2)
+            .attr("x", (d) => x(d.icon) + x.bandwidth() / 2)
             .attr("y", (d) => (y(d.rate) + height) / 2)
             .style('fill', 'white')
             .attr("text-anchor", "middle");
@@ -235,14 +238,16 @@ class BarChart extends Component {
         }
     }
 
-    render() {
+    render() {  
         return <div id={"#" + this.props.id}></div>
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        selectedRate: state.selectedRate
+        data: state.data,
+        selectedRate: state.selectedRate,
+        selectedPoste: state.selectedPoste
     }
 }
 export default connect(mapStateToProps, null)(BarChart);

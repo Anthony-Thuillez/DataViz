@@ -1,57 +1,43 @@
 import React, { Component } from 'react'
 import SortByRate from '../../scripts/SortByRate'
-import data from '../../../data.json'
+import { connect } from 'react-redux';
 import Chart from 'chart.js';
 
+import BackBtn from '../../components/backBtn';
 
 class Fiche extends Component {
+
     /**
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
     */
-    getAllStats(name) {
-        let champions = SortByRate.getChampByPost(data, "top")
-        let championStats = champions.map(function (champ) {
-            return {
-                name: champ.name,
-                damage: champ.damage,
-                tankiness: champ.tankiness,
-                control: champ.control,
-                mobility: champ.mobility,
-                utility: champ.utility
-            }
-        });
-        console.log(championStats, "championStats");
-        for (let i = 0; i < championStats.length; i++) {
-            if (championStats[i].name === name) {
-                let stats = {
-                    damage: championStats[i].damage,
-                    tankiness: championStats[i].tankiness,
-                    control: championStats[i].control,
-                    mobility: championStats[i].mobility,
-                    utility: championStats[i].utility
-                }
-                return Object.values(stats)
-            }
-        }
+    champStats() {
+        let champion = SortByRate.getChampByName(this.props.data, this.props.selectedChamp)
+        return [
+            champion.damage,
+            champion.toughness,
+            champion.control,
+            champion.speed,
+            champion.utility
+        ]
     }
 
     componentDidMount() {
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
         Chart.platform.disableCSSInjection = true;
-        ctx.canvas.parentNode.style.height = '157px';
-        ctx.canvas.parentNode.style.width = '157px';
+        ctx.canvas.parentNode.style.height = '357px';
+        ctx.canvas.parentNode.style.width = '357px';
         new Chart(ctx, {
             // The type of chart we want to create
             type: 'radar',
 
             // The data for our dataset
             data: {
-                labels: ['damage', "tankiness", 'control', "mobility", 'utility'],
+                labels: ['damage', "toughness", 'control', "speed", 'utility'],
                 datasets: [{
                     backgroundColor: 'rgba(0, 203, 224, 0.455)',
-                    data: this.getAllStats("Akali"),
+                    data: this.champStats(),
                     radius: 0,
                 }
 
@@ -62,7 +48,7 @@ class Fiche extends Component {
             options: {
                 maintainAspectRatio: false,
                 scale: {
-                    display: false,
+                    display: true,
                     ticks: {
                         beginAtZero: true,
                         max: 3 
@@ -72,13 +58,21 @@ class Fiche extends Component {
         })
     }
 
-    render() {
+    render() {        
         return (
             <>
-                <canvas id="myChart"></canvas>
+                <BackBtn />
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
             </>
         )
     }
 }
-
-export default Fiche
+const mapStateToProps = (state) => {
+    return {
+        data: state.data,
+        selectedChamp: state.selectedChamp
+    }
+}
+export default connect(mapStateToProps, null)(Fiche);

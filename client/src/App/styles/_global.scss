@@ -49,9 +49,10 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: $font;
-    font-size: 14px;
+    font-size: $text-medium;
     color: $white;
-    &.intro {
+    &.intro,
+    &.page404 {
         background: $darkblue;
     }
 }
@@ -60,9 +61,29 @@ img {
     max-width: 100%;
 }
 
-.title {
-    font-family: $font-bold;
-    font-size: 24px;
+.wrapper {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 64px;
+    height: 100vh;
+}
+
+.btn {
+    display: inline-block;
+    min-width: 192px;
+    padding: 10px;
+    text-align: center;
+    background: $blue;
+    color: $darkblue;
+    font-family: $font;
+    font-size: $text-medium;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+        background: $gold-gradient;
+    }
 }
 
 .icon {
@@ -129,4 +150,21 @@ img {
     &-utility:before {
         content: '\E804';
     }
+}
+
+/* scrollbar css */
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2b2147; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gold-gradient; 
 }
