@@ -1,0 +1,18 @@
+.breadcrumb {
+    a {
+        font-family: $font;
+        font-size: $text-small;
+        color: $blue;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+        &:not(:last-child) {
+            &:after {
+                content: '>';
+                display: inline-block;
+                margin: 0 5px;
+            }
+        }
+    }
+}

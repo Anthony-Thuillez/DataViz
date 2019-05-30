@@ -1,0 +1,36 @@
+.bubble-champ {
+    border-radius: 50%;
+    box-shadow: $box-shadow;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    &.big {
+        width: 56px;
+        height: 56px;
+    }
+    &.large {
+        width: 48px;
+        height: 48px;
+    }
+    &.medium {
+        width: 40px;
+        height: 40px;
+    }
+    &.small {
+        width: 32px;
+        height: 32px;
+    }
+    &.tiny {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+a .bubble-champ {
+    border: solid 1px $blue;
+    &:hover,
+    &:active {
+        border-color: $gold;
+    }
+}
