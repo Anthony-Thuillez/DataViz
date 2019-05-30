@@ -1,0 +1,149 @@
+@font-face {
+    font-family: 'fontello';
+    src: url('../assets/fonts/fontello/fontello.eot?73249035');
+    src: url('../assets/fonts/fontello/fontello.eot?73249035#iefix') format('embedded-opentype'),
+         url('../assets/fonts/fontello/fontello.woff2?73249035') format('woff2'),
+         url('../assets/fonts/fontello/fontello.woff?73249035') format('woff'),
+         url('../assets/fonts/fontello/fontello.ttf?73249035') format('truetype'),
+         url('../assets/fonts/fontello/fontello.svg?73249035#fontello') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+@font-face {
+    font-family: "lato";
+    src: url(../assets/fonts/lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: "lato-hairline";
+    src: url(../assets/fonts/lato/Lato-Hairline.ttf);
+}
+
+@font-face {
+    font-family: "lato-light";
+    src: url(../assets/fonts/lato/Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: "lato-bold";
+    src: url(../assets/fonts/lato/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: "martel";
+    src: url(../assets/fonts/martel/Martel-Regular.ttf);
+}
+
+@font-face {
+    font-family: "martel-bold";
+    src: url(../assets/fonts/martel/Martel-Bold.ttf);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: $background;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: $font;
+    font-size: $text-medium;
+    color: $white;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    position: relative;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 64px;
+    height: 100vh;
+}
+
+.icon {
+    position: relative;
+    width: 32px;
+    height: 32px;
+
+    &:before {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        content: '';
+        font-family: 'fontello';
+        color: $blue;
+        font-size: 32px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        user-select: none;
+    }
+    &-top:before {
+        background-image: url(../assets/icons/Top.svg);
+    }
+    &-jgl:before {
+        background-image: url(../assets/icons/Jgl.svg);
+    }
+    &-mid:before {
+        background-image: url(../assets/icons/Mid.svg);
+    }
+    &-bot:before {
+        background-image: url(../assets/icons/Bot.svg);
+    }
+    &-supp:before {
+        background-image: url(../assets/icons/Supp.svg);        
+    }
+    &-map:before {
+        background-image: url(../assets/icons/Map.svg);        
+    }
+    &-stats:before {
+        background-image: url(../assets/icons/Stats.svg);        
+    }
+    &-search:before {
+        content: '\E801';
+    }
+    &-barrow:before {
+        content: '\E805';
+    }
+    &-cross:before {
+        content: '\E807';
+    }
+    &-damage:before {
+        content: '\E808';
+    }
+    &-tankiness:before {
+        content: '\E803';
+    }
+    &-mobility:before {
+        content: '\E800';
+    }
+    &-control:before {
+        content: '\E806';
+    }
+    &-utility:before {
+        content: '\E804';
+    }
+}
+
+/* scrollbar css */
+
+/* width */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #2b2147; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $gold-gradient; 
+}
