@@ -2,8 +2,14 @@
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
+    height: 100%;
+    padding-bottom: 68px + 56px + 76px;
     
     .sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 20px;
         flex-shrink: 0;
         max-width: 360px;
 
@@ -11,7 +17,6 @@
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
-            margin-bottom: 24px;
             .block {
                 margin-left: 24px;
             }
@@ -41,7 +46,6 @@
             }
         }
         &-rates {
-            margin-bottom: 24px;
             .block {
                 display: flex;
                 justify-content: flex-start;
@@ -63,7 +67,7 @@
             }
         }
         &-stats {
-            margin-bottom: 24px;
+
         }
     }
 
