@@ -10,17 +10,17 @@ class LiquidGauge extends Component {
         circleFillGap: 0,
         waveHeight: 0.05,
         waveCount: 1,
-        waveRiseTime: 1000,
-        waveAnimateTime: 1000,
+        waveRiseTime: 1500,
+        waveAnimateTime: 4000,
         waveRise: true,
         waveHeightScaling: true,
         waveAnimate: true,
         waveOffset: 0,
         textVertPosition: 0.5,
-        textSize: 0.8,
+        textSize: 1,
         valueCountUp: true,
         displayPercent: true,
-        textColor: "#045681",
+        textColor: "#ffffff",
         waveTextColor: "#A4DBf8"
     };
 
@@ -51,7 +51,7 @@ class LiquidGauge extends Component {
         var centerX = width / 2;
         var centerY = height / 2;
         var numPoints = 6;
-        var strokePenta = 3;
+        var strokePenta = 2;
         var radius =
             Math.min(
                 width,

@@ -52,7 +52,7 @@ const Integration = () => (
 
         <h2>Bulles des postes :</h2>
         <div className="container">
-            <Link to="#" className="btn-post icon icon-top"><span>Top</span></Link>
+            <Link to="#" className="bubble-post icon icon-top"><span>Top</span></Link>
             <Link to="#" className="bubble-post icon icon-jgl"><span>Jungle</span></Link>
             <Link to="#" className="bubble-post icon icon-mid"><span>Mid</span></Link>
             <Link to="#" className="bubble-post icon icon-bot"><span>Bot</span></Link>

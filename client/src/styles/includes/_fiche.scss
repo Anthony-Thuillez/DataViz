@@ -1,3 +1,98 @@
 .page-fiche {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
     
+    .sidebar {
+        flex-shrink: 0;
+        max-width: 360px;
+
+        &-champion {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            margin-bottom: 24px;
+            .block {
+                margin-left: 24px;
+            }
+            .title {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                img {
+                    width: 32px;
+                    height: 32px;
+                    margin-right: 8px;
+                }
+                h2 {
+                    font-family: $title;
+                    font-size: $text-title;
+                    background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+            .quotation {
+                font-family: $font;
+                font-size: $text-big;
+                background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        &-rates {
+            margin-bottom: 24px;
+            .block {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .fillgauge {
+                    // width: 58px;
+                    // height: 69px;
+                }
+
+                span {
+                    margin-left: 22px;
+                    font-family: $font;
+                    font-size: $text-big;
+                    background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+        &-stats {
+            margin-bottom: 24px;
+        }
+    }
+
+    .map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        &-container {
+            position: relative;
+            max-width: 520px;
+            width: 100%;
+            min-width: 400px;
+            img {
+                width: 100%;
+            }
+            .top {
+
+            }
+            .jgl {
+
+            }
+            .mid {
+
+            }
+            .bot,
+            .supp {
+
+            }
+        }
+    }
 }
