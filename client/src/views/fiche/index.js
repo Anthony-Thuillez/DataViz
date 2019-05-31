@@ -7,6 +7,12 @@ import LiquidChart from './ficheContainer';
 
 import BtnBack from '../../components/BtnBack';
 
+import Stats from '../../assets/img/Stats.png';
+import Damage from '../../assets/icons/Damage.png';
+import Control from '../../assets/icons/Control.png';
+import Taughness from '../../assets/icons/Taughness.png';
+import Mobility from '../../assets/icons/Mobility.png';
+import Utility from '../../assets/icons/Utility.png';
 import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
@@ -34,8 +40,8 @@ class Fiche extends Component {
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
         Chart.platform.disableCSSInjection = true;
-        ctx.canvas.parentNode.style.height = '200px';
-        ctx.canvas.parentNode.style.width = '200px';
+        ctx.canvas.parentNode.style.height = '167px';
+        ctx.canvas.parentNode.style.width = '167px';
         new Chart(ctx, {
             // The type of chart we want to create
             type: 'radar',
@@ -54,7 +60,7 @@ class Fiche extends Component {
             options: {
                 maintainAspectRatio: false,
                 scale: {
-                    display: true,
+                    display: false,
                     ticks: {
                         beginAtZero: true,
                         max: 3 
@@ -90,7 +96,15 @@ class Fiche extends Component {
                         </div>
 
                         <div className="sidebar-stats">
-                            <canvas id="myChart"></canvas>
+                            <div className="graph-container">
+                                <img className="img-graph" src={Stats} alt="stats-graph" />
+                                <img className="icon-stat damage" src={Damage} alt="icon-damage" />
+                                <img className="icon-stat control" src={Control} alt="icon-control" />
+                                <img className="icon-stat taughness" src={Taughness} alt="icon-taughness" />
+                                <img className="icon-stat mobility" src={Mobility} alt="icon-mobility" />
+                                <img className="icon-stat utility" src={Utility} alt="icon-utility" />
+                                <canvas id="myChart"></canvas>
+                            </div>
                         </div>
 
                         <div>

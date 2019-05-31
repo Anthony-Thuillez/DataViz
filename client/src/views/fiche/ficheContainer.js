@@ -10,7 +10,7 @@ class LiquidGauge extends Component {
         circleFillGap: 0,
         waveHeight: 0.05,
         waveCount: 1,
-        waveRiseTime: 1500,
+        waveRiseTime: 1000,
         waveAnimateTime: 4000,
         waveRise: true,
         waveHeightScaling: true,
