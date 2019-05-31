@@ -182,9 +182,8 @@ class Compare extends Component {
                         this.state.champions.map((champ, index) => {
                             return (
                                 <div key={index}>
-                                    <img onClick={(e)=>this.retrieveChampCaracteristics(e)} style={{cursor: 'pointer'}} className="btn-champ btn-champ-list" id={champ.name} alt="champ" src={champ.icon}></img>
-                                </div>
-                                
+                                    <div onClick={(e) => this.retrieveChampCaracteristics(e)} id={champ.name} className="bubble-champ large" style={{ backgroundImage: `url(${champ.icon})`, cursor: 'pointer' }}></div>
+                                </div> 
                             )
                         })
                     }
