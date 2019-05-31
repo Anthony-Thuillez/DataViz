@@ -41,28 +41,33 @@ class Graph extends Component {
   render() {
     const { rates } = this.state;
     return (
-      <div className="page-graph">
+      <>
         <BtnBack />
-        <div id="barChart">
-          <BarChart />
+        <div className="page-graph">
+
+          <div id="barChart">
+            <BarChart />
+          </div>
+
+          <div className="filter">
+            {
+              rates.map((rate, index) => {
+                return (
+                  <div
+                    key={index}
+                    className={`btn-filter ${rate.isActive ? 'active' : ''}`}
+                    onClick={this.onClick(rate)}
+                    rate={rate.name}
+                  >
+                    <span>{rate.text}</span>
+                  </div>
+                )
+              })
+            }
+          </div>
+          
         </div>
-        <div className="filter">
-          {
-            rates.map((rate, index) => {
-              return (
-                <div
-                  key={index}
-                  className={`btn-filter ${rate.isActive ? 'active' : ''}`}
-                  onClick={this.onClick(rate)}
-                  rate={rate.name}
-                >
-                  <span>{rate.text}</span>
-                </div>
-              )
-            })
-          }
-        </div>
-      </div>
+      </>
     );
   }
 }
