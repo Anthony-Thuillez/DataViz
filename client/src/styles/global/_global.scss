@@ -45,6 +45,7 @@ html, body {
 }
 
 body {
+    overflow: hidden;
     background: $background;
     background-size: cover;
     background-repeat: no-repeat;

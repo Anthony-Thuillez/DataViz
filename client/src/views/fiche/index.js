@@ -93,7 +93,9 @@ class Fiche extends Component {
                             <canvas id="myChart"></canvas>
                         </div>
 
-                        <Link className="btn" to='/compare'>Compare</Link>
+                        <div>
+                            <Link className="btn" to='/compare'>Compare</Link>
+                        </div>
                     </div>
 
                     <div className="map">
