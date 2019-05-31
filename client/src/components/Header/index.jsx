@@ -16,7 +16,7 @@ const Header = () =>  (
         </div>
         <div className="navigation">
             <Link to="/" className="navigation-link active"><span>Home</span></Link>
-            <Link to="./compare" className="navigation-link"><span>Compare</span></Link>
+            <Link to="/compare" className="navigation-link"><span>Compare</span></Link>
         </div>
         <div className="header-right">
             <SearchBar /> 

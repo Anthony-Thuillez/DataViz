@@ -67,7 +67,26 @@
             }
         }
         &-stats {
-
+            .graph-container {
+                position: relative;
+                margin: 18px;
+            }
+            .img-graph {
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 2px;
+                width: 159px;
+            }
+            .icon-stat {
+                position: absolute;
+                cursor: pointer;
+                &.damage { top: -16px; left: 76px; }
+                &.control { top: 48px; right: -12px; }
+                &.taughness { right: 18px; bottom: -2px; }
+                &.mobility { left: 18px; bottom: -2px; }
+                &.utility { top: 48px; left: -12px; }
+            }
         }
     }
 
