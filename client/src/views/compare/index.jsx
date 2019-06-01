@@ -21,6 +21,7 @@ class Compare extends Component {
             champions: champions
         })
     }
+
     removeEl = (sideClicked) => {
         let name_slotLeft = document.querySelector('.champion-slot-left-name')
         let name_slotRight = document.querySelector('.champion-slot-right-name')
@@ -33,6 +34,7 @@ class Compare extends Component {
 
         let left_pick_rate = document.querySelector('.stats-pickrate-left')
         let right_pick_rate = document.querySelector('.stats-pickrate-right')
+
         if (sideClicked === "left") {
             name_slotLeft.innerHTML = 'Select a champion'
             this.setState({
@@ -53,6 +55,7 @@ class Compare extends Component {
             right_pick_rate.innerHTML = ''
         } 
     }
+
     retrieveChampCaracteristics(e) {
         let championName = e.target.getAttribute('id')
         let champCaracteristics = SortByRate.getChampByName(this.props.data, championName)
@@ -79,6 +82,7 @@ class Compare extends Component {
             left_ban_rate.innerHTML = ''
             left_pick_rate.innerHTML = ''
         }
+
         if (this.state.slot_right_name === champCaracteristics.name) {
             name_slotRight.innerHTML = 'Select a champion'
             this.setState({
@@ -100,6 +104,7 @@ class Compare extends Component {
             left_ban_rate.innerHTML = `${champCaracteristics.ban}%`
             left_pick_rate.innerHTML = `${champCaracteristics.pick}%`
         }  
+
         if (this.state.slot_right_name === '' && this.state.slot_left_name !== champCaracteristics.name) {
             if (this.state.slot_left_name !== '' || this.state.slot_right_name !== '') {
                 this.setState({
@@ -113,6 +118,7 @@ class Compare extends Component {
             }
         }
     }
+
     componentDidUpdate() {
         let btnChampList = document.querySelectorAll('.btn-champ-list')
 
@@ -139,6 +145,7 @@ class Compare extends Component {
         return(
             <div className="page-compare">
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
+
                     <div className="champion-slot-left" style={{background: 'indianred', display: 'flex'}}>
                         <span className="champion-slot-left-name" style={{margin: 'auto 10px'}}>Select a champion</span>
                         <div className="btn-champ champion-slot-left-pic" style={{ backgroundImage: `url(${this.state.slot_left_icon})` }}></div>
@@ -151,6 +158,7 @@ class Compare extends Component {
                         <button style={{cursor: 'pointer'}} onClick={()=>this.removeEl("right")}>x</button>
                     </div>
                 </div>
+
                 <div className="rate-container">
                     <div className="winrate-container" style={{display: 'flex'}}>
                         <div className="stats-winrate-left"></div>
@@ -176,6 +184,7 @@ class Compare extends Component {
                     <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Tank" type="button">tank</button>
                     <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Marksman" type="button">tireur</button>
                     <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Controller" type="button">support</button>
+                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Specialist" type="button">specialist</button>
                 </div>
                 <div className="champList-container" style={{display: 'flex', justifyContent: 'center'}}>
                     {
