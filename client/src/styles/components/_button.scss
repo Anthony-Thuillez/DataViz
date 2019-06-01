@@ -1,0 +1,63 @@
+.btn {
+    display: inline-block;
+    min-width: 192px;
+    padding: 14px 10px;
+    text-align: center;
+    background: $blue;
+    font-family: $font;
+    font-size: $text-medium;
+    color: $darkblue;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    &:hover {
+        background: $gold-gradient;
+    }
+}
+
+.btn-back {
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 24px 0;
+    font-family: $font;
+    font-size: $text-big;
+    color: $blue;
+    text-decoration: none;
+    user-select: none;
+    cursor: pointer;
+    &:before {
+        content: '\E805';
+        font-family: 'fontello';
+        font-size: 20px;
+        margin-right: 8px;
+        transition: transform 0.3s ease-in-out;
+    }
+    &:hover,
+    &:active {
+        &:before {
+            transform: translateX(-8px);
+        }
+    }
+    
+}
+
+.btn-hiw {
+    position: absolute;
+    bottom: 24px; right: 64px;
+    width: 24px;
+    height: 24px;
+    background: $blue;
+    border-radius: 50%;
+    cursor: pointer;
+    &:before {
+        content: '?';
+        color: $darkblue;
+        font-family: $font;
+        font-size: 16px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

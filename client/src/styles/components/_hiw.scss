@@ -1,0 +1,65 @@
+.modal-content.hiw {
+    width: 640px;
+    text-align: center;
+    .title {
+        margin: 0 100px;
+        padding-bottom: 9px;
+        font-family: $title;
+        font-size: $text-title;
+        line-height: 46px;
+        background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-bottom: solid 1px $gold;
+    }
+    .block {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        p {
+            font-size: $text-medium;
+            line-height: 24px;
+            text-align: left;
+            span {
+                color: $gold;
+            }
+        }
+    }
+    .img-champ {
+        width: 100%;
+    }
+    .img-rank {
+        min-width: 274px;
+        margin-left: 32px;
+    }
+    .img-graph {
+        min-width: 304px;
+        margin-left: 32px;
+    }
+    .img-filter {
+        display: flex;
+        min-width: 304px;
+        height: 104px;
+        background: $background;
+        margin-right: 32px;
+        img {
+            margin: auto;
+        }
+    }
+    .img-liquid {
+        min-width: 180px;
+        margin-left: 32px;
+    }
+    .img-stat {
+        min-width: 180px;
+        margin-right: 32px;
+    }
+    .img-map {
+        min-width: 250px;
+        margin-left: 32px;
+    }
+    .btn {
+        margin-top: 30px;
+    }
+}

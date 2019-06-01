@@ -1,0 +1,122 @@
+.page-fiche {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 100%;
+    padding-bottom: 68px + 56px + 76px;
+    
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 20px;
+        flex-shrink: 0;
+        max-width: 360px;
+
+        &-champion {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .block {
+                margin-left: 24px;
+            }
+            .title {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                img {
+                    width: 32px;
+                    height: 32px;
+                    margin-right: 8px;
+                    cursor: pointer;
+                }
+                h2 {
+                    font-family: $title;
+                    font-size: $text-title;
+                    background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+            .quotation {
+                font-family: $font;
+                font-size: $text-big;
+                background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+        &-rates {
+            .block {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+
+                .fillgauge {
+                    // width: 58px;
+                    // height: 69px;
+                }
+
+                span {
+                    margin-left: 22px;
+                    font-family: $font;
+                    font-size: $text-big;
+                    background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+        &-stats {
+            .graph-container {
+                position: relative;
+                margin: 18px;
+            }
+            .img-graph {
+                z-index: -1;
+                position: absolute;
+                top: 0;
+                left: 2px;
+                width: 159px;
+            }
+            .icon-stat {
+                position: absolute;
+                cursor: pointer;
+                &.damage { top: -16px; left: 76px; }
+                &.control { top: 48px; right: -12px; }
+                &.taughness { right: 18px; bottom: -2px; }
+                &.mobility { left: 18px; bottom: -2px; }
+                &.utility { top: 48px; left: -12px; }
+            }
+        }
+    }
+
+    .map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        &-container {
+            position: relative;
+            max-width: 520px;
+            width: 100%;
+            min-width: 400px;
+            img {
+                width: 100%;
+            }
+            .top {
+
+            }
+            .jgl {
+
+            }
+            .mid {
+
+            }
+            .bot,
+            .supp {
+
+            }
+        }
+    }
+}
