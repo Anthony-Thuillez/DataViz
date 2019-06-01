@@ -68,7 +68,14 @@ class Landing extends Component {
                                     key={index}
                                     onMouseEnter={() => this.getName(`${ champion.name }`)}
                                     >
-                                        <div data-tip={`${champion.name} ${champion.quotation}`} className="bubble-champ big" style={{ backgroundImage: `url(${champion.icon})` }}></div>
+                                        <div
+                                            // eslint-disable-next-line
+                                            data-tip={"<div><h3>" + `${champion.name}` + "</h3></div><p>" + `${champion.quotation}` + "</p>"}
+                                            data-html={true}
+                                            className="bubble-champ big"
+                                            style={{ backgroundImage: `url(${champion.icon})` }}
+                                        >
+                                        </div>
                                     </Link>
                                 );
                             })
@@ -93,7 +100,7 @@ class Landing extends Component {
                     }
                 </div>
 
-                <ReactTooltip />
+                <ReactTooltip className="tooltip" offset={{ top: 10 }} />
             </>
         )
     }
