@@ -102,9 +102,12 @@ class Fiche extends Component {
                             <div className="bubble-champ big" style={{ backgroundImage: `url(${this.props.champ_icon})` }}></div>
                             <div className="block">
                                 <div className="title">
-                                    <img data-tip={this.props.champ_role}
-                                    src={"https://universe.leagueoflegends.com/images/role_icon_fighter.png"}
-                                    alt="icon"
+                                    <img 
+                                        // eslint-disable-next-line
+                                        data-tip={"<span>" + `${this.props.champ_role}` + "</span>"}
+                                        data-html={true}
+                                        src={"https://universe.leagueoflegends.com/images/role_icon_fighter.png"}
+                                        alt="icon"
                                     />
                                     <h2>{this.props.champ_name}</h2>
                                 </div>
@@ -122,11 +125,11 @@ class Fiche extends Component {
                         <div className="sidebar-stats">
                             <div className="graph-container">
                                 <img className="img-graph" src={Stats} alt="stats-graph" />
-                                <img data-tip="Damage" className="icon-stat damage" src={Damage} alt="icon-damage" />
-                                <img data-tip="Control" className="icon-stat control" src={Control} alt="icon-control" />
-                                <img data-tip="Taughness" className="icon-stat taughness" src={Taughness} alt="icon-taughness" />
-                                <img data-tip="Mobility" className="icon-stat mobility" src={Mobility} alt="icon-mobility" />
-                                <img data-tip="Utility" className="icon-stat utility" src={Utility} alt="icon-utility" />
+                                <img data-tip="<span>Damage</span>" data-html={true} className="icon-stat damage" src={Damage} alt="icon-damage" />
+                                <img data-tip="<span>Control</span>" data-html={true} className="icon-stat control" src={Control} alt="icon-control" />
+                                <img data-tip="<span>Taughness</span>" data-html={true} className="icon-stat taughness" src={Taughness} alt="icon-taughness" />
+                                <img data-tip="<span>Mobility</span>" data-html={true} className="icon-stat mobility" src={Mobility} alt="icon-mobility" />
+                                <img data-tip="<span>Utility</span>" data-html={true} className="icon-stat utility" src={Utility} alt="icon-utility" />
                                 <canvas id="myChart"></canvas>
                             </div>
                         </div>
@@ -149,7 +152,7 @@ class Fiche extends Component {
 
                 </div>
                 
-                <ReactTooltip />
+                <ReactTooltip className="tooltip" offset={{ top: 10 }} />
             </>
         )
     }
