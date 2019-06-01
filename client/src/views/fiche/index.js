@@ -18,16 +18,12 @@ import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
 
-    state = {
-        value: 50,
-    };
-
     /**
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
     */
     champStats() {
-        let champion = SortByRate.getChampByName(this.props.data, this.props.selectedChamp)
+        let champion = SortByRate.getChampByName(this.props.data, this.props.champ_name)
         return [
             champion.damage,
             champion.toughness,
@@ -69,9 +65,27 @@ class Fiche extends Component {
                 }
             }
         })
+        this.champGlobal()
     }
 
-    render() {        
+    champGlobal() {
+        let champion = SortByRate.getChampByName(this.props.data, this.props.champ_name)
+        for (let i = 0; i < champion.poste.length; i++) {
+            if (champion.poste.length === 1) {
+                this.props.set_global(champion.quotation, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
+                return
+            } else if (champion.poste.length === 2) {
+                this.props.set_global(champion.quotation, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
+                return
+            } else if (champion.poste.length === 3) {
+                this.props.set_global(champion.quotation, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
+                return
+            }
+        }
+        
+    }
+    
+    render() {
         return (
             <>
                 <BtnBack />
@@ -91,7 +105,7 @@ class Fiche extends Component {
 
                         <div className="sidebar-rates">
                             <div className="block">
-                                <LiquidChart value={this.state.value} />
+                                <LiquidChart />
                                 { /* <span>Win rate</span> */ }
                             </div>
                         </div>
@@ -135,7 +149,41 @@ class Fiche extends Component {
 const mapStateToProps = (state) => {
     return {
         data: state.data,
-        selectedChamp: state.selectedChamp
+        champ_name: state.champ_name,
+        champ_quolation: state.champ_quolation,
+        champ_role: state.champ_role,
+        champ_win: state.champ_win,
+        champ_ban: state.champ_ban,
+        champ_pick: state.champ_pick,
+        champ_posteName: state.champ_posteName,
+        champ_posteValue: state.champ_posteValue,
+        champ_posteName2: state.champ_posteName2,
+        champ_posteValue2: state.champ_posteValue2,
+        champ_posteName3: state.champ_posteName3,
+        champ_posteValue3: state.champ_posteValue3
     }
 }
-export default connect(mapStateToProps, null)(Fiche);
+const mapDispatchToProps = (dispatch) => {    
+    return {
+        set_global: (quotation, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
+            dispatch({
+                type: 'SET_GLOBAL',
+                value: {
+                    quotation,
+                    role,
+                    win,
+                    ban,
+                    pick,
+                    posteName, 
+                    posteValue, 
+                    posteNam2, 
+                    posteValue2, 
+                    posteName3, 
+                    posteValue3
+                }
+                
+            })
+        }
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Fiche);

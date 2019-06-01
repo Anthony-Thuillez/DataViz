@@ -131,7 +131,8 @@ const getChampByName = (data, name) => {
                     image: data[i].image,
                     icon: data[i].icon,
                     id_role: data[i].id_role,
-                    role: data[i].role
+                    role: data[i].role,
+                    poste: data[i].poste
                 }
                 
                 return champObj
