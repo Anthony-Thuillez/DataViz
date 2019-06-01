@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
+import { connect } from 'react-redux';
 
 class LiquidGauge extends Component {
 
@@ -287,7 +288,9 @@ class LiquidGauge extends Component {
     }
 
     componentDidUpdate() {
-        this.updateGauge(this.props.value);
+        console.log(this.props.champ_win);
+        
+        // this.updateGauge(this.props.champ_win);
     }
 
     render() {
@@ -295,4 +298,12 @@ class LiquidGauge extends Component {
     }
 }
 
-export default LiquidGauge
+const mapStateToProps = (state) => {
+    return {
+        champ_win: state.champ_win,
+        champ_ban: state.champ_ban,
+        champ_pick: state.champ_pick
+    }
+}
+
+export default connect(mapStateToProps, null)(LiquidGauge)

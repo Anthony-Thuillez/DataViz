@@ -37,8 +37,8 @@ class Landing extends Component {
         });
     };
     
-    getName(selectedChamp) {
-        this.props.set_name(selectedChamp);
+    getName(champ_name) {
+        this.props.set_champ(champ_name);
     }
 
     getPoste(selectedPoste) {
@@ -101,10 +101,10 @@ class Landing extends Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        set_name: (selectedChamp) => {
+        set_champ: (champ_name) => {
             dispatch({
-                type: 'SET_NAME',
-                value: selectedChamp
+                type: 'SET_CHAMP',
+                value: champ_name
             })
         },
         set_poste: (selectedPoste) => {
