@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Chart from 'chart.js';
 import SortByRate from '../../helpers/SortByRate';
 import LiquidChart from './ficheContainer';
+import ReactTooltip from 'react-tooltip';
 
 import BtnBack from '../../components/BtnBack';
 
@@ -81,7 +82,7 @@ class Fiche extends Component {
                             <div className="bubble-champ big" style={{ backgroundImage: `url(${'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IuwhHQix88XL6mc5mRaVUtkWoGfh5YeVdA-1E4iIrZBQjjYw'})` }}></div>
                             <div className="block">
                                 <div className="title">
-                                    <img src="https://universe.leagueoflegends.com/images/role_icon_fighter.png" alt="icon" />
+                                    <img data-tip="Fighter" src="https://universe.leagueoflegends.com/images/role_icon_fighter.png" alt="icon" />
                                     <h2>Gnar</h2>
                                 </div>
                                 <p className="quotation">the Missing Link</p>
@@ -98,11 +99,11 @@ class Fiche extends Component {
                         <div className="sidebar-stats">
                             <div className="graph-container">
                                 <img className="img-graph" src={Stats} alt="stats-graph" />
-                                <img className="icon-stat damage" src={Damage} alt="icon-damage" />
-                                <img className="icon-stat control" src={Control} alt="icon-control" />
-                                <img className="icon-stat taughness" src={Taughness} alt="icon-taughness" />
-                                <img className="icon-stat mobility" src={Mobility} alt="icon-mobility" />
-                                <img className="icon-stat utility" src={Utility} alt="icon-utility" />
+                                <img data-tip="Damage" className="icon-stat damage" src={Damage} alt="icon-damage" />
+                                <img data-tip="Control" className="icon-stat control" src={Control} alt="icon-control" />
+                                <img data-tip="Taughness" className="icon-stat taughness" src={Taughness} alt="icon-taughness" />
+                                <img data-tip="Mobility" className="icon-stat mobility" src={Mobility} alt="icon-mobility" />
+                                <img data-tip="Utility" className="icon-stat utility" src={Utility} alt="icon-utility" />
                                 <canvas id="myChart"></canvas>
                             </div>
                         </div>
@@ -124,6 +125,8 @@ class Fiche extends Component {
                     </div>
 
                 </div>
+                
+                <ReactTooltip />
             </>
         )
     }
