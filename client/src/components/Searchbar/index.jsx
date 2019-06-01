@@ -2,6 +2,11 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
 class SearchBar extends Component {
+    constructor(props) {
+        super(props);
+        this.escFunction = this.escFunction.bind(this);
+    }
+
     state = {
         active: false,
         q: "",
@@ -9,12 +14,26 @@ class SearchBar extends Component {
         display: []
     }
 
+    escFunction(event) {
+        if (this.state.active && event.keyCode === 27) {
+            this.setState({ active: !this.state.active });
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener("keydown", this.escFunction, false);
+    }
+
+    componentDidUpdate() {
+        if (this.state.active) {
+            this.searchInput.focus();
+        }
+    }
+
     isActive = () => {
         this.setState({ active: !this.state.active });
         let champ = this.getChampData(this.props.data)
-        this.setState({
-            list: champ
-        })
+        this.setState({ list: champ })
     }
 
     /** TESTED 🚫
@@ -73,6 +92,7 @@ class SearchBar extends Component {
                             <input
                             type="search"
                             value={this.state.q}
+                            ref={(input) => { this.searchInput = input; }}
                             placeholder="Enter a first letter for search..."
                             onChange={event => {
                                 this.setState({ q: event.target.value }, () => {
@@ -115,7 +135,7 @@ class SearchBar extends Component {
                                     </li>
                                     <li className="input-empty">
                                         <div className="bubble-champ big"></div>
-                                        <div className="name-hamp"></div>
+                                        <div className="name-champ"></div>
                                     </li>
                                 </ul>
                             )
