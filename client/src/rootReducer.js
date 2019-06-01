@@ -3,9 +3,9 @@ const initState = {
     data: [],
     selectedRate: "win",
     selectedPoste: "",
-
     champ_name: "",
     champ_quolation: "",
+    champ_icon: "",
     champ_role: "",
     champ_win: null,
     champ_ban: null,
@@ -53,6 +53,7 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             champ_quolation: newData.quotation,
+            champ_icon: newData.icon,
             champ_role: newData.role,
             champ_win: newData.win,
             champ_ban: newData.ban,

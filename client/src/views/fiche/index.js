@@ -18,6 +18,12 @@ import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
 
+    /*
+    state = {
+        value: 50,
+    };
+    */
+
     /**
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
@@ -72,13 +78,13 @@ class Fiche extends Component {
         let champion = SortByRate.getChampByName(this.props.data, this.props.champ_name)
         for (let i = 0; i < champion.poste.length; i++) {
             if (champion.poste.length === 1) {
-                this.props.set_global(champion.quotation, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
+                this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
                 return
             } else if (champion.poste.length === 2) {
-                this.props.set_global(champion.quotation, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
+                this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
                 return
             } else if (champion.poste.length === 3) {
-                this.props.set_global(champion.quotation, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
+                this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
                 return
             }
         }
@@ -93,13 +99,16 @@ class Fiche extends Component {
 
                     <div className="sidebar">
                         <div className="sidebar-champion">
-                            <div className="bubble-champ big" style={{ backgroundImage: `url(${'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IuwhHQix88XL6mc5mRaVUtkWoGfh5YeVdA-1E4iIrZBQjjYw'})` }}></div>
+                            <div className="bubble-champ big" style={{ backgroundImage: `url(${this.props.champ_icon})` }}></div>
                             <div className="block">
                                 <div className="title">
-                                    <img data-tip="Fighter" src="https://universe.leagueoflegends.com/images/role_icon_fighter.png" alt="icon" />
-                                    <h2>Gnar</h2>
+                                    <img data-tip={this.props.champ_role}
+                                    src={"https://universe.leagueoflegends.com/images/role_icon_fighter.png"}
+                                    alt="icon"
+                                    />
+                                    <h2>{this.props.champ_name}</h2>
                                 </div>
-                                <p className="quotation">the Missing Link</p>
+                                <p className="quotation">{this.props.champ_quolation}</p>
                             </div>
                         </div>
 
@@ -151,6 +160,7 @@ const mapStateToProps = (state) => {
         data: state.data,
         champ_name: state.champ_name,
         champ_quolation: state.champ_quolation,
+        champ_icon: state.champ_icon,
         champ_role: state.champ_role,
         champ_win: state.champ_win,
         champ_ban: state.champ_ban,
@@ -163,13 +173,15 @@ const mapStateToProps = (state) => {
         champ_posteValue3: state.champ_posteValue3
     }
 }
+
 const mapDispatchToProps = (dispatch) => {    
     return {
-        set_global: (quotation, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
+        set_global: (quotation, icon, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
             dispatch({
                 type: 'SET_GLOBAL',
                 value: {
                     quotation,
+                    icon,
                     role,
                     win,
                     ban,
@@ -181,9 +193,9 @@ const mapDispatchToProps = (dispatch) => {
                     posteName3, 
                     posteValue3
                 }
-                
             })
         }
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Fiche);
