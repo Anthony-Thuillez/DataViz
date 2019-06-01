@@ -11,9 +11,23 @@ import ImgMap from '../../assets/img/Hiw-map.png';
 
 
 class Modal extends Component {
+    constructor(props) {
+        super(props);
+        this.escFunction = this.escFunction.bind(this);
+    }
 
     state = {
         active: false
+    }
+
+    escFunction(event) {
+        if (this.state.active && event.keyCode === 27) {
+            this.setState({ active: !this.state.active });
+        }
+    }
+
+    componentDidMount() {
+        document.addEventListener("keydown", this.escFunction, false);
     }
 
     toggleModal = () => {
