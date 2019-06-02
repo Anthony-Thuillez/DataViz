@@ -76,8 +76,8 @@ img {
         position: absolute;
         top: 50%; left: 50%;
         transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
+        width: 32px;
+        height: 32px;
         content: '';
         font-family: 'fontello';
         color: $blue;
@@ -87,19 +87,40 @@ img {
         user-select: none;
     }
     &-top:before {
-        background-image: url(../assets/icons/Top.svg);
+        background-image: url(../assets/icons/btn/Top.svg);
     }
     &-jgl:before {
-        background-image: url(../assets/icons/Jgl.svg);
+        background-image: url(../assets/icons/btn/Jgl.svg);
     }
     &-mid:before {
-        background-image: url(../assets/icons/Mid.svg);
+        background-image: url(../assets/icons/btn/Mid.svg);
     }
     &-bot:before {
-        background-image: url(../assets/icons/Bot.svg);
+        background-image: url(../assets/icons/btn/Bot.svg);
     }
     &-supp:before {
-        background-image: url(../assets/icons/Supp.svg);        
+        background-image: url(../assets/icons/btn/Supp.svg);        
+    }
+    &-fighter:before {
+        background-image: url(../assets/icons/btn/Fighter.svg);
+    }
+    &-mage:before {
+        background-image: url(../assets/icons/btn/Mage.svg);
+    }
+    &-slayer:before {
+        background-image: url(../assets/icons/btn/Slayer.svg);
+    }
+    &-tank:before {
+        background-image: url(../assets/icons/btn/Tank.svg);
+    }
+    &-marksman:before {
+        background-image: url(../assets/icons/btn/Marksman.svg);        
+    }
+    &-support:before {
+        background-image: url(../assets/icons/btn/Support.svg);        
+    }
+    &-specialist:before {
+        background-image: url(../assets/icons/btn/Specialist.svg);        
     }
     &-map:before {
         background-image: url(../assets/icons/Map.svg);        
@@ -115,6 +136,7 @@ img {
     }
     &-cross:before {
         content: '\E807';
+        cursor: pointer;
     }
     &-damage:before {
         content: '\E808';

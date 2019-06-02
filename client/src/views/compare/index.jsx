@@ -23,17 +23,17 @@ class Compare extends Component {
     }
 
     removeEl = (sideClicked) => {
-        let name_slotLeft = document.querySelector('.champion-slot-left-name')
-        let name_slotRight = document.querySelector('.champion-slot-right-name')
+        let name_slotLeft = document.querySelector('.slot-left .champ-name')
+        let name_slotRight = document.querySelector('.slot-right .champ-name')
         
-        let left_win_rate = document.querySelector('.stats-winrate-left')
-        let right_win_rate = document.querySelector('.stats-winrate-right')
+        let left_win_rate = document.querySelector('.slot-left .win')
+        let right_win_rate = document.querySelector('.slot-right .win')
 
-        let left_ban_rate = document.querySelector('.stats-banrate-left')
-        let right_ban_rate = document.querySelector('.stats-banrate-right')
+        let left_ban_rate = document.querySelector('.slot-left .ban')
+        let right_ban_rate = document.querySelector('.slot-right .ban')
 
-        let left_pick_rate = document.querySelector('.stats-pickrate-left')
-        let right_pick_rate = document.querySelector('.stats-pickrate-right')
+        let left_pick_rate = document.querySelector('.slot-left .pick')
+        let right_pick_rate = document.querySelector('.slot-right .pick')
 
         if (sideClicked === "left") {
             name_slotLeft.innerHTML = 'Select a champion'
@@ -60,17 +60,17 @@ class Compare extends Component {
         let championName = e.target.getAttribute('id')
         let champCaracteristics = SortByRate.getChampByName(this.props.data, championName)
 
-        let name_slotLeft = document.querySelector('.champion-slot-left-name')
-        let name_slotRight = document.querySelector('.champion-slot-right-name')
+        let name_slotLeft = document.querySelector('.slot-left .champ-name')
+        let name_slotRight = document.querySelector('.slot-right .champ-name')
 
-        let left_win_rate = document.querySelector('.stats-winrate-left')
-        let right_win_rate = document.querySelector('.stats-winrate-right')
+        let left_win_rate = document.querySelector('.slot-left .win')
+        let right_win_rate = document.querySelector('.slot-right .win')
 
-        let left_ban_rate = document.querySelector('.stats-banrate-left')
-        let right_ban_rate = document.querySelector('.stats-banrate-right')
+        let left_ban_rate = document.querySelector('.slot-left .ban')
+        let right_ban_rate = document.querySelector('.slot-right .ban')
 
-        let left_pick_rate = document.querySelector('.stats-pickrate-left')
-        let right_pick_rate = document.querySelector('.stats-pickrate-right')
+        let left_pick_rate = document.querySelector('.slot-left .pick')
+        let right_pick_rate = document.querySelector('.slot-right .pick')
 
         if (this.state.slot_left_name === champCaracteristics.name) {
             name_slotLeft.innerHTML = 'Select a champion'
@@ -120,7 +120,7 @@ class Compare extends Component {
     }
 
     componentDidUpdate() {
-        let btnChampList = document.querySelectorAll('.btn-champ-list')
+        let btnChampList = document.querySelectorAll('.champSelection-container .bubble-champ')
 
         for (let i = 0; i < btnChampList.length; i++) {
             
@@ -144,67 +144,77 @@ class Compare extends Component {
     render() {
         return(
             <div className="page-compare">
-                <div style={{display: 'flex', justifyContent: 'space-around'}}>
 
-                    <div className="champion-slot-left" style={{background: 'indianred', display: 'flex'}}>
-                        <span className="champion-slot-left-name" style={{margin: 'auto 10px'}}>Select a champion</span>
-                        <div className="btn-champ champion-slot-left-pic" style={{ backgroundImage: `url(${this.state.slot_left_icon})` }}></div>
-                        <button style={{cursor: 'pointer'}} onClick={()=>this.removeEl("left")}>x</button>
+                <div className="champSelected-container">
+                    <div className="slot-left">
+                        <div className="champ">
+                            <div className="champ-desc">
+                                <div>
+                                    { /* <img className="champ-role" src="#" alt="icon" /> */}
+                                    <h3 className="champ-name">Select a champion</h3>
+                                </div>
+                                <p className="champ-quotation"></p>
+                            </div>
+                            <div className="bubble-champ big img" style={{ backgroundImage: `url(${this.state.slot_left_icon})` }}></div>
+                            <div onClick={() => this.removeEl("left")} className="icon icon-cross"></div>
+                        </div>
+                        <div className="rate-container">
+                            <div className="win rate"></div>
+                            <div className="ban rate"></div>
+                            <div className="pick rate"></div>
+                        </div>
                     </div>
-                    
-                    <div className="champion-slot-right" style={{background: 'indianred', display: 'flex', flexDirection: 'row-reverse'}}>
-                        <span className="champion-slot-right-name" style={{margin: 'auto 10px'}}>Select a champion</span>
-                        <div className="btn-champ champion-slot-right-pic" style={{ backgroundImage: `url(${this.state.slot_right_icon})` }}></div>
-                        <button style={{cursor: 'pointer'}} onClick={()=>this.removeEl("right")}>x</button>
+
+                    <div className="slot-right">
+                        <div className="champ">
+                            <div className="champ-desc">
+                                <div>
+                                    { /* <img className="champ-role" src="#" alt="icon" /> */ }
+                                    <h3 className="champ-name">Select a champion</h3>
+                                </div>
+                                <p className="champ-quotation"></p>
+                            </div>
+                            <div className="bubble-champ big img" style={{ backgroundImage: `url(${this.state.slot_right_icon})` }}></div>
+                            <div onClick={() => this.removeEl("right")} className="icon icon-cross"></div>
+                        </div>
+                        <div className="rate-container">
+                            <div className="win rate"></div>
+                            <div className="ban rate"></div>
+                            <div className="pick rate"></div>
+                        </div>
                     </div>
                 </div>
 
-                <div className="rate-container">
-                    <div className="winrate-container" style={{display: 'flex'}}>
-                        <div className="stats-winrate-left"></div>
-                        <span>Win rate</span>
-                        <div className="stats-winrate-right"></div>
+                <div className="champSelection-container">
+                    <div className="btnList">
+                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-fighter" datarole="Fighter">combattant</button>
+                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-mage" datarole="Mage">mage</button>
+                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-slayer" datarole="Slayer">assassin</button>
+                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-tank" datarole="Tank">tank</button>
+                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-marksman" datarole="Marksman">tireur</button>
+                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-support" datarole="Controller">support</button>
+                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-specialist" datarole="Specialist">specialist</button>
                     </div>
-                    <div className="banrate-container" style={{display: 'flex'}}>
-                        <div className="stats-banrate-left"></div>
-                        <span>Ban rate</span>
-                        <div className="stats-banrate-right"></div>
-                    </div>
-                    <div className="pickrate-container" style={{display: 'flex'}}>
-                        <div className="stats-pickrate-left"></div>
-                        <span>Pick rate</span>
-                        <div className="stats-pickrate-right"></div>
+
+                    <div className="champList">
+                        {
+                            this.state.champions.map((champ, index) => {
+                                return <div key={index} onClick={(e) => this.retrieveChampCaracteristics(e)} id={champ.name} className="bubble-champ large" style={{ backgroundImage: `url(${champ.icon})` }}></div>
+                            })
+                        }
                     </div>
                 </div>
 
-                <div className="role-selection" style={{display: 'flex', justifyContent: 'center'}}>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Fighter" type="button">combattant</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Mage" type="button">mage</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Slayer" type="button">assassin</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Tank" type="button">tank</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Marksman" type="button">tireur</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Controller" type="button">support</button>
-                    <button onClick={(event)=>this.getDataRole(event)} className="btn-role" datarole="Specialist" type="button">specialist</button>
-                </div>
-                <div className="champList-container" style={{display: 'flex', justifyContent: 'center'}}>
-                    {
-                        this.state.champions.map((champ, index) => {
-                            return (
-                                <div key={index}>
-                                    <div onClick={(e) => this.retrieveChampCaracteristics(e)} id={champ.name} className="bubble-champ large" style={{ backgroundImage: `url(${champ.icon})`, cursor: 'pointer' }}></div>
-                                </div> 
-                            )
-                        })
-                    }
-                </div>
             </div>
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         data: state.data,
         selectedRate: state.selectedRate
     }
 }
+
 export default connect(mapStateToProps, null)(Compare);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import BubbleChart from './landingContainer';
 import ReactTooltip from 'react-tooltip';
 
 class Landing extends Component {
@@ -51,6 +52,7 @@ class Landing extends Component {
         return (
             <>
                 <div className="page-landing">
+                    <BubbleChart />
 
                     {/* en attendant le graph nuage */}
                     <div style={{ "position":"absolute", "top":"50%", "left":"50%", "transform":"translate(-50%, -50%)", "display":"flex", "alignItems":"center" }} >

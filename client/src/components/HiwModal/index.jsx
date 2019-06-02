@@ -113,7 +113,7 @@ class Modal extends Component {
                             )
                         }
 
-                        <div onClick={this.toggleModal} className="btn">Keep going</div>
+                        <button onClick={this.toggleModal} className="btn">Keep going</button>
                     </div>
                 </div>
             </>

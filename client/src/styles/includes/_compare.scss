@@ -5,4 +5,125 @@
     height: 100%;
     padding-top: 68px;
     padding-bottom: 56px + 48px;
+
+    .champSelected-container {
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+    }
+
+    .champSelection-container {
+
+        .btnList {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 24px;
+            .btn-role {
+                &:not(:last-of-type) {
+                    margin-right: 24px;
+                }
+            }
+        }
+        .champList {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            min-height: 120px;
+            max-width: 1008px;
+            margin: 0 auto;
+    
+            .bubble-champ {
+                margin: 5.6px;
+            }
+        }
+    }
+
+    .slot-left,
+    .slot-right {
+        width: 100%;
+
+        .champ {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            &-desc {
+
+                & > div {
+
+                }
+            }
+            &-role {
+
+            }
+            &-name {
+
+            }
+            &-quotation {
+
+            }
+        }
+        .rate-container {
+            width: 86%;
+            padding: 24px 0;
+        }
+        .rate {
+            height: 64px;
+            &:not(:last-of-type) {
+                margin-bottom: 24px;
+            }
+            // pour la demo
+            &.win {
+                background: $blue-gradient;
+            }
+            &.ban {
+                background: $red-gradient;
+            }
+            &.pick {
+                background: $gold-gradient;
+            }
+            //fin demo
+        }
+    }
+    .slot-left {
+        margin-right: 112px;
+        .rate-container {
+            margin-left: auto;
+            .rate {
+                position: relative;
+                margin-left: auto;
+                &:after {
+                    position: absolute;
+                    top: 50%;
+                    right: -86px;
+                    transform: translateY(-50%);
+                }
+                &.win:after {
+                    content: 'Win rate';
+                }
+                &.ban:after {
+                    content: 'Ban rate';
+                }
+                &.pick:after {
+                    content: 'Pick rate';
+                }
+            }
+        }
+        .bubble-champ {
+            margin-left: 20px;
+            margin-right: 16px;
+        }
+    }
+    .slot-right {
+        .champ {
+            flex-direction: row-reverse;
+        }
+        .bubble-champ {
+            margin-left: 16px;
+            margin-right: 20px;
+        }
+    }
+
 }

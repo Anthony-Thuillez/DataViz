@@ -13,7 +13,6 @@ const getChampByPost = (data, post) => {
             }
         }
     }
-
     return champArr
 }
 
@@ -95,7 +94,6 @@ const getChampByRole = (data, role) => {
                 console.log("something happend");
                 console.log("role", role);
                 console.log("data[i].role", data[i].role);
-                
             }
         }
     }

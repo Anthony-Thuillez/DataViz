@@ -4,11 +4,12 @@
     padding: 14px 10px;
     text-align: center;
     background: $blue;
+    border: 0;
     font-family: $font;
     font-size: $text-medium;
     color: $darkblue;
     text-decoration: none;
-    user-select: none;
+    outline: none;
     cursor: pointer;
     &:hover {
         background: $gold-gradient;
@@ -24,7 +25,6 @@
     font-size: $text-big;
     color: $blue;
     text-decoration: none;
-    user-select: none;
     cursor: pointer;
     &:before {
         content: '\E805';
@@ -40,6 +40,23 @@
         }
     }
     
+}
+
+.btn-role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: $blue;
+    font-size: 0;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+        background: $gold-gradient;
+    }
 }
 
 .btn-hiw {
