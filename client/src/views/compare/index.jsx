@@ -22,57 +22,60 @@ class Compare extends Component {
         })
     }
 
+    resetBlockLeft = () => {
+        let left_win_rate = document.querySelector('.slot-left .win span')
+        let left_ban_rate = document.querySelector('.slot-left .ban span')
+        let left_pick_rate = document.querySelector('.slot-left .pick span')
+
+        left_win_rate.innerHTML = ''
+        left_win_rate.parentNode.style.width = "80%"
+        left_win_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
+        left_ban_rate.innerHTML = ''
+        left_ban_rate.parentNode.style.width = "40%"
+        left_ban_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
+        left_pick_rate.innerHTML = ''
+        left_pick_rate.parentNode.style.width = "60%"
+        left_pick_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+    }
+
+    resetBlockRight = () => {
+        let right_win_rate = document.querySelector('.slot-right .win span')
+        let right_ban_rate = document.querySelector('.slot-right .ban span')
+        let right_pick_rate = document.querySelector('.slot-right .pick span')
+
+        right_win_rate.innerHTML = ''
+        right_win_rate.parentNode.style.width = "80%"
+        right_win_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
+        right_ban_rate.innerHTML = ''
+        right_ban_rate.parentNode.style.width = "40%"
+        right_ban_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
+        right_pick_rate.innerHTML = ''
+        right_pick_rate.parentNode.style.width = "60%"
+        right_pick_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+    }
+
     removeEl = (sideClicked) => {
         let name_slotLeft = document.querySelector('.slot-left .champ-name')
         let name_slotRight = document.querySelector('.slot-right .champ-name')
         
-        let left_win_rate = document.querySelector('.slot-left .win span')
-        let right_win_rate = document.querySelector('.slot-right .win span')
-
-        let left_ban_rate = document.querySelector('.slot-left .ban span')
-        let right_ban_rate = document.querySelector('.slot-right .ban span')
-
-        let left_pick_rate = document.querySelector('.slot-left .pick span')
-        let right_pick_rate = document.querySelector('.slot-right .pick span')
-
         if (sideClicked === "left") {
             name_slotLeft.innerHTML = 'Select a champion'
             this.setState({
                 slot_left_name: '',
                 slot_left_icon: ''
             })
-
-            left_win_rate.innerHTML = ''
-            left_win_rate.parentNode.style.width = "80%"
-            left_win_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            left_ban_rate.innerHTML = ''
-            left_ban_rate.parentNode.style.width = "40%"
-            left_ban_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            left_pick_rate.innerHTML = ''
-            left_pick_rate.parentNode.style.width = "60%"
-            left_pick_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
+            this.resetBlockLeft()
         } else if (sideClicked === "right") {
             name_slotRight.innerHTML = 'Select a champion'
             this.setState({
                 slot_right_name: '',
                 slot_right_icon: ''
             })
-
-            right_win_rate.innerHTML = ''
-            right_win_rate.parentNode.style.width = "80%"
-            right_win_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            right_ban_rate.innerHTML = ''
-            right_ban_rate.parentNode.style.width = "40%"
-            right_ban_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            right_pick_rate.innerHTML = ''
-            right_pick_rate.parentNode.style.width = "60%"
-            right_pick_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
+            this.resetBlockRight()
         } 
     }
 
@@ -84,12 +87,11 @@ class Compare extends Component {
         let name_slotRight = document.querySelector('.slot-right .champ-name')
 
         let left_win_rate = document.querySelector('.slot-left .win span')
-        let right_win_rate = document.querySelector('.slot-right .win span')
-
         let left_ban_rate = document.querySelector('.slot-left .ban span')
-        let right_ban_rate = document.querySelector('.slot-right .ban span')
-
         let left_pick_rate = document.querySelector('.slot-left .pick span')
+
+        let right_win_rate = document.querySelector('.slot-right .win span')
+        let right_ban_rate = document.querySelector('.slot-right .ban span')
         let right_pick_rate = document.querySelector('.slot-right .pick span')
 
         if (this.state.slot_left_name === champCaracteristics.name) {
@@ -98,17 +100,7 @@ class Compare extends Component {
                 slot_left_name: '',
                 slot_left_icon: ''
             })
-            left_win_rate.innerHTML = ''
-            left_win_rate.parentNode.style.width = "80%"
-            left_win_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            left_ban_rate.innerHTML = ''
-            left_ban_rate.parentNode.style.width = "40%"
-            left_ban_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            left_pick_rate.innerHTML = ''
-            left_pick_rate.parentNode.style.width = "60%"
-            left_pick_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+            this.resetBlockLeft()
         }
 
         if (this.state.slot_right_name === champCaracteristics.name) {
@@ -117,17 +109,7 @@ class Compare extends Component {
                 slot_right_name: '',
                 slot_right_icon: ''
             })
-            right_win_rate.innerHTML = ''
-            right_win_rate.parentNode.style.width = "80%"
-            right_win_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            right_ban_rate.innerHTML = ''
-            right_ban_rate.parentNode.style.width = "40%"
-            right_ban_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
-
-            right_pick_rate.innerHTML = ''
-            right_pick_rate.parentNode.style.width = "60%"
-            right_pick_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+            this.resetBlockRight()
         }
         
         if (this.state.slot_left_name === '' && this.state.slot_right_name !== champCaracteristics.name) {
