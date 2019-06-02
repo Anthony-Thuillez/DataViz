@@ -83,17 +83,15 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
-            // pour la demo
             &.win {
-                background: $blue-gradient;
+                width: 80%;
             }
             &.ban {
-                background: $red-gradient;
+                width: 40%;
             }
             &.pick {
-                background: $gold-gradient;
+                width: 60%
             }
-            //fin demo
         }
     }
     .slot-left {
@@ -102,6 +100,7 @@
             margin-left: auto;
             .rate {
                 margin-left: auto;
+                background: linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%);
                 &:after {
                     position: absolute;
                     top: 50%;
@@ -132,6 +131,7 @@
             flex-direction: row-reverse;
         }
         .rate {
+            background: linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%);
             span {
                 right: -50px;
             }
