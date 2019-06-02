@@ -82,11 +82,11 @@
             .icon-stat {
                 position: absolute;
                 cursor: pointer;
-                &.damage { top: -16px; left: 76px; }
-                &.control { top: 48px; right: -12px; }
-                &.taughness { right: 18px; bottom: -2px; }
-                &.mobility { left: 18px; bottom: -2px; }
-                &.utility { top: 48px; left: -12px; }
+                &.damage { top: -26px; left: 66px; }
+                &.control { top: 38px; right: -20px; }
+                &.taughness { bottom: -10px; right: 10px; }
+                &.mobility { bottom: -10px; left: 8px; }
+                &.utility { top: 38px; left: -22px; }
             }
         }
     }

@@ -8,12 +8,12 @@ import ReactTooltip from 'react-tooltip';
 
 import BtnBack from '../../components/BtnBack';
 
+import Damage from '../../assets/icons/Damage.svg';
+import Control from '../../assets/icons/Control.svg';
+import Taughness from '../../assets/icons/Taughness.svg';
+import Mobility from '../../assets/icons/Mobility.svg';
+import Utility from '../../assets/icons/Utility.svg';
 import Stats from '../../assets/img/Stats.png';
-import Damage from '../../assets/icons/Damage.png';
-import Control from '../../assets/icons/Control.png';
-import Taughness from '../../assets/icons/Taughness.png';
-import Mobility from '../../assets/icons/Mobility.png';
-import Utility from '../../assets/icons/Utility.png';
 import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
