@@ -64,7 +64,7 @@ class Landing extends Component {
                         {
                             champions.map((champion, index) => {
                                 return (
-                                    <Link to={`./fiche/${champion.name}`}
+                                    <Link to={`./fiche-${champion.name}`}
                                     key={index}
                                     onMouseEnter={() => this.getName(`${ champion.name }`)}
                                     >
