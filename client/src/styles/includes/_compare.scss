@@ -59,7 +59,7 @@
 
             }
             &-name {
-
+                
             }
             &-quotation {
 
@@ -70,9 +70,18 @@
             padding: 24px 0;
         }
         .rate {
+            position: relative;
             height: 64px;
             &:not(:last-of-type) {
                 margin-bottom: 24px;
+            }
+            span {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
             }
             // pour la demo
             &.win {
@@ -92,7 +101,6 @@
         .rate-container {
             margin-left: auto;
             .rate {
-                position: relative;
                 margin-left: auto;
                 &:after {
                     position: absolute;
@@ -109,6 +117,9 @@
                 &.pick:after {
                     content: 'Pick rate';
                 }
+                span {
+                    left: -50px;
+                }
             }
         }
         .bubble-champ {
@@ -119,6 +130,11 @@
     .slot-right {
         .champ {
             flex-direction: row-reverse;
+        }
+        .rate {
+            span {
+                right: -50px;
+            }
         }
         .bubble-champ {
             margin-left: 16px;
