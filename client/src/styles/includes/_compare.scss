@@ -72,6 +72,7 @@
         .rate {
             position: relative;
             height: 64px;
+            transition: all 0.5s ease-in-out;
             &:not(:last-of-type) {
                 margin-bottom: 24px;
             }
