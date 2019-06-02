@@ -99,8 +99,16 @@ class Compare extends Component {
                 slot_left_icon: ''
             })
             left_win_rate.innerHTML = ''
+            left_win_rate.parentNode.style.width = "80%"
+            left_win_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             left_ban_rate.innerHTML = ''
+            left_ban_rate.parentNode.style.width = "40%"
+            left_ban_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             left_pick_rate.innerHTML = ''
+            left_pick_rate.parentNode.style.width = "60%"
+            left_pick_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
         }
 
         if (this.state.slot_right_name === champCaracteristics.name) {
@@ -110,8 +118,16 @@ class Compare extends Component {
                 slot_right_icon: ''
             })
             right_win_rate.innerHTML = ''
+            right_win_rate.parentNode.style.width = "80%"
+            right_win_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             right_ban_rate.innerHTML = ''
+            right_ban_rate.parentNode.style.width = "40%"
+            right_ban_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             right_pick_rate.innerHTML = ''
+            right_pick_rate.parentNode.style.width = "60%"
+            right_pick_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
         }
         
         if (this.state.slot_left_name === '' && this.state.slot_right_name !== champCaracteristics.name) {
