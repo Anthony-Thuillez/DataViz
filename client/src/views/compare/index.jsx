@@ -26,14 +26,14 @@ class Compare extends Component {
         let name_slotLeft = document.querySelector('.slot-left .champ-name')
         let name_slotRight = document.querySelector('.slot-right .champ-name')
         
-        let left_win_rate = document.querySelector('.slot-left .win')
-        let right_win_rate = document.querySelector('.slot-right .win')
+        let left_win_rate = document.querySelector('.slot-left .win span')
+        let right_win_rate = document.querySelector('.slot-right .win span')
 
-        let left_ban_rate = document.querySelector('.slot-left .ban')
-        let right_ban_rate = document.querySelector('.slot-right .ban')
+        let left_ban_rate = document.querySelector('.slot-left .ban span')
+        let right_ban_rate = document.querySelector('.slot-right .ban span')
 
-        let left_pick_rate = document.querySelector('.slot-left .pick')
-        let right_pick_rate = document.querySelector('.slot-right .pick')
+        let left_pick_rate = document.querySelector('.slot-left .pick span')
+        let right_pick_rate = document.querySelector('.slot-right .pick span')
 
         if (sideClicked === "left") {
             name_slotLeft.innerHTML = 'Select a champion'
@@ -63,14 +63,14 @@ class Compare extends Component {
         let name_slotLeft = document.querySelector('.slot-left .champ-name')
         let name_slotRight = document.querySelector('.slot-right .champ-name')
 
-        let left_win_rate = document.querySelector('.slot-left .win')
-        let right_win_rate = document.querySelector('.slot-right .win')
+        let left_win_rate = document.querySelector('.slot-left .win span')
+        let right_win_rate = document.querySelector('.slot-right .win span')
 
-        let left_ban_rate = document.querySelector('.slot-left .ban')
-        let right_ban_rate = document.querySelector('.slot-right .ban')
+        let left_ban_rate = document.querySelector('.slot-left .ban span')
+        let right_ban_rate = document.querySelector('.slot-right .ban span')
 
-        let left_pick_rate = document.querySelector('.slot-left .pick')
-        let right_pick_rate = document.querySelector('.slot-right .pick')
+        let left_pick_rate = document.querySelector('.slot-left .pick span')
+        let right_pick_rate = document.querySelector('.slot-right .pick span')
 
         if (this.state.slot_left_name === champCaracteristics.name) {
             name_slotLeft.innerHTML = 'Select a champion'
@@ -159,9 +159,9 @@ class Compare extends Component {
                             <div onClick={() => this.removeEl("left")} className="icon icon-cross"></div>
                         </div>
                         <div className="rate-container">
-                            <div className="win rate"></div>
-                            <div className="ban rate"></div>
-                            <div className="pick rate"></div>
+                            <div className="win rate"><span></span></div>
+                            <div className="ban rate"><span></span></div>
+                            <div className="pick rate"><span></span></div>
                         </div>
                     </div>
 
@@ -178,9 +178,9 @@ class Compare extends Component {
                             <div onClick={() => this.removeEl("right")} className="icon icon-cross"></div>
                         </div>
                         <div className="rate-container">
-                            <div className="win rate"></div>
-                            <div className="ban rate"></div>
-                            <div className="pick rate"></div>
+                            <div className="win rate"><span></span></div>
+                            <div className="ban rate"><span></span></div>
+                            <div className="pick rate"><span></span></div>
                         </div>
                     </div>
                 </div>
