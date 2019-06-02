@@ -41,18 +41,38 @@ class Compare extends Component {
                 slot_left_name: '',
                 slot_left_icon: ''
             })
+
             left_win_rate.innerHTML = ''
+            left_win_rate.parentNode.style.width = "80%"
+            left_win_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             left_ban_rate.innerHTML = ''
+            left_ban_rate.parentNode.style.width = "40%"
+            left_ban_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             left_pick_rate.innerHTML = ''
+            left_pick_rate.parentNode.style.width = "60%"
+            left_pick_rate.parentNode.style.background = "linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
         } else if (sideClicked === "right") {
             name_slotRight.innerHTML = 'Select a champion'
             this.setState({
                 slot_right_name: '',
                 slot_right_icon: ''
             })
+
             right_win_rate.innerHTML = ''
+            right_win_rate.parentNode.style.width = "80%"
+            right_win_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             right_ban_rate.innerHTML = ''
+            right_ban_rate.parentNode.style.width = "40%"
+            right_ban_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
             right_pick_rate.innerHTML = ''
+            right_pick_rate.parentNode.style.width = "60%"
+            right_pick_rate.parentNode.style.background = "linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%)"
+
         } 
     }
 
@@ -100,9 +120,19 @@ class Compare extends Component {
                 slot_left_icon: champCaracteristics.icon
             })
             name_slotLeft.innerHTML = champCaracteristics.name
+
             left_win_rate.innerHTML = `${champCaracteristics.win}%`
+            left_win_rate.parentNode.style.width = `${champCaracteristics.win}%`
+            left_win_rate.parentNode.style.background = "linear-gradient(180deg, #00CBE0 0%, rgba(0, 203, 224, 0.2) 98.08%)"
+
             left_ban_rate.innerHTML = `${champCaracteristics.ban}%`
+            left_ban_rate.parentNode.style.width = `${champCaracteristics.ban}%`
+            left_ban_rate.parentNode.style.background = "linear-gradient(180deg, #FC0044 0%, rgba(252, 0, 68, 0.2) 98.08%)"
+
             left_pick_rate.innerHTML = `${champCaracteristics.pick}%`
+            left_pick_rate.parentNode.style.width = `${champCaracteristics.pick}%`
+            left_pick_rate.parentNode.style.background = "linear-gradient(180deg, #C79A3C 0%, #A6843C 39.06%, #614B1D 100%)"
+
         }  
 
         if (this.state.slot_right_name === '' && this.state.slot_left_name !== champCaracteristics.name) {
@@ -112,9 +142,18 @@ class Compare extends Component {
                     slot_right_icon: champCaracteristics.icon
                 })
                 name_slotRight.innerHTML = champCaracteristics.name
+
                 right_win_rate.innerHTML = `${champCaracteristics.win}%`
+                right_win_rate.parentNode.style.width = `${champCaracteristics.win}%`
+                right_win_rate.parentNode.style.background = "linear-gradient(180deg, #00CBE0 0%, rgba(0, 203, 224, 0.2) 98.08%)"
+
                 right_ban_rate.innerHTML = `${champCaracteristics.ban}%`
+                right_ban_rate.parentNode.style.width = `${champCaracteristics.ban}%`
+                right_ban_rate.parentNode.style.background = "linear-gradient(180deg, #FC0044 0%, rgba(252, 0, 68, 0.2) 98.08%)"
+
                 right_pick_rate.innerHTML = `${champCaracteristics.pick}%`
+                right_pick_rate.parentNode.style.width = `${champCaracteristics.pick}%`
+                right_pick_rate.parentNode.style.background = "linear-gradient(180deg, #C79A3C 0%, #A6843C 39.06%, #614B1D 100%)"
             }
         }
     }
