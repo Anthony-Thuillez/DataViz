@@ -153,6 +153,27 @@ img {
     &-utility:before {
         content: '\E804';
     }
+    &-Fighter:before {
+        background-image: url(../assets/icons/Fighter.svg);
+    }
+    &-Mage:before {
+        background-image: url(../assets/icons/Mage.svg);
+    }
+    &-Slayer:before {
+        background-image: url(../assets/icons/Slayer.svg);
+    }
+    &-Tank:before {
+        background-image: url(../assets/icons/Tank.svg);
+    }
+    &-Marksman:before {
+        background-image: url(../assets/icons/Marksman.svg);        
+    }
+    &-Support:before {
+        background-image: url(../assets/icons/Support.svg);        
+    }
+    &-Specialist:before {
+        background-image: url(../assets/icons/Specialist.svg);        
+    }
 }
 
 /* scrollbar css */
