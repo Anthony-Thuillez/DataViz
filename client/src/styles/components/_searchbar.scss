@@ -1,0 +1,108 @@
+.modal-content.searchbar {
+    width: 416px;
+    height: 254px;
+    overflow: hidden;
+    .searchbar-input {
+        position: relative;
+        &:before {
+            position: absolute;
+            content: '\E801';
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+            font-family: 'fontello';
+            font-size: 32px;
+            color: $blue;
+        }
+        input {
+            width: 100%;
+            border: 0;
+            border-bottom: solid 1px $gold;
+            padding-bottom: 5px;
+            font-family: $font;
+            font-size: $text-medium;
+            color: $white;
+            outline: none;
+            background: none;
+            text-transform: capitalize;
+            &::placeholder {
+                font-family: $font;
+                font-size: $text-medium;
+                color: $blue;
+            }
+        }
+        input[type="search"]::-webkit-search-cancel-button {
+            display: none;
+        }
+    }
+    ul {
+        margin: 20px auto 0;
+        padding: 0 60px 25px;
+        height: 83%;
+        &.list-champ {
+            overflow-y: auto;
+        }
+        li {
+            animation: appear 0.3s ease-in;
+            &:not(:last-of-type) {
+                margin-bottom: 18px;
+            }
+            &:hover,
+            &:active {
+                a {
+                    background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+                .bubble-champ {
+                    border-color: $gold;
+                }
+            }
+            a {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                font-family: $font;
+                font-size: $text-big;
+                color: $blue;
+                text-decoration: none;
+            }
+            .bubble-champ {
+                margin-right: 22px;
+            }
+        }
+        li.input-empty {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            &:first-of-type {
+                opacity: 0.15;
+            }
+            &:nth-child(2) {
+                opacity: 0.1;
+            }
+            &:nth-child(3) {
+                opacity: 0.05;
+            }
+            .bubble-champ {
+                flex-shrink: 0;
+                margin-right: 16px;
+                background: $gold-gradient;
+            }
+            .name-champ {
+                width: 100%;
+                height: 28px;
+                background: $gold-gradient;
+            }
+        }
+    }
+}
+
+@keyframes appear {
+    from {
+        transform: translateY(4px);
+    }
+    to {
+        transform: translateY(0px);
+    }
+}
