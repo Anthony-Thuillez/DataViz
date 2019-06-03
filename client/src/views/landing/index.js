@@ -8,13 +8,13 @@ class Landing extends Component {
 
     state = {
         champions: [
-            { name: "Gnar", quotation: "the Missing Link", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IuwhHQix88XL6mc5mRaVUtkWoGfh5YeVdA-1E4iIrZBQjjYw" },
-            { name: "Nidalee", quotation: "the Bestial Huntress", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxH1IXJvDcM_D8hfshgOsIhCbF7Q6BGHgDj5BWFBsCPmmbJkUo" },
-            { name: "Vel'Koz", quotation: "the Eye of the Void", icon: "http://elohell.net/public/champions/avatar/VelKozSquare1.png" },
-            { name: "Ezreal", quotation: "the Prodigal Explorer", icon: "http://img3.wikia.nocookie.net/__cb20150402220010/leagueoflegends/images/c/c3/EzrealSquare.png" },
-            { name: "Sona", quotation: "Maven of the Strings", icon: "http://images6.fanpop.com/image/photos/36200000/Sona-image-sona-36206053-120-120.png" },
+            { name: "Gnar", quotation: "the Missing Link", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IuwhHQix88XL6mc5mRaVUtkWoGfh5YeVdA-1E4iIrZBQjjYw", role: "Specialist" },
+            { name: "Nidalee", quotation: "the Bestial Huntress", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxH1IXJvDcM_D8hfshgOsIhCbF7Q6BGHgDj5BWFBsCPmmbJkUo", role: "Specialist" },
+            { name: "Vel'Koz", quotation: "the Eye of the Void", icon: "http://elohell.net/public/champions/avatar/VelKozSquare1.png", role: "Mage" },
+            { name: "Ezreal", quotation: "the Prodigal Explorer", icon: "http://img3.wikia.nocookie.net/__cb20150402220010/leagueoflegends/images/c/c3/EzrealSquare.png", role: "Marksman" },
+            { name: "Sona", quotation: "Maven of the Strings", icon: "http://images6.fanpop.com/image/photos/36200000/Sona-image-sona-36206053-120-120.png", role: "Support" },
         ],
-        posts: [
+        lanes: [
             { name: "All", isActive: true },
             { name: "Top" },
             { name: "Jungle" },
@@ -26,15 +26,15 @@ class Landing extends Component {
 
     handleIsActive = id => {
         this.setState(prev => {
-            const { posts } = prev;
-            const nextPost = posts.map(post => {
+            const { lanes } = prev;
+            const nextPost = lanes.map(post => {
                 if (post.name !== id) return { ...post, isActive: false };
                 return {
                     ...post,
                     isActive: !post.isActive
                 };
             });
-            return { ...prev, posts: nextPost };
+            return { ...prev, lanes: nextPost };
         });
     };
     
@@ -47,7 +47,7 @@ class Landing extends Component {
     }
 
     render() {
-        const { posts, champions } = this.state;
+        const { lanes, champions } = this.state;
 
         return (
             <>
@@ -72,7 +72,7 @@ class Landing extends Component {
                                     >
                                         <div
                                             // eslint-disable-next-line
-                                            data-tip={"<div><h3>" + `${champion.name}` + "</h3></div><p>" + `${champion.quotation}` + "</p>"}
+                                            data-tip={"<div><div class=icon-" + `${champion.role}` + "></div><h3>" + `${champion.name}` + "</h3></div><p>" + `${champion.quotation}` + "</p>"}
                                             data-html={true}
                                             className="bubble-champ big"
                                             style={{ backgroundImage: `url(${champion.icon})` }}
@@ -88,7 +88,7 @@ class Landing extends Component {
 
                 <div className="filter">
                     {
-                        posts.map((post, index) => {
+                        lanes.map((post, index) => {
                             return (
                                 <div
                                     key={index}

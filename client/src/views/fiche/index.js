@@ -106,6 +106,7 @@ class Fiche extends Component {
                                         // eslint-disable-next-line
                                         data-tip={"<span>" + `${this.props.champ_role}` + "</span>"}
                                         data-html={true}
+                                        // eslint-disable-next-line
                                         className={"icon icon-" + `${this.props.champ_role}`}
                                 >
                                     </div>
