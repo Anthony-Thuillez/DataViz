@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Chart from 'chart.js';
-import SortByRate from '../../helpers/SortByRate';
+import GlobalFilteting from '../../helpers/GlobalFilteting';
 import LiquidChart from './ficheContainer';
 import ReactTooltip from 'react-tooltip';
 
@@ -29,7 +29,7 @@ class Fiche extends Component {
      * @return {String[]} the statistics of a champion
     */
     champStats() {
-        let champion = SortByRate.getChampByName(this.props.data, this.props.champ_name)
+        let champion = GlobalFilteting.getChampByName(this.props.data, this.props.champ_name)
         return [
             champion.damage,
             champion.toughness,
@@ -75,7 +75,7 @@ class Fiche extends Component {
     }
 
     champGlobal() {
-        let champion = SortByRate.getChampByName(this.props.data, this.props.champ_name)
+        let champion = GlobalFilteting.getChampByName(this.props.data, this.props.champ_name)
         for (let i = 0; i < champion.poste.length; i++) {
             if (champion.poste.length === 1) {
                 this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)

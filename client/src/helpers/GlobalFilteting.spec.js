@@ -1,4 +1,4 @@
-const SBR = require('./SortByRate')
+const SBR = require('./GlobalFilteting')
 
 describe("Sort By Rate", function() {
     let data_mooc = [{
