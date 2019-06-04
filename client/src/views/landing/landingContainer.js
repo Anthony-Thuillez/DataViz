@@ -36,8 +36,6 @@ class BubbleChart extends Component {
         console.log( 4, this.state.championsBot);
         console.log( 5, this.state.championsSupp);
 
-
-
         /*
         var champion = champions.map((champion) => {
             return {

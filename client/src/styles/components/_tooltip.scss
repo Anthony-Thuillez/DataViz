@@ -25,6 +25,56 @@
         border-right: solid 2px $gold !important;
         border-bottom: solid 2px $gold !important;
     }
+    & > div {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-end !important;
+        
+        .icon-Fighter,
+        .icon-Mage,
+        .icon-Slayer,
+        .icon-Tank,
+        .icon-Marksman,
+        .icon-Support,
+        .icon-Specialist {
+            position: relative;
+            width: 32px;
+            height: 32px;
+            margin-right: 5px !important;
+            &:before {
+                position: absolute;
+                top: 50%; left: 50%;
+                transform: translate(-50%, -50%);
+                width: 32px;
+                height: 32px;
+                content: '';
+                background-size: cover;
+                background-repeat: no-repeat;
+                user-select: none;
+            }
+        }
+        .icon-Fighter:before {
+            background-image: url(../assets/icons/Fighter.svg);
+        }
+        .icon-Mage:before {
+            background-image: url(../assets/icons/Mage.svg);
+        }
+        .icon-Slayer:before {
+            background-image: url(../assets/icons/Slayer.svg);
+        }
+        .icon-Tank:before {
+            background-image: url(../assets/icons/Tank.svg);
+        }
+        .icon-Marksman:before {
+            background-image: url(../assets/icons/Marksman.svg);        
+        }
+        .icon-Support:before {
+            background-image: url(../assets/icons/Support.svg);        
+        }
+        .icon-Specialist:before {
+            background-image: url(../assets/icons/Specialist.svg);        
+        }
+    }
     h3 {
         font-family: $title-bold !important;
         font-size: 1.5rem !important;

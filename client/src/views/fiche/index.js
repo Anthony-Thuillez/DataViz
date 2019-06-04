@@ -102,13 +102,14 @@ class Fiche extends Component {
                             <div className="bubble-champ big" style={{ backgroundImage: `url(${this.props.champ_icon})` }}></div>
                             <div className="block">
                                 <div className="title">
-                                    <img 
+                                    <div
                                         // eslint-disable-next-line
                                         data-tip={"<span>" + `${this.props.champ_role}` + "</span>"}
                                         data-html={true}
-                                        src={"https://universe.leagueoflegends.com/images/role_icon_fighter.png"}
-                                        alt="icon"
-                                    />
+                                        // eslint-disable-next-line
+                                        className={"icon icon-" + `${this.props.champ_role}`}
+                                >
+                                    </div>
                                     <h2>{this.props.champ_name}</h2>
                                 </div>
                                 <p className="quotation">{this.props.champ_quolation}</p>
