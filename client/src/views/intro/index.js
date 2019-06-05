@@ -14,12 +14,12 @@ class Intro extends Component {
                     <img src={ImgLeft} alt="Shaco" />
                 </div>
                 <div className="block-intro">
-                    <p>The Hetic students are happy to introduce you</p>
+                    <p>Hetic students are proud to present</p>
                     <div className="logo">
                         <img src={Logo} alt="Logo" />
                     </div>
-                    <p>With... you can discover data on all League of Legend champions.</p>
-                    <Link className="btn" to='/'>Launch the visualization</Link>
+                    <p>A tool with which you can discover data on all League of Legend champions.</p>
+                    <Link className="btn" to='/'>Launch data visualization</Link>
                 </div>
                 <div className="img-intro-right">
                     <img src={ImgRight} alt="Riven" />

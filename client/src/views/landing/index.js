@@ -28,6 +28,7 @@ class Landing extends Component {
         this.setState(prev => {
             const { lanes } = prev;
             const nextPost = lanes.map(post => {
+                if (post.name == id && post.isActive) return { ...post, isActive: true }
                 if (post.name !== id) return { ...post, isActive: false };
                 return {
                     ...post,
@@ -37,7 +38,7 @@ class Landing extends Component {
             return { ...prev, lanes: nextPost };
         });
     };
-    
+
     getName(champ_name) {
         this.props.set_champ(champ_name);
     }
@@ -55,20 +56,20 @@ class Landing extends Component {
                     <BubbleChart />
 
                     {/* en attendant le graph nuage */}
-                    <div style={{ "position":"absolute", "top":"50%", "left":"50%", "transform":"translate(-50%, -50%)", "display":"flex", "alignItems":"center" }} >
+                    <div style={{ "position": "absolute", "top": "50%", "left": "50%", "transform": "translate(-50%, -50%)", "display": "flex", "alignItems": "center" }} >
 
                         <Link to="./graph" onMouseEnter={() => this.getPoste("Top")} className="bubble-post icon icon-top"><span>Top</span></Link>
                         <Link to="./graph" onMouseEnter={() => this.getPoste("Jungle")} className="bubble-post icon icon-jgl"><span>Jungle</span></Link>
                         <Link to="./graph" onMouseEnter={() => this.getPoste("Middle")} className="bubble-post icon icon-mid"><span>Mid</span></Link>
                         <Link to="./graph" onMouseEnter={() => this.getPoste("Bottom")} className="bubble-post icon icon-bot"><span>Bot</span></Link>
                         <Link to="./graph" onMouseEnter={() => this.getPoste("Support")} className="bubble-post icon icon-supp"><span>Support</span></Link>
-                        
+
                         {
                             champions.map((champion, index) => {
                                 return (
                                     <Link to={`./fiche-${champion.name}`}
-                                    key={index}
-                                    onMouseEnter={() => this.getName(`${ champion.name }`)}
+                                        key={index}
+                                        onMouseEnter={() => this.getName(`${champion.name}`)}
                                     >
                                         <div
                                             // eslint-disable-next-line
@@ -82,7 +83,7 @@ class Landing extends Component {
                                 );
                             })
                         }
-                        
+
                     </div>
                 </div>
 
