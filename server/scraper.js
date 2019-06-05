@@ -253,7 +253,7 @@ champions.forEach(champion => {
 
 //       await browser.close();
 //       console.log(occupationRate);
-//       fs.appendFileSync(`./data/occupationByChampion.json`, JSON.stringify(occupationRate))
+//       fs.appendFileSync(`./data/winPickChampion.json`, JSON.stringify(occupationRate))
 //     } catch (err) {
 //       console.error(err);
 //     }
@@ -279,7 +279,7 @@ champions.forEach(champion => {
 //   });
 // });
 
-/* 
+/*
   SCRAP ROLE PER CHAMPION
 */
 // async function main() {
@@ -308,7 +308,7 @@ champions.forEach(champion => {
 // };
 // main();
 
-/* 
+/*
   UPDATEE CHAMPION WITH ID_ROLE
 */
 // let rolePerChampion = require("./data/rolePerChampion.json");
@@ -324,25 +324,57 @@ champions.forEach(champion => {
 //   })
 // });
 
-let json = [
-  {
-    name: name,
-    quotation: quotation,
-    tier: tier,
-    pick: pick,
-    win: win,
-    ban: ban,
-    damage: damage,
-    tankiness: tankiness,
-    control: control,
-    mobility: mobility,
-    utility: utility,
-    image: image,
-    icon: icon,
-    role: role,
-    poste: {
-      Top: 0,
-      Middle: 0
-    }
-  }
-]
+
+/*
+  GET WIN PICK BAN BY CHAMPION
+*/
+// async function main() {
+//   console.log("1");
+
+//   try {
+//     console.log("2");
+
+//     const browser = await puppeteer.launch({ headless: false });
+//     const [page] = await browser.pages();
+
+//     await page.goto(`https://www.op.gg/champion/ajax/statistics/trendChampionList/type=banratio&`);
+
+//     let champion = await page.evaluate(() => Array.from(document.querySelectorAll('tbody.tabItem.champion-trend-banratio-ALL > tr > td.champion-index-table__cell.champion-index-table__cell--champion > a > div.champion-index-table__name'), element => element.textContent));
+//     let ban = await page.evaluate(() => Array.from(document.querySelectorAll('tbody.tabItem.champion-trend-banratio-ALL > tr > td.champion-index-table__cell.champion-index-table__cell--value.champion-index-table__cell--blue'), element => element.textContent));
+
+//     champion.forEach((el, i) => {
+//       let statChampion =
+//       {
+//         name: el,
+//         ban: ban[i]
+//       }
+//       console.log(statChampion);
+//       fs.appendFileSync(`./data/banChampion.json`, JSON.stringify(statChampion))
+//     });
+
+//     await browser.close();
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
+
+// main();
+
+/*
+  UPDATE DATABASE WITH BAN PICK WIN RATE
+*/
+let banChampion = require("./data/banChampion.json");
+banChampion.forEach(champion => {
+  const query = `
+  UPDATE 
+  champion 
+  SET 
+  ban=${champion.ban.substring(0, champion.ban.length - 1)}
+  WHERE name="${champion.name}"`
+  console.log(query);
+
+  connection.query(query, (err, result) => {
+    if (err) throw err;
+    console.log(result);
+  })
+});

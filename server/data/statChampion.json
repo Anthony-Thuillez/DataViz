@@ -1,0 +1,577 @@
+[{
+    "name": "Aurelion Sol",
+    "win": "55.25%",
+    "pick": "0.77%"
+}, {
+    "name": "Sivir",
+    "win": "54.23%",
+    "pick": "22.45%"
+}, {
+    "name": "Ivern",
+    "win": "53.65%",
+    "pick": "1.01%"
+}, {
+    "name": "Taliyah",
+    "win": "52.84%",
+    "pick": "4.36%"
+}, {
+    "name": "Lux",
+    "win": "52.79%",
+    "pick": "22.77%"
+}, {
+    "name": "Jinx",
+    "win": "52.64%",
+    "pick": "9.63%"
+}, {
+    "name": "Rumble",
+    "win": "52.63%",
+    "pick": "5.63%"
+}, {
+    "name": "Ahri",
+    "win": "52.63%",
+    "pick": "10.06%"
+}, {
+    "name": "Quinn",
+    "win": "52.45%",
+    "pick": "1.45%"
+}, {
+    "name": "Sona",
+    "win": "52.36%",
+    "pick": "3.77%"
+}, {
+    "name": "Bard",
+    "win": "52.33%",
+    "pick": "3.44%"
+}, {
+    "name": "Vi",
+    "win": "52.27%",
+    "pick": "3.67%"
+}, {
+    "name": "Nautilus",
+    "win": "52.20%",
+    "pick": "15.77%"
+}, {
+    "name": "Sejuani",
+    "win": "52.16%",
+    "pick": "11.91%"
+}, {
+    "name": "Gangplank",
+    "win": "52.13%",
+    "pick": "4.16%"
+}, {
+    "name": "Elise",
+    "win": "52.03%",
+    "pick": "13.73%"
+}, {
+    "name": "Zilean",
+    "win": "52.00%",
+    "pick": "4.89%"
+}, {
+    "name": "Katarina",
+    "win": "52.00%",
+    "pick": "6.39%"
+}, {
+    "name": "Riven",
+    "win": "51.96%",
+    "pick": "7.08%"
+}, {
+    "name": "Taric",
+    "win": "51.93%",
+    "pick": "1.83%"
+}, {
+    "name": "Olaf",
+    "win": "51.92%",
+    "pick": "2.76%"
+}, {
+    "name": "Janna",
+    "win": "51.89%",
+    "pick": "6.26%"
+}, {
+    "name": "Tahm Kench",
+    "win": "51.80%",
+    "pick": "5.09%"
+}, {
+    "name": "Zed",
+    "win": "51.79%",
+    "pick": "8.79%"
+}, {
+    "name": "Kled",
+    "win": "51.66%",
+    "pick": "3.30%"
+}, {
+    "name": "Yorick",
+    "win": "51.51%",
+    "pick": "2.19%"
+}, {
+    "name": "Draven",
+    "win": "51.49%",
+    "pick": "3.65%"
+}, {
+    "name": "Ashe",
+    "win": "51.46%",
+    "pick": "4.99%"
+}, {
+    "name": "Talon",
+    "win": "51.40%",
+    "pick": "8.84%"
+}, {
+    "name": "Xin Zhao",
+    "win": "51.39%",
+    "pick": "9.52%"
+}, {
+    "name": "Udyr",
+    "win": "51.34%",
+    "pick": "0.94%"
+}, {
+    "name": "Ekko",
+    "win": "51.34%",
+    "pick": "4.08%"
+}, {
+    "name": "Fizz",
+    "win": "51.31%",
+    "pick": "6.20%"
+}, {
+    "name": "Nami",
+    "win": "51.31%",
+    "pick": "5.92%"
+}, {
+    "name": "Malzahar",
+    "win": "51.26%",
+    "pick": "5.80%"
+}, {
+    "name": "Aatrox",
+    "win": "51.18%",
+    "pick": "20.98%"
+}, {
+    "name": "Tryndamere",
+    "win": "51.16%",
+    "pick": "1.81%"
+}, {
+    "name": "Xayah",
+    "win": "51.14%",
+    "pick": "6.79%"
+}, {
+    "name": "Kindred",
+    "win": "51.14%",
+    "pick": "3.88%"
+}, {
+    "name": "Jax",
+    "win": "51.12%",
+    "pick": "11.20%"
+}, {
+    "name": "Pantheon",
+    "win": "51.09%",
+    "pick": "7.29%"
+}, {
+    "name": "Twitch",
+    "win": "51.07%",
+    "pick": "2.84%"
+}, {
+    "name": "Hecarim",
+    "win": "51.05%",
+    "pick": "7.79%"
+}, {
+    "name": "Poppy",
+    "win": "51.03%",
+    "pick": "4.44%"
+}, {
+    "name": "Thresh",
+    "win": "50.98%",
+    "pick": "23.03%"
+}, {
+    "name": "Leona",
+    "win": "50.98%",
+    "pick": "6.59%"
+}, {
+    "name": "Nunu et Willump",
+    "win": "50.98%",
+    "pick": "3.98%"
+}, {
+    "name": "Shen",
+    "win": "50.93%",
+    "pick": "3.83%"
+}, {
+    "name": "Renekton",
+    "win": "50.90%",
+    "pick": "11.68%"
+}, {
+    "name": "Anivia",
+    "win": "50.89%",
+    "pick": "3.18%"
+}, {
+    "name": "Kennen",
+    "win": "50.86%",
+    "pick": "4.91%"
+}, {
+    "name": "Kassadin",
+    "win": "50.85%",
+    "pick": "5.79%"
+}, {
+    "name": "Pyke",
+    "win": "50.84%",
+    "pick": "18.52%"
+}, {
+    "name": "Kog'Maw",
+    "win": "50.84%",
+    "pick": "1.08%"
+}, {
+    "name": "Garen",
+    "win": "50.80%",
+    "pick": "5.16%"
+}, {
+    "name": "Nidalee",
+    "win": "50.78%",
+    "pick": "5.26%"
+}, {
+    "name": "Kayn",
+    "win": "50.76%",
+    "pick": "8.40%"
+}, {
+    "name": "Rek'Sai",
+    "win": "50.73%",
+    "pick": "5.01%"
+}, {
+    "name": "Maokai",
+    "win": "50.73%",
+    "pick": "1.66%"
+}, {
+    "name": "Rengar",
+    "win": "50.70%",
+    "pick": "5.07%"
+}, {
+    "name": "Darius",
+    "win": "50.69%",
+    "pick": "9.52%"
+}, {
+    "name": "Fiddlesticks",
+    "win": "50.66%",
+    "pick": "5.87%"
+}, {
+    "name": "Annie",
+    "win": "50.62%",
+    "pick": "1.19%"
+}, {
+    "name": "Cho'Gath",
+    "win": "50.56%",
+    "pick": "2.08%"
+}, {
+    "name": "Zyra",
+    "win": "50.55%",
+    "pick": "3.19%"
+}, {
+    "name": "Heimerdinger",
+    "win": "50.47%",
+    "pick": "1.33%"
+}, {
+    "name": "Ziggs",
+    "win": "50.45%",
+    "pick": "1.19%"
+}, {
+    "name": "Evelynn",
+    "win": "50.44%",
+    "pick": "8.63%"
+}, {
+    "name": "Vel'Koz",
+    "win": "50.43%",
+    "pick": "4.29%"
+}, {
+    "name": "Kha'Zix",
+    "win": "50.39%",
+    "pick": "4.40%"
+}, {
+    "name": "Gragas",
+    "win": "50.34%",
+    "pick": "9.08%"
+}, {
+    "name": "Karthus",
+    "win": "50.33%",
+    "pick": "5.09%"
+}, {
+    "name": "Blitzcrank",
+    "win": "50.28%",
+    "pick": "6.70%"
+}, {
+    "name": "Kayle",
+    "win": "50.24%",
+    "pick": "2.12%"
+}, {
+    "name": "Cassiopeia",
+    "win": "50.24%",
+    "pick": "1.76%"
+}, {
+    "name": "Shaco",
+    "win": "50.24%",
+    "pick": "2.93%"
+}, {
+    "name": "Swain",
+    "win": "50.21%",
+    "pick": "1.33%"
+}, {
+    "name": "Neeko",
+    "win": "50.21%",
+    "pick": "6.84%"
+}, {
+    "name": "Xerath",
+    "win": "50.13%",
+    "pick": "6.58%"
+}, {
+    "name": "Ornn",
+    "win": "50.12%",
+    "pick": "4.25%"
+}, {
+    "name": "Volibear",
+    "win": "50.10%",
+    "pick": "3.28%"
+}, {
+    "name": "Warwick",
+    "win": "50.08%",
+    "pick": "2.37%"
+}, {
+    "name": "Vladimir",
+    "win": "50.06%",
+    "pick": "12.89%"
+}, {
+    "name": "Singed",
+    "win": "50.05%",
+    "pick": "1.47%"
+}, {
+    "name": "Wukong",
+    "win": "49.98%",
+    "pick": "1.97%"
+}, {
+    "name": "Rakan",
+    "win": "49.86%",
+    "pick": "4.12%"
+}, {
+    "name": "Rammus",
+    "win": "49.84%",
+    "pick": "6.91%"
+}, {
+    "name": "Soraka",
+    "win": "49.84%",
+    "pick": "5.26%"
+}, {
+    "name": "Sylas",
+    "win": "49.83%",
+    "pick": "23.35%"
+}, {
+    "name": "Miss Fortune",
+    "win": "49.83%",
+    "pick": "4.13%"
+}, {
+    "name": "Nocturne",
+    "win": "49.74%",
+    "pick": "2.82%"
+}, {
+    "name": "Corki",
+    "win": "49.64%",
+    "pick": "3.00%"
+}, {
+    "name": "Kai'Sa",
+    "win": "49.62%",
+    "pick": "38.68%"
+}, {
+    "name": "Orianna",
+    "win": "49.60%",
+    "pick": "8.96%"
+}, {
+    "name": "Gnar",
+    "win": "49.58%",
+    "pick": "1.71%"
+}, {
+    "name": "Jarvan IV",
+    "win": "49.54%",
+    "pick": "13.22%"
+}, {
+    "name": "Amumu",
+    "win": "49.52%",
+    "pick": "5.99%"
+}, {
+    "name": "Lulu",
+    "win": "49.49%",
+    "pick": "5.62%"
+}, {
+    "name": "Dr. Mundo",
+    "win": "49.36%",
+    "pick": "2.93%"
+}, {
+    "name": "Zoé",
+    "win": "49.35%",
+    "pick": "5.05%"
+}, {
+    "name": "Skarner",
+    "win": "49.29%",
+    "pick": "0.94%"
+}, {
+    "name": "Camille",
+    "win": "49.27%",
+    "pick": "8.09%"
+}, {
+    "name": "Shyvana",
+    "win": "49.22%",
+    "pick": "2.05%"
+}, {
+    "name": "Nasus",
+    "win": "49.21%",
+    "pick": "2.28%"
+}, {
+    "name": "Sion",
+    "win": "49.19%",
+    "pick": "1.64%"
+}, {
+    "name": "Graves",
+    "win": "49.17%",
+    "pick": "7.55%"
+}, {
+    "name": "Jhin",
+    "win": "49.16%",
+    "pick": "6.21%"
+}, {
+    "name": "Veigar",
+    "win": "49.16%",
+    "pick": "3.38%"
+}, {
+    "name": "Lucian",
+    "win": "49.13%",
+    "pick": "17.02%"
+}, {
+    "name": "Fiora",
+    "win": "49.10%",
+    "pick": "7.63%"
+}, {
+    "name": "Mordekaiser",
+    "win": "48.96%",
+    "pick": "0.78%"
+}, {
+    "name": "Urgot",
+    "win": "48.94%",
+    "pick": "2.45%"
+}, {
+    "name": "Twisted Fate",
+    "win": "48.91%",
+    "pick": "12.22%"
+}, {
+    "name": "Tristana",
+    "win": "48.90%",
+    "pick": "3.33%"
+}, {
+    "name": "Varus",
+    "win": "48.79%",
+    "pick": "4.03%"
+}, {
+    "name": "Vayne",
+    "win": "48.67%",
+    "pick": "16.57%"
+}, {
+    "name": "Karma",
+    "win": "48.61%",
+    "pick": "7.75%"
+}, {
+    "name": "Caitlyn",
+    "win": "48.55%",
+    "pick": "11.09%"
+}, {
+    "name": "Morgana",
+    "win": "48.54%",
+    "pick": "12.08%"
+}, {
+    "name": "Irelia",
+    "win": "48.41%",
+    "pick": "17.94%"
+}, {
+    "name": "Teemo",
+    "win": "48.38%",
+    "pick": "3.33%"
+}, {
+    "name": "Alistar",
+    "win": "48.35%",
+    "pick": "4.95%"
+}, {
+    "name": "Azir",
+    "win": "48.29%",
+    "pick": "3.25%"
+}, {
+    "name": "Yasuo",
+    "win": "48.25%",
+    "pick": "15.16%"
+}, {
+    "name": "Illaoi",
+    "win": "48.15%",
+    "pick": "4.34%"
+}, {
+    "name": "Brand",
+    "win": "48.14%",
+    "pick": "2.92%"
+}, {
+    "name": "Viktor",
+    "win": "48.12%",
+    "pick": "3.45%"
+}, {
+    "name": "Ezreal",
+    "win": "48.08%",
+    "pick": "48.46%"
+}, {
+    "name": "Lee Sin",
+    "win": "48.02%",
+    "pick": "27.67%"
+}, {
+    "name": "Syndra",
+    "win": "47.78%",
+    "pick": "1.52%"
+}, {
+    "name": "Lissandra",
+    "win": "47.49%",
+    "pick": "2.08%"
+}, {
+    "name": "LeBlanc",
+    "win": "47.25%",
+    "pick": "7.19%"
+}, {
+    "name": "Maître Yi",
+    "win": "47.05%",
+    "pick": "5.31%"
+}, {
+    "name": "Zac",
+    "win": "47.02%",
+    "pick": "5.41%"
+}, {
+    "name": "Malphite",
+    "win": "46.96%",
+    "pick": "3.18%"
+}, {
+    "name": "Diana",
+    "win": "46.94%",
+    "pick": "1.31%"
+}, {
+    "name": "Jayce",
+    "win": "46.90%",
+    "pick": "5.86%"
+}, {
+    "name": "Braum",
+    "win": "46.73%",
+    "pick": "3.33%"
+}, {
+    "name": "Kalista",
+    "win": "46.53%",
+    "pick": "1.83%"
+}, {
+    "name": "Yuumi",
+    "win": "46.41%",
+    "pick": "20.47%"
+}, {
+    "name": "Trundle",
+    "win": "45.87%",
+    "pick": "0.87%"
+}, {
+    "name": "Ryze",
+    "win": "45.76%",
+    "pick": "15.30%"
+}, {
+    "name": "Galio",
+    "win": "45.10%",
+    "pick": "3.93%"
+}, {
+    "name": "Akali",
+    "win": "44.82%",
+    "pick": "8.41%"
+}]
