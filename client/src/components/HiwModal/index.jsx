@@ -31,7 +31,7 @@ class Modal extends Component {
     }
 
     toggleModal = () => {
-        this.setState({ 
+        this.setState({
             active: !this.state.active
         });
     }
@@ -54,7 +54,7 @@ class Modal extends Component {
                                         </div>
                                     </div>
                                     <div className="block">
-                                        <p>The size of the rounds content the images corresponds to the tier rank.</p>
+                                        <p>The size of the rounds corresponds to the ranking of each champion</p>
                                         <div className="img-rank">
                                             <img src={ImgRank} alt="rang" />
                                         </div>
@@ -68,10 +68,10 @@ class Modal extends Component {
                                 <>
                                     <div className="block">
                                         <div>
-                                            <p>Les trois valeurs sur l’axe des ordonnés  correspondent à :</p>
-                                            <p><span>Ligne 1 valeur la plus élevée</span></p>
-                                            <p><span>Ligne 2 valeur médiane</span></p>
-                                            <p><span>Ligne 3 valeur la plus basse</span></p>
+                                            <p>The three values on the y-axis correspond to :</p>
+                                            <p><span>Line 1 - highest value</span></p>
+                                            <p><span>Line 2 - median value</span></p>
+                                            <p><span>Line 3 - lowest value</span></p>
                                         </div>
                                         <div className="img-graph">
                                             <img src={ImgGraph} alt="graph" />
@@ -81,7 +81,7 @@ class Modal extends Component {
                                         <div className="img-filter">
                                             <img src={ImgFilter} alt="filter" />
                                         </div>
-                                        <p>Les filtres permettent de changer les données que vous comparez.</p>
+                                        <p>Filters allow you to change the data you are comparing.</p>
                                     </div>
                                 </>
                             )
@@ -91,7 +91,7 @@ class Modal extends Component {
                             this.props.location.pathname.indexOf("/fiche") === 0 && (
                                 <>
                                     <div className="block">
-                                        <p>La couleurs changes en fonction de la position relative à la mediane.</p>
+                                        <p>If the hexagon is filled in red, then its value is lower than the median of the values of all champions. If it is blue, it is superior.</p>
                                         <div className="img-liquid">
                                             <img src={ImgLiquid} alt="liquid" />
                                         </div>
@@ -100,11 +100,13 @@ class Modal extends Component {
                                         <div className="img-stat">
                                             <img src={ImgStat} alt="stat" />
                                         </div>
-                                        <p>Ce graph montre les statistiques du champion sélectionner. 
-                                        Vous pouvez découvrir à quoi correspond un icon en passant votre curseur sur ce dernier.</p>
+                                        <p>
+                                            This graph shows the statistics of the selected champion.
+                                            You can find out what an icon corresponds to by passing your cursor over it.
+                                        </p>
                                     </div>
                                     <div className="block">
-                                        <p>Découvrez à quelle position votre champion est le plus joué.</p>
+                                        <p>Find out which lane your champion is most played on.</p>
                                         <div className="img-map">
                                             <img src={ImgMap} alt="map" />
                                         </div>

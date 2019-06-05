@@ -12,7 +12,7 @@ class Graph extends Component {
     height: 'auto',
     id: "",
     rates: [
-      { name: "win", text:"Win Rate", isActive: true },
+      { name: "win", text: "Win Rate", isActive: true },
       { name: "pick", text: "Pick Rate" },
       { name: "ban", text: "Ban Rate" }
     ]
@@ -22,6 +22,7 @@ class Graph extends Component {
     this.setState(prev => {
       const { rates } = prev;
       const nextRate = rates.map(rate => {
+        if (rate.name == id && rate.isActive) return { ...rate, isActive: true }
         if (rate.name !== id) return { ...rate, isActive: false };
         return {
           ...rate,
@@ -37,7 +38,7 @@ class Graph extends Component {
     this.props.set_rate(selectedRate);
     this.handleIsActive(rate.name);
   }
-  
+
   render() {
     const { rates } = this.state;
     return (
@@ -75,9 +76,9 @@ class Graph extends Component {
  * Used to update the initstate values on redux
  */
 const mapDispatchToProps = (dispatch) => {
-    return {
-        set_rate: (selectedRate) => { dispatch({type: 'SET_RATE', value: selectedRate}) },
-    }
+  return {
+    set_rate: (selectedRate) => { dispatch({ type: 'SET_RATE', value: selectedRate }) },
+  }
 }
 
 export default connect(null, mapDispatchToProps)(Graph);
