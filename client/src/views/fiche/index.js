@@ -90,7 +90,11 @@ class Fiche extends Component {
         }
         
     }
-    
+    componentDidUpdate(prevProps) {
+        if (prevProps.champ_name !== this.props.champ_name) {
+            this.champGlobal()
+        }
+    }
     render() {
         return (
             <>

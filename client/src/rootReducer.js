@@ -1,5 +1,6 @@
 /* Initialize the state of the project with default values */
 const initState = {
+    SearchBarIsActive: false,
     data: [],
     selectedRate: "win",
     selectedPoste: "",
