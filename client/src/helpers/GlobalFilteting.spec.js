@@ -191,4 +191,37 @@ describe("Sort By Rate", function() {
             expect.objectContaining(expected),
         )
     })
+
+    it("7/ Get the most played poste of a champion on a specific poste (Middle)", function () {
+        let expected = [{
+            "id": 132,
+            "name": "Yasuo",
+            "quotation": "the Unforgiven",
+            "rank": 3,
+            "win": 48,
+            "pick": 15,
+            "ban": 56,
+            "damage": 3,
+            "toughness": 1,
+            "utility": 2,
+            "speed": 3,
+            "control": 2,
+            "image": "https://cdn.pandascore.co/images/lol/champion/big_image/6bc1f04019b3dd5206823beafd4d9829.jpg",
+            "icon": "https://cdn.pandascore.co/images/lol/champion/image/8c420ee28e07c4324e4ca4ad09927021.png",
+            "id_role": 2,
+            "role": "Slayer",
+            "poste": [{
+                    "name": "Middle",
+                    "value": 67.8
+                },
+                {
+                    "name": "Top",
+                    "value": 28.18
+                }
+            ]
+        }]
+        expect(SBR.getChampByMostPlayedPoste(data_mooc, "Middle")).toEqual(
+            expect.arrayContaining(expected),
+        )
+    })
 })

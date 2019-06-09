@@ -79,7 +79,7 @@ class BarChart extends Component {
     }
 
     displayChamp(rate) {
-        let champion = GlobalFilteting.getChampByPost(this.props.data, this.props.selectedPoste)
+        let champion = GlobalFilteting.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
                 icon: champ.icon,
