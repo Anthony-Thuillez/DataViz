@@ -91,7 +91,7 @@ class BarChart extends Component {
 
     median() {
         let _median = GlobalFilteting.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
-        return _median
+        return _median.toFixed(2);
     }
 
     drawChart(func_firstEl, func_lastEl, func_champ, func_median) {
