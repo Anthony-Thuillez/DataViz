@@ -22,7 +22,7 @@ class Graph extends Component {
     this.setState(prev => {
       const { rates } = prev;
       const nextRate = rates.map(rate => {
-        if (rate.name == id && rate.isActive) return { ...rate, isActive: true }
+        if (rate.name === id && rate.isActive) return { ...rate, isActive: true }
         if (rate.name !== id) return { ...rate, isActive: false };
         return {
           ...rate,

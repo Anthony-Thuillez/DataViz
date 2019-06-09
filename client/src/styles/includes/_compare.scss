@@ -119,7 +119,7 @@
                     content: 'Pick rate';
                 }
                 span {
-                    left: -50px;
+                    left: -64px;
                 }
             }
         }
@@ -135,7 +135,7 @@
         .rate {
             background: linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%);
             span {
-                right: -50px;
+                right: -64px;
             }
         }
         .bubble-champ {
@@ -144,4 +144,7 @@
         }
     }
 
+    & ~ .btn-hiw {
+        display: none;
+    }
 }

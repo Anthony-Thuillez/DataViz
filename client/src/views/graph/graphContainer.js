@@ -102,7 +102,7 @@ class BarChart extends Component {
         let { selectedRate } = this.props
 
         /* Dimentions du graph */
-        var margin = { top: -2, right: 0, bottom: 80, left: 45 },
+        var margin = { top: -2, right: 0, bottom: 80, left: 65 },
             width = 1300 - margin.left - margin.right,
             height = 550 - margin.top - margin.bottom;
 
@@ -151,7 +151,7 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(lastEl + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
             .attr("y", y(lastEl))
             .attr("text-anchor", "end")
@@ -172,7 +172,7 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(firstEl + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
             .attr("y", y(firstEl))
             .attr("text-anchor", "end")
@@ -192,7 +192,7 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(_median + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
             .attr("y", y(_median))
             .attr("text-anchor", "end")
@@ -229,6 +229,7 @@ class BarChart extends Component {
             .attr("x", (d) => x(d.icon) + x.bandwidth() / 2)
             .attr("y", (d) => (y(d.rate) + height) / 2)
             .style('fill', 'white')
+            .style("font-size", "10px")
             .attr("text-anchor", "middle");
 
         var w = document.querySelectorAll(".domain")

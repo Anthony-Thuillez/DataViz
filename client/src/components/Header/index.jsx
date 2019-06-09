@@ -19,7 +19,7 @@ class Header extends Component {
         this.setState(prev => {
             const { header } = prev;
             const nextLink = header.map(link => {
-                if (link.name == el && link.isActive) return { ...link, isActive: true }
+                if (link.name === el && link.isActive) return { ...link, isActive: true }
                 if (link.name !== el) return { ...link, isActive: false }
                 return {
                     ...link,
