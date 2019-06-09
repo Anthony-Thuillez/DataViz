@@ -28,7 +28,7 @@ class Landing extends Component {
         this.setState(prev => {
             const { lanes } = prev;
             const nextPost = lanes.map(post => {
-                if (post.name == id && post.isActive) return { ...post, isActive: true }
+                if (post.name === id && post.isActive) return { ...post, isActive: true }
                 if (post.name !== id) return { ...post, isActive: false };
                 return {
                     ...post,
