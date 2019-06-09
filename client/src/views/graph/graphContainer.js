@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import SortByRate from '../../helpers/SortByRate';
+import GlobalFilteting from '../../helpers/GlobalFilteting';
 import { connect } from 'react-redux';
 
 const linearGradient = (svg, id, color1, color2) => {
@@ -61,7 +61,7 @@ class BarChart extends Component {
     }
 
     findFirstValOfArray = () => {
-        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let arr = GlobalFilteting.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         console.log("arr : ", arr);
 
         for (let i = 0; i < arr.length; i++) {
@@ -71,7 +71,7 @@ class BarChart extends Component {
     }
 
     findLastValOfArray = () => {
-        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let arr = GlobalFilteting.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         for (let i = 0; i < arr.length; i++) {
             const lastEl = arr[arr.length - 1]
             return lastEl
@@ -79,7 +79,7 @@ class BarChart extends Component {
     }
 
     displayChamp(rate) {
-        let champion = SortByRate.getChampByPost(this.props.data, this.props.selectedPoste)
+        let champion = GlobalFilteting.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
                 icon: champ.icon,
@@ -90,7 +90,7 @@ class BarChart extends Component {
     }
 
     median() {
-        let _median = SortByRate.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let _median = GlobalFilteting.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         return _median
     }
 
