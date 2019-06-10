@@ -161,8 +161,22 @@ const getChampByMostPlayedPoste = (data, post) => {
             }
         }
     }
-    return champArr
+    return champArr.sort(compare)
 }
+/* Simple sorting for alphabetical ordering */
+const compare = (a, b) => {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+        comparison = 1;
+    } else if (nameA < nameB) {
+        comparison = -1;
+    }
+    return comparison;
+}
+
 module.exports = {
     getChampByPost,
     getChampByRole,
