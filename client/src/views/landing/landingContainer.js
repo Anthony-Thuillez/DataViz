@@ -35,7 +35,13 @@ class BubbleChart extends Component {
         console.log( 3, this.state.championsMid);
         console.log( 4, this.state.championsBot);
         console.log( 5, this.state.championsSupp);
-
+        
+        if (!window.location.href.includes("/graph")) {
+            // DO NOT DELETE ❗️// DO NOT DELETE ❗️
+            // DO NOT DELETE ❗️ // DO NOT DELETE ❗️
+            // Reset to default rate on redux
+            this.props.set_rate("win")
+        }
         /*
         var champion = champions.map((champion) => {
             return {
@@ -62,4 +68,14 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(BubbleChart);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        set_rate: (selectedRate) => {
+            dispatch({
+                type: 'SET_RATE',
+                value: selectedRate
+            })
+        },
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(BubbleChart);

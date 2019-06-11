@@ -20,6 +20,7 @@ class Header extends Component {
             this.props.set_champname_from_url(champNameParameter)
         }
     }
+
     state = {
         header: [
             { name: "Home", path: "/", isActive: true },
