@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import Breadcrumbs from '../Breadcrumb';
 import SearchBar from '../Searchbar';
@@ -7,7 +8,18 @@ import SearchBar from '../Searchbar';
 import Logo from '../../assets/Logo.png';
 
 class Header extends Component {
-
+    componentWillMount() {
+        if (window.location.href.includes("/graph")) {
+            let champPosteParameter = window.location.href.split('/graph-')
+            champPosteParameter = champPosteParameter[champPosteParameter.length - 1]
+            this.props.set_poste_from_url(champPosteParameter)
+            
+        } else if (window.location.href.includes("/fiche-")) {
+            let champNameParameter = window.location.href.split('/fiche-')
+            champNameParameter = champNameParameter[champNameParameter.length - 1]
+            this.props.set_champname_from_url(champNameParameter)
+        }
+    }
     state = {
         header: [
             { name: "Home", path: "/", isActive: true },
@@ -65,4 +77,20 @@ class Header extends Component {
     }
 }
 
-export default Header
+const mapDispatchToProps = (dispatch) => {
+    return {
+        set_poste_from_url: (champPosteParameter) => {
+            dispatch({
+                type: 'SET_POSTE_FROM_URL',
+                value: champPosteParameter
+            })
+        },
+        set_champname_from_url: (champNameParameter) => {
+            dispatch({
+                type: 'SET_CHAMPNAME_FROM_URL',
+                value: champNameParameter
+            })
+        }
+    }
+}
+export default connect(null, mapDispatchToProps)(Header)
