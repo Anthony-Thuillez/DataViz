@@ -30,7 +30,7 @@ class BarChart extends Component {
         let chart = document.querySelector('svg');
         chart.remove();
     }
-
+    
     componentWillUnmount() {
         let chart = document.querySelector('svg');
         chart.remove();
@@ -47,6 +47,17 @@ class BarChart extends Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (prevProps.selectedPoste === this.props.selectedPoste) {
+            let chart = document.querySelector('svg');
+            chart.remove();
+            this.drawChart(
+                this.findFirstValOfArray(),
+                this.findLastValOfArray(),
+                this.displayChamp(this.props.selectedRate),
+                this.median()
+            );
+        }
+        
         // Typical usage (don't forget to compare props):
         if (this.props.selectedRate !== prevProps.selectedRate) {
             /* For re-render the graph we need to remove it first */

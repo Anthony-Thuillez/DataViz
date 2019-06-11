@@ -95,7 +95,7 @@ class Fiche extends Component {
             this.champGlobal()
         }
     }
-    render() {
+    render() {        
         return (
             <>
                 <BtnBack />
