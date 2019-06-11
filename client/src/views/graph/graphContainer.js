@@ -34,7 +34,6 @@ class BarChart extends Component {
     componentWillUnmount() {
         let chart = document.querySelector('svg');
         chart.remove();
-
     }
 
     componentDidMount() {
