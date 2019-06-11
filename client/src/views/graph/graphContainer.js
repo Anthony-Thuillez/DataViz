@@ -102,7 +102,7 @@ class BarChart extends Component {
         let { selectedRate } = this.props
 
         /* Dimentions du graph */
-        var margin = { top: -2, right: 0, bottom: 80, left: 65 },
+        var margin = { top: -2, right: 0, bottom: 80, left: 60 },
             width = 1300 - margin.left - margin.right,
             height = 550 - margin.top - margin.bottom;
 
@@ -153,7 +153,7 @@ class BarChart extends Component {
             .text(lastEl + '%')
             .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(lastEl))
+            .attr("y", y(lastEl) + 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -174,7 +174,7 @@ class BarChart extends Component {
             .text(firstEl + '%')
             .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(firstEl))
+            .attr("y", y(firstEl) - 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -194,7 +194,7 @@ class BarChart extends Component {
             .text(_median + '%')
             .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(_median))
+            .attr("y", y(_median) - 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
