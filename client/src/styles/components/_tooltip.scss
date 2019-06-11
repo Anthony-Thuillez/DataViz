@@ -35,7 +35,7 @@
         .icon-Slayer,
         .icon-Tank,
         .icon-Marksman,
-        .icon-Support,
+        .icon-Controller,
         .icon-Specialist {
             position: relative;
             width: 32px;
@@ -68,8 +68,8 @@
         .icon-Marksman:before {
             background-image: url(../assets/icons/Marksman.svg);        
         }
-        .icon-Support:before {
-            background-image: url(../assets/icons/Support.svg);        
+        .icon-Controller:before {
+            background-image: url(../assets/icons/Controller.svg);        
         }
         .icon-Specialist:before {
             background-image: url(../assets/icons/Specialist.svg);        

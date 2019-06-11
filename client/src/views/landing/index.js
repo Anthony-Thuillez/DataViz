@@ -12,7 +12,7 @@ class Landing extends Component {
             { name: "Nidalee", quotation: "the Bestial Huntress", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxH1IXJvDcM_D8hfshgOsIhCbF7Q6BGHgDj5BWFBsCPmmbJkUo", role: "Specialist" },
             { name: "Vel'Koz", quotation: "the Eye of the Void", icon: "http://elohell.net/public/champions/avatar/VelKozSquare1.png", role: "Mage" },
             { name: "Ezreal", quotation: "the Prodigal Explorer", icon: "http://img3.wikia.nocookie.net/__cb20150402220010/leagueoflegends/images/c/c3/EzrealSquare.png", role: "Marksman" },
-            { name: "Sona", quotation: "Maven of the Strings", icon: "http://images6.fanpop.com/image/photos/36200000/Sona-image-sona-36206053-120-120.png", role: "Support" },
+            { name: "Sona", quotation: "Maven of the Strings", icon: "http://images6.fanpop.com/image/photos/36200000/Sona-image-sona-36206053-120-120.png", role: "Controller" },
         ],
         lanes: [
             { name: "All", isActive: true },
