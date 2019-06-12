@@ -99,7 +99,6 @@ app.get('/champions', (req, res) => {
                 name: row.name,
                 value: row.rate
               };
-              // key/value pairs of your old/new object keys
               let keysMap = {
                 value: row.name
               };

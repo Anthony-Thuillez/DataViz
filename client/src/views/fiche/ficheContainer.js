@@ -9,7 +9,7 @@ const creatGradient = (defs, id, colorStart, colorEnd) => {
         .attr("y1", "0%")
         .attr("x2", "0%")
         .attr("y2", "100%")
-        
+
     linearGradient.append("stop")
         .attr("offset", "0%")
         .attr("stop-color", colorStart)
@@ -18,6 +18,12 @@ const creatGradient = (defs, id, colorStart, colorEnd) => {
         .attr("offset", "98.8%")
         .attr("stop-color", colorEnd);
 }
+
+/** 
+  * @desc this class will hold functions for gauge on each champion screen
+  * include animateWave(), renderDisplay()
+  * @author Simon Soléau
+*/
 
 class LiquidGauge extends Component {
 
@@ -42,6 +48,9 @@ class LiquidGauge extends Component {
         waveTextColor: "#A4DBf8"
     };
 
+    /**
+        * @desc animate wave in hexagonal pin
+    */
     animateWave = () => {
         this.wave.attr(
             "transform",
@@ -59,11 +68,16 @@ class LiquidGauge extends Component {
             });
     }
 
+    /**
+        * @desc
+        * @param 
+        * @return 
+    */
     renderDisplay = () => {
         var config = this.state;
 
         var { id } = this.props
-        
+
         var median = 50
 
         var waveHeightScale;
@@ -183,7 +197,7 @@ class LiquidGauge extends Component {
 
         creatGradient(defs, 'gradientColorBlue', "#00CBE0", "rgba(0, 203, 224, 0.2)")
         creatGradient(defs, 'gradientColorRed', "#FC0044", "rgba(252, 0, 68, 0.2)")
-        
+
         var clipArea = d3.area()
             .x(function (d) {
                 return waveScaleX(d.x);
