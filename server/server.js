@@ -8,7 +8,7 @@ const port = 9000;
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'rootroot',
+  password: 'root',
   database: 'dataviz'
 });
 
@@ -99,7 +99,6 @@ app.get('/champions', (req, res) => {
                 name: row.name,
                 value: row.rate
               };
-              // key/value pairs of your old/new object keys
               let keysMap = {
                 value: row.name
               };

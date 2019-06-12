@@ -92,52 +92,44 @@ class Fiche extends Component {
             }
         }
     }
-    /**
-     * MAP
-     */
+
     mapSettings() {
         let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
-        //STEP 1: Récupérer la liste des postes par champion /OK
-        //STEP 2: En fonction des noms des postes, afficher le/les bon(s) SVG
-        //STEP 3: Récupérer les valeurs des postes
-        //STEP 4: En fonction des valeurs des postes, jouer sur l'opacitée
-
-        var topVal, jungleVal, middleVal, botSuppVal
-        for (let i = 0; i < champion.poste.length; i++) {
-            if (champion.poste[i].name === "Top") {
-                topVal = champion.poste[i].value
+        if (champion !== undefined) {
+            var topVal, jungleVal, middleVal, botSuppVal
+            for (let i = 0; i < champion.poste.length; i++) {
+                if (champion.poste[i].name === "Top") {
+                    topVal = champion.poste[i].value
+                }
+                if (champion.poste[i].name === "Jungle") {
+                    jungleVal = champion.poste[i].value
+                }
+                if (champion.poste[i].name === "Middle") {
+                    middleVal = champion.poste[i].value
+                }
+                if (champion.poste[i].name === "Bottom" || champion.poste[i].name === "Support") {
+                    botSuppVal = champion.poste[i].value
+                }
             }
-            if (champion.poste[i].name === "Jungle") {
-                jungleVal = champion.poste[i].value
-            }
-            if (champion.poste[i].name === "Middle") {
-                middleVal = champion.poste[i].value
-            }
-            if (champion.poste[i].name === "Bottom" || champion.poste[i].name === "Support") {
-                botSuppVal = champion.poste[i].value
-            }
-        }
-        console.log("topVal : ", topVal);
-        console.log("jungleVal : ", jungleVal);
-        console.log("middleVal : ", middleVal);
-        console.log("botSuppVal : ", botSuppVal);
-        this.setState({
-            topVal,
-            jungleVal,
-            middleVal,
-            botSuppVal
-        })     
+            if (this.state.topVal === null || this.state.jungleVal === null || this.state.middleVal === null || this.state.botSuppVal === null) {
+                this.setState({
+                    topVal,
+                    jungleVal,
+                    middleVal,
+                    botSuppVal
+                })   
+            } 
+        }    
     }
 
     componentDidMount() {
         this.champGlobal()
     }
-    componentWillMount() {
-        this.mapSettings()
-    }
+
     componentDidUpdate(prevProps) {
         if (prevProps.champ_name === this.props.champ_name) {
             this.champGlobal()
+            this.mapSettings()
             this.chart()
         }
     }
@@ -167,30 +159,26 @@ class Fiche extends Component {
                         </div>
 
                         <div className="sidebar-rates">
-                            <div className="">
-                                <div style={{  }}>
-                                    {
-                                        this.props.champ_win && (
-                                            <LiquidChart id={"fillWin"} value={this.props.champ_win} />
-                                        )
-                                    }
-                                </div>
-                                <div style={{ marginTop: -40 }}>
-                                    {
-                                        this.props.champ_pick && (
-                                            <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
-                                        )
-                                    }
-                                </div>
-                                <div style={{ marginTop: -40 }}>
-                                    {
-                                        this.props.champ_ban && (
-                                            <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
-                                        )
-                                    }
-                                </div>
-                                { /* <span>Win rate</span> */}
-                                
+                            <div className="rate win">
+                                {
+                                    this.props.champ_win && (
+                                        <LiquidChart id={"fillWin"} value={this.props.champ_win} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate ban">
+                                {
+                                    this.props.champ_ban && (
+                                        <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate pick">
+                                {
+                                    this.props.champ_pick && (
+                                        <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
+                                    )
+                                }
                             </div>
                         </div>
 
@@ -220,7 +208,6 @@ class Fiche extends Component {
                             <div className="bot"></div>
                             <div className="supp"></div>
                         </div>
-                        {/* {this.mapRender()} */}
                         {this.state.topVal !== undefined && 
                             (<svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fillRule="evenodd" clipRule="evenodd" d="M28 218C28 219.105 27.1046 220 26 220L2.00003 220C0.895462 220 3.05959e-05 219.105 3.06924e-05 218L3.27906e-05 194C3.28871e-05 192.896 0.895464 192 2.00003 192L26 192C27.1046 192 28 192.896 28 194L28 218ZM26 188C27.1046 188 28 187.105 28 186L28.0001 162C28.0001 160.896 27.1046 160 26.0001 160L2.00007 160C0.895483 160 5.09434e-05 160.896 5.08469e-05 162L4.87487e-05 186C4.86522e-05 187.105 0.89548 188 2.00006 188L26 188ZM58 188C59.1046 188 60 187.105 60 186L60 162C60 160.896 59.1046 160 58 160L34 160C32.8954 160 32 160.895 32 162L32 186C32 187.105 32.8954 188 34 188L58 188ZM60 154C60 155.104 59.1046 156 58 156L34 156C32.8954 156 32 155.104 32 154L32 130C32 128.895 32.8954 128 34 128L58 128C59.1046 128 60 128.895 60 130L60 154ZM154 92.0004C155.105 92.0004 156 91.105 156 90.0004L156 66.0004C156 64.8958 155.105 64.0004 154 64.0004L130 64.0004C128.896 64.0004 128 64.8958 128 66.0004L128 90.0004C128 91.105 128.896 92.0004 130 92.0004L154 92.0004ZM156 58.0002C156 59.1048 155.105 60.0002 154 60.0002L130 60.0002C128.896 60.0002 128 59.1048 128 58.0002L128 34.0002C128 32.8957 128.896 32.0002 130 32.0002L154 32.0002C155.105 32.0002 156 32.8957 156 34.0002L156 58.0002ZM186 59.1036C187.105 59.1036 188 58.2081 188 57.1036L188 33.1036C188 31.999 187.105 31.1036 186 31.1036L162 31.1036C160.895 31.1036 160 31.999 160 33.1036L160 57.1036C160 58.2081 160.895 59.1036 162 59.1036L186 59.1036ZM186 28.1244C187.105 28.1244 188 27.2289 188 26.1244L188 2.12436C188 1.01979 187.105 0.124356 186 0.124356L162 0.124354C160.895 0.124354 160 1.01979 160 2.12435L160 26.1244C160 27.2289 160.895 28.1244 162 28.1244L186 28.1244ZM220 26.1245C220 27.229 219.105 28.1245 218 28.1245L194 28.1244C192.895 28.1244 192 27.229 192 26.1244L192 2.12445C192 1.01988 192.895 0.124448 194 0.124448L218 0.124451C219.105 0.124451 220 1.01988 220 2.12445L220 26.1245ZM154 28.0003C155.105 28.0003 156 27.1049 156 26.0003L156 2.00035C156 0.895777 155.105 0.000345279 154 0.000345182L130 0.000343084C128.896 0.000342988 128 0.895774 128 2.00034L128 26.0003C128 27.1049 128.896 28.0003 130 28.0003L154 28.0003ZM60 90C60 91.1046 59.1046 92 58 92L34 92C32.8954 92 32 91.1046 32 90L32 66C32 64.8955 32.8954 64 34 64L58 64C59.1046 64 60 64.8955 60 66L60 90ZM58 124C59.1046 124 60 123.105 60 122L60 98.0002C60 96.8956 59.1046 96.0002 58 96.0002L34 96.0002C32.8954 96.0002 32 96.8956 32 98.0002L32 122C32 123.105 32.8954 124 34 124L58 124ZM92 90.0002C92 91.1047 91.1045 92.0002 90 92.0002L66 92.0002C64.8954 92.0002 64 91.1047 64 90.0002L64 66.0002C64 64.8956 64.8954 64.0002 66 64.0002L90 64.0002C91.1046 64.0002 92 64.8956 92 66.0002L92 90.0002ZM90 60C91.1046 60 92 59.1046 92 58L92 34C92 32.8954 91.1046 32 90 32L66 32C64.8954 32 64 32.8954 64 34L64 58C64 59.1046 64.8954 60 66 60L90 60ZM92 122C92 123.105 91.1045 124 90 124L66 124C64.8954 124 64 123.105 64 122L64 98.0003C64 96.8957 64.8954 96.0003 66 96.0003L90 96.0003C91.1045 96.0003 92 96.8957 92 98.0003L92 122ZM90 156C91.1045 156 92 155.105 92 154L92 130C92 128.896 91.1045 128 90 128L66 128C64.8954 128 64 128.896 64 130L64 154C64 155.105 64.8954 156 66 156L90 156ZM28.0001 154.001C28.0001 155.105 27.1046 156.001 26.0001 156.001L2.00007 156.001C0.895483 156.001 5.14497e-05 155.105 5.15462e-05 154.001L5.36444e-05 130.001C5.3741e-05 128.896 0.895485 128.001 2.00007 128.001L26.0001 128.001C27.1046 128.001 28.0001 128.896 28.0001 130.001L28.0001 154.001ZM26.0001 124.001C27.1046 124.001 28.0001 123.105 28.0001 122.001L28.0001 98.0006C28.0001 96.8961 27.1046 96.0006 26.0001 96.0006L2.00007 96.0006C0.895488 96.0006 5.65385e-05 96.8961 5.64419e-05 98.0006L5.43438e-05 122.001C5.42472e-05 123.105 0.895486 124.001 2.00007 124.001L26.0001 124.001ZM124 57.9999C124 59.1044 123.105 59.9999 122 59.9999L98 59.9999C96.8954 59.9999 96 59.1044 96 57.9999L96 33.9999C96 32.8953 96.8954 31.9999 98 31.9999L122 31.9999C123.105 31.9999 124 32.8953 124 33.9999L124 57.9999ZM122 28C123.105 28 124 27.1045 124 26L124 1.99998C124 0.895408 123.105 -2.37297e-05 122 -2.38262e-05L98 -2.59244e-05C96.8954 -2.60209e-05 96 0.895405 96 1.99997L96 26C96 27.1045 96.8954 28 98 28L122 28ZM124 90C124 91.1046 123.105 92 122 92L98 92C96.8954 92 96 91.1046 96 90L96 66C96 64.8955 96.8954 64 98 64L122 64C123.105 64 124 64.8955 124 66L124 90ZM122 124C123.105 124 124 123.105 124 122L124 98.0003C124 96.8957 123.105 96.0003 122 96.0003L98 96.0003C96.8954 96.0003 96 96.8957 96 98.0003L96 122C96 123.105 96.8954 124 98 124L122 124Z" fill="url(#paint0_linear)" fillOpacity="0.75"/>

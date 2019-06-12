@@ -11,6 +11,7 @@
     text-decoration: none;
     outline: none;
     cursor: pointer;
+
     &:hover {
         background: $gold-gradient;
     }
@@ -26,6 +27,7 @@
     color: $blue;
     text-decoration: none;
     cursor: pointer;
+
     &:before {
         content: '\E805';
         font-family: 'fontello';
@@ -33,13 +35,14 @@
         margin-right: 8px;
         transition: transform 0.3s ease-in-out;
     }
+
     &:hover,
     &:active {
         &:before {
             transform: translateX(-8px);
         }
     }
-    
+
 }
 
 .btn-role {
@@ -54,19 +57,26 @@
     text-decoration: none;
     outline: none;
     cursor: pointer;
+
     &:hover {
+        background: $gold-gradient;
+    }
+
+    &.active {
         background: $gold-gradient;
     }
 }
 
 .btn-hiw {
     position: absolute;
-    bottom: 24px; right: 64px;
+    bottom: 24px;
+    right: 64px;
     width: 24px;
     height: 24px;
     background: $blue;
     border-radius: 50%;
     cursor: pointer;
+
     &:before {
         content: '?';
         color: $darkblue;

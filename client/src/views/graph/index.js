@@ -7,9 +7,6 @@ import BtnBack from '../../components/BtnBack';
 class Graph extends Component {
 
   state = {
-    imgDisplay: "",
-    width: 100,
-    height: 'auto',
     id: "",
     rates: [
       { name: "win", text: "Win Rate", isActive: true },
