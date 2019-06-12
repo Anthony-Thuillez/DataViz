@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GlobalFilteting from '../../helpers/GlobalFilteting';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 
 class Compare extends Component {
     state = {
@@ -39,8 +39,8 @@ class Compare extends Component {
 
     getDataRole = (event) => {
         let role = event.target.getAttribute('datarole')
-        let champions = GlobalFilteting.getChampByRole(this.props.data, role)
-        console.log("func", GlobalFilteting.getChampByRole(this.props.data, role));
+        let champions = GlobalFiltering.getChampByRole(this.props.data, role)
+        console.log("func", GlobalFiltering.getChampByRole(this.props.data, role));
 
         this.setState({
             champions: champions
@@ -107,7 +107,7 @@ class Compare extends Component {
 
     retrieveChampCaracteristics(e) {
         let championName = e.target.getAttribute('id')
-        let champCaracteristics = GlobalFilteting.getChampByName(this.props.data, championName)
+        let champCaracteristics = GlobalFiltering.getChampByName(this.props.data, championName)
 
         let name_slotLeft = document.querySelector('.slot-left .champ-name')
         let name_slotRight = document.querySelector('.slot-right .champ-name')

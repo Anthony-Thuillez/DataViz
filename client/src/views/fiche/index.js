@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Chart from 'chart.js';
-import GlobalFilteting from '../../helpers/GlobalFilteting';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 import LiquidChart from './ficheContainer';
 import ReactTooltip from 'react-tooltip';
 
@@ -29,7 +29,7 @@ class Fiche extends Component {
      * @return {String[]} the statistics of a champion
     */
     champStats() {
-        let champion = GlobalFilteting.getChampByName(this.props.data, this.props.champ_name)
+        let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
         return [
             champion.damage,
             champion.toughness,
@@ -73,7 +73,7 @@ class Fiche extends Component {
     }
 
     champGlobal() {
-        let champion = GlobalFilteting.getChampByName(this.props.data, this.props.champ_name)
+        let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
         console.log("champion", champion);
         console.log("this.props.data", this.props.data);
         console.log("this.props.champ_name", this.props.champ_name);

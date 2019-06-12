@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import GlobalFilteting from '../../helpers/GlobalFilteting';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 import { connect } from 'react-redux';
 
 class BubbleChart extends Component {
@@ -18,11 +18,11 @@ class BubbleChart extends Component {
     }
 
     displayChamp() {
-        let championsTop = GlobalFilteting.getChampByPost(this.props.data, "Top");
-        let championsJgl = GlobalFilteting.getChampByPost(this.props.data, "Jungle");
-        let championsMid = GlobalFilteting.getChampByPost(this.props.data, "Middle");
-        let championsBot = GlobalFilteting.getChampByPost(this.props.data, "Bottom");
-        let championsSupp = GlobalFilteting.getChampByPost(this.props.data, "Support");
+        let championsTop = GlobalFiltering.getChampByPost(this.props.data, "Top");
+        let championsJgl = GlobalFiltering.getChampByPost(this.props.data, "Jungle");
+        let championsMid = GlobalFiltering.getChampByPost(this.props.data, "Middle");
+        let championsBot = GlobalFiltering.getChampByPost(this.props.data, "Bottom");
+        let championsSupp = GlobalFiltering.getChampByPost(this.props.data, "Support");
         this.setState({
             championsTop: championsTop,
             championsJgl: championsJgl,
