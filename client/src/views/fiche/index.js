@@ -18,11 +18,9 @@ import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
 
-    /*
     state = {
-        value: 50,
+        win: null,
     };
-    */
 
     /**
      * @param {String} name(props) [Champion name]
@@ -66,7 +64,7 @@ class Fiche extends Component {
                     display: false,
                     ticks: {
                         beginAtZero: true,
-                        max: 3 
+                        max: 3
                     }
                 }
             }
@@ -88,19 +86,21 @@ class Fiche extends Component {
                 return
             }
         }
-        
+
     }
-    componentDidUpdate(prevProps) {
+
+    componentDidUpdate(prevProps, nextProps) {
         if (prevProps.champ_name !== this.props.champ_name) {
             this.champGlobal()
         }
     }
+
     render() {
+
         return (
             <>
                 <BtnBack />
                 <div className="page-fiche">
-
                     <div className="sidebar">
                         <div className="sidebar-champion">
                             <div className="bubble-champ big" style={{ backgroundImage: `url(${this.props.champ_icon})` }}></div>
@@ -112,7 +112,7 @@ class Fiche extends Component {
                                         data-html={true}
                                         // eslint-disable-next-line
                                         className={"icon icon-" + `${this.props.champ_role}`}
-                                >
+                                    >
                                     </div>
                                     <h2>{this.props.champ_name}</h2>
                                 </div>
@@ -121,9 +121,29 @@ class Fiche extends Component {
                         </div>
 
                         <div className="sidebar-rates">
-                            <div className="block">
-                                <LiquidChart />
-                                { /* <span>Win rate</span> */ }
+                            <div className="">
+                                <div style={{  }}>
+                                    {
+                                        this.props.champ_win && (
+                                            <LiquidChart id={"fillWin"} value={this.props.champ_win} />
+                                        )
+                                    }
+                                </div>
+                                <div style={{ marginTop: -40 }}>
+                                    {
+                                        this.props.champ_pick && (
+                                            <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
+                                        )
+                                    }
+                                </div>
+                                <div style={{ marginTop: -40 }}>
+                                    {
+                                        this.props.champ_ban && (
+                                            <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
+                                        )
+                                    }
+                                </div>
+                                { /* <span>Win rate</span> */}
                             </div>
                         </div>
 
@@ -156,7 +176,7 @@ class Fiche extends Component {
                     </div>
 
                 </div>
-                
+
                 <ReactTooltip className="tooltip" offset={{ top: 10 }} />
             </>
         )
@@ -178,11 +198,11 @@ const mapStateToProps = (state) => {
         champ_posteName2: state.champ_posteName2,
         champ_posteValue2: state.champ_posteValue2,
         champ_posteName3: state.champ_posteName3,
-        champ_posteValue3: state.champ_posteValue3
+        champ_posteValue3: state.champ_posteValue3,
     }
 }
 
-const mapDispatchToProps = (dispatch) => {    
+const mapDispatchToProps = (dispatch) => {
     return {
         set_global: (quotation, icon, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
             dispatch({
@@ -194,11 +214,11 @@ const mapDispatchToProps = (dispatch) => {
                     win,
                     ban,
                     pick,
-                    posteName, 
-                    posteValue, 
-                    posteNam2, 
-                    posteValue2, 
-                    posteName3, 
+                    posteName,
+                    posteValue,
+                    posteNam2,
+                    posteValue2,
+                    posteName3,
                     posteValue3
                 }
             })
