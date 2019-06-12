@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import { connect } from 'react-redux';
 
 class LiquidGauge extends Component {
 
@@ -12,16 +11,16 @@ class LiquidGauge extends Component {
         waveHeight: 0.05,
         waveCount: 1,
         waveRiseTime: 1000,
-        waveAnimateTime: 4000,
+        waveAnimateTime: 1000,
         waveRise: true,
         waveHeightScaling: true,
         waveAnimate: true,
         waveOffset: 0,
         textVertPosition: 0.5,
-        textSize: 1,
+        textSize: 0.8,
         valueCountUp: true,
         displayPercent: true,
-        textColor: "#ffffff",
+        textColor: "#045681",
         waveTextColor: "#A4DBf8"
     };
 
@@ -45,14 +44,16 @@ class LiquidGauge extends Component {
     renderDisplay = () => {
         var config = this.state;
 
+        var { id, median } = this.props
+
         var waveHeightScale;
-        var gauge = d3.select("#fillgauge");
-        var width = parseInt(gauge.style("width"))
-        var height = parseInt(gauge.style("height"))
+        var gauge = d3.select("#" + id);
+        var width = parseInt(gauge.style("width")) / 1.5
+        var height = parseInt(gauge.style("height")) / 1.5
         var centerX = width / 2;
         var centerY = height / 2;
         var numPoints = 6;
-        var strokePenta = 2;
+        var strokePenta = 3;
         var radius =
             Math.min(
                 width,
@@ -157,7 +158,6 @@ class LiquidGauge extends Component {
                 ")"
             );
 
-
         /* 180deg du gradient */
         var defs = gaugeGroup.append("defs");
 
@@ -172,14 +172,14 @@ class LiquidGauge extends Component {
         linearGradient.append("stop")
             .attr("offset", "0%")
             // .attr("stop-color", "#FC0044");
-            .attr("stop-color", "#00CBE0");
+            .attr("stop-color", median && median < this.props.value && parseFloat(this.props.value) ? "#00CBE0" : "#FC0044");
         // "#00CBE0", "rgba(0, 203, 224, 0.2)"
 
         /* Bas du gradient */
         linearGradient.append("stop")
             .attr("offset", "98.8%")
             // .attr("stop-color", "rgba(252, 0, 68, 0.2)");
-            .attr("stop-color", "rgba(0, 203, 224, 0.2)");
+            .attr("stop-color", median && median < this.props.value && parseFloat(this.props.value) ? "rgba(0, 203, 224, 0.2)" : "rgba(252, 0, 68, 0.2)");
 
         var clipArea = d3.area()
             .x(function (d) {
@@ -211,8 +211,10 @@ class LiquidGauge extends Component {
             .attr('d', `
                 M 0 0 
                 ${wheelLines.map(({ x2, y2 }) =>
-                'L ' + (x2 - 75) + " " + y2
-            )}`)
+                'L ' + (x2 - 50) + " " + y2
+            )}
+                L ${wheelLines[0].x2 - 75} ${wheelLines[0].y2}
+            `)
             .style("fill", "url(#gradientColor)");
         gauge.selectAll('line').data(wheelLines)
             .enter().append('line')
@@ -287,23 +289,10 @@ class LiquidGauge extends Component {
         this.renderDisplay();
     }
 
-    componentDidUpdate() {
-        console.log(this.props.champ_win);
-        
-        // this.updateGauge(this.props.champ_win);
-    }
-
     render() {
-        return <svg id="fillgauge" className="fillgauge" />;
+        const { id } = this.props
+        return <svg id={id} className="fillgauge" />;
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        champ_win: state.champ_win,
-        champ_ban: state.champ_ban,
-        champ_pick: state.champ_pick
-    }
-}
-
-export default connect(mapStateToProps, null)(LiquidGauge)
+export default LiquidGauge
