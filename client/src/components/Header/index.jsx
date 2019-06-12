@@ -41,7 +41,6 @@ class Header extends Component {
             });
             return { ...prev, header: nextLink };
         });
-
     };
 
     render() {

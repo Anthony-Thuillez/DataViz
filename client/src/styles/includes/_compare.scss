@@ -19,12 +19,14 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 24px;
+
             .btn-role {
                 &:not(:last-of-type) {
                     margin-right: 24px;
                 }
             }
         }
+
         .champList {
             display: flex;
             justify-content: flex-start;
@@ -33,7 +35,7 @@
             min-height: 120px;
             max-width: 1008px;
             margin: 0 auto;
-    
+
             .bubble-champ {
                 margin: 5.6px;
                 cursor: pointer;
@@ -52,31 +54,30 @@
 
             &-desc {
 
-                & > div {
+                &>div {}
+            }
 
-                }
-            }
-            &-role {
+            &-role {}
 
-            }
-            &-name {
-                
-            }
-            &-quotation {
+            &-name {}
 
-            }
+            &-quotation {}
         }
+
         .rate-container {
             width: 86%;
             padding: 24px 0;
         }
+
         .rate {
             position: relative;
             height: 64px;
             transition: all 0.5s ease-in-out;
+
             &:not(:last-of-type) {
                 margin-bottom: 24px;
             }
+
             span {
                 position: absolute;
                 top: 50%;
@@ -85,59 +86,75 @@
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
             }
+
             &.win {
                 width: 80%;
             }
+
             &.ban {
                 width: 40%;
             }
+
             &.pick {
                 width: 60%
             }
         }
     }
+
     .slot-left {
         margin-right: 112px;
+
         .rate-container {
             margin-left: auto;
+
             .rate {
                 margin-left: auto;
                 background: linear-gradient(270deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%);
+
                 &:after {
                     position: absolute;
                     top: 50%;
                     right: -86px;
                     transform: translateY(-50%);
                 }
+
                 &.win:after {
                     content: 'Win rate';
                 }
+
                 &.ban:after {
                     content: 'Ban rate';
                 }
+
                 &.pick:after {
                     content: 'Pick rate';
                 }
+
                 span {
                     left: -64px;
                 }
             }
         }
+
         .bubble-champ {
             margin-left: 20px;
             margin-right: 16px;
         }
     }
+
     .slot-right {
         .champ {
             flex-direction: row-reverse;
         }
+
         .rate {
             background: linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%);
+
             span {
                 right: -64px;
             }
         }
+
         .bubble-champ {
             margin-left: 16px;
             margin-right: 20px;
