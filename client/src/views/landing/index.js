@@ -4,23 +4,35 @@ import { connect } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import GlobalFiltering from '../../helpers/GlobalFiltering';
 class Landing extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            champions_top: null,
+            champions_jungle: null,
+            champions_middle: null,
+            champions_bottom: null,
+            champions_support: null,
 
-    state = {
-        champions_top: null,
-        champions_jungle: null,
-        champions_middle: null,
-        champions_bottom: null,
-        champions_support: null,
+            lanes: [
+                { name: "All", isActive: true },
+                { name: "Top" },
+                { name: "Jungle" },
+                { name: "Mid" },
+                { name: "Bot" },
+                { name: "Support" }
+            ]
+        };
+    }
 
-        lanes: [
-            { name: "All", isActive: true },
-            { name: "Top" },
-            { name: "Jungle" },
-            { name: "Mid" },
-            { name: "Bot" },
-            { name: "Support" }
-        ]
-    };
+    componentWillMount() {
+        this.setState({
+            champions_top: GlobalFiltering.getChampByPost(this.props.data, "Top"),
+            champions_jungle: GlobalFiltering.getChampByPost(this.props.data, "Jungle"),
+            champions_middle: GlobalFiltering.getChampByPost(this.props.data, "Middle"),
+            champions_bottom: GlobalFiltering.getChampByPost(this.props.data, "Bottom"),
+            champions_support: GlobalFiltering.getChampByPost(this.props.data, "Support")
+        })
+    }
 
     componentDidUpdate(prevProps) {
         if (prevProps.data !== this.props.data) {
@@ -32,10 +44,8 @@ class Landing extends Component {
                 champions_support: GlobalFiltering.getChampByPost(this.props.data, "Support")
             })
         }
-
-
-
     }
+
 
     handleIsActive = id => {
         this.setState(prev => {
