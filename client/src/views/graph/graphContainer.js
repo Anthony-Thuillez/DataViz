@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import SortByRate from '../../helpers/SortByRate';
+import GlobalFilteting from '../../helpers/GlobalFilteting';
 import { connect } from 'react-redux';
 
 const linearGradient = (svg, id, color1, color2) => {
@@ -30,11 +30,10 @@ class BarChart extends Component {
         let chart = document.querySelector('svg');
         chart.remove();
     }
-
+    
     componentWillUnmount() {
         let chart = document.querySelector('svg');
         chart.remove();
-
     }
 
     componentDidMount() {
@@ -47,6 +46,17 @@ class BarChart extends Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (prevProps.selectedPoste === this.props.selectedPoste) {
+            let chart = document.querySelector('svg');
+            chart.remove();
+            this.drawChart(
+                this.findFirstValOfArray(),
+                this.findLastValOfArray(),
+                this.displayChamp(this.props.selectedRate),
+                this.median()
+            );
+        }
+        
         // Typical usage (don't forget to compare props):
         if (this.props.selectedRate !== prevProps.selectedRate) {
             /* For re-render the graph we need to remove it first */
@@ -61,7 +71,7 @@ class BarChart extends Component {
     }
 
     findFirstValOfArray = () => {
-        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let arr = GlobalFilteting.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         console.log("arr : ", arr);
 
         for (let i = 0; i < arr.length; i++) {
@@ -71,7 +81,7 @@ class BarChart extends Component {
     }
 
     findLastValOfArray = () => {
-        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let arr = GlobalFilteting.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         for (let i = 0; i < arr.length; i++) {
             const lastEl = arr[arr.length - 1]
             return lastEl
@@ -79,7 +89,7 @@ class BarChart extends Component {
     }
 
     displayChamp(rate) {
-        let champion = SortByRate.getChampByPost(this.props.data, this.props.selectedPoste)
+        let champion = GlobalFilteting.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
                 icon: champ.icon,
@@ -90,8 +100,8 @@ class BarChart extends Component {
     }
 
     median() {
-        let _median = SortByRate.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
-        return _median
+        let _median = GlobalFilteting.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        return _median.toFixed(2);
     }
 
     drawChart(func_firstEl, func_lastEl, func_champ, func_median) {
@@ -102,7 +112,7 @@ class BarChart extends Component {
         let { selectedRate } = this.props
 
         /* Dimentions du graph */
-        var margin = { top: -2, right: 0, bottom: 80, left: 45 },
+        var margin = { top: -2, right: 0, bottom: 80, left: 60 },
             width = 1300 - margin.left - margin.right,
             height = 550 - margin.top - margin.bottom;
 
@@ -151,9 +161,9 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(lastEl + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(lastEl))
+            .attr("y", y(lastEl) + 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -172,9 +182,9 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(firstEl + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(firstEl))
+            .attr("y", y(firstEl) - 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -192,9 +202,9 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(_median + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(_median))
+            .attr("y", y(_median) - 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -229,6 +239,7 @@ class BarChart extends Component {
             .attr("x", (d) => x(d.icon) + x.bandwidth() / 2)
             .attr("y", (d) => (y(d.rate) + height) / 2)
             .style('fill', 'white')
+            .style("font-size", "10px")
             .attr("text-anchor", "middle");
 
         var w = document.querySelectorAll(".domain")

@@ -1,6 +1,6 @@
 /** TESTED ✅
  * Functions purpose : Get all champions for a specific post
- * @param {Object[]} data(json) @param {String} post(props)
+ * @param {Object[]} data[{...}] @param {String} post(props)
  * @return {Object[]} champions found on [post] define
  */
 
@@ -18,7 +18,7 @@ const getChampByPost = (data, post) => {
 
 /** TESTED ✅
  * Functions purpose : Get the selected rate for all champions for a specific post
- * @param {Object[]} data(json) @param {String} rate(props) @param {String} post(props)
+ * @param {Object[]} data[{...}] @param {String} rate(props) @param {String} post(props)
  * @return {String[]} all [rate] for a specific [post]
  */
 const getSelectedRate = (data, rate, post) => {
@@ -38,7 +38,7 @@ const getSelectedRate = (data, rate, post) => {
 
 /** TESTED ✅
  * Functions purpose: Order previous [rateArr] by rate & unstringify values
- * @param {Object[]} data(json) @param {String} rate(props) @param {String} post(props)
+ * @param {Object[]} data[{...}] @param {String} rate(props) @param {String} post(props)
  * @return {Number[]} all [rate] for a specific [post] ordered
  */
 const orderByRate = (data, rate, post) => {
@@ -59,7 +59,7 @@ const orderByRate = (data, rate, post) => {
 
 /** TESTED ✅
  * Functions purpose: Calculate the median for a specific rate & post
- * @param {Object[]} data(json) @param {String} rate(props) @param {String} post(props)
+ * @param {Object[]} data[{...}] @param {String} rate(props) @param {String} post(props)
  * @return {Number} the median for a specific [rate] & a specific [post]
  */
 const medianRate = (data, rate, post) => {
@@ -80,7 +80,7 @@ const medianRate = (data, rate, post) => {
 
 /** TESTED ✅
  * Functions purpose : Get all champions for a specific role
- * @param {Object[]} data(json) @param {String} role(props)
+ * @param {Object[]} data[{...}] @param {String} role(props)
  * @return {Object[]} champions found on [role] define
  */
 const getChampByRole = (data, role) => {
@@ -103,7 +103,7 @@ const getChampByRole = (data, role) => {
 
 /** TESTED ✅
  * Functions purpose : Get champion data for a specific name
- * @param {Object[]} data(json) @param {String} name(state)
+ * @param {Object[]} data[{...}] @param {String} name(state)
  * @return {Object[]} champion data found on [name] define
  */
 
@@ -139,6 +139,44 @@ const getChampByName = (data, name) => {
     }
 }
 
+/** TESTED ✅
+ * Functions purpose: Get the most played poste of a champion on a specific poste
+ * @param {Object[]} data[{...}] @param {String} post(props)
+ * @return {Object[]} champions found on [post] define
+ */
+const getChampByMostPlayedPoste = (data, post) => {
+    let champArr = []
+    for (let i = 0; i < data.length; i++) {
+        for (let y = 0; y < data[i].poste.length; y++) {
+            let posteMaxVal
+            if (data[i].poste[0].value > data[i].poste[y].value || data[i].poste.length === 1) {
+                posteMaxVal = data[i].poste[0].value
+            } else {
+                posteMaxVal = data[i].poste[y].value
+            }
+            if (Object.values(data[i].poste[y]).includes(post)) {
+                if (data[i].poste[y].value >= posteMaxVal) {
+                    champArr.push(data[i])
+                }
+            }
+        }
+    }
+    return champArr.sort(compare)
+}
+/* Simple sorting for alphabetical ordering */
+const compare = (a, b) => {
+    const nameA = a.name.toUpperCase();
+    const nameB = b.name.toUpperCase();
+
+    let comparison = 0;
+    if (nameA > nameB) {
+        comparison = 1;
+    } else if (nameA < nameB) {
+        comparison = -1;
+    }
+    return comparison;
+}
+
 module.exports = {
     getChampByPost,
     getChampByRole,
@@ -146,4 +184,5 @@ module.exports = {
     getChampByName,
     orderByRate,
     medianRate,
+    getChampByMostPlayedPoste
 }

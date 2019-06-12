@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-
+import { Link } from 'react-router-dom';
 class SearchBar extends Component {
     constructor(props) {
         super(props);
@@ -24,7 +24,7 @@ class SearchBar extends Component {
         document.addEventListener("keydown", this.escFunction, false);
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         if (this.state.active) {
             this.searchInput.focus();
         }
@@ -81,6 +81,11 @@ class SearchBar extends Component {
             return searchRegex.test(item.name);
         });
     }
+
+    getName(champ_name) {
+        this.props.set_champ(champ_name);
+    }
+
     render() {
         return(
             <>
@@ -111,13 +116,16 @@ class SearchBar extends Component {
                             this.state.q ? (
                                 <ul className="list-champ">
                                 {
-                                    this.state.display.map(champ => {
+                                    this.state.display.map((champ, index) => {
                                         return (
                                             <li key={champ.name}>
-                                                <a href={`./fiche/${champ.name}`}> {/* Changer le path */}
+                                                <Link   to={`./fiche-${champ.name}`} 
+                                                        onMouseEnter={() => this.getName(`${ champ.name }`)}
+                                                        key={index}
+                                                        >
                                                     <div className="bubble-champ big" style={{ backgroundImage: `url(${champ.icon})` }}></div>
                                                     {champ.name}
-                                                </a>
+                                                </Link>
                                             </li>
                                         );
                                     })
@@ -153,4 +161,15 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(SearchBar);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        set_champ: (champ_name) => {
+            dispatch({
+                type: 'SET_CHAMP',
+                value: champ_name
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

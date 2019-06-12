@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SortByRate from '../../helpers/SortByRate';
+import GlobalFilteting from '../../helpers/GlobalFilteting';
 
 class Compare extends Component {
     state = {
@@ -39,7 +39,9 @@ class Compare extends Component {
 
     getDataRole = (event) => {
         let role = event.target.getAttribute('datarole')
-        let champions = SortByRate.getChampByRole(this.props.data, role)
+        let champions = GlobalFilteting.getChampByRole(this.props.data, role)
+        console.log("func", GlobalFilteting.getChampByRole(this.props.data, role));
+
         this.setState({
             champions: champions
         })
@@ -105,7 +107,7 @@ class Compare extends Component {
 
     retrieveChampCaracteristics(e) {
         let championName = e.target.getAttribute('id')
-        let champCaracteristics = SortByRate.getChampByName(this.props.data, championName)
+        let champCaracteristics = GlobalFilteting.getChampByName(this.props.data, championName)
 
         let name_slotLeft = document.querySelector('.slot-left .champ-name')
         let name_slotRight = document.querySelector('.slot-right .champ-name')

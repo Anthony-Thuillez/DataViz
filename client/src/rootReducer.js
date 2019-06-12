@@ -66,6 +66,22 @@ const rootReducer = (state = initState, action) => {
             champ_posteValue3: newData.posteValue3
         }
     }
+
+    if (action.type === 'SET_CHAMPNAME_FROM_URL') {
+        let newData = action.value
+        return {
+            ...state,
+            champ_name: newData
+        }
+    }
+
+    if (action.type === 'SET_POSTE_FROM_URL') {
+        let newData = action.value
+        return {
+            ...state,
+            selectedPoste: newData
+        }
+    }
     return state;
 }
 

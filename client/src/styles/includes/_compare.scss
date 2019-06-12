@@ -131,7 +131,7 @@
                 }
 
                 span {
-                    left: -50px;
+                    left: -64px;
                 }
             }
         }
@@ -151,7 +151,7 @@
             background: linear-gradient(90deg, #0F0F2E 0%, rgba(15, 15, 46, 0) 67.01%);
 
             span {
-                right: -50px;
+                right: -64px;
             }
         }
 
@@ -161,4 +161,7 @@
         }
     }
 
+    & ~ .btn-hiw {
+        display: none;
+    }
 }
