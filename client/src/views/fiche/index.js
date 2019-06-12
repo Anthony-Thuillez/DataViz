@@ -134,14 +134,14 @@ class Fiche extends Component {
                                         )
                                     }
                                 </div>
-                                <div style={{ marginTop: -40 }}>
+                                <div style={{  }}>
                                     {
                                         this.props.champ_pick && (
                                             <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
                                         )
                                     }
                                 </div>
-                                <div style={{ marginTop: -40 }}>
+                                <div style={{  }}>
                                     {
                                         this.props.champ_ban && (
                                             <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
