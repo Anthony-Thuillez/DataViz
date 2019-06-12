@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
 
+const creatGradient = (defs, id, colorStart, colorEnd) => {
+
+    const linearGradient = defs.append("linearGradient")
+        .attr("id", id)
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "0%")
+        .attr("y2", "100%")
+        
+    linearGradient.append("stop")
+        .attr("offset", "0%")
+        .attr("stop-color", colorStart)
+
+    linearGradient.append("stop")
+        .attr("offset", "98.8%")
+        .attr("stop-color", colorEnd);
+}
+
 class LiquidGauge extends Component {
 
     state = {
@@ -44,8 +62,10 @@ class LiquidGauge extends Component {
     renderDisplay = () => {
         var config = this.state;
 
-        var { id, median } = this.props
+        var { id } = this.props
         
+        var median = 50
+
         var waveHeightScale;
         var gauge = d3.select("#" + id);
         var width = parseInt(gauge.style("width")) / 1.5
@@ -161,26 +181,9 @@ class LiquidGauge extends Component {
         /* 180deg du gradient */
         var defs = gaugeGroup.append("defs");
 
-        var linearGradient = defs.append("linearGradient")
-            .attr("id", "gradientColor")
-            .attr("x1", "0%")
-            .attr("y1", "0%")
-            .attr("x2", "0%")
-            .attr("y2", "100%");
-
-        /* Haut du gradient */
-        linearGradient.append("stop")
-            .attr("offset", "0%")
-            // .attr("stop-color", "#FC0044");
-            .attr("stop-color", median && median < this.props.value && parseFloat(this.props.value) ? "#00CBE0" : "#FC0044");
-        // "#00CBE0", "rgba(0, 203, 224, 0.2)"
-
-        /* Bas du gradient */
-        linearGradient.append("stop")
-            .attr("offset", "98.8%")
-            // .attr("stop-color", "rgba(252, 0, 68, 0.2)");
-            .attr("stop-color", median && median < this.props.value && parseFloat(this.props.value) ? "rgba(0, 203, 224, 0.2)" : "rgba(252, 0, 68, 0.2)");
-
+        creatGradient(defs, 'gradientColorBlue', "#00CBE0", "rgba(0, 203, 224, 0.2)")
+        creatGradient(defs, 'gradientColorRed', "#FC0044", "rgba(252, 0, 68, 0.2)")
+        
         var clipArea = d3.area()
             .x(function (d) {
                 return waveScaleX(d.x);
@@ -215,7 +218,7 @@ class LiquidGauge extends Component {
             )}
                 L ${wheelLines[0].x2 - 75} ${wheelLines[0].y2}
             `)
-            .style("fill", "url(#gradientColor)");
+            .style("fill", d => `url(#${median && median < this.props.value && parseFloat(this.props.value) ? 'gradientColorBlue' : 'gradientColorRed'})`);
         gauge.selectAll('line').data(wheelLines)
             .enter().append('line')
             .attr('x1', d => d.x1)

@@ -18,10 +18,6 @@ import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
 
-    state = {
-        win: null,
-    };
-
     /**
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
@@ -72,19 +68,17 @@ class Fiche extends Component {
 
     champGlobal() {
         let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
-        console.log("champion", champion);
-        console.log("this.props.data", this.props.data);
-        console.log("this.props.champ_name", this.props.champ_name);
+        
         if (champion !== undefined) {
             for (let i = 0; i < champion.poste.length; i++) {
                 if (champion.poste.length === 1) {
-                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
                     return
                 } else if (champion.poste.length === 2) {
-                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
                     return
                 } else if (champion.poste.length === 3) {
-                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
                     return
                 }
             }
@@ -102,6 +96,7 @@ class Fiche extends Component {
         }
     }
     render() {
+        
         return (
             <>
                 <BtnBack />
@@ -188,6 +183,7 @@ class Fiche extends Component {
 const mapStateToProps = (state) => {
     return {
         data: state.data,
+        selectedPoste: state.selectedPoste,
         champ_name: state.champ_name,
         champ_quolation: state.champ_quolation,
         champ_icon: state.champ_icon,
@@ -206,11 +202,12 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        set_global: (quotation, icon, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
+        set_global: (quotation, selectedPoste, icon, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
             dispatch({
                 type: 'SET_GLOBAL',
                 value: {
                     quotation,
+                    selectedPoste,
                     icon,
                     role,
                     win,
