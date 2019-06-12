@@ -85,6 +85,8 @@ class Landing extends Component {
                         }
 
                     </div>
+                    {/* Fin test inté */}
+
                 </div>
 
                 <div className="filter">

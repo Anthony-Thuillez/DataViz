@@ -26,7 +26,7 @@ class Compare extends Component {
         this.setState(prev => {
             const { filter } = prev;
             const nextEl = filter.map(post => {
-                if ((post.name.charAt(0).toUpperCase() + post.name.slice(1)) == el && post.isActive) return { ...post, isActive: true }
+                if ((post.name.charAt(0).toUpperCase() + post.name.slice(1)) === el && post.isActive) return { ...post, isActive: true }
                 if ((post.name.charAt(0).toUpperCase() + post.name.slice(1)) !== el) return { ...post, isActive: false }
                 return {
                     ...post,
