@@ -12,12 +12,12 @@ class Compare extends Component {
         slot_right_icon: '',
 
         filter: [
-            { name: "fighter", isActive: true },
+            { name: "fighter" },
             { name: "mage" },
             { name: "slayer" },
             { name: "tank" },
             { name: "marksman" },
-            { name: "support" },
+            { name: "controller" },
             { name: "specialist" }
         ]
     }
