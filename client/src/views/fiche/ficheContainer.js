@@ -45,12 +45,12 @@ class LiquidGauge extends Component {
         var config = this.state;
 
         var { id, median } = this.props
-
+        
         var waveHeightScale;
         var gauge = d3.select("#" + id);
         var width = parseInt(gauge.style("width")) / 1.5
-        var height = parseInt(gauge.style("height")) / 1.5
-        var centerX = width / 2;
+        var height = parseInt(gauge.style("width")) / 1.5
+        var centerX = width / 1;
         var centerY = height / 2;
         var numPoints = 6;
         var strokePenta = 3;
@@ -211,7 +211,7 @@ class LiquidGauge extends Component {
             .attr('d', `
                 M 0 0 
                 ${wheelLines.map(({ x2, y2 }) =>
-                'L ' + (x2 - 50) + " " + y2
+                'L ' + (x2 - 40) + " " + y2
             )}
                 L ${wheelLines[0].x2 - 75} ${wheelLines[0].y2}
             `)
@@ -291,7 +291,7 @@ class LiquidGauge extends Component {
 
     render() {
         const { id } = this.props
-        return <svg id={id} className="fillgauge" />;
+        return <svg id={id} height="80" width="120" />;
     }
 }
 
