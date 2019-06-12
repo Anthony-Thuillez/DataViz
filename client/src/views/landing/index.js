@@ -37,11 +37,11 @@ class Landing extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps.data !== this.props.data) {
             this.setState({
-                champions_top: GlobalFiltering.getChampByPost(this.props.data, "Top"),
-                champions_jungle: GlobalFiltering.getChampByPost(this.props.data, "Jungle"),
-                champions_middle: GlobalFiltering.getChampByPost(this.props.data, "Middle"),
-                champions_bottom: GlobalFiltering.getChampByPost(this.props.data, "Bottom"),
-                champions_support: GlobalFiltering.getChampByPost(this.props.data, "Support")
+                champions_top: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Top"),
+                champions_jungle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Jungle"),
+                champions_middle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Middle"),
+                champions_bottom: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Bottom"),
+                champions_support: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Support")
             })
         }
     }
