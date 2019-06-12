@@ -45,23 +45,36 @@
             }
         }
         &-rates {
-            .block {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: stretch;
 
-                .fillgauge {
-                    // width: 58px;
-                    // height: 69px;
+            .rate {
+                position: relative;
+                margin-left: -44px;
+                margin-right: 15px;
+                &.win,
+                &.ban,
+                &.pick {
+                    &:after {
+                        position: absolute;
+                        background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        bottom: -26px;
+                        left: 44%;
+                        font-size: 14px;
+                    }
                 }
-
-                span {
-                    margin-left: 22px;
-                    font-family: $font;
-                    font-size: $text-big;
-                    background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
-                    -webkit-background-clip: text;
-                    -webkit-text-fill-color: transparent;
+                &.win:after {
+                    content: 'Win rate';
+                }
+                &.ban:after {
+                    content: 'Ban rate';
+                }
+                &.pick:after {
+                    content: 'Pick rate';
                 }
             }
         }

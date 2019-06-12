@@ -13,7 +13,7 @@ class Header extends Component {
             let champPosteParameter = window.location.href.split('/graph-')
             champPosteParameter = champPosteParameter[champPosteParameter.length - 1]
             this.props.set_poste_from_url(champPosteParameter)
-            
+
         } else if (window.location.href.includes("/fiche-")) {
             let champNameParameter = window.location.href.split('/fiche-')
             champNameParameter = champNameParameter[champNameParameter.length - 1]

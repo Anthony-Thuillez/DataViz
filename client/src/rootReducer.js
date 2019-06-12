@@ -53,6 +53,7 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             champ_quolation: newData.quotation,
+            selectedPoste: newData.selectedPoste,
             champ_icon: newData.icon,
             champ_role: newData.role,
             champ_win: newData.win,

@@ -30,7 +30,7 @@ class BarChart extends Component {
         let chart = document.querySelector('svg');
         chart.remove();
     }
-    
+
     componentWillUnmount() {
         let chart = document.querySelector('svg');
         chart.remove();
@@ -56,7 +56,7 @@ class BarChart extends Component {
                 this.median()
             );
         }
-        
+
         // Typical usage (don't forget to compare props):
         if (this.props.selectedRate !== prevProps.selectedRate) {
             /* For re-render the graph we need to remove it first */
@@ -72,7 +72,6 @@ class BarChart extends Component {
 
     findFirstValOfArray = () => {
         let arr = GlobalFiltering.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
-        console.log("arr : ", arr);
 
         for (let i = 0; i < arr.length; i++) {
             let firstEl = arr[0]
@@ -119,7 +118,7 @@ class BarChart extends Component {
         /* Propriété du graph */
         var x = d3.scaleBand()
             .range([0, width])
-            .padding(0.3);
+            .padding(0.1);
 
         var y = d3.scaleLinear()
             .range([height, 0]);
@@ -139,11 +138,24 @@ class BarChart extends Component {
         /* Axes */
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x));
+            .call(d3.axisBottom(x).tickFormat(""));
 
         svg.append("g")
             // .call(d3.axisLeft(y).tickFormat(d => d + "%"))
             .call(d3.axisLeft(y).tickValues([]));
+
+        svg.selectAll('.tick')
+        .data(data)
+        .each((d, i, nodes) => {
+            var p = d3.select(nodes[i]);
+            p.append("svg:image")
+            .attr("x", -15)
+            .attr("y", 20)
+            .attr("dy", 0)
+            .attr("width", 30)
+            .attr("height", 30)
+            .attr("xlink:href", d.icon)
+        })
 
         linearGradient(svg, 'blue-gradient', "#00CBE0", "rgba(0, 203, 224, 0.2)")
         linearGradient(svg, 'red-gradient', "#FC0044", "rgba(252, 0, 68, 0.2)")

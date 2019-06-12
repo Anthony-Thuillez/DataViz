@@ -18,12 +18,6 @@ import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
 
-    /*
-    state = {
-        value: 50,
-    };
-    */
-
     /**
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
@@ -74,23 +68,21 @@ class Fiche extends Component {
 
     champGlobal() {
         let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
-        console.log("champion", champion);
-        console.log("this.props.data", this.props.data);
-        console.log("this.props.champ_name", this.props.champ_name);
+        
         if (champion !== undefined) {
             for (let i = 0; i < champion.poste.length; i++) {
                 if (champion.poste.length === 1) {
-                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
                     return
                 } else if (champion.poste.length === 2) {
-                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
                     return
                 } else if (champion.poste.length === 3) {
-                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
                     return
                 }
             }
-        }  
+        }
     }
 
     componentDidMount() {
@@ -103,12 +95,12 @@ class Fiche extends Component {
             this.chart()
         }
     }
-    render() {      
+    render() {
+        
         return (
             <>
                 <BtnBack />
                 <div className="page-fiche">
-
                     <div className="sidebar">
                         <div className="sidebar-champion">
                             <div className="bubble-champ big" style={{ backgroundImage: `url(${this.props.champ_icon})` }}></div>
@@ -120,7 +112,7 @@ class Fiche extends Component {
                                         data-html={true}
                                         // eslint-disable-next-line
                                         className={"icon icon-" + `${this.props.champ_role}`}
-                                >
+                                    >
                                     </div>
                                     <h2>{this.props.champ_name}</h2>
                                 </div>
@@ -129,9 +121,26 @@ class Fiche extends Component {
                         </div>
 
                         <div className="sidebar-rates">
-                            <div className="block">
-                                <LiquidChart />
-                                { /* <span>Win rate</span> */ }
+                            <div className="rate win">
+                                {
+                                    this.props.champ_win && (
+                                        <LiquidChart id={"fillWin"} value={this.props.champ_win} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate ban">
+                                {
+                                    this.props.champ_ban && (
+                                        <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate pick">
+                                {
+                                    this.props.champ_pick && (
+                                        <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
+                                    )
+                                }
                             </div>
                         </div>
 
@@ -164,7 +173,7 @@ class Fiche extends Component {
                     </div>
 
                 </div>
-                
+
                 <ReactTooltip className="tooltip" offset={{ top: 10 }} />
             </>
         )
@@ -174,6 +183,7 @@ class Fiche extends Component {
 const mapStateToProps = (state) => {
     return {
         data: state.data,
+        selectedPoste: state.selectedPoste,
         champ_name: state.champ_name,
         champ_quolation: state.champ_quolation,
         champ_icon: state.champ_icon,
@@ -186,27 +196,28 @@ const mapStateToProps = (state) => {
         champ_posteName2: state.champ_posteName2,
         champ_posteValue2: state.champ_posteValue2,
         champ_posteName3: state.champ_posteName3,
-        champ_posteValue3: state.champ_posteValue3
+        champ_posteValue3: state.champ_posteValue3,
     }
 }
 
-const mapDispatchToProps = (dispatch) => {    
+const mapDispatchToProps = (dispatch) => {
     return {
-        set_global: (quotation, icon, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
+        set_global: (quotation, selectedPoste, icon, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
             dispatch({
                 type: 'SET_GLOBAL',
                 value: {
                     quotation,
+                    selectedPoste,
                     icon,
                     role,
                     win,
                     ban,
                     pick,
-                    posteName, 
-                    posteValue, 
-                    posteNam2, 
-                    posteValue2, 
-                    posteName3, 
+                    posteName,
+                    posteValue,
+                    posteNam2,
+                    posteValue2,
+                    posteName3,
                     posteValue3
                 }
             })
