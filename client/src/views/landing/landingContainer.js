@@ -30,11 +30,6 @@ class BubbleChart extends Component {
             championsBot: championsBot,
             championsSupp: championsSupp,
         })
-        console.log( 1, this.state.championsTop);
-        console.log( 2, this.state.championsJgl);
-        console.log( 3, this.state.championsMid);
-        console.log( 4, this.state.championsBot);
-        console.log( 5, this.state.championsSupp);
         
         if (!window.location.href.includes("/graph")) {
             // DO NOT DELETE ❗️// DO NOT DELETE ❗️
