@@ -1,25 +1,51 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import GlobalFilteting from '../../helpers/GlobalFilteting';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 
 class Compare extends Component {
-    state =  {
+    state = {
         champions: [],
         slot_left_name: '',
         slot_right_name: '',
 
         slot_left_icon: '',
-        slot_right_icon: ''
+        slot_right_icon: '',
+
+        filter: [
+            { name: "fighter", isActive: true },
+            { name: "mage" },
+            { name: "slayer" },
+            { name: "tank" },
+            { name: "marksman" },
+            { name: "support" },
+            { name: "specialist" }
+        ]
     }
-    
+
+    handleActive = el => {
+        this.setState(prev => {
+            const { filter } = prev;
+            const nextEl = filter.map(post => {
+                if ((post.name.charAt(0).toUpperCase() + post.name.slice(1)) == el && post.isActive) return { ...post, isActive: true }
+                if ((post.name.charAt(0).toUpperCase() + post.name.slice(1)) !== el) return { ...post, isActive: false }
+                return {
+                    ...post,
+                    isActive: !post.isActive
+                };
+            });
+            return { ...prev, filter: nextEl };
+        });
+    };
+
     getDataRole = (event) => {
-        let role = event.target.getAttribute('datarole')        
-        let champions = GlobalFilteting.getChampByRole(this.props.data, role)
-        console.log("func", GlobalFilteting.getChampByRole(this.props.data, role));
-        
+        let role = event.target.getAttribute('datarole')
+        let champions = GlobalFiltering.getChampByRole(this.props.data, role)
+        console.log("func", GlobalFiltering.getChampByRole(this.props.data, role));
+
         this.setState({
             champions: champions
         })
+        this.handleActive(role)
     }
 
     resetBlockLeft = () => {
@@ -61,7 +87,7 @@ class Compare extends Component {
     removeEl = (sideClicked) => {
         let name_slotLeft = document.querySelector('.slot-left .champ-name')
         let name_slotRight = document.querySelector('.slot-right .champ-name')
-        
+
         if (sideClicked === "left") {
             name_slotLeft.innerHTML = 'Select a champion'
             this.setState({
@@ -76,12 +102,12 @@ class Compare extends Component {
                 slot_right_icon: ''
             })
             this.resetBlockRight()
-        } 
+        }
     }
 
     retrieveChampCaracteristics(e) {
         let championName = e.target.getAttribute('id')
-        let champCaracteristics = GlobalFilteting.getChampByName(this.props.data, championName)
+        let champCaracteristics = GlobalFiltering.getChampByName(this.props.data, championName)
 
         let name_slotLeft = document.querySelector('.slot-left .champ-name')
         let name_slotRight = document.querySelector('.slot-right .champ-name')
@@ -111,7 +137,7 @@ class Compare extends Component {
             })
             this.resetBlockRight()
         }
-        
+
         if (this.state.slot_left_name === '' && this.state.slot_right_name !== champCaracteristics.name) {
             this.setState({
                 slot_left_name: champCaracteristics.name,
@@ -131,7 +157,7 @@ class Compare extends Component {
             left_pick_rate.parentNode.style.width = `${champCaracteristics.pick}%`
             left_pick_rate.parentNode.style.background = "linear-gradient(180deg, #C79A3C 0%, #A6843C 39.06%, #614B1D 100%)"
 
-        }  
+        }
 
         if (this.state.slot_right_name === '' && this.state.slot_left_name !== champCaracteristics.name) {
             if (this.state.slot_left_name !== '' || this.state.slot_right_name !== '') {
@@ -160,7 +186,7 @@ class Compare extends Component {
         let btnChampList = document.querySelectorAll('.champSelection-container .bubble-champ')
 
         for (let i = 0; i < btnChampList.length; i++) {
-            
+
             if (this.state.slot_left_name !== '' && this.state.slot_right_name !== '') {
                 btnChampList[i].style.opacity = '0.4'
             }
@@ -179,7 +205,8 @@ class Compare extends Component {
     }
 
     render() {
-        return(
+        const { filter } = this.state;
+        return (
             <div className="page-compare">
 
                 <div className="champSelected-container">
@@ -206,7 +233,7 @@ class Compare extends Component {
                         <div className="champ">
                             <div className="champ-desc">
                                 <div>
-                                    { /* <img className="champ-role" src="#" alt="icon" /> */ }
+                                    { /* <img className="champ-role" src="#" alt="icon" /> */}
                                     <h3 className="champ-name">Select a champion</h3>
                                 </div>
                                 <p className="champ-quotation"></p>
@@ -224,13 +251,18 @@ class Compare extends Component {
 
                 <div className="champSelection-container">
                     <div className="btnList">
-                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-fighter" datarole="Fighter">combattant</button>
-                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-mage" datarole="Mage">mage</button>
-                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-slayer" datarole="Slayer">assassin</button>
-                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-tank" datarole="Tank">tank</button>
-                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-marksman" datarole="Marksman">tireur</button>
-                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-support" datarole="Controller">support</button>
-                        <button onClick={(event)=>this.getDataRole(event)} className="btn-role icon icon-specialist" datarole="Specialist">specialist</button>
+                        {
+                            filter.map((el, index) => {
+                                return (
+                                    <button
+                                        key={index}
+                                        onClick={(event) => this.getDataRole(event)}
+                                        className={`btn-role icon icon-${el.name} ${el.isActive ? 'active' : ''}`}
+                                        datarole={el.name.charAt(0).toUpperCase() + el.name.slice(1)}>{el.name}
+                                    </button>
+                                )
+                            })
+                        }
                     </div>
 
                     <div className="champList">
