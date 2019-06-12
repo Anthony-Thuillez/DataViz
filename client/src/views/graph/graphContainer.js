@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import GlobalFilteting from '../../helpers/GlobalFilteting';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 import { connect } from 'react-redux';
 
 const linearGradient = (svg, id, color1, color2) => {
@@ -30,11 +30,10 @@ class BarChart extends Component {
         let chart = document.querySelector('svg');
         chart.remove();
     }
-
+    
     componentWillUnmount() {
         let chart = document.querySelector('svg');
         chart.remove();
-
     }
 
     componentDidMount() {
@@ -47,6 +46,17 @@ class BarChart extends Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (prevProps.selectedPoste === this.props.selectedPoste) {
+            let chart = document.querySelector('svg');
+            chart.remove();
+            this.drawChart(
+                this.findFirstValOfArray(),
+                this.findLastValOfArray(),
+                this.displayChamp(this.props.selectedRate),
+                this.median()
+            );
+        }
+        
         // Typical usage (don't forget to compare props):
         if (this.props.selectedRate !== prevProps.selectedRate) {
             /* For re-render the graph we need to remove it first */
@@ -61,7 +71,7 @@ class BarChart extends Component {
     }
 
     findFirstValOfArray = () => {
-        let arr = GlobalFilteting.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let arr = GlobalFiltering.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         console.log("arr : ", arr);
 
         for (let i = 0; i < arr.length; i++) {
@@ -71,7 +81,7 @@ class BarChart extends Component {
     }
 
     findLastValOfArray = () => {
-        let arr = GlobalFilteting.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let arr = GlobalFiltering.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         for (let i = 0; i < arr.length; i++) {
             const lastEl = arr[arr.length - 1]
             return lastEl
@@ -79,7 +89,7 @@ class BarChart extends Component {
     }
 
     displayChamp(rate) {
-        let champion = GlobalFilteting.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
+        let champion = GlobalFiltering.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
                 icon: champ.icon,
@@ -90,7 +100,7 @@ class BarChart extends Component {
     }
 
     median() {
-        let _median = GlobalFilteting.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let _median = GlobalFiltering.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         return _median.toFixed(2);
     }
 

@@ -1,6 +1,5 @@
 /* Initialize the state of the project with default values */
 const initState = {
-    SearchBarIsActive: false,
     data: [],
     selectedRate: "win",
     selectedPoste: "",
@@ -65,6 +64,22 @@ const rootReducer = (state = initState, action) => {
             champ_posteValue2: newData.posteValue2,
             champ_posteName3: newData.posteName3,
             champ_posteValue3: newData.posteValue3
+        }
+    }
+
+    if (action.type === 'SET_CHAMPNAME_FROM_URL') {
+        let newData = action.value
+        return {
+            ...state,
+            champ_name: newData
+        }
+    }
+
+    if (action.type === 'SET_POSTE_FROM_URL') {
+        let newData = action.value
+        return {
+            ...state,
+            selectedPoste: newData
         }
     }
     return state;

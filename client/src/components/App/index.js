@@ -23,7 +23,7 @@ const App = () => (
                 <Layout>
                     <Route exact path="/" component={Landing} />
                     <Route path="/Compare" component={Compare} />
-                    <Route path="/Graph" component={Graph} />
+                    <Route path="/Graph:poste" component={Graph} />
                     <Route path="/Fiche:champ" component={Fiche} />
                     <Route path="/Integration" component={Integration} />
                 </Layout>

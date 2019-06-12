@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Chart from 'chart.js';
-import GlobalFilteting from '../../helpers/GlobalFilteting';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 import LiquidChart from './ficheContainer';
 import ReactTooltip from 'react-tooltip';
 
@@ -27,7 +27,7 @@ class Fiche extends Component {
      * @return {String[]} the statistics of a champion
     */
     champStats() {
-        let champion = GlobalFilteting.getChampByName(this.props.data, this.props.champ_name)
+        let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
         return [
             champion.damage,
             champion.toughness,
@@ -36,8 +36,7 @@ class Fiche extends Component {
             champion.utility
         ]
     }
-
-    componentDidMount() {
+    chart() {
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
         Chart.platform.disableCSSInjection = true;
@@ -69,34 +68,40 @@ class Fiche extends Component {
                 }
             }
         })
-        this.champGlobal()
     }
 
     champGlobal() {
-        let champion = GlobalFilteting.getChampByName(this.props.data, this.props.champ_name)
-        for (let i = 0; i < champion.poste.length; i++) {
-            if (champion.poste.length === 1) {
-                this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
-                return
-            } else if (champion.poste.length === 2) {
-                this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
-                return
-            } else if (champion.poste.length === 3) {
-                this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
-                return
+        let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
+        console.log("champion", champion);
+        console.log("this.props.data", this.props.data);
+        console.log("this.props.champ_name", this.props.champ_name);
+        if (champion !== undefined) {
+            for (let i = 0; i < champion.poste.length; i++) {
+                if (champion.poste.length === 1) {
+                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
+                    return
+                } else if (champion.poste.length === 2) {
+                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
+                    return
+                } else if (champion.poste.length === 3) {
+                    this.props.set_global(champion.quotation, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
+                    return
+                }
             }
-        }
-
+        }  
     }
 
-    componentDidUpdate(prevProps, nextProps) {
-        if (prevProps.champ_name !== this.props.champ_name) {
+    componentDidMount() {
+        this.champGlobal()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.champ_name === this.props.champ_name) {
             this.champGlobal()
+            this.chart()
         }
     }
-
-    render() {
-
+    render() {      
         return (
             <>
                 <BtnBack />
