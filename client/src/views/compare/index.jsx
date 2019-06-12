@@ -26,15 +26,13 @@ class Compare extends Component {
         this.setState(prev => {
             const { filter } = prev;
             const nextEl = filter.map(post => {
-                if (post.name == el && post.isActive) return { ...post, isActive: true }
-                if (post.name !== el) return { ...post, isActive: false }
+                if ((post.name.charAt(0).toUpperCase() + post.name.slice(1)) == el && post.isActive) return { ...post, isActive: true }
+                if ((post.name.charAt(0).toUpperCase() + post.name.slice(1)) !== el) return { ...post, isActive: false }
                 return {
                     ...post,
                     isActive: !post.isActive
                 };
             });
-            console.log(filter);
-
             return { ...prev, filter: nextEl };
         });
     };
@@ -45,7 +43,7 @@ class Compare extends Component {
         this.setState({
             champions: champions
         })
-        this.handleActive()
+        this.handleActive(role)
     }
 
     resetBlockLeft = () => {
