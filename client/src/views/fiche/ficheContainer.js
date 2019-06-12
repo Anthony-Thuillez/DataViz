@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import { connect } from 'react-redux';
 
+/** 
+  * @desc this class will hold functions for gauge on each champion screen
+  * include animateWave(), renderDisplay()
+  * @author Simon Soléau
+*/
+
 class LiquidGauge extends Component {
 
     state = {
@@ -25,6 +31,9 @@ class LiquidGauge extends Component {
         waveTextColor: "#A4DBf8"
     };
 
+    /**
+        * @desc animate wave in hexagonal pin
+    */
     animateWave = () => {
         this.wave.attr(
             "transform",
@@ -42,6 +51,11 @@ class LiquidGauge extends Component {
             });
     }
 
+    /**
+        * @desc
+        * @param 
+        * @return 
+    */
     renderDisplay = () => {
         var config = this.state;
 
@@ -289,7 +303,7 @@ class LiquidGauge extends Component {
 
     componentDidUpdate() {
         console.log(this.props.champ_win);
-        
+
         // this.updateGauge(this.props.champ_win);
     }
 

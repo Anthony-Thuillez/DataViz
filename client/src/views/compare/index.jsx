@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GlobalFiltering from '../../helpers/GlobalFiltering';
 
+/** 
+  * @desc this class will hold functions for comparator view
+  * include handleActive(), getDataRole(), resetBlockLeft(), resetBlockRight(), removeEl(), retrieveChampCaracteristics()
+  * @author Medhi Verfaillie
+  * @required GlobalFiltering.js
+*/
+
 class Compare extends Component {
     state = {
         champions: [],
@@ -22,6 +29,11 @@ class Compare extends Component {
         ]
     }
 
+    /**
+        * @desc change state of each filter to active
+        * @param string el - the role associated to each buttun
+        * @return array filter - with state updated
+    */
     handleActive = el => {
         this.setState(prev => {
             const { filter } = prev;
@@ -37,11 +49,13 @@ class Compare extends Component {
         });
     };
 
+    /**
+        * @desc filter champions by role
+        * @param class event - event on click
+    */
     getDataRole = (event) => {
         let role = event.target.getAttribute('datarole')
         let champions = GlobalFiltering.getChampByRole(this.props.data, role)
-        console.log("func", GlobalFiltering.getChampByRole(this.props.data, role));
-
         this.setState({
             champions: champions
         })
@@ -252,6 +266,7 @@ class Compare extends Component {
                 <div className="champSelection-container">
                     <div className="btnList">
                         {
+                            // generate buttons to filter champions by role
                             filter.map((el, index) => {
                                 return (
                                     <button

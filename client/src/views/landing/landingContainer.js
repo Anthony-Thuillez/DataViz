@@ -5,56 +5,14 @@ import { connect } from 'react-redux';
 
 class BubbleChart extends Component {
 
-    state = {
-        championsTop: [],
-        championsJgl: [],
-        championsMid: [],
-        championsBot: [],
-        championsSupp: [],
-    }
-
-    componentDidMount() {
-        this.displayChamp()
-    }
-
-    displayChamp() {
-        let championsTop = GlobalFiltering.getChampByPost(this.props.data, "Top");
-        let championsJgl = GlobalFiltering.getChampByPost(this.props.data, "Jungle");
-        let championsMid = GlobalFiltering.getChampByPost(this.props.data, "Middle");
-        let championsBot = GlobalFiltering.getChampByPost(this.props.data, "Bottom");
-        let championsSupp = GlobalFiltering.getChampByPost(this.props.data, "Support");
-        this.setState({
-            championsTop: championsTop,
-            championsJgl: championsJgl,
-            championsMid: championsMid,
-            championsBot: championsBot,
-            championsSupp: championsSupp,
-        })
-        console.log( 1, this.state.championsTop);
-        console.log( 2, this.state.championsJgl);
-        console.log( 3, this.state.championsMid);
-        console.log( 4, this.state.championsBot);
-        console.log( 5, this.state.championsSupp);
-        
-        if (!window.location.href.includes("/graph")) {
-            // DO NOT DELETE ❗️// DO NOT DELETE ❗️
-            // DO NOT DELETE ❗️ // DO NOT DELETE ❗️
-            // Reset to default rate on redux
-            this.props.set_rate("win")
+    componentDidUpdate(prevProps) {
+        if (prevProps.data !== this.props.data) {
+            console.log(GlobalFiltering.getChampByPost(this.props.data, "Top"));
+            console.log(GlobalFiltering.getChampByPost(this.props.data, "Jungle"));
+            console.log(GlobalFiltering.getChampByPost(this.props.data, "Middle"));
+            console.log(GlobalFiltering.getChampByPost(this.props.data, "Bottom"));
+            console.log(GlobalFiltering.getChampByPost(this.props.data, "Support"));
         }
-        /*
-        var champion = champions.map((champion) => {
-            return {
-                rank: champion.rank,
-                name: champion.name,
-                icon: champion.icon,
-                quotation: champion.quotation,
-                role: champion.role
-            }
-        })
-        return champion
-        */
-
     }
 
     render() {
