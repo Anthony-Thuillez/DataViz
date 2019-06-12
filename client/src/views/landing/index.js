@@ -3,15 +3,40 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 import GlobalFiltering from '../../helpers/GlobalFiltering';
+
+const RenderChampion = (props) => {
+    let getName = props.getName
+    let championPoste = props.championPoste;
+    return (
+        <div style={{ "display": "flex", "flexWrap": "wrap" }}>
+            {championPoste.map((champion, index) => {
+                return (
+                    <Link to={`./fiche-${champion.name}`}
+                        key={index}
+                        onMouseEnter={() => getName(champion.name)}
+                    >
+                        <div
+                            className="bubble-champ small"
+                            style={{ backgroundImage: `url(${champion.icon})` }}
+                        >
+                        </div>
+                    </Link>
+                )
+            })}
+        </div>
+    );
+}
+
 class Landing extends Component {
     constructor(props) {
         super(props)
+        this.getName = this.getName.bind(this);
         this.state = {
-            champions_top: null,
-            champions_jungle: null,
-            champions_middle: null,
-            champions_bottom: null,
-            champions_support: null,
+            championsTop: null,
+            championsJungle: null,
+            championsMiddle: null,
+            championsBottom: null,
+            championsSupport: null,
 
             lanes: [
                 { name: "All", isActive: true },
@@ -21,31 +46,28 @@ class Landing extends Component {
                 { name: "Bot" },
                 { name: "Support" }
             ]
-        };
+        }
+    }
+
+    updateChampions = () => {
+        this.setState({
+            championsTop: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Top"),
+            championsJungle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Jungle"),
+            championsMiddle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Middle"),
+            championsBottom: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Bottom"),
+            championsSupport: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Support")
+        })
     }
 
     componentWillMount() {
-        this.setState({
-            champions_top: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Top"),
-            champions_jungle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Jungle"),
-            champions_middle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Middle"),
-            champions_bottom: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Bottom"),
-            champions_support: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Support")
-        })
+        this.updateChampions()
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.data !== this.props.data) {
-            this.setState({
-                champions_top: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Top"),
-                champions_jungle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Jungle"),
-                champions_middle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Middle"),
-                champions_bottom: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Bottom"),
-                champions_support: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Support")
-            })
+            this.updateChampions();
         }
     }
-
 
     handleIsActive = id => {
         this.setState(prev => {
@@ -71,97 +93,41 @@ class Landing extends Component {
     }
 
     render() {
-        const { lanes, champions_top, champions_jungle, champions_middle, champions_bottom, champions_support } = this.state;
-        if (champions_support === null) {
+        const { lanes, championsTop, championsJungle, championsMiddle, championsBottom, championsSupport } = this.state;
+        if (championsSupport === null) {
             return (
                 <div>loading champions</div>
             )
         } else {
             return (
                 <>
-                    <div style={{ "display": "flex", "flexWrap": "wrap" }}>
-                        {champions_top.map((champion, index) => {
-                            return (
-                                <Link to={`./fiche-${champion.name}`}
-                                    key={index}
-                                    onMouseEnter={() => this.getName(`${champion.name}`)}
-                                >
-                                    <div
-                                        className="bubble-champ big"
-                                        style={{ backgroundImage: `url(${champion.icon})` }}
-                                    >
-                                    </div>
-                                </Link>
-                            );
-                        })}
-                    </div>
-                    <div style={{ "display": "flex", "flexWrap": "wrap" }}>
-                        {champions_bottom.map((champion, index) => {
-                            return (
-                                <Link to={`./fiche-${champion.name}`}
-                                    key={index}
-                                    onMouseEnter={() => this.getName(`${champion.name}`)}
-                                >
-                                    <div
-                                        className="bubble-champ large"
-                                        style={{ backgroundImage: `url(${champion.icon})` }}
-                                    >
-                                    </div>
-                                </Link>
-                            );
-                        })}
-                    </div>
-                    <div style={{ "display": "flex", "flexWrap": "wrap" }}>
-                        {champions_jungle.map((champion, index) => {
-                            return (
-                                <Link to={`./fiche-${champion.name}`}
-                                    key={index}
-                                    onMouseEnter={() => this.getName(`${champion.name}`)}
-                                >
-                                    <div
-                                        className="bubble-champ medium"
-                                        style={{ backgroundImage: `url(${champion.icon})` }}
-                                    >
-                                    </div>
-                                </Link>
-                            );
-                        })}
-                    </div>
-                    <div style={{ "display": "flex", "flexWrap": "wrap" }}>
-                        {champions_middle.map((champion, index) => {
-                            return (
-                                <Link to={`./fiche-${champion.name}`}
-                                    key={index}
-                                    onMouseEnter={() => this.getName(`${champion.name}`)}
-                                >
-                                    <div
-                                        className="bubble-champ small"
-                                        style={{ backgroundImage: `url(${champion.icon})` }}
-                                    >
-                                    </div>
-                                </Link>
-                            );
-                        })}
-                    </div>
-                    <div style={{ "display": "flex", "flexWrap": "wrap" }}>
-                        {champions_support.map((champion, index) => {
-                            return (
-                                <Link to={`./fiche-${champion.name}`}
-                                    key={index}
-                                    onMouseEnter={() => this.getName(`${champion.name}`)}
-                                >
-                                    <div
-                                        className="bubble-champ tiny"
-                                        style={{ backgroundImage: `url(${champion.icon})` }}
-                                    >
-                                    </div>
-                                </Link>
-                            );
-                        })}
-                    </div>
-
+                    {
+                        lanes.map(lane => {
+                            if (lane.isActive && lane.name === "Top") {
+                                return <RenderChampion championPoste={championsTop} getName={this.getName} />
+                            } else if (lane.isActive && lane.name === "Jungle") {
+                                console.log(lane);
+                                return <RenderChampion championPoste={championsJungle} getName={this.getName} />
+                            } else if (lane.isActive && lane.name === "Mid") {
+                                return <RenderChampion championPoste={championsMiddle} getName={this.getName} />
+                            } else if (lane.isActive && lane.name === "Bot") {
+                                return <RenderChampion championPoste={championsBottom} getName={this.getName} />
+                            } else if (lane.isActive && lane.name === "Support") {
+                                return <RenderChampion championPoste={championsSupport} getName={this.getName} />
+                            } else if (lane.isActive && lane.name === "All") {
+                                return (
+                                    <>
+                                        <RenderChampion championPoste={championsTop} getName={this.getName} />
+                                        <RenderChampion championPoste={championsJungle} getName={this.getName} />
+                                        <RenderChampion championPoste={championsMiddle} getName={this.getName} />
+                                        <RenderChampion championPoste={championsBottom} getName={this.getName} />
+                                        <RenderChampion championPoste={championsSupport} getName={this.getName} />
+                                    </>
+                                )
+                            }
+                        })
+                    }
                     <div className="page-landing">
-
                         {/* en attendant le graph nuage */}
                         <div style={{ "position": "absolute", "top": "50%", "left": "50%", "transform": "translate(-50%, -50%)", "display": "flex", "alignItems": "center" }} >
 

@@ -4,14 +4,26 @@ import { connect } from 'react-redux';
 
 class BubbleChart extends Component {
 
-    componentDidUpdate(prevProps) {
-        if (prevProps.data !== this.props.data) {
-            console.log(GlobalFiltering.getChampByPost(this.props.data, "Top"));
-            console.log(GlobalFiltering.getChampByPost(this.props.data, "Jungle"));
-            console.log(GlobalFiltering.getChampByPost(this.props.data, "Middle"));
-            console.log(GlobalFiltering.getChampByPost(this.props.data, "Bottom"));
-            console.log(GlobalFiltering.getChampByPost(this.props.data, "Support"));
-        }
+    RenderChampion = (props) => {
+        const championPoste = props.championPoste;
+        return (
+            <div style={{ "display": "flex", "flexWrap": "wrap" }}>
+                {props.champion_poste.map((champion, index) => {
+                    return (
+                        <Link to={`./fiche-${champion.name}`}
+                            key={index}
+                            onMouseEnter={() => this.getName(`${champion.name}`)}
+                        >
+                            <div
+                                className="bubble-champ big"
+                                style={{ backgroundImage: `url(${champion.icon})` }}
+                            >
+                            </div>
+                        </Link>
+                    );
+                })}
+            </div>
+        );
     }
 
     render() {

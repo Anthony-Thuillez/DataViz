@@ -8,6 +8,25 @@ import SearchBar from '../Searchbar';
 import Logo from '../../assets/Logo.png';
 
 class Header extends Component {
+    constructor(props) {
+        super(props)
+        if (window.location.href.includes("/compare")) {
+            this.state = {
+                header: [
+                    { name: "Home", path: "/", isActive: false },
+                    { name: "Compare", path: "/compare", isActive: true }
+                ]
+            };
+        } else {
+            this.state = {
+                header: [
+                    { name: "Home", path: "/", isActive: true },
+                    { name: "Compare", path: "/compare", isActive: false }
+                ]
+            };
+        }
+    }
+
     componentWillMount() {
         if (window.location.href.includes("/graph")) {
             let champPosteParameter = window.location.href.split('/graph-')
@@ -20,13 +39,6 @@ class Header extends Component {
             this.props.set_champname_from_url(champNameParameter)
         }
     }
-
-    state = {
-        header: [
-            { name: "Home", path: "/", isActive: true },
-            { name: "Compare", path: "/compare" }
-        ]
-    };
 
     handleActive = el => {
         this.setState(prev => {
