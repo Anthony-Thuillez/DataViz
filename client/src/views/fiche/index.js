@@ -88,7 +88,7 @@ class Fiche extends Component {
                     return
                 }
             }
-        }  
+        }
     }
 
     componentDidMount() {
@@ -101,7 +101,7 @@ class Fiche extends Component {
             this.chart()
         }
     }
-    render() {      
+    render() {
         return (
             <>
                 <BtnBack />
@@ -126,29 +126,26 @@ class Fiche extends Component {
                         </div>
 
                         <div className="sidebar-rates">
-                            <div className="">
-                                <div style={{  }}>
-                                    {
-                                        this.props.champ_win && (
-                                            <LiquidChart id={"fillWin"} value={this.props.champ_win} />
-                                        )
-                                    }
-                                </div>
-                                <div style={{  }}>
-                                    {
-                                        this.props.champ_pick && (
-                                            <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
-                                        )
-                                    }
-                                </div>
-                                <div style={{  }}>
-                                    {
-                                        this.props.champ_ban && (
-                                            <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
-                                        )
-                                    }
-                                </div>
-                                { /* <span>Win rate</span> */}
+                            <div className="rate win">
+                                {
+                                    this.props.champ_win && (
+                                        <LiquidChart id={"fillWin"} value={this.props.champ_win} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate ban">
+                                {
+                                    this.props.champ_ban && (
+                                        <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate pick">
+                                {
+                                    this.props.champ_pick && (
+                                        <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
+                                    )
+                                }
                             </div>
                         </div>
 
