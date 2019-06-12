@@ -1,0 +1,433 @@
+[{
+    "name": "Aatrox",
+    "ban": "66.30%"
+}, {
+    "name": "Nautilus",
+    "ban": "51.70%"
+}, {
+    "name": "Yasuo",
+    "ban": "51.68%"
+}, {
+    "name": "Morgana",
+    "ban": "47.05%"
+}, {
+    "name": "Yuumi",
+    "ban": "44.16%"
+}, {
+    "name": "Sylas",
+    "ban": "43.37%"
+}, {
+    "name": "Rammus",
+    "ban": "42.75%"
+}, {
+    "name": "Pyke",
+    "ban": "31.80%"
+}, {
+    "name": "Evelynn",
+    "ban": "29.71%"
+}, {
+    "name": "LeBlanc",
+    "ban": "27.94%"
+}, {
+    "name": "Akali",
+    "ban": "23.01%"
+}, {
+    "name": "Lee Sin",
+    "ban": "22.21%"
+}, {
+    "name": "Zed",
+    "ban": "22.06%"
+}, {
+    "name": "Darius",
+    "ban": "21.90%"
+}, {
+    "name": "Ezreal",
+    "ban": "21.42%"
+}, {
+    "name": "Irelia",
+    "ban": "21.31%"
+}, {
+    "name": "Vayne",
+    "ban": "21.12%"
+}, {
+    "name": "Vladimir",
+    "ban": "20.39%"
+}, {
+    "name": "Thresh",
+    "ban": "16.84%"
+}, {
+    "name": "Elise",
+    "ban": "15.77%"
+}, {
+    "name": "Karthus",
+    "ban": "13.13%"
+}, {
+    "name": "Ryze",
+    "ban": "11.82%"
+}, {
+    "name": "Sivir",
+    "ban": "11.53%"
+}, {
+    "name": "Renekton",
+    "ban": "11.05%"
+}, {
+    "name": "Kassadin",
+    "ban": "9.86%"
+}, {
+    "name": "Kai'Sa",
+    "ban": "9.49%"
+}, {
+    "name": "Talon",
+    "ban": "8.60%"
+}, {
+    "name": "Jax",
+    "ban": "8.18%"
+}, {
+    "name": "Rek'Sai",
+    "ban": "8.18%"
+}, {
+    "name": "Lux",
+    "ban": "7.13%"
+}, {
+    "name": "Lucian",
+    "ban": "6.96%"
+}, {
+    "name": "Pantheon",
+    "ban": "6.46%"
+}, {
+    "name": "Malzahar",
+    "ban": "6.08%"
+}, {
+    "name": "Zoé",
+    "ban": "5.73%"
+}, {
+    "name": "Jayce",
+    "ban": "5.26%"
+}, {
+    "name": "Tahm Kench",
+    "ban": "5.09%"
+}, {
+    "name": "Sejuani",
+    "ban": "4.96%"
+}, {
+    "name": "Fiora",
+    "ban": "4.74%"
+}, {
+    "name": "Fizz",
+    "ban": "4.70%"
+}, {
+    "name": "Maître Yi",
+    "ban": "4.15%"
+}, {
+    "name": "Twisted Fate",
+    "ban": "3.98%"
+}, {
+    "name": "Neeko",
+    "ban": "3.94%"
+}, {
+    "name": "Blitzcrank",
+    "ban": "3.87%"
+}, {
+    "name": "Fiddlesticks",
+    "ban": "3.82%"
+}, {
+    "name": "Xin Zhao",
+    "ban": "3.68%"
+}, {
+    "name": "Illaoi",
+    "ban": "3.58%"
+}, {
+    "name": "Jarvan IV",
+    "ban": "3.30%"
+}, {
+    "name": "Teemo",
+    "ban": "3.22%"
+}, {
+    "name": "Hecarim",
+    "ban": "2.99%"
+}, {
+    "name": "Kennen",
+    "ban": "2.92%"
+}, {
+    "name": "Kayn",
+    "ban": "2.84%"
+}, {
+    "name": "Nidalee",
+    "ban": "2.76%"
+}, {
+    "name": "Garen",
+    "ban": "2.66%"
+}, {
+    "name": "Draven",
+    "ban": "2.55%"
+}, {
+    "name": "Riven",
+    "ban": "2.46%"
+}, {
+    "name": "Kindred",
+    "ban": "2.31%"
+}, {
+    "name": "Leona",
+    "ban": "1.98%"
+}, {
+    "name": "Katarina",
+    "ban": "1.96%"
+}, {
+    "name": "Ahri",
+    "ban": "1.89%"
+}, {
+    "name": "Orianna",
+    "ban": "1.62%"
+}, {
+    "name": "Zilean",
+    "ban": "1.54%"
+}, {
+    "name": "Soraka",
+    "ban": "1.40%"
+}, {
+    "name": "Galio",
+    "ban": "1.38%"
+}, {
+    "name": "Gangplank",
+    "ban": "1.36%"
+}, {
+    "name": "Alistar",
+    "ban": "1.33%"
+}, {
+    "name": "Rengar",
+    "ban": "1.30%"
+}, {
+    "name": "Graves",
+    "ban": "1.29%"
+}, {
+    "name": "Rumble",
+    "ban": "1.20%"
+}, {
+    "name": "Caitlyn",
+    "ban": "1.09%"
+}, {
+    "name": "Gragas",
+    "ban": "1.08%"
+}, {
+    "name": "Camille",
+    "ban": "1.00%"
+}, {
+    "name": "Lulu",
+    "ban": "0.90%"
+}, {
+    "name": "Nocturne",
+    "ban": "0.89%"
+}, {
+    "name": "Zac",
+    "ban": "0.87%"
+}, {
+    "name": "Nunu et Willump",
+    "ban": "0.84%"
+}, {
+    "name": "Yorick",
+    "ban": "0.83%"
+}, {
+    "name": "Xerath",
+    "ban": "0.83%"
+}, {
+    "name": "Olaf",
+    "ban": "0.81%"
+}, {
+    "name": "Shaco",
+    "ban": "0.79%"
+}, {
+    "name": "Kayle",
+    "ban": "0.78%"
+}, {
+    "name": "Lissandra",
+    "ban": "0.75%"
+}, {
+    "name": "Zyra",
+    "ban": "0.70%"
+}, {
+    "name": "Poppy",
+    "ban": "0.67%"
+}, {
+    "name": "Kled",
+    "ban": "0.64%"
+}, {
+    "name": "Anivia",
+    "ban": "0.63%"
+}, {
+    "name": "Kha'Zix",
+    "ban": "0.63%"
+}, {
+    "name": "Amumu",
+    "ban": "0.58%"
+}, {
+    "name": "Taliyah",
+    "ban": "0.49%"
+}, {
+    "name": "Taric",
+    "ban": "0.46%"
+}, {
+    "name": "Karma",
+    "ban": "0.41%"
+}, {
+    "name": "Nasus",
+    "ban": "0.40%"
+}, {
+    "name": "Azir",
+    "ban": "0.40%"
+}, {
+    "name": "Urgot",
+    "ban": "0.39%"
+}, {
+    "name": "Ekko",
+    "ban": "0.38%"
+}, {
+    "name": "Veigar",
+    "ban": "0.34%"
+}, {
+    "name": "Vel'Koz",
+    "ban": "0.34%"
+}, {
+    "name": "Xayah",
+    "ban": "0.32%"
+}, {
+    "name": "Brand",
+    "ban": "0.32%"
+}, {
+    "name": "Kalista",
+    "ban": "0.32%"
+}, {
+    "name": "Rakan",
+    "ban": "0.31%"
+}, {
+    "name": "Jinx",
+    "ban": "0.30%"
+}, {
+    "name": "Volibear",
+    "ban": "0.30%"
+}, {
+    "name": "Janna",
+    "ban": "0.29%"
+}, {
+    "name": "Heimerdinger",
+    "ban": "0.28%"
+}, {
+    "name": "Malphite",
+    "ban": "0.27%"
+}, {
+    "name": "Nami",
+    "ban": "0.27%"
+}, {
+    "name": "Sona",
+    "ban": "0.26%"
+}, {
+    "name": "Mordekaiser",
+    "ban": "0.25%"
+}, {
+    "name": "Dr. Mundo",
+    "ban": "0.24%"
+}, {
+    "name": "Quinn",
+    "ban": "0.24%"
+}, {
+    "name": "Viktor",
+    "ban": "0.24%"
+}, {
+    "name": "Braum",
+    "ban": "0.24%"
+}, {
+    "name": "Cassiopeia",
+    "ban": "0.23%"
+}, {
+    "name": "Vi",
+    "ban": "0.23%"
+}, {
+    "name": "Twitch",
+    "ban": "0.22%"
+}, {
+    "name": "Ornn",
+    "ban": "0.21%"
+}, {
+    "name": "Diana",
+    "ban": "0.19%"
+}, {
+    "name": "Tryndamere",
+    "ban": "0.19%"
+}, {
+    "name": "Miss Fortune",
+    "ban": "0.18%"
+}, {
+    "name": "Warwick",
+    "ban": "0.17%"
+}, {
+    "name": "Ivern",
+    "ban": "0.15%"
+}, {
+    "name": "Jhin",
+    "ban": "0.14%"
+}, {
+    "name": "Bard",
+    "ban": "0.13%"
+}, {
+    "name": "Varus",
+    "ban": "0.12%"
+}, {
+    "name": "Gnar",
+    "ban": "0.12%"
+}, {
+    "name": "Shyvana",
+    "ban": "0.12%"
+}, {
+    "name": "Syndra",
+    "ban": "0.12%"
+}, {
+    "name": "Wukong",
+    "ban": "0.11%"
+}, {
+    "name": "Corki",
+    "ban": "0.11%"
+}, {
+    "name": "Singed",
+    "ban": "0.11%"
+}, {
+    "name": "Shen",
+    "ban": "0.11%"
+}, {
+    "name": "Sion",
+    "ban": "0.11%"
+}, {
+    "name": "Ashe",
+    "ban": "0.10%"
+}, {
+    "name": "Aurelion Sol",
+    "ban": "0.09%"
+}, {
+    "name": "Skarner",
+    "ban": "0.09%"
+}, {
+    "name": "Cho'Gath",
+    "ban": "0.09%"
+}, {
+    "name": "Swain",
+    "ban": "0.09%"
+}, {
+    "name": "Udyr",
+    "ban": "0.08%"
+}, {
+    "name": "Tristana",
+    "ban": "0.08%"
+}, {
+    "name": "Annie",
+    "ban": "0.07%"
+}, {
+    "name": "Kog'Maw",
+    "ban": "0.06%"
+}, {
+    "name": "Maokai",
+    "ban": "0.06%"
+}, {
+    "name": "Trundle",
+    "ban": "0.05%"
+}, {
+    "name": "Ziggs",
+    "ban": "0.05%"
+}]

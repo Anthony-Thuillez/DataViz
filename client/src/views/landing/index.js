@@ -2,43 +2,68 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
-
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 class Landing extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            champions_top: null,
+            champions_jungle: null,
+            champions_middle: null,
+            champions_bottom: null,
+            champions_support: null,
 
-    state = {
-        champions: [
-            { name: "Gnar", quotation: "the Missing Link", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IuwhHQix88XL6mc5mRaVUtkWoGfh5YeVdA-1E4iIrZBQjjYw" },
-            { name: "Nidalee", quotation: "the Bestial Huntress", icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxH1IXJvDcM_D8hfshgOsIhCbF7Q6BGHgDj5BWFBsCPmmbJkUo" },
-            { name: "Vel'Koz", quotation: "the Eye of the Void", icon: "http://elohell.net/public/champions/avatar/VelKozSquare1.png" },
-            { name: "Ezreal", quotation: "the Prodigal Explorer", icon: "http://img3.wikia.nocookie.net/__cb20150402220010/leagueoflegends/images/c/c3/EzrealSquare.png" },
-            { name: "Sona", quotation: "Maven of the Strings", icon: "http://images6.fanpop.com/image/photos/36200000/Sona-image-sona-36206053-120-120.png" },
-        ],
-        posts: [
-            { name: "All", isActive: true },
-            { name: "Top" },
-            { name: "Jungle" },
-            { name: "Mid" },
-            { name: "Bot" },
-            { name: "Support" }
-        ]
-    };
+            lanes: [
+                { name: "All", isActive: true },
+                { name: "Top" },
+                { name: "Jungle" },
+                { name: "Mid" },
+                { name: "Bot" },
+                { name: "Support" }
+            ]
+        };
+    }
+
+    componentWillMount() {
+        this.setState({
+            champions_top: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Top"),
+            champions_jungle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Jungle"),
+            champions_middle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Middle"),
+            champions_bottom: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Bottom"),
+            champions_support: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Support")
+        })
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.data !== this.props.data) {
+            this.setState({
+                champions_top: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Top"),
+                champions_jungle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Jungle"),
+                champions_middle: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Middle"),
+                champions_bottom: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Bottom"),
+                champions_support: GlobalFiltering.getChampByMostPlayedPoste(this.props.data, "Support")
+            })
+        }
+    }
+
 
     handleIsActive = id => {
         this.setState(prev => {
-            const { posts } = prev;
-            const nextPost = posts.map(post => {
+            const { lanes } = prev;
+            const nextPost = lanes.map(post => {
+                if (post.name === id && post.isActive) return { ...post, isActive: true }
                 if (post.name !== id) return { ...post, isActive: false };
                 return {
                     ...post,
                     isActive: !post.isActive
                 };
             });
-            return { ...prev, posts: nextPost };
+            return { ...prev, lanes: nextPost };
         });
     };
-    
-    getName(selectedChamp) {
-        this.props.set_name(selectedChamp);
+
+    getName(champ_name) {
+        this.props.set_champ(champ_name);
     }
 
     getPoste(selectedPoste) {
@@ -46,65 +71,142 @@ class Landing extends Component {
     }
 
     render() {
-        const { posts, champions } = this.state;
-
-        return (
-            <>
-                <div className="page-landing">
-
-                    {/* en attendant le graph nuage */}
-                    <div style={{ "position":"absolute", "top":"50%", "left":"50%", "transform":"translate(-50%, -50%)", "display":"flex", "alignItems":"center" }} >
-
-                        <Link to="./graph" onMouseEnter={() => this.getPoste("Top")} className="bubble-post icon icon-top"><span>Top</span></Link>
-                        <Link to="./graph" onMouseEnter={() => this.getPoste("Jungle")} className="bubble-post icon icon-jgl"><span>Jungle</span></Link>
-                        <Link to="./graph" onMouseEnter={() => this.getPoste("Middle")} className="bubble-post icon icon-mid"><span>Mid</span></Link>
-                        <Link to="./graph" onMouseEnter={() => this.getPoste("Bottom")} className="bubble-post icon icon-bot"><span>Bot</span></Link>
-                        <Link to="./graph" onMouseEnter={() => this.getPoste("Support")} className="bubble-post icon icon-supp"><span>Support</span></Link>
-                        
-                        {
-                            champions.map((champion, index) => {
-                                return (
-                                    <Link to={`./fiche/${champion.name}`}
+        const { lanes, champions_top, champions_jungle, champions_middle, champions_bottom, champions_support } = this.state;
+        if (champions_support === null) {
+            return (
+                <div>loading champions</div>
+            )
+        } else {
+            return (
+                <>
+                    <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
+                        {champions_top.map((champion, index) => {
+                            return (
+                                <Link to={`./fiche-${champion.name}`}
                                     key={index}
-                                    onMouseEnter={() => this.getName(`${ champion.name }`)}
+                                    onMouseEnter={() => this.getName(`${champion.name}`)}
+                                >
+                                    <div
+                                        className="bubble-champ big"
+                                        style={{ backgroundImage: `url(${champion.icon})` }}
                                     >
-                                        <div data-tip={`${champion.name} ${champion.quotation}`} className="bubble-champ big" style={{ backgroundImage: `url(${champion.icon})` }}></div>
-                                    </Link>
-                                );
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                    <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
+                        {champions_bottom.map((champion, index) => {
+                            return (
+                                <Link to={`./fiche-${champion.name}`}
+                                    key={index}
+                                    onMouseEnter={() => this.getName(`${champion.name}`)}
+                                >
+                                    <div
+                                        className="bubble-champ large"
+                                        style={{ backgroundImage: `url(${champion.icon})` }}
+                                    >
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                    <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
+                        {champions_jungle.map((champion, index) => {
+                            return (
+                                <Link to={`./fiche-${champion.name}`}
+                                    key={index}
+                                    onMouseEnter={() => this.getName(`${champion.name}`)}
+                                >
+                                    <div
+                                        className="bubble-champ medium"
+                                        style={{ backgroundImage: `url(${champion.icon})` }}
+                                    >
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                    <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
+                        {champions_middle.map((champion, index) => {
+                            return (
+                                <Link to={`./fiche-${champion.name}`}
+                                    key={index}
+                                    onMouseEnter={() => this.getName(`${champion.name}`)}
+                                >
+                                    <div
+                                        className="bubble-champ small"
+                                        style={{ backgroundImage: `url(${champion.icon})` }}
+                                    >
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                    <div style={{ "display": "flex", "flex-wrap": "wrap" }}>
+                        {champions_support.map((champion, index) => {
+                            return (
+                                <Link to={`./fiche-${champion.name}`}
+                                    key={index}
+                                    onMouseEnter={() => this.getName(`${champion.name}`)}
+                                >
+                                    <div
+                                        className="bubble-champ tiny"
+                                        style={{ backgroundImage: `url(${champion.icon})` }}
+                                    >
+                                    </div>
+                                </Link>
+                            );
+                        })}
+                    </div>
+
+                    <div className="page-landing">
+
+                        {/* en attendant le graph nuage */}
+                        <div style={{ "position": "absolute", "top": "50%", "left": "50%", "transform": "translate(-50%, -50%)", "display": "flex", "alignItems": "center" }} >
+
+                            <Link to="./graph-Top" onMouseEnter={() => this.getPoste("Top")} className="bubble-post icon icon-top"><span>Top</span></Link>
+                            <Link to="./graph-Jungle" onMouseEnter={() => this.getPoste("Jungle")} className="bubble-post icon icon-jgl"><span>Jungle</span></Link>
+                            <Link to="./graph-Middle" onMouseEnter={() => this.getPoste("Middle")} className="bubble-post icon icon-mid"><span>Mid</span></Link>
+                            <Link to="./graph-Bottom" onMouseEnter={() => this.getPoste("Bottom")} className="bubble-post icon icon-bot"><span>Bot</span></Link>
+                            <Link to="./graph-Support" onMouseEnter={() => this.getPoste("Support")} className="bubble-post icon icon-supp"><span>Support</span></Link>
+
+                        </div>
+                    </div>
+
+                    <div className="filter">
+                        {
+                            lanes.map((post, index) => {
+                                return (
+                                    <div
+                                        key={index}
+                                        className={`btn-filter ${post.isActive ? 'active' : ''}`}
+                                        onClick={() => this.handleIsActive(post.name)}
+                                    >
+                                        <span>{post.name}</span>
+                                    </div>
+                                )
                             })
                         }
-                        
                     </div>
-                </div>
+                </>
+            )
+        }
+    }
+}
 
-                <div className="filter">
-                    {
-                        posts.map((post, index) => {
-                            return (
-                                <div
-                                    key={index}
-                                    className={`btn-filter ${post.isActive ? 'active' : ''}`}
-                                    onClick={() => this.handleIsActive(post.name)}
-                                >
-                                    <span>{post.name}</span>
-                                </div>
-                            )
-                        })
-                    }
-                </div>
-
-                <ReactTooltip />
-            </>
-        )
+const mapStateToProps = (state) => {
+    return {
+        data: state.data
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        set_name: (selectedChamp) => {
+        set_champ: (champ_name) => {
             dispatch({
-                type: 'SET_NAME',
-                value: selectedChamp
+                type: 'SET_CHAMP',
+                value: champ_name
             })
         },
         set_poste: (selectedPoste) => {
@@ -115,4 +217,4 @@ const mapDispatchToProps = (dispatch) => {
         },
     }
 }
-export default connect(null, mapDispatchToProps)(Landing)
+export default connect(mapStateToProps, mapDispatchToProps)(Landing)

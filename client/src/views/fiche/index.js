@@ -2,32 +2,28 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Chart from 'chart.js';
-import SortByRate from '../../helpers/SortByRate';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 import LiquidChart from './ficheContainer';
 import ReactTooltip from 'react-tooltip';
 
 import BtnBack from '../../components/BtnBack';
 
+import Damage from '../../assets/icons/Damage.svg';
+import Control from '../../assets/icons/Control.svg';
+import Taughness from '../../assets/icons/Taughness.svg';
+import Mobility from '../../assets/icons/Mobility.svg';
+import Utility from '../../assets/icons/Utility.svg';
 import Stats from '../../assets/img/Stats.png';
-import Damage from '../../assets/icons/Damage.png';
-import Control from '../../assets/icons/Control.png';
-import Taughness from '../../assets/icons/Taughness.png';
-import Mobility from '../../assets/icons/Mobility.png';
-import Utility from '../../assets/icons/Utility.png';
 import Map from '../../assets/img/Map.svg';
 
 class Fiche extends Component {
-
-    state = {
-        value: 50,
-    };
 
     /**
      * @param {String} name(props) [Champion name]
      * @return {String[]} the statistics of a champion
     */
     champStats() {
-        let champion = SortByRate.getChampByName(this.props.data, this.props.selectedChamp)
+        let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
         return [
             champion.damage,
             champion.toughness,
@@ -36,8 +32,7 @@ class Fiche extends Component {
             champion.utility
         ]
     }
-
-    componentDidMount() {
+    chart() {
         var ctx = document.getElementById('myChart').getContext('2d');
         Chart.defaults.global.legend.display = false;
         Chart.platform.disableCSSInjection = true;
@@ -64,46 +59,99 @@ class Fiche extends Component {
                     display: false,
                     ticks: {
                         beginAtZero: true,
-                        max: 3 
+                        max: 3
                     }
                 }
             }
         })
     }
 
-    render() {        
+    champGlobal() {
+        let champion = GlobalFiltering.getChampByName(this.props.data, this.props.champ_name)
+        
+        if (champion !== undefined) {
+            for (let i = 0; i < champion.poste.length; i++) {
+                if (champion.poste.length === 1) {
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, "", null, "", null)
+                    return
+                } else if (champion.poste.length === 2) {
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, "", null)
+                    return
+                } else if (champion.poste.length === 3) {
+                    this.props.set_global(champion.quotation, champion.TOEDIT, champion.icon, champion.role, champion.win, champion.ban, champion.pick, champion.poste[0].name, champion.poste[0].value, champion.poste[1].name, champion.poste[1].value, champion.poste[2].name, champion.poste[2].value)
+                    return
+                }
+            }
+        }
+    }
+
+    componentDidMount() {
+        this.champGlobal()
+    }
+
+    componentDidUpdate(prevProps) {
+        if (prevProps.champ_name === this.props.champ_name) {
+            this.champGlobal()
+            this.chart()
+        }
+    }
+    render() {
+        
         return (
             <>
                 <BtnBack />
                 <div className="page-fiche">
-
                     <div className="sidebar">
                         <div className="sidebar-champion">
-                            <div className="bubble-champ big" style={{ backgroundImage: `url(${'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IuwhHQix88XL6mc5mRaVUtkWoGfh5YeVdA-1E4iIrZBQjjYw'})` }}></div>
+                            <div className="bubble-champ big" style={{ backgroundImage: `url(${this.props.champ_icon})` }}></div>
                             <div className="block">
                                 <div className="title">
-                                    <img data-tip="Fighter" src="https://universe.leagueoflegends.com/images/role_icon_fighter.png" alt="icon" />
-                                    <h2>Gnar</h2>
+                                    <div
+                                        // eslint-disable-next-line
+                                        data-tip={"<span>" + `${this.props.champ_role}` + "</span>"}
+                                        data-html={true}
+                                        // eslint-disable-next-line
+                                        className={"icon icon-" + `${this.props.champ_role}`}
+                                    >
+                                    </div>
+                                    <h2>{this.props.champ_name}</h2>
                                 </div>
-                                <p className="quotation">the Missing Link</p>
+                                <p className="quotation">{this.props.champ_quolation}</p>
                             </div>
                         </div>
 
                         <div className="sidebar-rates">
-                            <div className="block">
-                                <LiquidChart value={this.state.value} />
-                                { /* <span>Win rate</span> */ }
+                            <div className="rate win">
+                                {
+                                    this.props.champ_win && (
+                                        <LiquidChart id={"fillWin"} value={this.props.champ_win} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate ban">
+                                {
+                                    this.props.champ_ban && (
+                                        <LiquidChart id={"fillBan"} value={this.props.champ_ban} />
+                                    )
+                                }
+                            </div>
+                            <div className="rate pick">
+                                {
+                                    this.props.champ_pick && (
+                                        <LiquidChart id={"fillPick"} value={this.props.champ_pick} />
+                                    )
+                                }
                             </div>
                         </div>
 
                         <div className="sidebar-stats">
                             <div className="graph-container">
                                 <img className="img-graph" src={Stats} alt="stats-graph" />
-                                <img data-tip="Damage" className="icon-stat damage" src={Damage} alt="icon-damage" />
-                                <img data-tip="Control" className="icon-stat control" src={Control} alt="icon-control" />
-                                <img data-tip="Taughness" className="icon-stat taughness" src={Taughness} alt="icon-taughness" />
-                                <img data-tip="Mobility" className="icon-stat mobility" src={Mobility} alt="icon-mobility" />
-                                <img data-tip="Utility" className="icon-stat utility" src={Utility} alt="icon-utility" />
+                                <img data-tip="<span>Damage</span>" data-html={true} className="icon-stat damage" src={Damage} alt="icon-damage" />
+                                <img data-tip="<span>Control</span>" data-html={true} className="icon-stat control" src={Control} alt="icon-control" />
+                                <img data-tip="<span>Taughness</span>" data-html={true} className="icon-stat taughness" src={Taughness} alt="icon-taughness" />
+                                <img data-tip="<span>Mobility</span>" data-html={true} className="icon-stat mobility" src={Mobility} alt="icon-mobility" />
+                                <img data-tip="<span>Utility</span>" data-html={true} className="icon-stat utility" src={Utility} alt="icon-utility" />
                                 <canvas id="myChart"></canvas>
                             </div>
                         </div>
@@ -125,8 +173,8 @@ class Fiche extends Component {
                     </div>
 
                 </div>
-                
-                <ReactTooltip />
+
+                <ReactTooltip className="tooltip" offset={{ top: 10 }} />
             </>
         )
     }
@@ -135,7 +183,46 @@ class Fiche extends Component {
 const mapStateToProps = (state) => {
     return {
         data: state.data,
-        selectedChamp: state.selectedChamp
+        selectedPoste: state.selectedPoste,
+        champ_name: state.champ_name,
+        champ_quolation: state.champ_quolation,
+        champ_icon: state.champ_icon,
+        champ_role: state.champ_role,
+        champ_win: state.champ_win,
+        champ_ban: state.champ_ban,
+        champ_pick: state.champ_pick,
+        champ_posteName: state.champ_posteName,
+        champ_posteValue: state.champ_posteValue,
+        champ_posteName2: state.champ_posteName2,
+        champ_posteValue2: state.champ_posteValue2,
+        champ_posteName3: state.champ_posteName3,
+        champ_posteValue3: state.champ_posteValue3,
     }
 }
-export default connect(mapStateToProps, null)(Fiche);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        set_global: (quotation, selectedPoste, icon, role, win, ban, pick, posteName, posteValue, posteNam2, posteValue2, posteName3, posteValue3) => {
+            dispatch({
+                type: 'SET_GLOBAL',
+                value: {
+                    quotation,
+                    selectedPoste,
+                    icon,
+                    role,
+                    win,
+                    ban,
+                    pick,
+                    posteName,
+                    posteValue,
+                    posteNam2,
+                    posteValue2,
+                    posteName3,
+                    posteValue3
+                }
+            })
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Fiche);

@@ -4,12 +4,14 @@
     padding: 14px 10px;
     text-align: center;
     background: $blue;
+    border: 0;
     font-family: $font;
     font-size: $text-medium;
     color: $darkblue;
     text-decoration: none;
-    user-select: none;
+    outline: none;
     cursor: pointer;
+
     &:hover {
         background: $gold-gradient;
     }
@@ -24,8 +26,8 @@
     font-size: $text-big;
     color: $blue;
     text-decoration: none;
-    user-select: none;
     cursor: pointer;
+
     &:before {
         content: '\E805';
         font-family: 'fontello';
@@ -33,23 +35,48 @@
         margin-right: 8px;
         transition: transform 0.3s ease-in-out;
     }
+
     &:hover,
     &:active {
         &:before {
             transform: translateX(-8px);
         }
     }
-    
+
+}
+
+.btn-role {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: $blue;
+    font-size: 0;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+        background: $gold-gradient;
+    }
+
+    &.active {
+        background: $gold-gradient;
+    }
 }
 
 .btn-hiw {
     position: absolute;
-    bottom: 24px; right: 64px;
+    bottom: 24px;
+    right: 64px;
     width: 24px;
     height: 24px;
     background: $blue;
     border-radius: 50%;
     cursor: pointer;
+
     &:before {
         content: '?';
         color: $darkblue;

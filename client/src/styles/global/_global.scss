@@ -2,13 +2,13 @@
     font-family: 'fontello';
     src: url('../assets/fonts/fontello/fontello.eot?73249035');
     src: url('../assets/fonts/fontello/fontello.eot?73249035#iefix') format('embedded-opentype'),
-         url('../assets/fonts/fontello/fontello.woff2?73249035') format('woff2'),
-         url('../assets/fonts/fontello/fontello.woff?73249035') format('woff'),
-         url('../assets/fonts/fontello/fontello.ttf?73249035') format('truetype'),
-         url('../assets/fonts/fontello/fontello.svg?73249035#fontello') format('svg');
+        url('../assets/fonts/fontello/fontello.woff2?73249035') format('woff2'),
+        url('../assets/fonts/fontello/fontello.woff?73249035') format('woff'),
+        url('../assets/fonts/fontello/fontello.ttf?73249035') format('truetype'),
+        url('../assets/fonts/fontello/fontello.svg?73249035#fontello') format('svg');
     font-weight: normal;
     font-style: normal;
-  }
+}
 
 @font-face {
     font-family: "lato";
@@ -40,7 +40,8 @@
     src: url(../assets/fonts/martel/Martel-Bold.ttf);
 }
 
-html, body {
+html,
+body {
     height: 100%;
 }
 
@@ -74,10 +75,11 @@ img {
 
     &:before {
         position: absolute;
-        top: 50%; left: 50%;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
-        width: 100%;
-        height: 100%;
+        width: 32px;
+        height: 32px;
         content: '';
         font-family: 'fontello';
         color: $blue;
@@ -86,50 +88,122 @@ img {
         background-repeat: no-repeat;
         user-select: none;
     }
+
     &-top:before {
-        background-image: url(../assets/icons/Top.svg);
+        background-image: url(../assets/icons/btn/Top.svg);
     }
+
     &-jgl:before {
-        background-image: url(../assets/icons/Jgl.svg);
+        background-image: url(../assets/icons/btn/Jgl.svg);
     }
+
     &-mid:before {
-        background-image: url(../assets/icons/Mid.svg);
+        background-image: url(../assets/icons/btn/Mid.svg);
     }
+
     &-bot:before {
-        background-image: url(../assets/icons/Bot.svg);
+        background-image: url(../assets/icons/btn/Bot.svg);
     }
+
     &-supp:before {
-        background-image: url(../assets/icons/Supp.svg);        
+        background-image: url(../assets/icons/btn/Supp.svg);
     }
+
+    &-fighter:before {
+        background-image: url(../assets/icons/btn/Fighter.svg);
+    }
+
+    &-mage:before {
+        background-image: url(../assets/icons/btn/Mage.svg);
+    }
+
+    &-slayer:before {
+        background-image: url(../assets/icons/btn/Slayer.svg);
+    }
+
+    &-tank:before {
+        background-image: url(../assets/icons/btn/Tank.svg);
+    }
+
+    &-marksman:before {
+        background-image: url(../assets/icons/btn/Marksman.svg);
+    }
+
+    &-controller:before {
+        background-image: url(../assets/icons/btn/Controller.svg);
+    }
+
+    &-specialist:before {
+        background-image: url(../assets/icons/btn/Specialist.svg);
+    }
+
     &-map:before {
-        background-image: url(../assets/icons/Map.svg);        
+        background-image: url(../assets/icons/Map.svg);
     }
+
     &-stats:before {
-        background-image: url(../assets/icons/Stats.svg);        
+        background-image: url(../assets/icons/Stats.svg);
     }
+
     &-search:before {
         content: '\E801';
     }
+
     &-barrow:before {
         content: '\E805';
     }
+
     &-cross:before {
         content: '\E807';
+        cursor: pointer;
     }
+
     &-damage:before {
         content: '\E808';
     }
+
     &-tankiness:before {
         content: '\E803';
     }
+
     &-mobility:before {
         content: '\E800';
     }
+
     &-control:before {
         content: '\E806';
     }
+
     &-utility:before {
         content: '\E804';
+    }
+
+    &-Fighter:before {
+        background-image: url(../assets/icons/Fighter.svg);
+    }
+
+    &-Mage:before {
+        background-image: url(../assets/icons/Mage.svg);
+    }
+
+    &-Slayer:before {
+        background-image: url(../assets/icons/Slayer.svg);
+    }
+
+    &-Tank:before {
+        background-image: url(../assets/icons/Tank.svg);
+    }
+
+    &-Marksman:before {
+        background-image: url(../assets/icons/Marksman.svg);
+    }
+
+    &-Controller:before {
+        background-image: url(../assets/icons/Controller.svg);
+    }
+
+    &-Specialist:before {
+        background-image: url(../assets/icons/Specialist.svg);
     }
 }
 
@@ -137,15 +211,15 @@ img {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 2px;
+    width: 2px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #2b2147; 
+    background: #2b2147;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $gold-gradient; 
+    background: $gold-gradient;
 }

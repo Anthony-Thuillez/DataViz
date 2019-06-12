@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as d3 from "d3";
-import SortByRate from '../../helpers/SortByRate';
+import GlobalFiltering from '../../helpers/GlobalFiltering';
 import { connect } from 'react-redux';
 
 const linearGradient = (svg, id, color1, color2) => {
@@ -34,7 +34,6 @@ class BarChart extends Component {
     componentWillUnmount() {
         let chart = document.querySelector('svg');
         chart.remove();
-
     }
 
     componentDidMount() {
@@ -47,6 +46,17 @@ class BarChart extends Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (prevProps.selectedPoste === this.props.selectedPoste) {
+            let chart = document.querySelector('svg');
+            chart.remove();
+            this.drawChart(
+                this.findFirstValOfArray(),
+                this.findLastValOfArray(),
+                this.displayChamp(this.props.selectedRate),
+                this.median()
+            );
+        }
+
         // Typical usage (don't forget to compare props):
         if (this.props.selectedRate !== prevProps.selectedRate) {
             /* For re-render the graph we need to remove it first */
@@ -61,8 +71,7 @@ class BarChart extends Component {
     }
 
     findFirstValOfArray = () => {
-        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
-        console.log("arr : ", arr);
+        let arr = GlobalFiltering.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
 
         for (let i = 0; i < arr.length; i++) {
             let firstEl = arr[0]
@@ -71,7 +80,7 @@ class BarChart extends Component {
     }
 
     findLastValOfArray = () => {
-        let arr = SortByRate.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        let arr = GlobalFiltering.orderByRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
         for (let i = 0; i < arr.length; i++) {
             const lastEl = arr[arr.length - 1]
             return lastEl
@@ -79,7 +88,7 @@ class BarChart extends Component {
     }
 
     displayChamp(rate) {
-        let champion = SortByRate.getChampByPost(this.props.data, this.props.selectedPoste)
+        let champion = GlobalFiltering.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
                 icon: champ.icon,
@@ -90,8 +99,8 @@ class BarChart extends Component {
     }
 
     median() {
-        let _median = SortByRate.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
-        return _median
+        let _median = GlobalFiltering.medianRate(this.props.data, this.props.selectedRate, this.props.selectedPoste)
+        return _median.toFixed(2);
     }
 
     drawChart(func_firstEl, func_lastEl, func_champ, func_median) {
@@ -102,14 +111,14 @@ class BarChart extends Component {
         let { selectedRate } = this.props
 
         /* Dimentions du graph */
-        var margin = { top: -2, right: 0, bottom: 80, left: 45 },
+        var margin = { top: -2, right: 0, bottom: 80, left: 60 },
             width = 1300 - margin.left - margin.right,
             height = 550 - margin.top - margin.bottom;
 
         /* Propriété du graph */
         var x = d3.scaleBand()
             .range([0, width])
-            .padding(0.3);
+            .padding(0.1);
 
         var y = d3.scaleLinear()
             .range([height, 0]);
@@ -129,11 +138,24 @@ class BarChart extends Component {
         /* Axes */
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x));
+            .call(d3.axisBottom(x).tickFormat(""));
 
         svg.append("g")
             // .call(d3.axisLeft(y).tickFormat(d => d + "%"))
             .call(d3.axisLeft(y).tickValues([]));
+
+        svg.selectAll('.tick')
+        .data(data)
+        .each((d, i, nodes) => {
+            var p = d3.select(nodes[i]);
+            p.append("svg:image")
+            .attr("x", -15)
+            .attr("y", 20)
+            .attr("dy", 0)
+            .attr("width", 30)
+            .attr("height", 30)
+            .attr("xlink:href", d.icon)
+        })
 
         linearGradient(svg, 'blue-gradient', "#00CBE0", "rgba(0, 203, 224, 0.2)")
         linearGradient(svg, 'red-gradient', "#FC0044", "rgba(252, 0, 68, 0.2)")
@@ -151,9 +173,9 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(lastEl + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(lastEl))
+            .attr("y", y(lastEl) + 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -172,9 +194,9 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(firstEl + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(firstEl))
+            .attr("y", y(firstEl) - 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -192,9 +214,9 @@ class BarChart extends Component {
             .append('text')
             .attr('fill', '#A6843C')
             .text(_median + '%')
-            .style("font-size", "18px")
+            .style("font-size", "14px")
             .attr("x", -10)
-            .attr("y", y(_median))
+            .attr("y", y(_median) - 8)
             .attr("text-anchor", "end")
             .attr('alignment-baseline', 'middle')
 
@@ -229,6 +251,7 @@ class BarChart extends Component {
             .attr("x", (d) => x(d.icon) + x.bandwidth() / 2)
             .attr("y", (d) => (y(d.rate) + height) / 2)
             .style('fill', 'white')
+            .style("font-size", "10px")
             .attr("text-anchor", "middle");
 
         var w = document.querySelectorAll(".domain")
