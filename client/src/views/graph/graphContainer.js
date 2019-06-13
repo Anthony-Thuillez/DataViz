@@ -164,16 +164,18 @@ class BarChart extends Component {
 
         svg.selectAll('.tick')
             .data(data)
-            .attr("class", "test")
+            .attr("class", "tickClass")
             .each((d, i, nodes) => {
                 var p = d3.select(nodes[i])
                     .append("a")
+                    .attr("data-tip", "hello")
+                    .attr("data-html", true)
                     .attr("xlink:href", (d) => '/fiche-' + d.name)
                     .on("mouseover", function () {
-                        d3.select(this).classed("test-active", true);
+                        d3.select(this).classed("tickClass-active", true);
                     })
                     .on("mouseout", function () {
-                        d3.select(this).classed("test-active", false);
+                        d3.select(this).classed("tickClass-active", false);
                     })
                 p.append("circle")
                     .attr("r", 12)
@@ -183,10 +185,6 @@ class BarChart extends Component {
                     .attr("cx", 0)
                     .attr("cy", 24)
             })
-
-        // eslint-disable-next-line
-        // data-tip={"<div><div class=icon-" + `${champion.role}` + "></div><h3>" + `${champion.name}` + "</h3></div><p>" + `${champion.quotation}` + "</p>"}
-        // data-html={true}
 
         linearGradient(svg, 'blue-gradient', "#00CBE0", "rgba(0, 203, 224, 0.2)")
         linearGradient(svg, 'red-gradient', "#FC0044", "rgba(252, 0, 68, 0.2)")
@@ -295,8 +293,9 @@ class BarChart extends Component {
     render() {
         return (
             <>
-                <div id={"#" + this.props.id}></div>
-                <ReactTooltip className="tooltip" offset={{ top: 10 }} />
+                <div id="graphChart">
+                    <ReactTooltip className="tooltip" offset={{ top: 10 }} />
+                </div>
             </>
         )
     }
