@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import GlobalFiltering from '../../helpers/GlobalFiltering';
 import { connect } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 
 const linearGradient = (svg, id, color1, color2) => {
     /* 180deg du gradient */
@@ -91,7 +92,9 @@ class BarChart extends Component {
         let champion = GlobalFiltering.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
+                id: champ.id,
                 icon: champ.icon,
+                name: champ.name,
                 rate: champ[rate]
             }
         })
@@ -144,18 +147,44 @@ class BarChart extends Component {
             // .call(d3.axisLeft(y).tickFormat(d => d + "%"))
             .call(d3.axisLeft(y).tickValues([]));
 
+        svg.append("defs")
+            .selectAll('.tick')
+            .data(data)
+            .enter().append("pattern")
+            .attr("id", function (d) {
+                return "img" + d.id;
+            })
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .append("image")
+            .attr("xlink:href", (d) => d.icon)
+            .attr("width", 24)
+            .attr("height", 24)
+
+
         svg.selectAll('.tick')
-        .data(data)
-        .each((d, i, nodes) => {
-            var p = d3.select(nodes[i]);
-            p.append("svg:image")
-            .attr("x", -15)
-            .attr("y", 20)
-            .attr("dy", 0)
-            .attr("width", 30)
-            .attr("height", 30)
-            .attr("xlink:href", d.icon)
-        })
+            .data(data)
+            .attr("class", "tickClass")
+            .each((d, i, nodes) => {
+                var p = d3.select(nodes[i])
+                    .append("a")
+                    .attr("data-tip", "hello")
+                    .attr("data-html", true)
+                    .attr("xlink:href", (d) => '/fiche-' + d.name)
+                    .on("mouseover", function () {
+                        d3.select(this).classed("tickClass-active", true);
+                    })
+                    .on("mouseout", function () {
+                        d3.select(this).classed("tickClass-active", false);
+                    })
+                p.append("circle")
+                    .attr("r", 12)
+                    .style("fill", function (d) {
+                        return "url(#img" + d.id + ")";
+                    })
+                    .attr("cx", 0)
+                    .attr("cy", 24)
+            })
 
         linearGradient(svg, 'blue-gradient', "#00CBE0", "rgba(0, 203, 224, 0.2)")
         linearGradient(svg, 'red-gradient', "#FC0044", "rgba(252, 0, 68, 0.2)")
@@ -262,7 +291,13 @@ class BarChart extends Component {
     }
 
     render() {
-        return <div id={"#" + this.props.id}></div>
+        return (
+            <>
+                <div id="graphChart">
+                    <ReactTooltip className="tooltip" offset={{ top: 10 }} />
+                </div>
+            </>
+        )
     }
 }
 

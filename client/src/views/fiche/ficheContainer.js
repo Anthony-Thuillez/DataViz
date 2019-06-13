@@ -87,7 +87,7 @@ class LiquidGauge extends Component {
         var centerX = width / 1;
         var centerY = height / 2;
         var numPoints = 6;
-        var strokePenta = 3;
+        var strokePenta = 2;
         var radius =
             Math.min(
                 width,
