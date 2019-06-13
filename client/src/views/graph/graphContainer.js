@@ -91,6 +91,7 @@ class BarChart extends Component {
         let champion = GlobalFiltering.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
+                id: champ.id,
                 icon: champ.icon,
                 name: champ.name,
                 rate: champ[rate]
@@ -145,20 +146,57 @@ class BarChart extends Component {
             // .call(d3.axisLeft(y).tickFormat(d => d + "%"))
             .call(d3.axisLeft(y).tickValues([]));
 
+        svg.append("defs")
+            .selectAll('.tick')
+            .data(data)
+            .enter().append("pattern")
+            .attr("id", function (d) {
+                return "img" + d.id;
+            })
+            .attr("width", 50)
+            .attr("height", 50)
+            .append("image")
+            .attr("xlink:href", (d) => d.icon)
+            .attr("width", 45)
+            .attr("height", 45)
+
+
         svg.selectAll('.tick')
             .data(data)
+            .attr("class", "test")
             .each((d, i, nodes) => {
                 var p = d3.select(nodes[i])
                     .append("a")
-                    .attr("xlink:href", (d) => '/fiche-' + d.name);
-                p.append("svg:image")
-                    .attr("x", -15)
-                    .attr("y", 20)
-                    .attr("dy", 0)
-                    .attr("width", 30)
-                    .attr("height", 30)
-                    .attr("xlink:href", d.icon)
+                    .attr("xlink:href", (d) => '/fiche-' + d.name)
+                    .on("mouseover", function () {
+                        d3.select(this).classed("test-active", true);
+                    })
+                    .on("mouseout", function () {
+                        d3.select(this).classed("test-active", false);
+                    })
+                p.append("circle")
+                    .attr("r", 22)
+                    .style("fill", function (d) {
+                        return "url(#img" + d.id + ")";
+                    })
+                    .attr("cx", 0)
+                    .attr("cy", 33)
             })
+
+        // svg.selectAll('.tick')
+        //     .data(data)
+        //     .each((d, i, nodes) => {
+        //         var p = d3.select(nodes[i])
+        //             .append("a")
+        //             .attr("xlink:href", (d) => '/fiche-' + d.name);
+        //         p.append("svg:image")
+        //             .attr("x", -15)
+        //             .attr("y", 20)
+        //             .attr("dy", 0)
+        //             .attr("width", 30)
+        //             .attr("height", 30)
+        //             .attr("xlink:href", d.icon)
+        //     })
 
 
 
