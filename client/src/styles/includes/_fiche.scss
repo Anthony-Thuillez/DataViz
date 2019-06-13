@@ -59,12 +59,10 @@
                 &.pick {
                     &:after {
                         position: absolute;
-                        background: -webkit-linear-gradient(#C79A3C, #A6843C, #614B1D);
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
+                        color: $gold;
                         bottom: -26px;
                         left: 44%;
-                        font-size: 14px;
+                        font-size: 16px;
                     }
                 }
                 &.win:after {
