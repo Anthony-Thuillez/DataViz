@@ -1,3 +1,20 @@
 .page-landing {
-    
+    #map{
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .node {
+        stroke: $blue;
+        stroke-width: 1px;
+    }
+    .node-active{
+        stroke: $gold;
+        stroke-width: 1px;
+    }
+    .post a {
+        fill: $blue;
+    }
 }
