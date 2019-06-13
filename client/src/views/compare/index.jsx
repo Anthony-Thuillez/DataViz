@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 import GlobalFiltering from '../../helpers/GlobalFiltering';
 
 /** 
@@ -271,6 +272,7 @@ class Compare extends Component {
                                 return (
                                     <button
                                         key={index}
+                                        data-tip={el.name}
                                         onClick={(event) => this.getDataRole(event)}
                                         className={`btn-role icon icon-${el.name} ${el.isActive ? 'active' : ''}`}
                                         datarole={el.name.charAt(0).toUpperCase() + el.name.slice(1)}>{el.name}
@@ -283,12 +285,12 @@ class Compare extends Component {
                     <div className="champList">
                         {
                             this.state.champions.map((champ, index) => {
-                                return <div key={index} onClick={(e) => this.retrieveChampCaracteristics(e)} id={champ.name} className="bubble-champ large" style={{ backgroundImage: `url(${champ.icon})` }}></div>
+                                return <div key={index} data-tip={champ.name} onClick={(e) => this.retrieveChampCaracteristics(e)} id={champ.name} className="bubble-champ large" style={{ backgroundImage: `url(${champ.icon})` }}></div>
                             })
                         }
                     </div>
                 </div>
-
+                <ReactTooltip className="tooltip" offset={{ top: 10 }} />
             </div>
         )
     }

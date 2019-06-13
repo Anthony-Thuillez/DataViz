@@ -15,11 +15,12 @@ const initState = {
     champ_posteName2: "",
     champ_posteValue2: null,
     champ_posteName3: "",
-    champ_posteValue3: null
+    champ_posteValue3: null,
+    compareStatus: null
 }
 
 const rootReducer = (state = initState, action) => {
-    
+
     if (action.type === 'SET_RATE') {
         let newRate = action.value;
         return {
@@ -81,6 +82,14 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             selectedPoste: newData
+        }
+    }
+
+    if (action.type === 'SET_COMPARE_ACTIVE') {
+        let newData = action.value
+        return {
+            ...state,
+            compareStatus: newData
         }
     }
     return state;

@@ -45,7 +45,10 @@ class Header extends Component {
             const { header } = prev;
             const nextLink = header.map(link => {
                 if (link.name === el && link.isActive) return { ...link, isActive: true }
-                if (link.name !== el) return { ...link, isActive: false }
+                if (link.name !== el) {
+                    // this.props.compare = `${link.name}`.toLowerCase()
+                    return { ...link, isActive: false }
+                }
                 return {
                     ...link,
                     isActive: !link.isActive
@@ -54,6 +57,26 @@ class Header extends Component {
             return { ...prev, header: nextLink };
         });
     };
+
+    componentDidUpdate(nextProps) {
+        if (nextProps.compareStatus !== this.props.compareStatus) {
+            if (this.props.compareStatus === 'compare') {
+                this.setState({
+                    header: [
+                        { name: "Home", path: "/", isActive: false },
+                        { name: "Compare", path: "/compare", isActive: true }
+                    ]
+                });
+            } else if (this.props.compareStatus === 'header') {
+                this.setState({
+                    header: [
+                        { name: "Home", path: "/", isActive: true },
+                        { name: "Compare", path: "/compare", isActive: false }
+                    ]
+                });
+            }
+        }
+    }
 
     render() {
         const { header } = this.state;
@@ -89,6 +112,12 @@ class Header extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+    return {
+        compareStatus: state.compareStatus
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
         set_poste_from_url: (champPosteParameter) => {
@@ -105,4 +134,4 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
-export default connect(null, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(Header)
