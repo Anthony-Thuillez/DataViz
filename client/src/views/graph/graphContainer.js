@@ -92,6 +92,7 @@ class BarChart extends Component {
         var champ = champion.map((champ) => {
             return {
                 icon: champ.icon,
+                name: champ.name,
                 rate: champ[rate]
             }
         })
@@ -145,17 +146,21 @@ class BarChart extends Component {
             .call(d3.axisLeft(y).tickValues([]));
 
         svg.selectAll('.tick')
-        .data(data)
-        .each((d, i, nodes) => {
-            var p = d3.select(nodes[i]);
-            p.append("svg:image")
-            .attr("x", -15)
-            .attr("y", 20)
-            .attr("dy", 0)
-            .attr("width", 30)
-            .attr("height", 30)
-            .attr("xlink:href", d.icon)
-        })
+            .data(data)
+            .each((d, i, nodes) => {
+                var p = d3.select(nodes[i])
+                    .append("a")
+                    .attr("xlink:href", (d) => '/fiche-' + d.name);
+                p.append("svg:image")
+                    .attr("x", -15)
+                    .attr("y", 20)
+                    .attr("dy", 0)
+                    .attr("width", 30)
+                    .attr("height", 30)
+                    .attr("xlink:href", d.icon)
+            })
+
+
 
         linearGradient(svg, 'blue-gradient', "#00CBE0", "rgba(0, 203, 224, 0.2)")
         linearGradient(svg, 'red-gradient', "#FC0044", "rgba(252, 0, 68, 0.2)")
