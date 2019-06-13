@@ -4,5 +4,13 @@
     justify-content: center;
     height: 100%;
     padding-bottom: 68px + 56px + 48px;
+    .test {
+        stroke: $blue;
+        stroke-width: 1px;
+    }
+    .test-active{
+        stroke: $gold;
+        stroke-width: 1px;
+    }
 
 }

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as d3 from "d3";
 import GlobalFiltering from '../../helpers/GlobalFiltering';
 import { connect } from 'react-redux';
+import ReactTooltip from 'react-tooltip';
 
 const linearGradient = (svg, id, color1, color2) => {
     /* 180deg du gradient */
@@ -153,12 +154,12 @@ class BarChart extends Component {
             .attr("id", function (d) {
                 return "img" + d.id;
             })
-            .attr("width", 50)
-            .attr("height", 50)
+            .attr("width", "100%")
+            .attr("height", "100%")
             .append("image")
             .attr("xlink:href", (d) => d.icon)
-            .attr("width", 45)
-            .attr("height", 45)
+            .attr("width", 24)
+            .attr("height", 24)
 
 
         svg.selectAll('.tick')
@@ -175,30 +176,17 @@ class BarChart extends Component {
                         d3.select(this).classed("test-active", false);
                     })
                 p.append("circle")
-                    .attr("r", 22)
+                    .attr("r", 12)
                     .style("fill", function (d) {
                         return "url(#img" + d.id + ")";
                     })
                     .attr("cx", 0)
-                    .attr("cy", 33)
+                    .attr("cy", 24)
             })
 
-        // svg.selectAll('.tick')
-        //     .data(data)
-        //     .each((d, i, nodes) => {
-        //         var p = d3.select(nodes[i])
-        //             .append("a")
-        //             .attr("xlink:href", (d) => '/fiche-' + d.name);
-        //         p.append("svg:image")
-        //             .attr("x", -15)
-        //             .attr("y", 20)
-        //             .attr("dy", 0)
-        //             .attr("width", 30)
-        //             .attr("height", 30)
-        //             .attr("xlink:href", d.icon)
-        //     })
-
-
+        // eslint-disable-next-line
+        // data-tip={"<div><div class=icon-" + `${champion.role}` + "></div><h3>" + `${champion.name}` + "</h3></div><p>" + `${champion.quotation}` + "</p>"}
+        // data-html={true}
 
         linearGradient(svg, 'blue-gradient', "#00CBE0", "rgba(0, 203, 224, 0.2)")
         linearGradient(svg, 'red-gradient', "#FC0044", "rgba(252, 0, 68, 0.2)")
@@ -305,7 +293,12 @@ class BarChart extends Component {
     }
 
     render() {
-        return <div id={"#" + this.props.id}></div>
+        return (
+            <>
+                <div id={"#" + this.props.id}></div>
+                <ReactTooltip className="tooltip" offset={{ top: 10 }} />
+            </>
+        )
     }
 }
 
