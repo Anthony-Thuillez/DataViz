@@ -285,7 +285,7 @@ class Compare extends Component {
                     <div className="champList">
                         {
                             this.state.champions.map((champ, index) => {
-                                return <div key={index} data-tip={`<span>${champ.name}</span>`} data-html={true} onClick={(e) => this.retrieveChampCaracteristics(e)} id={champ.name} className="bubble-champ large" style={{ backgroundImage: `url(${champ.icon})` }}></div>
+                                return <div key={index} data-tip={champ.name} onClick={(e) => this.retrieveChampCaracteristics(e)} id={champ.name} className="bubble-champ large" style={{ backgroundImage: `url(${champ.icon})` }}></div>
                             })
                         }
                     </div>
