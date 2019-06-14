@@ -22,11 +22,11 @@ class BubbleChart extends Component {
                 { name: "Support" }
             ],
             posts : [
-                { "id": "Top", "name": "Top", "iconPost": "Top" },
-                { "id": "Jungle", "name": "Jungle", "iconPost": "Jgl" },
-                { "id": "Middle", "name": "Mid", "iconPost": "Mid" },
-                { "id": "Bottom", "name": "Bot", "iconPost": "Bot" },
-                { "id": "Support", "name": "Support", "iconPost": "Supp" }
+                { "id": "Top", "name": "Top", "iconPost": "Top", "x": "780", "y": "352" },
+                { "id": "Jungle", "name": "Jungle", "iconPost": "Jgl", "x": "240", "y": "500"  },
+                { "id": "Middle", "name": "Mid", "iconPost": "Mid", "x": "420", "y": "200"  },
+                { "id": "Bottom", "name": "Bot", "iconPost": "Bot", "x": "1240", "y": "196"  },
+                { "id": "Support", "name": "Support", "iconPost": "Supp", "x": "1172", "y": "516"  }
             ]
         }
     }
@@ -91,29 +91,19 @@ class BubbleChart extends Component {
         ];
 
         // Force code
-        d3.forceSimulation(posts)
-            .force("charge", d3.forceManyBody().strength(-3000))
-            .force("x", d3.forceX(window.innerWidth / 2))
-            .force("y", d3.forceY(window.innerHeight / 2))
-            .on('tick', function () {
-                post.attr("transform", function(d) {
-                    console.log(d);
-                    return "translate(" + d.x + "," + d.y + ")";
-            })
-            });
+        d3.forceSimulation(posts);
 
-            nodes.forEach(index => {
-                d3.forceSimulation(index)
-                    .force("charge", d3.forceManyBody().strength(-80))
-                    .force("x", d3.forceX(20))
-                    .force("y", d3.forceY(40))
-                    .on('tick', function () {
-                        node.attr("transform", function (d) {
-                            console.log(d);
-                            return "translate(" + d.x + "," + d.y + ")";
-                        })
-                    });
-            });
+        nodes.forEach(index => {
+            d3.forceSimulation(index)
+                .force("charge", d3.forceManyBody().strength(-100))
+                .force("x", d3.forceX(0))
+                .force("y", d3.forceY(0))
+                .on('tick', function () {
+                    node.attr("transform", function (d) {
+                        return "translate(" + d.x + "," + d.y + ")";
+                    })
+                });
+        });
 
         // Svg
         var svg = d3.select("#map").append("svg")
@@ -195,6 +185,9 @@ class BubbleChart extends Component {
             .data(posts)
             .enter()
             .append("g")
+            .attr("transform", function(d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            })
             .attr("class", function(d) {
                 return "post "+ d.id +"";
             });
