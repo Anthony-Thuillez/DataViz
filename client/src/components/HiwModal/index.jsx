@@ -27,6 +27,7 @@ class Modal extends Component {
     }
 
     componentDidMount() {
+        
         document.addEventListener("keydown", this.escFunction, false);
     }
 

@@ -194,9 +194,9 @@ class Fiche extends Component {
                             </div>
                         </div>
 
-                        <div>
+                        {/* <div>
                             <Link onClick={()=>this.props.set_compare_active("compare")} className="btn" to='/compare'>Compare</Link>
-                        </div>
+                        </div> */}
                     </div>
 
                     <div className="map">
