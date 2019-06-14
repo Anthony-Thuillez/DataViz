@@ -6,10 +6,14 @@ import Breadcrumbs from '../Breadcrumb';
 import SearchBar from '../Searchbar';
 
 import Logo from '../../assets/Logo.png';
+import LogoAnime from '../../views/logo/index';
 
 class Header extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            subTitle: false
+        }
         if (window.location.href.includes("/compare")) {
             this.state = {
                 header: [
@@ -78,13 +82,33 @@ class Header extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.compareStatus !== this.props.compareStatus) {
+            if (this.props.compareStatus === 'compare') {
+                this.setState({
+                    header: [
+                        { name: "Home", path: "/", isActive: false },
+                        { name: "Compare", path: "/compare", isActive: true }
+                    ]
+                });
+            } else if (this.props.compareStatus === 'header') {
+                this.setState({
+                    header: [
+                        { name: "Home", path: "/", isActive: true },
+                        { name: "Compare", path: "/compare", isActive: false }
+                    ]
+                });
+            }
+        }
+    }
+
     render() {
         const { header } = this.state;
         return (
             <header className="header">
                 <div className="header-left">
-                    <div className="logo">
-                        <img src={Logo} alt="Logo" />
+                    <div style={{ display: !this.state.subTitle ? "contents" : null }} className="logo">
+                        <LogoAnime backgroundSize={ "500px 50px"} subTitle={ this.state.subTitle } fontSize={ 30 } />
                     </div>
                     <Breadcrumbs />
                 </div>

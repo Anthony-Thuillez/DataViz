@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../../assets/LogoXL.png';
 import ImgLeft from '../../assets/img/HP-left.png';
 import ImgRight from '../../assets/img/HP-right.png';
+import LogoAnime from '../logo/index'
 
 class Intro extends Component {
 
@@ -16,7 +17,7 @@ class Intro extends Component {
                 <div className="block-intro">
                     <p>Hetic students are proud to present</p>
                     <div className="logo">
-                        <img src={Logo} alt="Logo" />
+                        <LogoAnime backgroundSize={ "1000px 200px" } fontSize={ 70 } subTitle={ true } />
                     </div>
                     <p>A tool with which you can discover data on all League of Legend champions.</p>
                     <Link className="btn" to='/'>Launch data visualization</Link>

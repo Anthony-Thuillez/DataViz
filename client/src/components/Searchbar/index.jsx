@@ -120,6 +120,7 @@ class SearchBar extends Component {
                                         return (
                                             <li key={champ.name}>
                                                 <Link   to={`./fiche-${champ.name}`} 
+                                                        onClick={()=>this.props.set_compare_active("header")}
                                                         onMouseEnter={() => this.getName(`${ champ.name }`)}
                                                         key={index}
                                                         >
@@ -167,6 +168,12 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({
                 type: 'SET_CHAMP',
                 value: champ_name
+            })
+        },
+        set_compare_active: (status) => {
+            dispatch({
+                type: 'SET_COMPARE_ACTIVE',
+                value: status
             })
         }
     }
