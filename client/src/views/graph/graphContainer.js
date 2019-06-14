@@ -92,6 +92,7 @@ class BarChart extends Component {
         let champion = GlobalFiltering.getChampByMostPlayedPoste(this.props.data, this.props.selectedPoste)
         var champ = champion.map((champ) => {
             return {
+                quotation: champ.quotation,
                 id: champ.id,
                 icon: champ.icon,
                 name: champ.name,
@@ -108,6 +109,7 @@ class BarChart extends Component {
 
     drawChart(func_firstEl, func_lastEl, func_champ, func_median) {
         let data = func_champ
+        console.log(data)
         let _median = func_median
         let firstEl = func_firstEl
         let lastEl = func_lastEl
@@ -161,6 +163,11 @@ class BarChart extends Component {
             .attr("width", 24)
             .attr("height", 24)
 
+        const div = d3
+            .select('#barChart')
+            .append('div')
+            .attr('class', 'tooltips')
+            .style('opacity', 0);
 
         svg.selectAll('.tick')
             .data(data)
@@ -168,8 +175,6 @@ class BarChart extends Component {
             .each((d, i, nodes) => {
                 var p = d3.select(nodes[i])
                     .append("a")
-                    .attr("data-tip", "hello")
-                    .attr("data-html", true)
                     .attr("xlink:href", (d) => '/fiche-' + d.name)
                     .on("mouseover", function () {
                         d3.select(this).classed("tickClass-active", true);
@@ -184,6 +189,23 @@ class BarChart extends Component {
                     })
                     .attr("cx", 0)
                     .attr("cy", 24)
+                    .on("mouseover", function (d) {
+                        div.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        div.html(
+                            "<div>" + d.name + "<div> <div>" + d.quotation + "</div>"
+                        )
+                            .style("left", (d3.event.pageX - 150) + "px")
+                            .style("top", (d3.event.pageY + 20) + "px")
+                            .style("color", "#C79A3C")
+                            .style("text-align", "center")
+                    })
+                    .on("mouseout", function (d) {
+                        div.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
             })
 
         linearGradient(svg, 'blue-gradient', "#00CBE0", "rgba(0, 203, 224, 0.2)")

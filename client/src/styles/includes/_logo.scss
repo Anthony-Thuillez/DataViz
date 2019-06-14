@@ -23,9 +23,7 @@
         -webkit-background-clip: text;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #C79A3C;
-        &:hover {
-            animation: animationLitle 15s linear infinite;
-        }
+        animation: animationLitle 15s linear infinite;
     }
 }
 @keyframes animationLitle {

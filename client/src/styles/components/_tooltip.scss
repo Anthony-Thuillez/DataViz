@@ -1,3 +1,12 @@
+.tooltips {
+    position: absolute;			
+    padding: 12px 14px;
+    background: $darkblue;
+    border-radius: 0;
+    border: solid 2px $gold;
+    opacity: 1;
+    text-transform: capitalize;	
+}
 .tooltip {
     padding: 12px 14px !important;
     background: $darkblue !important;
