@@ -18,7 +18,7 @@ const App = () => (
         <Api />
         <Router>
             <Switch>
-                <Route path="/Intro" component={Intro} /> {/* root page */}
+                <Route path="/Intro" component={Intro} />
                 <Route path="/404" component={Page404} />
                 <Layout>
                     <Route exact path="/" component={Landing} />

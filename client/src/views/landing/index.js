@@ -1,10 +1,47 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import BubbleChart from './landingContainer';
+import ImgLeft from '../../assets/img/HP-left.png';
+import ImgRight from '../../assets/img/HP-right.png';
+import LogoAnime from '../logo/index'
 
 class Landing extends Component {
+    state = {
+        showBuble: JSON.parse(localStorage.getItem('showBuble'))
+    }
+    componentWillMount() {
+    
+    }
+
+    handleClick = () => {
+        window.localStorage.setItem("showBuble", "true")
+        this.setState({
+            showBuble: true
+        })
+    }
 
     render() {
+
+        if (!this.state.showBuble) {
+            return (
+                <div style={{ zIndex: 55, position: "relative" }} className="page-intro">
+                    <div className="img-intro-left">
+                        <img src={ImgLeft} alt="Shaco" />
+                    </div>
+                    <div className="block-intro">
+                        <p>Hetic students are proud to present</p>
+                        <div className="logo">
+                            <LogoAnime backgroundSize={"1000px 200px"} fontSize={70} subTitle={true} />
+                        </div>
+                        <p>A tool with which you can discover data on all League of Legend champions.</p>
+                        <div onClick={this.handleClick} className="btn" to='/'>Launch data visualization</div>
+                    </div>
+                    <div className="img-intro-right">
+                        <img src={ImgRight} alt="Riven" />
+                    </div>
+                </div>
+            )
+        }
         return (
             <div className="page-landing">
                 <BubbleChart />
