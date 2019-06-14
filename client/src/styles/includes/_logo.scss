@@ -8,7 +8,7 @@
         color: rgba(255, 255, 255, 0.1);
         background-image: url(../assets/RectangleWave.png);
         background-repeat: repeat-x;
-        // -webkit-background-clip: text;
+        -webkit-background-clip: text;
         animation: animation 15s linear infinite;
         background-size: 1000px 200px;
         -webkit-text-stroke-width: 2px;
