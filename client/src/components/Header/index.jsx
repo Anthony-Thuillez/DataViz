@@ -82,6 +82,26 @@ class Header extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.compareStatus !== this.props.compareStatus) {
+            if (this.props.compareStatus === 'compare') {
+                this.setState({
+                    header: [
+                        { name: "Home", path: "/", isActive: false },
+                        { name: "Compare", path: "/compare", isActive: true }
+                    ]
+                });
+            } else if (this.props.compareStatus === 'header') {
+                this.setState({
+                    header: [
+                        { name: "Home", path: "/", isActive: true },
+                        { name: "Compare", path: "/compare", isActive: false }
+                    ]
+                });
+            }
+        }
+    }
+
     render() {
         const { header } = this.state;
         return (
