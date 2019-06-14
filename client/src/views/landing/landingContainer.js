@@ -123,10 +123,8 @@ class BubbleChart extends Component {
             }
             return item
         })
+
         // Force code
-
-        d3.forceSimulation(posts);
-
         nodes.forEach((index, i) => {
             d3.forceSimulation(index)
                 .force("charge", d3.forceManyBody().strength(-100))
@@ -267,7 +265,11 @@ class BubbleChart extends Component {
             .attr("class", "nodes")
             .selectAll(".node")
             .data(function (d) {
-                return nodes[d.index];
+                if (nodes.length > 1) {
+                    return nodes[d.index];
+                } else {
+                    return nodes[0];
+                }
             }) // Changer de sorte à donner en paramètre la liste des champions correspondant au post
             .enter().append("g")
             .attr("class", "node");
