@@ -109,7 +109,6 @@ class BarChart extends Component {
 
     drawChart(func_firstEl, func_lastEl, func_champ, func_median) {
         let data = func_champ
-        console.log(data)
         let _median = func_median
         let firstEl = func_firstEl
         let lastEl = func_lastEl
