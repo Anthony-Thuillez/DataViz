@@ -9,10 +9,7 @@ class Landing extends Component {
     state = {
         showBuble: JSON.parse(localStorage.getItem('showBuble'))
     }
-    componentWillMount() {
     
-    }
-
     handleClick = () => {
         window.localStorage.setItem("showBuble", "true")
         this.setState({
