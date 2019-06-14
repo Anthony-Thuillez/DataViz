@@ -23,11 +23,11 @@ class BubbleChart extends Component {
                 { name: "Support", index: 4 }
             ],
             posts: [
-                { "id": "Top", "name": "Top", "iconPost": "Top", index: 0, isActive: true },
-                { "id": "Jungle", "name": "Jungle", "iconPost": "Jgl", index: 1, isActive: true },
-                { "id": "Middle", "name": "Mid", "iconPost": "Mid", index: 2, isActive: true },
-                { "id": "Bottom", "name": "Bot", "iconPost": "Bot", index: 3, isActive: true },
-                { "id": "Support", "name": "Support", "iconPost": "Supp", index: 4, isActive: true }
+                { "id": "Top", "name": "Top", "iconPost": "Top", index: 0, isActive: true, "x": "780", "y": "352" },
+                { "id": "Jungle", "name": "Jungle", "iconPost": "Jgl", index: 1, isActive: true, "x": "240", "y": "500" },
+                { "id": "Middle", "name": "Mid", "iconPost": "Mid", index: 2, isActive: true, "x": "420", "y": "200" },
+                { "id": "Bottom", "name": "Bot", "iconPost": "Bot", index: 3, isActive: true, "x": "1240", "y": "196" },
+                { "id": "Support", "name": "Support", "iconPost": "Supp", index: 4, isActive: true, "x": "1172", "y": "516" }
             ]
         }
     }
@@ -77,14 +77,11 @@ class BubbleChart extends Component {
             });
             let nextNodes = posts.map(post => {
                 if (id === 5) {
-                    console.log("in3", post.index, id);
                     return { ...post, isActive: true }
                 }
                 if (post.index === id) {
-                    console.log("in1", post.index, id);
                     return { ...post, isActive: true }
                 } else if (post.index !== id) {
-                    console.log("in2", post.index, id);
                     return { ...post, isActive: false }
                 }
                 return {
@@ -127,21 +124,14 @@ class BubbleChart extends Component {
             return item
         })
         // Force code
-        d3.forceSimulation(posts)
-            .force("charge", d3.forceManyBody().strength(-3000))
-            .force("x", d3.forceX(window.innerWidth / 2))
-            .force("y", d3.forceY(window.innerHeight / 2))
-            .on('tick', function () {
-                post.attr("transform", function (d) {
-                    return "translate(" + d.x + "," + d.y + ")";
-                })
-            });
+
+        d3.forceSimulation(posts);
 
         nodes.forEach((index, i) => {
             d3.forceSimulation(index)
-                .force("charge", d3.forceManyBody().strength(-80))
-                .force("x", d3.forceX(20))
-                .force("y", d3.forceY(40))
+                .force("charge", d3.forceManyBody().strength(-100))
+                .force("x", d3.forceX(0))
+                .force("y", d3.forceY(0))
                 .on('tick', function () {
                     node.attr("transform", function (d) {
                         return "translate(" + d.x + "," + d.y + ")";
@@ -229,6 +219,9 @@ class BubbleChart extends Component {
             .data(posts)
             .enter()
             .append("g")
+            .attr("transform", function (d) {
+                return "translate(" + d.x + "," + d.y + ")";
+            })
             .attr("class", function (d) {
                 return "post " + d.id + "";
             });

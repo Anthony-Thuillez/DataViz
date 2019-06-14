@@ -135,8 +135,6 @@ class Fiche extends Component {
     }
 
     render() {
-        console.log(this.state.jungleVal / 100);
-
         return (
             <>
                 <BtnBack />
@@ -197,7 +195,7 @@ class Fiche extends Component {
                         </div>
 
                         <div>
-                            <Link onClick={this.props.set_compare_active("compare")} className="btn" to='/compare'>Compare</Link>
+                            <Link onClick={()=>this.props.set_compare_active("compare")} className="btn" to='/compare'>Compare</Link>
                         </div>
                     </div>
 
@@ -289,7 +287,7 @@ const mapStateToProps = (state) => {
         champ_posteName2: state.champ_posteName2,
         champ_posteValue2: state.champ_posteValue2,
         champ_posteName3: state.champ_posteName3,
-        champ_posteValue3: state.champ_posteValue3,
+        champ_posteValue3: state.champ_posteValue3
     }
 }
 

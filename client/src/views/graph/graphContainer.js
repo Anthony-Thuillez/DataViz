@@ -258,6 +258,8 @@ class BarChart extends Component {
             .attr("x", (d) => x(d.icon))
             .attr("width", x.bandwidth())
             .attr("y", (d) => y(d.rate))
+            .transition()
+            .duration(700)
             .attr("height", (d) => height - y(d.rate))
             // eslint-disable-next-line
             .style("fill", function (d) {
