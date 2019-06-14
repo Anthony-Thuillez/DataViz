@@ -24,7 +24,7 @@ class Landing extends Component {
 
         if (!this.state.showBuble) {
             return (
-                <div style={{ zIndex: 55, position: "relative" }} className="page-intro">
+                <div style={{ zIndex: 55, position: "fixed", width: "100%", left: "0" }} className="page-intro">
                     <div className="img-intro-left">
                         <img src={ImgLeft} alt="Shaco" />
                     </div>
