@@ -3,7 +3,6 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Api from '../../helpers/api'
 
 import Layout from '../../views/layout';
-import Intro from '../../views/intro';
 import Landing from '../../views/landing';
 import Compare from '../../views/compare';
 import Graph from '../../views/graph';
@@ -18,7 +17,6 @@ const App = () => (
         <Api />
         <Router>
             <Switch>
-                <Route path="/Intro" component={Intro} />
                 <Route path="/404" component={Page404} />
                 <Layout>
                     <Route exact path="/" component={Landing} />
