@@ -3,16 +3,37 @@
         position: relative;
         margin: 0;
         padding: 0;
-        font-size: 70px;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.1);
         background-image: url(../assets/RectangleWave.png);
         background-repeat: repeat-x;
         -webkit-background-clip: text;
         animation: animation 15s linear infinite;
-        background-size: 1000px 200px;
         -webkit-text-stroke-width: 2px;
         -webkit-text-stroke-color: #C79A3C;
+    }
+    .logoAnimeLitle {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.1);
+        background-image: url(../assets/RectangleWave.png);
+        background-repeat: repeat-x;
+        -webkit-background-clip: text;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #C79A3C;
+        &:hover {
+            animation: animationLitle 15s linear infinite;
+        }
+    }
+}
+@keyframes animationLitle {
+    0% {
+        background-position: left 0px top 10px;
+    }
+    100% {
+        background-position: left 800px top 10px;
     }
 }
 

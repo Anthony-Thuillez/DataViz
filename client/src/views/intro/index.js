@@ -17,8 +17,7 @@ class Intro extends Component {
                 <div className="block-intro">
                     <p>Hetic students are proud to present</p>
                     <div className="logo">
-                        <LogoAnime />
-                        {/* <img src={Logo} alt="Logo" /> */}
+                        <LogoAnime backgroundSize={ "1000px 200px" } fontSize={ 70 } subTitle={ true } />
                     </div>
                     <p>A tool with which you can discover data on all League of Legend champions.</p>
                     <Link className="btn" to='/'>Launch data visualization</Link>
