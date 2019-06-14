@@ -7,6 +7,7 @@ class BubbleChart extends Component {
     constructor(props) {
         super(props)
         this.getName = this.getName.bind(this);
+        this.getName = this.getName.bind(this);
         this.state = {
             championsTop: null,
             championsJungle: null,
@@ -14,19 +15,19 @@ class BubbleChart extends Component {
             championsBottom: null,
             championsSupport: null,
             lanes: [
-                { name: "All", isActive: true },
-                { name: "Top" },
-                { name: "Jungle" },
-                { name: "Mid" },
-                { name: "Bot" },
-                { name: "Support" }
+                { name: "All", index: 5, isActive: true },
+                { name: "Top", index: 0 },
+                { name: "Jungle", index: 1 },
+                { name: "Mid", index: 2 },
+                { name: "Bot", index: 3 },
+                { name: "Support", index: 4 }
             ],
-            posts : [
-                { "id": "Top", "name": "Top", "iconPost": "Top" },
-                { "id": "Jungle", "name": "Jungle", "iconPost": "Jgl" },
-                { "id": "Middle", "name": "Mid", "iconPost": "Mid" },
-                { "id": "Bottom", "name": "Bot", "iconPost": "Bot" },
-                { "id": "Support", "name": "Support", "iconPost": "Supp" }
+            posts: [
+                { "id": "Top", "name": "Top", "iconPost": "Top", index: 0, isActive: true },
+                { "id": "Jungle", "name": "Jungle", "iconPost": "Jgl", index: 1, isActive: true },
+                { "id": "Middle", "name": "Mid", "iconPost": "Mid", index: 2, isActive: true },
+                { "id": "Bottom", "name": "Bot", "iconPost": "Bot", index: 3, isActive: true },
+                { "id": "Support", "name": "Support", "iconPost": "Supp", index: 4, isActive: true }
             ]
         }
     }
@@ -44,7 +45,7 @@ class BubbleChart extends Component {
     componentDidMount() {
         this.drawChart();
     }
-    
+
     componentWillMount() {
         this.updateChampions();
     }
@@ -65,55 +66,88 @@ class BubbleChart extends Component {
 
     handleIsActive = id => {
         this.setState(prev => {
-            const { lanes } = prev;
-            const nextPost = lanes.map(post => {
-                if (post.name === id && post.isActive) return { ...post, isActive: true }
-                if (post.name !== id) return { ...post, isActive: false };
+            const { lanes, posts } = prev;
+            const nextPost = lanes.map((lane, i) => {
+                if (i === id + 1 && lane.isActive) return { ...lane, isActive: true }
+                if (i !== id + 1) return { ...lane, isActive: false };
+                return {
+                    ...lane,
+                    isActive: !lane.isActive
+                };
+            });
+            let nextNodes = posts.map(post => {
+                if (id === 5) {
+                    console.log("in3", post.index, id);
+                    return { ...post, isActive: true }
+                }
+                if (post.index === id) {
+                    console.log("in1", post.index, id);
+                    return { ...post, isActive: true }
+                } else if (post.index !== id) {
+                    console.log("in2", post.index, id);
+                    return { ...post, isActive: false }
+                }
                 return {
                     ...post,
                     isActive: !post.isActive
                 };
-            });
-            return { ...prev, lanes: nextPost };
+            })
+            return { ...prev, lanes: nextPost, posts: nextNodes };
         });
+        let container = document.querySelector('#map')
+        container.innerHTML = ''
     };
 
-    drawChart() {
+    drawChart = () => {
         // Constante
-        const width = "100%", height = "100%";
-        const posts = this.state.posts;
-        const nodes = [
-            this.state.championsTop,
-            this.state.championsJungle,
-            this.state.championsMiddle,
-            this.state.championsBottom,
-            this.state.championsSupport
-        ];
 
+        const width = "100%", height = "100%";
+        const posts = this.state.posts.filter(post => post.isActive);
+        const nodes = posts.map(post => {
+            let item;
+            switch (post.index) {
+                case 0:
+                    item = this.state.championsTop
+                    break;
+                case 1:
+                    item = this.state.championsJungle
+                    break;
+                case 2:
+                    item = this.state.championsMiddle
+                    break;
+                case 3:
+                    item = this.state.championsBottom
+                    break;
+                case 4:
+                    item = this.state.championsSupport
+                    break;
+                default:
+                    break;
+            }
+            return item
+        })
         // Force code
         d3.forceSimulation(posts)
             .force("charge", d3.forceManyBody().strength(-3000))
             .force("x", d3.forceX(window.innerWidth / 2))
             .force("y", d3.forceY(window.innerHeight / 2))
             .on('tick', function () {
-                post.attr("transform", function(d) {
-                    console.log(d);
+                post.attr("transform", function (d) {
                     return "translate(" + d.x + "," + d.y + ")";
-            })
+                })
             });
 
-            nodes.forEach(index => {
-                d3.forceSimulation(index)
-                    .force("charge", d3.forceManyBody().strength(-80))
-                    .force("x", d3.forceX(20))
-                    .force("y", d3.forceY(40))
-                    .on('tick', function () {
-                        node.attr("transform", function (d) {
-                            console.log(d);
-                            return "translate(" + d.x + "," + d.y + ")";
-                        })
-                    });
-            });
+        nodes.forEach((index, i) => {
+            d3.forceSimulation(index)
+                .force("charge", d3.forceManyBody().strength(-80))
+                .force("x", d3.forceX(20))
+                .force("y", d3.forceY(40))
+                .on('tick', function () {
+                    node.attr("transform", function (d) {
+                        return "translate(" + d.x + "," + d.y + ")";
+                    })
+                });
+        });
 
         // Svg
         var svg = d3.select("#map").append("svg")
@@ -160,16 +194,16 @@ class BubbleChart extends Component {
             .selectAll(".node")
             .data(this.props.data) // Changer de sorte à récupérer l'image de tous les champions
             .enter().append("pattern")
-            .attr("id", function(d) {
+            .attr("id", function (d) {
                 return "img" + d.id;
             })
             .attr('width', width)
             .attr('height', height)
             .append("image")
-            .attr("xlink:href", function(d) {
+            .attr("xlink:href", function (d) {
                 return d.icon;
             })
-            .attr('width', function(d) {
+            .attr('width', function (d) {
                 if (d.rank === 1) {
                     return 56;
                 }
@@ -195,20 +229,20 @@ class BubbleChart extends Component {
             .data(posts)
             .enter()
             .append("g")
-            .attr("class", function(d) {
-                return "post "+ d.id +"";
+            .attr("class", function (d) {
+                return "post " + d.id + "";
             });
 
         // Post
         var btn = post.append("a")
-            .attr("href", function(d) {
+            .attr("href", function (d) {
                 return "./graph-" + d.id + "";
             })
-            .on("mouseover", function() {
+            .on("mouseover", function () {
                 d3.select(this).classed("post-active", true);
                 d3.select(this).style("fill", "url(#gradient) #C79A3C");
             })
-            .on("mouseout", function() {
+            .on("mouseout", function () {
                 d3.select(this).classed("post-active", false);
                 d3.select(this).style("fill", "#00CBE0");
             });
@@ -221,12 +255,12 @@ class BubbleChart extends Component {
             .attr("y", "-25")
             .style("width", 32)
             .style("height", 32)
-            .style("fill", function(d) {
+            .style("fill", function (d) {
                 return "url(#iconPost" + d.id + ")";
             });
 
         btn.append("text")
-            .text(function(d) {
+            .text(function (d) {
                 return d.name;
             })
             .attr("y", "24")
@@ -239,7 +273,7 @@ class BubbleChart extends Component {
         var node = post.append("g")
             .attr("class", "nodes")
             .selectAll(".node")
-            .data(function(d) {
+            .data(function (d) {
                 return nodes[d.index];
             }) // Changer de sorte à donner en paramètre la liste des champions correspondant au post
             .enter().append("g")
@@ -247,17 +281,17 @@ class BubbleChart extends Component {
 
         // Champion
         node.append("a")
-            .attr("href", function(d) {
+            .attr("href", function (d) {
                 return `./fiche-${d.name}`;
             })
-            .on("mouseover", function() {
+            .on("mouseover", function () {
                 d3.select(this).classed("node-active", true);
             })
-            .on("mouseout", function() {
+            .on("mouseout", function () {
                 d3.select(this).classed("node-active", false);
             })
             .append("circle")
-            .attr("r", function(d) {
+            .attr("r", function (d) {
                 if (d.rank === 1) {
                     return (d.rank + 55) / 2;
                 }
@@ -274,13 +308,15 @@ class BubbleChart extends Component {
                     return (d.rank + 19) / 2;
                 }
             })
-            .style("fill", function(d) {
+            .style("fill", function (d) {
                 return "url(#img" + d.id + ")";
             });
     }
 
     render() {
         const { lanes } = this.state;
+
+        this.drawChart()
         return (
             <>
                 <div id="map"></div>
@@ -292,7 +328,7 @@ class BubbleChart extends Component {
                                 <div
                                     key={index}
                                     className={`btn-filter ${post.isActive ? 'active' : ''}`}
-                                    onClick={() => this.handleIsActive(post.name)}
+                                    onClick={() => this.handleIsActive(post.index)}
                                 >
                                     <span>{post.name}</span>
                                 </div>
